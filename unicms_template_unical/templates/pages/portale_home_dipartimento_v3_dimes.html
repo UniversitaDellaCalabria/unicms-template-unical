@@ -1,0 +1,24 @@
+{% extends "dipartimento_home_v3.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<div class="d-none d-lg-flex col-lg-12 px-0">
+    <image src="{% static 'images/dimes.svg' %}" style="height: 100%;"/>
+</div>
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% static 'images/dimes.svg' %}" style="height: 100%;"/>
+{% endblock header_slim_mobile_org_name_side %}

@@ -1,0 +1,47 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+<hr class="mb-4 bordeaux-unical-bg"/>
+
+{% if publications %}
+    {% for pub in publications %}
+    <div>
+        <div class="row mb-4">
+            <div class="col-12 mb-4">
+                {% if pub.publication.presentation_image %}
+                <div>
+                    <img src="{{ pub.publication.image_url }}" title="img title" alt="imagealt" width="100%">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-12 mt-1">
+                <span class="bigger-font">
+                    {{ pub.publication.subheading }}
+                </span>
+            </div>
+        </div>
+        {% if pub.publication.related_links %}
+        <hr class="bordeaux-unical-bg my-4" />
+        <div class="row">
+            <div class="col">
+            {% for link in pub.publication.related_links %}
+            <span class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2">
+                <a href="{{ link.url }}">
+                    <span style="font-size: 1.3rem">
+                        <b>{{ link.name }}</b>
+                    </span>
+                </a>
+            </span>
+            {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if not forloop.last %}
+    <hr class="my-5 bordeaux-unical-bg"/>
+    {% endif %}
+    {% endfor %}
+{% endif %}

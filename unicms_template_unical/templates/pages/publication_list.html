@@ -1,0 +1,181 @@
+{% extends this_string_will_be_replaced %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+
+{% block container %}
+
+{% breadcrumbs webpath=webpath leaf=handler %}
+
+<div class="container">
+    <br>
+    <div class="col-12 mb-4">
+        <div class="pt-2 pb-3 pl-3 background-yellow">
+            <h2 class="m-0 p-0">
+                <span style="font-weight: 500">unical</span>
+                <span class="super-bold">world</span>
+            </h2>
+        </div>
+    </div>
+
+    <div class="col-12 py-2 bd-content">
+
+        {% block centered_container %}
+        <div class="row">
+            <div class="col-12 col-md-8">
+
+        </div>
+        {% endblock centered_container %}
+    </div>
+</div>
+
+<div class="row" id="news">
+</div>
+
+<script>
+Vue.component('list-panel', {
+  props: {
+      data: Array,
+    },
+  template: `
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <span class="page-link" style="color:#050b12;">
+            <b>[[ data.total ]] {% trans "news" %}</b> in <b>[[ data.total_pages ]] {% trans "pages" %}</b>
+        </span>
+    </div>
+    <div class="col">
+    </div>
+
+  <div class="row">
+    <nav class="pagination-wrapper" aria-label="News pagination">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.previous_url]] )" v-if="data.previous_url">
+              <span class="sr-only"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
+          </a>
+        </li>
+        <li class="page-item">
+          <span class="page-link" style="color:#050b12;">[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
+        </li>
+        <li class="page-item">
+          <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.next_url ]] )"  v-if="data.next_url">
+              <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
+</div>
+  `
+})
+
+
+var news = new Vue({
+  el: '#news',
+  template: `
+    <div v-if="newsLoaded == false">
+      {% include "loading-jumbo.html" %}
+    <div v-else>
+
+        <list-panel v-bind:data="items"></list-panel>
+
+        <div class="container" v-if="items">
+            <div class="row">
+             <div class="col-12 col-lg-4 " v-for="item in items.results" :key="item.id">
+                <!--start card-->
+                    <div class="card-wrapper card-space">
+                        <div class="card card-bg no-after">
+
+                             <div class="img-responsive-wrapper mb-1">
+                                <div class="img-responsive img-responsive-panoramic">
+                                    <figure class="img-wrapper">
+                                      <a style="" v-bind:href="item.path">
+                                        <img  v-bind:src="item.image" />
+                                      </a>
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="etichetta mb-0">
+                                    <span v-for="(cat, index) in item.categories">
+                                        <span v-if="index>0">&nbsp;&middot</span>
+                                        <a v-bind:href="'?category_name=' + cat" style="color: #176fc1;">
+                                            [[ cat ]]
+                                        </a>
+                                    </span>
+                                </div>
+                                <span class="small text-muted mb-2">[[ item.published|formatDate ]]</span>
+                                <h4 class="card-title mt-3">
+                                    <a style="text-decoration: none; color: #17324d;" v-bind:href="[[ item.path ]]">
+                                        <p>[[ item.title ]]</p>
+                                    </a>
+                                </h4>
+                                <p>[[ item.subheading | truncate(128) ]]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                <!--end card-->
+             </div>
+            </div>
+        </div>
+
+        <list-panel v-bind:data="items"></list-panel>
+
+    </div>
+    </div>
+    `,
+  data () {
+    return {
+      items: [],
+      newsLoaded: false,
+    }
+  },
+
+  mounted () {
+    },
+
+  beforeMount () {
+    let get_args = `?{% if request.GET.category_name %}category_name={{ request.GET.category_name }}&{% endif %}
+page_number={% if request.GET.page_number %}{{ request.GET.page_number }}{% else%}1{% endif %}
+&lang={{ request.LANGUAGE_CODE }}`
+
+    axios
+      .get('{% url "unicms_api:api-news-by-contexts" webpath_id=webpath.pk %}'+get_args)
+      .then(response => (this.items = response.data))
+      .then(response => (this.newsLoaded = true))
+  },
+  methods: {
+    CallURL ( url ) {
+        this.newsLoaded = false;
+
+        axios
+          .get( url )
+          .then(response => (this.items = response.data))
+          .then(response => (this.newsLoaded = true))
+          .then(response => (this.scrollToTop()))
+      },
+   scrollToTop () {
+        // faulty on mobile ...
+        window.scrollTo({top:100, left:0, behavior: 'smooth'});
+        }
+    }
+})
+</script>
+{% endblock container %}
+
+

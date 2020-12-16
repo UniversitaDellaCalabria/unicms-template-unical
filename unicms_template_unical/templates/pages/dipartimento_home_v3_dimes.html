@@ -1,0 +1,38 @@
+{% extends "dipartimento_home_v3.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% static 'images/dimes.svg' %}" class="ml-3" />
+<div class="ml-3 white-unical-color">
+    <b>Università della Calabria</b><br>
+    Dipartimento di <b>Ingegneria Meccanica,</b><br>
+    <b>Elettronica e Sistemistica</b>
+</div>
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<div class="row">
+    <div class="col-4 col-md-2" style="margin: auto 0">
+        <image src="{% static 'images/dimes.svg' %}" style="width: 100%" />
+    </div>
+    <div class="col-8 col-md-10">
+        <div class="white-unical-color">
+    <b>Università della Calabria</b><br>
+    Dipartimento di <b>Ingegneria Meccanica,</b><br>
+    <b>Elettronica e Sistemistica</b>
+</div>
+    </div>
+</div>
+{% endblock header_slim_mobile_org_name_side %}

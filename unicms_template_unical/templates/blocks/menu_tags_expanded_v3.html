@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load static %}
+
+
+{% if menu %}
+<hr class="mb-4 bordeaux-unical-bg"/>
+
+<div class="row">
+    <div class="col">
+        {% for item in menu %}
+            {% for child in item.get_childs %}
+            <span class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2">
+                <a href="{{ child.link }}">
+                    <span style="font-size: 1.3rem">
+                        {% if page.webpath.get_full_path == child.link %}
+                        <b>
+                        {% endif %}
+                        {{ child.name }}
+                        {% if page.webpath.get_full_path == child.link %}
+                        </b>
+                        {% endif %}
+                    </span>
+                </a>
+            </span>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,124 @@
+<!-- Extends default Bootstrap Unical Italia template -->
+<!--
+base-setup.html
+bootstrap-italia-base.html
+-->
+{% extends 'base-setup.html' %}
+
+{% load i18n %}
+
+<!-- From app django-sass-processor -->
+{% if debug %}
+    {% load sass_tags %}
+{% endif %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+<!-- Return to Agid native template -->
+{% block extra_head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% sass_src 'css/unical-portale-v-original.scss' %}" type="text/css">
+{% include "inits/vue-init.html" %}
+{% endblock extra_head %}
+
+<!-- Page Title -->
+{% block page_title %}
+{% trans "Università della Calabria" %}
+{% endblock page_title %}
+
+<!-- Meta Description (for all pages if not overrided) -->
+{% block page_meta_description %}
+{% trans "Sito istituzionale dell'Università della Calabria" %}
+{% endblock page_meta_description %}
+
+<!-- URL link logo and org name -->
+{% block header_center_url %}
+{% endblock header_center_url %}
+
+<!-- Mobile slim_org_name -->
+{% block header_slim_org_name %}
+dd/mm/yyyy
+{% endblock header_slim_org_name %}
+
+{% block header_slim_sub_menu %}
+<div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle py-0" href="#" data-toggle="dropdown" aria-expanded="false">
+        <span>{{ request.LANGUAGE_CODE }}</span>
+        <svg class="icon d-none d-lg-block">
+            <use xlink:href="{% static '/svg/sprite.svg' %}#it-expand"></use>
+        </svg>
+    </a>
+    <div class="dropdown-menu">
+        <div class="row">
+            <div class="col-12">
+                <div class="link-list-wrapper">
+                    <ul class="link-list">
+                        {% supported_languages as languages %}
+                        {% for lang,language in languages %}
+                        <!-- TODO: caricare Lingua + Flag image per tutte le lingue abilitate a sistema -->
+                        <li><a class="list-item" href="?lang={{ lang }}"><span>{{ language }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock header_slim_sub_menu %}
+
+{% block header_center_search %}
+<div class="it-search-wrapper">
+    <a class="rounded-icon" href="#" aria-label="{% trans 'Rubrica' %}">
+        <svg class="icon">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+        </svg>
+    </a>
+    <a class="rounded-icon" href="#" aria-label="{% trans 'Cerca' %}">
+        <svg class="icon">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+        </svg>
+    </a>
+</div>
+{% endblock header_center_search %}
+
+
+
+<!-- Main Menu -->
+{% block main_menu %}
+<div class="it-header-navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg has-megamenu">
+                    <button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-burger"></use>
+                        </svg>
+                    </button>
+                    <div class="navbar-collapsable" id="nav10">
+                        <div class="overlay"></div>
+                        <div class="close-div sr-only">
+                            <button class="btn close-menu" type="button"><span class="it-close"></span>{% trans "close" %}</button>
+                        </div>
+                        <div class="menu-wrapper">
+                            <ul class="navbar-nav">
+                                {% block menu_main %}
+                                    <!-- LOAD menu Blocks -->
+                                    {% load_blocks section='menu-1' %}
+                                {% endblock menu_main %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_menu %}

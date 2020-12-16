@@ -1,0 +1,198 @@
+<!-- Extends default Bootstrap Unical Italia template -->
+<!--
+base-setup.html
+bootstrap-italia-base.html
+-->
+{% extends 'bases/unicms_bootstrap_italia.html' %}
+
+{% load i18n %}
+
+<!-- From app django-sass-processor -->
+{% if debug %}
+    {% load sass_tags %}
+{% endif %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+<!-- Return to Agid native template -->
+{% block extra_head %}
+<link rel="shortcut icon" href="{% static 'images/favicon/favicon-32x32.png' %}">
+<link rel="stylesheet" href="{% sass_src 'css/unicms_unical.scss' %}" type="text/css">
+{% include "inits/vue-init.html" %}
+{% include "inits/search-input-handler.html" %}
+{% endblock extra_head %}
+
+
+<!-- Page Title -->
+{% block page_title %}{% trans "Università della Calabria" %}{% endblock page_title %}
+<!-- Meta Description (for all pages if not overrided) -->
+{% block page_meta_description %}{% trans "Sito istituzionale dell'Università della Calabria" %}{% endblock page_meta_description %}
+
+{% block header_brand_wrapper %}
+<div class="d-none d-lg-inline col-lg-6">
+    {{ block.super }}
+</div>
+{% endblock header_brand_wrapper %}
+
+<!-- Logo in Header -->
+{% block header_center_logo %}
+<div class="d-none d-lg-flex col-lg-12 px-0">
+    <image src="{% static 'images/logo_unical_white.svg' %}" style="width: 100%;"/>
+</div>
+{% endblock header_center_logo %}
+
+{% block header_center_org_name %}
+{% endblock header_center_org_name %}
+
+{% block header_center_org_subname %}
+{% endblock header_center_org_subname %}
+
+<!-- Mobile slim_org_name -->
+{% block header_slim_mobile_org_name %}
+<image src="{% static 'images/logo_unical_white.svg' %}" style="max-width: 100%;"/>
+{% endblock header_slim_mobile_org_name %}
+
+{% block footer_logo %}
+<div class="col-12 col-md-4 px-0">
+    <image src="{% static 'images/logo_unical_white.svg' %}" style="max-width: 100%"/>
+</div>
+
+{% endblock footer_logo %}
+
+{% block footer_org_text %}
+{% endblock footer_org_text %}
+
+{% block header_slim_right_zone %}
+{% endblock header_slim_right_zone %}
+
+<!-- Make empty areas -->
+{% block header_mobile_arrow %}
+{% endblock header_mobile_arrow %}
+
+{% block header_mobile_slim_menu %}
+{% endblock header_mobile_slim_menu %}
+
+{% block header_center_wrapper_columns %}
+col-10 offset-2 col-lg-12 offset-lg-0
+{% endblock header_center_wrapper_columns %}
+
+{% block header_center_right_zone %}
+<div class="it-right-zone col-12 col-lg-5 offset-lg-1">
+    <div class="row" style="width: 100%">
+
+        <div class="col-2 offset-3 offset-md-0 col-md-6">
+            <svg class="icon d-md-none icon-sm icon-light">
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+            </svg>
+            <div class="row d-none d-md-flex">
+                <div class="col-2 col-lg-3 text-right">
+                    <svg class="icon icon-md icon-light">
+                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+                    </svg>
+                </div>
+                <div class="col-9 col-lg-8">
+                    <input id="search-input" type="text" class="top-input" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2 col-md-2 text-center">
+            <svg class="icon icon-sm d-lg-none icon-light align-middle">
+              <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+            </svg>
+            <svg class="icon icon-md d-none d-lg-inline icon-light align-middle">
+              <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+            </svg>
+        </div>
+
+        <div class="col-2 col-md-2 text-center">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle p-0 text-center"
+                   href="#"
+                   data-toggle="dropdown"
+                   aria-expanded="false">
+                    <span>{{ request.LANGUAGE_CODE }}</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="link-list-wrapper">
+                                <ul class="link-list">
+                                    {% language_menu as language_urls %}
+                                    {% for lang,url in language_urls.items %}
+                                    <li><a class="list-item" href="{{ url }}"><span>{{ lang }}</span></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 col-md-2 text-center">
+            <span>
+                {% trans "Login" %}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock header_center_right_zone %}
+
+<!-- Main Menu -->
+{% block main_menu %}
+<div class="it-header-navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg has-megamenu">
+                    <button class="custom-navbar-toggler"
+                            type="button"
+                            aria-controls="nav10"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                            data-target="#nav10">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-burger"></use>
+                        </svg>
+                    </button>
+                    <div class="navbar-collapsable" id="nav10">
+                        <div class="overlay"></div>
+                        <div class="close-div sr-only">
+                            <button class="btn close-menu" type="button">
+                                <span class="it-close"></span>{% trans "close" %}
+                            </button>
+                        </div>
+                        <div class="menu-wrapper">
+                            <ul class="navbar-nav">
+                                {% block menu_main %}
+                                    <!-- LOAD menu Blocks -->
+                                    {% load_blocks section='menu-1' as main_menu %}
+                                    {{ main_menu }}
+                                {% endblock menu_main %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_menu %}
+
+{% block container %}
+    {% load_blocks section='slider' %}
+    {% load_menu section='menu-2' template="unical_portale_menu_secondario.html" %}
+    {{ block.super }}
+{% endblock container %}
+
+{% block section_2_classes %}
+    dark-grey-background py-5
+{% endblock section_2_classes %}

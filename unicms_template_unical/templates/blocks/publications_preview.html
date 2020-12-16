@@ -1,0 +1,81 @@
+{% load i18n %}
+{% load static %}
+
+{% if publications %}
+<div class="row">
+
+  {% for  pub in publications %}
+  {% if forloop.counter0 %}
+
+  <div class="col-12 col-lg-4">
+    <!--start card-->
+    <div class="card-wrapper card-space">
+      <div class="card card-bg no-after">
+        <div class="card-body">
+            <div class="img-responsive-wrapper mb-3">
+          <div class="img-responsive img-responsive-panoramic">
+            <figure class="img-wrapper">
+              <a style="" href="{{ pub.url }}">
+                <img src="{{ pub.publication.image_url }}" title="img title" alt="imagealt">
+              </a>
+            </figure>
+          </div>
+        </div>
+            <h5 class="card-title">
+                <a style="text-decoration: none; color: #17324d;" href="{{ pub.url }}">
+                    {{ pub.publication.title|truncatechars_html:27 }}
+                </a>
+            </h5>
+          <p class="card-text">{{ pub.publication.content|safe|truncatechars:66 }}</p>
+          <a href="#">
+              <svg class="icon">
+              <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+          </a>
+        </svg>
+        </div>
+      </div>
+    </div>
+    <!--end card-->
+  </div>
+
+  {% else %}
+
+  <div class="col-12 col-lg-8">
+    <!--start card-->
+    <div class="card-wrapper card-space">
+      <div class="card card-bg no-after card-big">
+        <div class="flag-icon"></div>
+        <div class="etichetta">
+          <svg class="icon">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-settings"></use>
+          </svg>
+          <span>
+              {% for cat in publication_context.publication.categories %}
+              {% if forloop.counter > 1 %} &middot {% endif %}
+              <a href='#'>{{ cat }} </a>
+              {% endfor %}
+          </span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <a style="text-decoration: none; color: #17324d;" href="{{ pub.url }}">
+                    {{ pub.publication.title|truncatechars_html:27 }}
+                </a>
+            </h5>
+          <p class="card-text">{{ pub.publication.content|safe|truncatechars:368 }}</p>
+          <a href="#">
+              <svg class="icon">
+              <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+          </a>
+        </svg>
+        </div>
+      </div>
+    </div>
+    <!--end card-->
+  </div>
+
+  {% endif %}
+  {% endfor %}
+
+</div>
+{% endif %}

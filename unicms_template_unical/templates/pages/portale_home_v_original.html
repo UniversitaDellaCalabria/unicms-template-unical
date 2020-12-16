@@ -1,0 +1,59 @@
+{% extends "bases/base_v_original.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+
+{% block extra_head %}
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script>Vue.options.delimiters = ['[[', ']]'];</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+{% endblock extra_head %}
+
+{% block container %}
+    {% load_blocks section='slider' %}
+
+    <!-- menu secondario diretto -->
+    {% block middle-section %}
+    {% load_menu section='menu-2' template="unical_portale_menu_secondario.html" %}
+    {% endblock middle-section %}
+
+    <!-- blocks in section 1 -->
+    {% load_blocks section=1 as blocks_1 %}
+    {% if blocks_1 %}
+    <div class="row mx-0 py-5 dark-grey-background">
+        <div class="container">
+            {{ blocks_1 }}
+        </div>
+    </div>
+    {% endif %}
+    <!-- end blocks in section 1 -->
+
+    {% load_blocks section=2 %}
+
+    {% block cookiebar %}
+    <div class="cookiebar">
+        <p>{% trans "Questo sito utilizza cookie tecnici, analytics e di terze parti." %}
+           <br>
+           {% trans "Proseguendo nella navigazione accetti l’utilizzo dei cookie." %}
+        </p>
+        <div class="cookiebar-buttons">
+            <a href="#" class="cookiebar-btn">
+                {% trans "Preferenze" %}
+            </a>
+            <button data-accept="cookiebar" class="cookiebar-btn cookiebar-confirm">
+                {% trans "Accetto" %}
+            </button>
+        </div>
+    </div>
+    {% endblock cookiebar %}
+{% endblock container %}

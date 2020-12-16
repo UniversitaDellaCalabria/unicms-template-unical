@@ -1,0 +1,158 @@
+/**
+ * Università della Calabria
+ * Portale Style SCSS
+ */
+
+/**
+ * Università della Calabria COLORS
+ */
+@import "css/unical-style";
+
+$cyan: #176fc1;
+$grey_presta: #d3d2cf;
+
+@font-face {
+  font-family: TitilliumWeb-Black;
+  src: url(../fonts/TitilliumWeb-Black.ttf);
+}
+
+a {
+    text-decoration: none;
+}
+
+.super-bold {
+    font-family: TitilliumWeb-Black;
+}
+
+.icon-light {
+    fill: #fff !important;
+}
+
+.negative-mt-5 {
+    margin-top: -48px;
+}
+
+.dark-grey-background {
+    background: $grey_presta;
+}
+
+.it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
+    color: #fff;
+}
+
+input.top-input {
+    background: none;
+    border: 1px solid #fff;
+    height: 1.7rem;
+    width: 80%;
+    color: $white;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-collapsable .navbar-nav li.nav-item {
+        font-size: 1.2rem;
+    }
+}
+
+.it-hero-wrapper .it-hero-text-wrapper h1 {
+    background: #fff;
+    color: $dark_grey_unical;
+    padding: 1rem;
+    font-family: TitilliumWeb-Black;
+}
+
+.section-title-label {
+    background: #fff;
+}
+
+.card .etichetta {
+    font-size: 1rem;
+    text-transform: lowercase;
+    color: #435a70;
+    margin-bottom: 15px;
+    color: $cyan;
+}
+.card-title {
+    font-weight: bold;
+}
+.card .card-title {
+    line-height: 1;
+}
+.card .card-body .card-text {
+    font-family: Titillium Web;
+    font-size: 16px;
+}
+
+.btn-grey-presta {
+    background: $grey_presta;
+}
+.btn-grey-presta:hover {
+    color: $white;
+    background: $dark_grey_unical;
+}
+.bg-dark .btn-secondary {
+    background: $bordeaux_unical;
+}
+.bg-dark .btn-secondary:hover {
+    background: $dark_grey_unical;
+}
+
+.it-right-zone .nav-link {
+    color: $white;
+}
+
+
+.owl-carousel {
+    z-index: 0;
+}
+
+/**
+ * White Menu
+ */
+.it-header-navbar-wrapper {
+    background: #fff;
+}
+
+.navbar .navbar-collapsable .navbar-nav li a.nav-link {
+    color: #000;
+}
+
+@media (max-width: 992px) {
+    .it-header-center-wrapper .it-header-center-content-wrapper .it-search-wrapper a.rounded-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        border-bottom: 2px solid $dark_grey_unical;
+    }
+}
+
+.publication-hero {
+    min-height: 300px;
+}
+@media (min-width: 992px) {
+    .it-hero-wrapper.publication-hero .it-hero-text-wrapper {
+        padding-bottom: 120px;
+    }
+}
+
+.square-corners {
+    border-radius: 0;
+}
+
+.auto-height {
+    height: auto !important;
+}
+
+.card-border {
+    border: 1px solid #ddd;
+}
+
+.badge-grey-unical {
+    background: $light_grey_unical;
+    color: $white;
+}

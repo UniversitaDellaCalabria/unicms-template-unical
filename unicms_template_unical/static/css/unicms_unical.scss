@@ -1,0 +1,270 @@
+/**
+ * Università della Calabria
+ * Portale Style SCSS
+ */
+
+/**
+ * Università della Calabria COLORS
+ */
+
+@import "unical-style";
+
+$cyan: #176fc1;
+$grey_presta: #d3d2cf;
+$light_grey_presta: #e3e9ec;
+
+@font-face {
+  font-family: TitilliumWeb-Black;
+  src: url(../fonts/TitilliumWeb-Black.ttf);
+}
+
+a {
+    text-decoration: none;
+    color: $dark_grey_unical;
+}
+
+.super-bold {
+    font-family: TitilliumWeb-Black;
+}
+
+.lighter {
+    font-weight: lighter;
+}
+
+.background-yellow {
+    background: #ffed00;
+}
+
+.background-white {
+    background: $white;
+}
+
+.icon-light {
+    fill: #fff !important;
+}
+
+.bigger-font {
+    font-size: 1.5rem;
+}
+
+.negative-mt-5 {
+    margin-top: -48px;
+}
+
+.dark-grey-background {
+    background: $grey_presta;
+}
+
+.it-header-center-wrapper {
+    background: $bordeaux_unical;
+}
+
+.it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
+    color: #fff;
+}
+
+input.top-input {
+    background: none;
+    border: 1px solid #fff;
+    height: 1.7rem;
+    width: 100%;
+    color: $white;
+}
+
+.it-hero-wrapper .it-hero-text-wrapper h1 {
+    background: #fff;
+    color: $dark_grey_unical;
+    padding: 1rem;
+    font-family: TitilliumWeb-Black;
+}
+
+.section-title-label {
+    background: #fff;
+}
+
+.card .etichetta {
+    font-size: 1rem;
+    text-transform: lowercase;
+    color: #435a70;
+    margin-bottom: 15px;
+    color: $cyan;
+}
+.card-title {
+    font-weight: bold;
+}
+.card .card-title {
+    line-height: 1;
+}
+.card .card-body .card-text {
+    font-family: Titillium Web;
+    font-size: 16px;
+}
+
+.btn-grey-presta {
+    background: $grey_presta;
+}
+.btn-grey-presta:hover {
+    color: $white;
+    background: $dark_grey_unical;
+}
+.bg-dark .btn-secondary {
+    background: $bordeaux_unical;
+}
+.bg-dark .btn-secondary:hover {
+    background: $dark_grey_unical;
+}
+
+.it-right-zone .nav-link {
+    color: $white;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar-toggler svg {
+        fill: $white;
+    }
+}
+
+.nav-mobile {
+    width: 100%;
+}
+
+.it-header-slim-wrapper .container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+
+.badge-grey-unical {
+    background: $light_grey_presta;
+    color: $dark_grey_unical;
+    font-weight: 500;
+}
+
+.square-corners {
+    border-radius: 0;
+}
+
+.publication-hero {
+    min-height: 300px;
+}
+
+.breadcrumb-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 2px solid $bordeaux_unical;
+    border-bottom: 2px solid $bordeaux_unical;
+}
+.breadcrumb-container .breadcrumb {
+    margin-bottom: 0;
+}
+
+
+
+/**
+ * Medium with
+ */
+@media (min-width: 992px) {
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        padding-top: 1.7rem;
+    }
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper nav {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .it-header-center-wrapper .it-header-center-content-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .navbar .navbar-collapsable .navbar-nav li.nav-item {
+        font-size: 1.2rem;
+    }
+    .it-header-navbar-wrapper {
+        background: $white;
+    }
+
+}
+
+
+/**
+ * De Marco
+ */
+.menu-wrapper {
+    z-index: 1 !important;
+    }
+
+.owl-carousel {
+    z-index: 0;
+}
+
+.owl-nav {
+    display: none;
+}
+
+.navbar .navbar-collapsable .navbar-nav li a.nav-link {
+    color: #000;
+}
+
+.it-carousel-wrapper .owl-stage-outer {
+    padding-top: 0px;
+    padding-bottom: 0;
+}
+
+
+.it-hero-wrapper {
+    background-color: #fff !important;
+}
+
+
+/**
+ * Main Menu
+ */
+.dropdown-menu {
+    min-width: 20rem !important;
+    padding: 16px 2px !important;
+}
+.menu-wrapper > ul > li.nav-item.dropdown.show
+{
+    border-style: solid;
+    border-width: thin;
+    border: 0.5px 0.5px 0.5px 0.5px solid #000;
+    border-bottom: none;
+}
+
+.menu-wrapper > ul > li.nav-item.dropdown.megamenu.show > div
+{
+    border-style: solid;
+    border-width: thin;
+    border: 0.5px 0.5px 0.5px 0.5px solid #000;
+    border-bottom: none;
+}
+
+.menu-wrapper > ul > li.nav-item.dropdown.show > div
+{
+    border-style: solid;
+    border-width: thin;
+    border: 0.5px 0.5px 0.5px 0.5px solid #000;
+    border-bottom: none;
+}
+
+
+.navbar .dropdown-menu:before {
+    display: none;
+}
+
+.bordeaux-unical-bg {
+    background: $bordeaux_unical;
+}
+
+.bordeaux-unical-color {
+    color: $bordeaux_unical;
+}
+
+.white-unical-color {
+    color: $white;
+}
+
+li .list-item.sub {
+    line-height: inherit;
+}
