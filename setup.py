@@ -18,15 +18,14 @@ _pkg_name = 'unicms_template_unical'
 setup(
     name='unicms-template-unical',
     version='0.2.2',
-    
     packages=[f"{_pkg_name}"],
     package_dir={f"{_pkg_name}": f"{_src_folder}/{_pkg_name}"},
-    
-    package_data={f"{_pkg_name}": [i.replace(f'{_src_folder}/{_pkg_name}/', '') 
-                                   for i in glob(f'{_src_folder}/{_pkg_name}/**', 
+
+    package_data={f"{_pkg_name}": [i.replace(f'{_src_folder}/{_pkg_name}/', '')
+                                   for i in glob(f'{_src_folder}/{_pkg_name}/**',
                                                  recursive=True)]
     },
-    
+
     license='Apache License 2.0',
     description="uniCMS Unical Template based on Bootstrap Italia",
     long_description=README,
@@ -40,13 +39,13 @@ setup(
         'Framework :: Django :: 2.0',
         'Framework :: Django :: 3.0',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache License 2.0',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
     ],
     install_requires=[
         'django>=2.0,<4.0',
-        'design-django-theme==1.4.4'
+        'unicms-template-italia'
     ],
 )
