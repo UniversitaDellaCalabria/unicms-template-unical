@@ -128,12 +128,13 @@ input.top-input {
     width: 100%;
 }
 
+.it-header-slim-wrapper {
+    background: $dark_grey_unical;
+}
+
 .it-header-slim-wrapper .container {
-    margin-left: 0;
-    margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-    max-width: 100%;
 }
 
 .badge-grey-unical {
@@ -221,7 +222,6 @@ input.top-input {
  * Main Menu
  */
 .dropdown-menu {
-    min-width: 20rem !important;
     padding: 16px 2px !important;
 }
 .menu-wrapper > ul > li.nav-item.dropdown.show

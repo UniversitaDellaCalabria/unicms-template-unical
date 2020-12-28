@@ -1,4 +1,4 @@
-{% extends "portale_home_v3.html" %}
+{% extends "bases/unicms_unical.html" %}
 
 {% load i18n %}
 {% load static %}
@@ -20,7 +20,7 @@
     </div>
 {% endblock header_center_logo %}
 
-{% block header_slim_mobile_org_name %}
+{% block unical_mobile_logo %}
     <div class="row">
         <div class="col-2 col-md-1" style="margin: auto 0">
             <image src="{% static 'images/unical_logo_bullet_white.svg' %}" width="100%"/>
@@ -30,4 +30,4 @@
             {% endblock header_slim_mobile_org_name_side %}
         </div>
     </div>
-{% endblock header_slim_mobile_org_name %}
+{% endblock unical_mobile_logo %}
