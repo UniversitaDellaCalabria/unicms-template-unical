@@ -1,0 +1,34 @@
+{% load static %}
+
+{% load unicms_contexts %}
+
+<div class="row">
+    <div class="col">
+        <div class="card-wrapper card-space">
+            <div class="card card-bg no-after">
+                <div class="card-body">
+                    <div class="etichetta">
+                      <span>
+                          {% for cat in publication.categories|slice:":3" %}
+                          {% if forloop.counter > 1 %}&nbsp;&middot;&nbsp;{% endif %}
+                          <a href="#" style="color: #176fc1;">{{ cat }} </a>
+                          {% endfor %}
+                      </span>
+                    </div>
+
+                    <h4 class="card-title">
+                        <a style="text-decoration: none; color: #17324d;" href="{{ url }}">
+                            {{ publication.title }}
+                        </a>
+                    </h4>
+                    <a href="#">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

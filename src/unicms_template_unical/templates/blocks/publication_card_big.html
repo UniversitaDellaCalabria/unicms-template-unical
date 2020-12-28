@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="row">
+    <div class="col">
+        <div class="card-wrapper card-space">
+            <div class="card card-bg no-after">
+                <a style="" href="{{ url }}">
+                    <img src="{{ publication.image_url }}" title="img title" alt="imagealt" style="width:100%">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a style="text-decoration: none; color: #17324d;" href="{{ url }}">
+                            {{ publication.title|truncatechars_html:27 }}
+                        </a>
+                    </h5>
+                    <p class="card-text">{{ publication.content|safe|truncatechars:66 }}</p>
+                    <a href="#">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

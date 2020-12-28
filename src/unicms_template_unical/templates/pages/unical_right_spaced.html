@@ -1,0 +1,8 @@
+{% extends "bases/unicms_unical.html" %}
+
+
+{% block section_1 %}
+    {% with section_1_template="grid/section_1/right_spaced.html" %}
+    {{ block.super }}
+    {% endwith %}
+{% endblock section_1 %}
