@@ -2,24 +2,38 @@
 
 {% load unicms_contexts %}
 
+
 <div class="row">
     <div class="col">
         <div class="card-wrapper card-space">
             <div class="card card-bg no-after">
                 <div class="card-body">
                     <div class="etichetta">
-                      <span>
-                          {% for cat in publication.categories|slice:":3" %}
-                          {% if forloop.counter > 1 %}&nbsp;&middot;&nbsp;{% endif %}
-                          <a href="#" style="color: #176fc1;">{{ cat }} </a>
+                        <span>
+                            {% for cat in publication.categories|slice:":3" %}
+                                {% call obj=publication method='get_url_list' webpath=webpath category_name=cat as cat_url %}
+                                {% if forloop.counter > 1 %}&nbsp;&middot;&nbsp;{% endif %}
+                                {% if cat_url %}
+                                <a href="{{ cat_url }}" style="color: #176fc1;">
+                                {% endif %}
+                                    {{ cat }}
+                                {% if cat_url %}
+                                </a>
+                                {% endif %}
                           {% endfor %}
                       </span>
                     </div>
 
+                    {% call obj=publication method='url' webpath=webpath as url %}
                     <h4 class="card-title">
-                        <a style="text-decoration: none; color: #17324d;" href="{{ url }}">
+                        {% if url %}
+                        <a style="text-decoration: none; color: #17324d;"
+                           href="{{ url }}">
+                        {% endif %}
                             {{ publication.title }}
+                        {% if url %}
                         </a>
+                        {% endif %}
                     </h4>
                     <a href="#">
                         <svg class="icon">

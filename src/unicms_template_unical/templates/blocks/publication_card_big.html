@@ -1,17 +1,30 @@
 {% load static %}
 
+{% load unicms_contexts %}
+
+{% call obj=publication method='url' webpath=webpath as url %}
+
 <div class="row">
     <div class="col">
         <div class="card-wrapper card-space">
             <div class="card card-bg no-after">
+                {% if url %}
                 <a style="" href="{{ url }}">
+                {% endif %}
                     <img src="{{ publication.image_url }}" title="img title" alt="imagealt" style="width:100%">
+                {% if url %}
                 </a>
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a style="text-decoration: none; color: #17324d;" href="{{ url }}">
+                        {% if url %}
+                        <a style="text-decoration: none; color: #17324d;"
+                           href="{{ url }}">
+                        {% endif %}
                             {{ publication.title|truncatechars_html:27 }}
+                        {% if url %}
                         </a>
+                        {% endif %}
                     </h5>
                     <p class="card-text">{{ publication.content|safe|truncatechars:66 }}</p>
                     <a href="#">
