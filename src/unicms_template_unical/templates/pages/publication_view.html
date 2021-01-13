@@ -65,11 +65,7 @@
                 {% endif %}
 
                 <div>
-                    {% if publication.content_type == html %}
-                        {{ publication_context.publication.content|safe }}
-                    {% else %}
-                        {{ publication_context.publication.content }}
-                    {% endif %}
+                    {{ publication_context.publication.html_content|safe }}
                 </div>
 
                 {% if publication_context.publication.tags.all %}
