@@ -115,9 +115,9 @@
 
                     {% for gallery in publication_context.publication.related_galleries %}
 
-                        {% include "carousel_media_gallery.html" with media_items=gallery.collection.mediacollectionitem_set.all %}
+                        {% include "carousel_media_gallery.html" with media_items=gallery.collection.get_items %}
 
-                        {% include "grid_media_gallery.html" with media_items=gallery.collection.mediacollectionitem_set.all %}
+                        {% include "grid_media_gallery.html" with media_items=gallery.collection.get_items %}
 
                     {% endfor %}
                 {% endif %}
