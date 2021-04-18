@@ -1,0 +1,36 @@
+<div class="row mb-4">
+    <div class="col-12 col-lg-4 mt-lg-2">
+        {% if publication.presentation_image %}
+        <div class="img-responsive-wrapper">
+            <div class="img-responsive img-responsive-panoramic">
+                <figure class="img-wrapper">
+                  <a style="" href="{{ pub.url }}">
+                    <img src="{{ publication.image_url }}" title="img title" alt="imagealt">
+                  </a>
+                </figure>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-12 col-lg-8 pl-lg-4">
+        <h3 class="super-bold">{{ publication.title }}</h3>
+
+        {{ publication.subheading|truncatechars:250 }}
+
+    </div>
+</div>
+{% if publication.related_links %}
+<div class="row">
+    <div class="col">
+    {% for link in publication.related_links %}
+    <span class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2">
+        <a href="{{ link.url }}">
+            <span style="font-size: 1.3rem">
+                <b>{{ link.name }}</b>
+            </span>
+        </a>
+    </span>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
