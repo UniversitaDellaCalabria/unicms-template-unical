@@ -1,0 +1,22 @@
+<div class="row mb-5">
+    {% if publication.presentation_image %}
+    <div class="col-12">
+        <div class="img-responsive-wrapper">
+            <div class="img-responsive img-responsive-panoramic">
+                <figure class="img-wrapper">
+                  <a href="javascript:void(0)"">
+                    <img src="{{ publication.image_url }}"
+                         title="publication.title"
+                         alt="publication.title">
+                  </a>
+                </figure>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if publication.content %}
+    <div class="col-12 mt-4">
+        {{ publication.content|safe }}
+    </div>
+    {% endif %}
+</div>

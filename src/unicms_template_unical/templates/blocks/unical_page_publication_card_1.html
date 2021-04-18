@@ -11,7 +11,10 @@
                 {% if url %}
                 <a style="" href="{{ url }}">
                 {% endif %}
-                    <img src="{{ publication.image_url }}" title="img title" alt="imagealt" style="width:100%">
+                    <img src="{{ publication.image_url }}"
+                         title="publication.title"
+                         alt="publication.title"
+                         style="width:100%">
                 {% if url %}
                 </a>
                 {% endif %}
@@ -21,12 +24,14 @@
                         <a style="text-decoration: none; color: #17324d;"
                            href="{{ url }}">
                         {% endif %}
-                            {{ publication.title|truncatechars_html:27 }}
+                            {{ publication.title }}
                         {% if url %}
                         </a>
                         {% endif %}
                     </h5>
-                    <p class="card-text">{{ publication.content|safe|truncatechars:66 }}</p>
+                    <p class="card-text">
+                        {{ publication.subheading|truncatechars:66 }}
+                    </p>
                     <a href="#">
                         <svg class="icon">
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
