@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+
+{% if publications %}
+<div class="row d-lg-flex">
+
+    {% for pub in publications %}
+    <div class="col-12 col-lg-4">
+        <!--start card-->
+        <div class="card-wrapper card-space">
+            <div class="card card-bg no-after">
+                <div class="card-body">
+                    <div class="etichetta">
+                        {% for cat in pub.publication.categories %}
+                            {% if forloop.counter > 1 %}&nbsp;&middot;&nbsp;{% endif %}
+                            <a href="{% call obj=pub method='get_url_list' category_name=cat %}" style="color: #176fc1;">
+                                {{ cat }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                    {% if pub.publication.presentation_image %}
+                    <div class="img-responsive-wrapper mb-3">
+                        <div class="img-responsive img-responsive-panoramic">
+                            <figure class="img-wrapper">
+                              <a style="" href="{{ pub.url }}">
+                                <img src="{{ pub.publication.image_url }}" title="img title" alt="imagealt">
+                              </a>
+                            </figure>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <h4 class="card-title">
+                        <a style="text-decoration: none; color: #17324d;" href="{{ pub.url }}">
+                            {{ pub.publication.title }}
+                        </a>
+                    </h4>
+                    {% if not pub.publication.presentation_image %}
+                    <p class="card-text">
+                        {{ pub.publication.subheading|truncatechars:135 }}
+                    </p>
+                    {% endif %}
+                    <a href="#">
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--end card-->
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
