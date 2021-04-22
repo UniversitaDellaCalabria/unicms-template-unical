@@ -1,0 +1,90 @@
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_publications %}
+
+
+<p class="text-muted">
+    <svg class="icon icon-xs">
+        <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
+    </svg> {% trans "Published" %} {{ publication.created }}
+</p>
+<h1 class="mb-4">{{ publication.title }}</h1>
+<p class="bigger-font">{{ publication.subheading }}</p>
+{% if publication.presentation_image %}
+<div class="img-wrapper pb-3">
+    <img src="{{ publication.image_url }}"
+         title="img title"
+         alt="imagealt"
+         style="width: 100%">
+</div>
+{% endif %}
+
+<div>
+    {{ publication.html_content|safe }}
+</div>
+
+{% if publication.tags.all %}
+<h4>{% trans "tags" %}</h4>
+<p style="font-size: 1.2rem">
+    {% for tag in publication.tags.all %}
+        <span class="badge badge-grey-unical square-corners">{{ tag.name }}</span>
+    {% endfor %}
+</p>
+{% endif %}
+
+{% if publication.get_attachments %}
+<hr class="my-4">
+<h4>{% trans "attachments" %}</h4>
+
+<!-- ATTACHMENTS -->
+<ul class="upload-file-list">
+    {% for item in publication.get_attachments %}
+    <li class="upload-file success">
+      <a href="{{ item.file.url }}" >
+      <span  style="color: #000;">
+        <svg class="icon icon-secondary"
+             aria-hidden="true">
+            <use xlink:href="{% static '/svg/sprite.svg' %}#it-file"></use>
+        </svg>
+        <span class="sr-only">{% trans "Attachment" %}:</span> {{ item.name }}
+        <span class="text-muted small">
+            &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)
+        </span>
+      </span>
+      </a>
+    </li>
+    {% endfor %}
+</ul>
+<!-- END ATTACHMENTS -->
+{% endif %}
+
+{% if publication.related_links %}
+<hr class="my-4">
+<h5 class="card-title">{% trans "Links" %}</h5>
+<ul class="pl-0" style="list-style: none">
+{% for link in publication.related_links %}
+    <li class="mb-3">
+        <a href="{{ link.url }}">
+            <svg class="icon icon-xs">
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
+            </svg>
+            {{ link.name }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if publication.related_galleries %}
+<hr class="my-4">
+<h4>{% trans "Photo gallery" %}</h4>
+    {% for gallery in publication.related_galleries %}
+        {% include "carousel_media_gallery.html" with media_items=gallery.collection.get_items %}
+    {% endfor %}
+{% endif %}
+
+<!-- END PUBLICATION BODY -->
