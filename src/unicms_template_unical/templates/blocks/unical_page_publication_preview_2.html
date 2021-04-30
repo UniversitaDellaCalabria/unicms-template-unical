@@ -1,4 +1,5 @@
 <div class="row mb-4">
+    {% if publication.presentation_image %}
     <div class="col-12 col-lg-4 mt-lg-2">
         {% if publication.presentation_image %}
         <div class="img-responsive-wrapper">
@@ -15,24 +16,25 @@
         {% endif %}
     </div>
     <div class="col-12 col-lg-8 pl-lg-4">
-        <h3 class="super-bold">{{ publication.title }}</h3>
-
-        {{ publication.subheading|truncatechars:250 }}
-
-    </div>
-</div>
-{% if publication.related_links %}
-<div class="row">
+    {% else %}
     <div class="col">
-    {% for link in publication.related_links %}
-    <span class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2">
-        <a href="{{ link.url }}">
-            <span style="font-size: 1.3rem">
-                <b>{{ link.name }}</b>
+    {% endif %}
+        <h3>{{ publication.title }}</h3>
+        {{ publication.subheading|default_if_none:"" }}
+        {% if publication.related_links %}
+        <div class="row mt-3">
+            <div class="col">
+            {% for link in publication.related_links %}
+            <span
+                class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2"
+                style="font-size: 100%">
+                <a href="{{ link.url }}">
+                    <b>{{ link.name }}</b>
+                </a>
             </span>
-        </a>
-    </span>
-    {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
-{% endif %}

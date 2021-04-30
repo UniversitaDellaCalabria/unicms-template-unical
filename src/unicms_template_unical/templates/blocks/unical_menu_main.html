@@ -5,41 +5,47 @@
 {% load unicms_template_italia %}
 
 {% for item in items %}
+
+{% comment %}
 {% is_mega_menu item as is_mega_menu %}
+{% endcomment %}
+
 <li class="nav-item
-           {% if forloop.first %}active{% endif %}
            {% if item.has_childs %}dropdown{% endif %}
-           {% if is_mega_menu %}megamenu{% endif %}">
+           megamenu">
     <a class="nav-link
               {% if item.has_childs %}dropdown_toggle{% endif %}
-              {% if not forloop.counter0 %}pl-lg-2{% endif %}"
-       href={% if subitem.link %}"{{ subitem.get_link}}"{% else %}"#"{% endif %}
-            {% if item.has_childs %}data-toggle="dropdown" aria-expanded="false"{% endif %}>
+              {% if not forloop.counter0 %}pl-lg-2{% endif %}
+              pr-lg-1"
+       href={% if item.link %}"{{ item.link}}"{% else %}"#"{% endif %}>
             <span>{{ item.name }}</span>
-            {% if item.get_childs %}
-            <svg class="icon icon-xs">
-                <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
-            </svg>
-            {% endif %}
     </a>
+    {% if item.has_childs %}
+    <a href="javascript:void(0)"
+        data-toggle="dropdown" aria-expanded="false"
+        class="megamenu-dropdown-arrow m-lg-auto pb-lg-1">
+        <svg class="icon icon-xs float-xs-right">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
+        </svg>
+    </a>
+    {% endif %}
     {% if item.get_childs %}
     <div class="dropdown-menu">
         <div class="row p-md-3 p-0">
             {% for child in item.get_childs %}
 
-                {% if child.has_childs %}
-
                 <!-- If previous item hasn't got childs, close col div -->
                 {% ifchanged child.has_childs %}
-                    {% if not forloop.first %}
+                    {% if child.has_childs and not forloop.first %}
                             </ul>
                         </div>
                     </div>
                     {% endif %}
                 {% endifchanged %}
 
+                {% if child.has_childs %}
                 <!-- Render a full col div -->
-                <div class="col-md-auto ">
+                <div class="col-lg-4">
                     <div class="link-list-wrapper">
                         <ul class="link-list">
                             <li>
@@ -64,22 +70,25 @@
 
                     <!-- If previous item has child, render new col, else add items in stack -->
                     {% ifchanged child.has_childs %}
-                    <div class="col-md-auto ">
+                    <div class="col-lg-4">
                         <div class="link-list-wrapper">
                             <ul class="link-list">
                     {% endifchanged %}
                                 <li>
-                                    <a class="list-item" href="{{ child.link}}">
-                                        <span class="text-dark">{{ child.name }}</span>
-                                    </a>
+                                    <b>
+                                        <a class="list-item" href="{{ child.link}}">
+                                            <span class="text-dark">{{ child.name }}</span>
+                                        </a>
+                                    </b>
                                 </li>
 
                     <!-- If last, close col -->
-                    {% if forloop.last %}
-                            </ul>
+
+                        {% if forloop.last  %}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    {% endif %}
+                        {% endif %}
                 {% endif %}
 
             {% endfor %}
