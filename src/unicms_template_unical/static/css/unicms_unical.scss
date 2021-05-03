@@ -22,6 +22,12 @@ a {
     text-decoration: none;
     color: $dark_grey_unical;
 }
+p a {
+    text-decoration: underline;
+}
+p a:hover {
+    text-decoration: none;
+}
 
 .super-bold {
     font-family: TitilliumWeb-Black;
