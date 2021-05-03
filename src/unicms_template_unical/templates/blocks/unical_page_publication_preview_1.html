@@ -18,7 +18,11 @@
     {% else %}
     <div class="col">
     {% endif %}
-        {{ publication.subheading|default_if_none:"" }}
+
+        {% if publication.subheading %}
+        {{ publication.subheading }}
+        {% endif %}
+
         {% if publication.related_links %}
         <div class="row mt-3">
             <div class="col">
