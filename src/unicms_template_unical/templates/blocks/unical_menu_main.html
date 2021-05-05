@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load static %}
 
-
+{% load unicms_menus %}
 {% load unicms_template_italia %}
 
 {% for item in items %}
@@ -30,9 +30,12 @@
     </a>
     {% endif %}
     {% if item.get_childs %}
+
+    {% load_item_childs item as childs %}
+
     <div class="dropdown-menu">
         <div class="row p-md-3 p-0">
-            {% for child in item.get_childs %}
+            {% for child in childs %}
 
                 <!-- If previous item hasn't got childs, close col div -->
                 {% ifchanged child.has_childs %}
@@ -44,6 +47,9 @@
                 {% endifchanged %}
 
                 {% if child.has_childs %}
+
+                {% load_item_childs child as subchilds %}
+
                 <!-- Render a full col div -->
                 <div class="col-lg-4">
                     <div class="link-list-wrapper">
@@ -55,7 +61,7 @@
                                     </a>
                                 </b>
                             </li>
-                            {% for subchild in child.get_childs %}
+                            {% for subchild in subchilds %}
                             <li>
                                 <a class="list-item py-0 sub" href="{{ subchild.link}}">
                                     <span class="text-dark">{{ subchild.name }}</span>
