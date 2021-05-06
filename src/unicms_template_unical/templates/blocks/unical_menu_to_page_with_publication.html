@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_menus %}
+
+
+{% load_current_item_from_menu as current_item %}
+
+{% block item_publication %}
+{% if current_item.item.publication %}
+{% include "unical_publication_full_view.html" with publication=current_item.item.publication %}
+<hr class="mb-5" />
+{% endif %}
+{% endblock item_publication %}
+
+{% for item in current_item.childs %}
+{% load_item_inherited_content item as publication %}
+
+<div class="row mb-4">
+    {% if publication.presentation_image %}
+    <div class="col-12 col-lg-4 mt-lg-2">
+        {% if publication.presentation_image %}
+        <div class="img-responsive-wrapper">
+            <div class="img-responsive img-responsive-panoramic">
+                <figure class="img-wrapper">
+                  <a href="{{ item.link }}">
+                    <img src="{{ publication.image_url }}"
+                         title="{{ publication.presentation_image.description.title }}"
+                         alt="{{ publication.presentation_image.description }}">
+                  </a>
+                </figure>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-12 col-lg-8 pl-lg-4">
+    {% else %}
+    <div class="col">
+    {% endif %}
+        <h3>
+            <a href="{{ item.link }}">
+                {{ item.name }}
+            </a>
+        </h3>
+
+        {% if publication.subheading %}
+        {{ publication.subheading }}
+        {% endif %}
+
+        {% if item.get_childs %}
+
+        {% load_item_childs item as childs %}
+
+        <div class="row mt-3">
+            <div class="col">
+            {% for child in childs %}
+            <span
+                class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2"
+                style="font-size: 100%">
+                <a href="{{ child.link }}">
+                    <b>{{ child.name }}</b>
+                </a>
+            </span>
+            {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endfor %}
+
+
