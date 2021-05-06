@@ -8,7 +8,8 @@
 
 {% block item_publication %}
 {% if current_item.item.publication %}
-{% include "unical_publication_full_view.html" with publication=current_item.item.publication %}
+{% load_item_publication current_item.item as publication %}
+{% include "unical_publication_full_view.html" with publication=publication %}
 <hr class="mb-5" />
 {% endif %}
 {% endblock item_publication %}

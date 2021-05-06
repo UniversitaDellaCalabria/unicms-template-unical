@@ -43,43 +43,20 @@
                             </ul>
                         </div>
                     </div>
+                    {% elif not child.has_childs %}
+                    <div class="col-lg-4">
+                        <div class="link-list-wrapper">
+                            <ul class="link-list">
                     {% endif %}
                 {% endifchanged %}
 
                 {% if child.has_childs %}
+                    {% load_item_childs child as subchilds %}
 
-                {% load_item_childs child as subchilds %}
-
-                <!-- Render a full col div -->
-                <div class="col-lg-4">
-                    <div class="link-list-wrapper">
-                        <ul class="link-list">
-                            <li>
-                                <b>
-                                    <a class="list-item" href="{{ child.link}}">
-                                        <span class="text-dark">{{ child.name }}</span>
-                                    </a>
-                                </b>
-                            </li>
-                            {% for subchild in subchilds %}
-                            <li>
-                                <a class="list-item py-0 sub" href="{{ subchild.link}}">
-                                    <span class="text-dark">{{ subchild.name }}</span>
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <!-- If current item hasn't got childs, render a stack-->
-                {% else %}
-
-                    <!-- If previous item has child, render new col, else add items in stack -->
-                    {% ifchanged child.has_childs %}
+                    <!-- Render a full col div -->
                     <div class="col-lg-4">
                         <div class="link-list-wrapper">
                             <ul class="link-list">
-                    {% endifchanged %}
                                 <li>
                                     <b>
                                         <a class="list-item" href="{{ child.link}}">
@@ -87,8 +64,28 @@
                                         </a>
                                     </b>
                                 </li>
+                                {% for subchild in subchilds %}
+                                <li>
+                                    <a class="list-item py-0 sub" href="{{ subchild.link}}">
+                                        <span class="text-dark">{{ subchild.name }}</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- If current item hasn't got childs, render a stack-->
+                {% else %}
+                    <!-- If previous item has child, render new col, else add items in stack -->
+                        <li>
+                            <b>
+                                <a class="list-item" href="{{ child.link}}">
+                                    <span class="text-dark">{{ child.name }}</span>
+                                </a>
+                            </b>
+                        </li>
 
-                    <!-- If last, close col -->
+                        <!-- If last, close col -->
 
                         {% if forloop.last  %}
                                 </ul>
