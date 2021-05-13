@@ -1,27 +1,41 @@
 {% load i18n %}
 {% load static %}
 
+{% load unicms_menus %}
+
 
 {% for item in items %}
 <li style="list-style: none" {% if item.get_childs %}class="mt-2 mb-4"{% endif %}>
     {% if item.get_childs %}
-    <b>
+        <b>
     {% endif %}
+
     <a href={% if item.link %}"{{ item.link }}"{% else %}"#"{% endif %}>
         <span>{{ item.name }}</span>
     </a>
+    <a class="list-item large medium right-icon"
+       href="#collapse-{{item.id}}-{{ forloop.counter }}"
+       data-toggle="collapse"
+       aria-expanded="false"
+       aria-controls="collapseOne">
+        <svg class="icon icon-sm icon-secondary right" aria-hidden="true">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
+        </svg>
+    </a>
     {% if item.get_childs %}
-    </b>
-    </li>
-        {% for child in item.get_childs %}
-        <li style="list-style: none">
-        <a class="list-item" href="{{ child.link}}">
-            <span class="text-dark">{{ child.name }}</span>
-        </a>
+        {% load_item_childs item as childs %}
+        </b>
         </li>
+        <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
+        {% for child in childs %}
+            <li style="list-style: none">
+                <a class="list-item" href="{{ child.link}}">
+                    <span class="text-dark">{{ child.name }}</span>
+                </a>
+            </li>
         {% endfor %}
+        </ul>
+    {% else %}
+        </li>
     {% endif %}
-{% if not item.get_childs %}
-</li>
-{% endif %}
 {% endfor %}
