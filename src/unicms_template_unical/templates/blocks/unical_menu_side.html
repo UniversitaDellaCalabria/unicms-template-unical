@@ -4,38 +4,49 @@
 {% load unicms_menus %}
 
 
-{% for item in items %}
-<li style="list-style: none" {% if item.get_childs %}class="mt-2 mb-4"{% endif %}>
-    {% if item.get_childs %}
-        <b>
-    {% endif %}
+{% if title %}
+<h4>{{ title }}</h4>
+<hr />
+{% endif %}
 
-    <a href={% if item.link %}"{{ item.link }}"{% else %}"#"{% endif %}>
-        <span>{{ item.name }}</span>
-    </a>
-    <a class="list-item large medium right-icon"
-       href="#collapse-{{item.id}}-{{ forloop.counter }}"
-       data-toggle="collapse"
-       aria-expanded="false"
-       aria-controls="collapseOne">
-        <svg class="icon icon-sm icon-secondary right" aria-hidden="true">
-            <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
-        </svg>
-    </a>
-    {% if item.get_childs %}
-        {% load_item_childs item as childs %}
-        </b>
-        </li>
-        <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
-        {% for child in childs %}
-            <li style="list-style: none">
-                <a class="list-item" href="{{ child.link}}">
-                    <span class="text-dark">{{ child.name }}</span>
-                </a>
+{% for item in items %}
+
+    {% with has_childs=item.get_childs %}
+
+    <li style="list-style: none" {% if item.get_childs %}class="mt-2 mb-4"{% endif %}>
+        {% if has_childs %}
+            <b>
+        {% endif %}
+
+        <a href={% if item.link %}"{{ item.link }}"{% else %}"#"{% endif %}>
+            <span>{{ item.name }}</span>
+        </a>
+
+        {% if has_childs %}
+            <a class="list-item large medium right-icon"
+               href="#collapse-{{item.id}}-{{ forloop.counter }}"
+               data-toggle="collapse"
+               aria-expanded="false"
+               aria-controls="collapseOne">
+                <svg class="icon icon-sm icon-secondary right" aria-hidden="true">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
+                </svg>
+            </a>
+            {% load_item_childs item as childs %}
+            </b>
             </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        </li>
-    {% endif %}
+            <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
+            {% for child in childs %}
+                <li style="list-style: none">
+                    <a class="list-item" href="{{ child.link}}">
+                        <span class="text-dark">{{ child.name }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+    </li>
+        {% endif %}
+
+    {% endwith %}
 {% endfor %}
