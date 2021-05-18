@@ -1,13 +1,19 @@
 {% load i18n %}
 {% load static %}
 
+{% load unicms_contexts %}
+
+
 <div class="container py-4 mb-4">
   <div class="row pt-4">
     <div class="col-sm">
 
       {% for item in items %}
+
+      {% call obj=item method='link' request=request as link %}
+
       <div class="bg text-white text-center h-25 d-inline-block mr-4" style="">
-        <a href="{{ item.get_url }}">
+        <a href="{{ link }}">
         <span class="text-black font-weight-bold">
             <svg class="icon mr-2"><use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use></svg>
             {{ item.name }}

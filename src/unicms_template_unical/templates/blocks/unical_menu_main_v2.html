@@ -1,10 +1,13 @@
 {% load i18n %}
 {% load static %}
 
+{% load unicms_contexts %}
 {% load unicms_menus %}
 {% load unicms_template_italia %}
 
 {% for item in items %}
+
+{% call obj=item method='link' request=request as link %}
 
 {% comment %}
 {% is_mega_menu item as is_mega_menu %}
@@ -17,7 +20,7 @@
               {% if item.has_childs %}dropdown_toggle{% endif %}
               {% if not forloop.counter0 %}pl-lg-2{% endif %}
               pr-lg-1"
-       href={% if item.link %}"{{ item.link}}"{% else %}"#"{% endif %}>
+       href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
             <span>{{ item.name }}</span>
     </a>
     {% if item.has_childs %}
@@ -36,7 +39,7 @@
     <div class="dropdown-menu">
         <div class="row p-md-3 p-0">
             {% for child in childs %}
-
+                {% call obj=child method='link' request=request as child_link %}
                 {% if child.has_childs %}
                     {% load_item_childs child as subchilds %}
 
@@ -46,14 +49,15 @@
                             <ul class="link-list">
                                 <li>
                                     <b>
-                                        <a class="list-item" href="{{ child.link}}">
+                                        <a class="list-item" href="{{ child_link }}">
                                             <span class="text-dark">{{ child.name }}</span>
                                         </a>
                                     </b>
                                 </li>
                                 {% for subchild in subchilds %}
+                                {% call obj=subchild method='link' request=request as subchild_link %}
                                 <li>
-                                    <a class="list-item py-0 sub" href="{{ subchild.link}}">
+                                    <a class="list-item py-0 sub" href="{{ subchild_link }}">
                                         <span class="text-dark">{{ subchild.name }}</span>
                                     </a>
                                 </li>
@@ -69,7 +73,7 @@
                             <ul class="link-list">
                                 <li>
                                     <b>
-                                        <a class="list-item" href="{{ child.link}}">
+                                        <a class="list-item" href="{{ child_link}}">
                                             <span class="text-dark">{{ child.name }}</span>
                                         </a>
                                     </b>
