@@ -1,4 +1,4 @@
-<div class="app">
+<div id="app">
     <template v-for="item in items">
         <h5 class="card-title">[[ item.CdSName ]]</h5>
         <table class="table">
@@ -29,20 +29,28 @@
             return {
                 cds_input: "",
                 items: [],
-                url: '{{ url }}',//'https://storage.portale.unical.it/api/ricerca/cdsinfo?cdsid=',
+                url: 'https://storage.portale.unical.it/api/ricerca/cdsinfo?cdsid=', //'{{ url }}'
             }
         },
         mounted() {
-            //queryString = window.location.search;
-            //urlParams = new URLSearchParams(queryString);
-            //this.cds_input = urlParams.get('cdsid');
+            queryString = window.location.search;
+            urlParams = new URLSearchParams(queryString);
+            this.cds_input = urlParams.get('cdsid');
             this.CallURL();
+            
+            //this.CallURL();
         },
         methods: {
-            CallURL() {
+            /*CallURL() {
                 console.log(this.url);
                 axios
                     .get(this.url)
+                    .then(response => (this.items = response.data.results))
+                    .then(response => (console.log(this.items)));
+            }*/
+            CallURL() {
+                axios
+                    .get(this.url + this.cds_input)
                     .then(response => (this.items = response.data.results))
                     .then(response => (console.log(this.items)));
             }
