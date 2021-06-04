@@ -1,5 +1,9 @@
-<div id="app">
-    
+{% load static %}
+
+{% load i18n %}
+
+<div id="{{ url }}">
+
     <list-panel v-bind:data="items" v-if="items.results"></list-panel>
 
     <div class="row">
@@ -10,15 +14,9 @@
                     <div class="card-body">
                         <h5 class="card-title">[[ item.StudyActivityName ]]</h5>
                         <ul v-for="(value, name) in item">
-                            <li>[[ name ]]: [[ value ]]
+                            <li>[[ labels[name] ]]: [[ value ]]
                             </li>
                         </ul>
-                        <a class="read-more"
-                            v-bind:href="'http://test.unical.it:8000/portale/studyactivityinfo?studyactivityid=' + item.StudyActivityID">
-                            <span class="text">Leggi di più</span>
-                            <svg class="icon">
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -29,6 +27,7 @@
     <list-panel v-bind:data="items" v-if="items.results"></list-panel>
 </div>
 
+<script src="{% static 'js/utils.js' %}"> </script>
 
 <script>
 
@@ -51,14 +50,14 @@
                 <div class="col w-50 ">
                   <div class="float-right">
                   <span>
-                      <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="vue.prevPage()">
-                          <span class="sr-only"> Page </span> &lt; <small>Previous</small>
+                      <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="vue.CallURL(vue.previous_page)">
+                          <span class="sr-only"> {% trans "Pagina" %} </span> &lt; <small>{% trans "Precedente" %}</small>
                       </a>
                   </span>
 
                   <span class="mr-2 ml-2" >[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
-                      <a class="" style="color:#050b12;" @click="vue.nextPage()" v-if="data.page_number < data.total_pages">
-                          <span class="sr-only"><small>Page </span>Next &gt;</small>
+                      <a class="" style="color:#050b12;" @click="vue.CallURL(vue.next_page)" v-if="data.page_number < data.total_pages">
+                          <span class="sr-only"><small>{% trans "Pagina" %} </span>{% trans "Successivo" %} &gt;</small>
                       </a>
                   </div>
                 </div>
@@ -70,48 +69,38 @@
   `
     });
 
+    div_id = changeId("{{ url }}");
 
     var vue = new Vue({
-        el: '#app',
+        el: '[id="' + div_id + '"]',
         data() {
             return {
                 parameters: "",
-                study_plan_input: "",
                 items: [],
-                url: 'https://storage.portale.unical.it/api/ricerca/studyplanactivities?',
+                labels: {},
+                url: '{{ url }}',
+                next_page: "",
+                previous_page: "",
             }
         },
         mounted() {
-            queryString = window.location.search;
-            urlParams = new URLSearchParams(queryString);
-            this.study_plan_input = urlParams.get('studyplanid');
-            this.update_args('studyplanid='+this.study_plan_input);
+            this.CallURL(this.url + this.parameters);
         },
         methods: {
-            CallURL() {
-                console.log(this.url + this.parameters);
+            CallURL(url) {
                 axios
-                    .get(this.url + this.parameters)
-                    .then(response => (this.items = response.data))
-                    .then(response => (console.log(this.items)));
+                    .get(url)
+                    .then(response => {
+                        this.items = response.data;
+                        this.next_page = response.data.next;
+                        this.previous_page = response.data.previous;
+                        this.labels = response.data.labels;
+                    })
             },
             update_args(values) {
                 if (values) this.parameters += values;
-                this.CallURL();
+                this.CallURL(this.url + this.parameters);
             },
-            nextPage() {
-                let num = this.items.page_number + 1;
-                let sep = '';
-                if (this.parameters) sep = '&'
-                this.update_args(sep + 'page=' + num);
-            },
-            prevPage() {
-                let num = this.items.page_number - 1;
-                let sep = '';
-                if (this.parameters) sep = '&'
-                this.update_args(sep + 'page=' + num);
-            },
-
         }
     })
 </script>

@@ -1,0 +1,54 @@
+{% load static %}
+
+<div id="{{ url }}">
+    <template v-model="item">
+        <h5 class="card-title">[[ item.StudyActivityName ]]</h5>
+        <table class="table">
+            <tbody>
+                <tr v-for="(value, name) in item">
+                    <td class="col-3">[[ labels[name] ]]</td>
+                    <td v-if="name !== 'StudyActivitiesModules'" class="col-9"> <span style="white-space: pre-line;">[[
+                            value ]] </span></td>
+                    <td v-if="name === 'StudyActivitiesModules'" class="col-9">
+                        <ul v-for="(valueProfile, nameProfile) in value">
+                            <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile" v-model="labels">
+                                <li>[[ nameProfileInstance ]] : <span style="white-space: pre-line;">[[
+                                        valueProfileInstance ]] </span></li>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+</div>
+
+<script src="{% static 'js/utils.js' %}"> </script>
+
+<script>
+    div_id = changeId("{{ url }}");
+
+    var search = new Vue({
+        el: '[id="' + div_id + '"]',
+        data() {
+            return {
+                item: {},
+                labels: {},
+                url: '{{ url }}',
+            }
+        },
+        mounted() {
+            this.CallURL();
+        },
+        methods: {
+            CallURL() {
+                axios
+                    .get(this.url)
+                    .then(response => {
+                        this.item = response.data.results;
+                        this.labels = response.data.labels;
+                    });
+            }
+        }
+    })
+</script>

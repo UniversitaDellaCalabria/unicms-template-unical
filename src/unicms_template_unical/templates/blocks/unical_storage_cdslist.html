@@ -1,4 +1,9 @@
-<div id="app">
+{% load static %}
+
+{% load i18n %}
+
+<div id="{{ url }}">
+    {% block filters_cdslist %}
     <div class="row">
         <div class="col-12">
             <div class="card-wrapper card-space">
@@ -16,7 +21,7 @@
                                         </svg>
                                     </div>
                                     <button class="btn btn-primary" type="button" id="search-button"
-                                        v-on:click="search()">Cerca</button>
+                                        v-on:click="search()">{% trans "Cerca" %}</button>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +30,7 @@
                         <div class="collapse-header" id="heading1">
                             <button style="padding: 0px; color: #19191a;" data-toggle="collapse"
                                 data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                Ricerca Avanzata
+                                {% trans "Ricerca Avanzata" %}
                             </button>
                         </div>
 
@@ -35,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="academic_year_input">Academic Year</label>
+                                            <label for="academic_year_input">{% trans "Anno Accademico" %}</label>
                                             <div class="w-30 mt-5">
                                                 <span class="input-number">
                                                     <input type="number" id="academic_year_input"
@@ -52,7 +57,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="department_id_input">Department Id</label>
+                                            <label for="department_id_input">{% trans "ID Dipartimento" %}</label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="department_id_input" name="department_id_input"
                                                     class="form-control">
@@ -61,7 +66,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="department_name_input">Department Name</label>
+                                            <label for="department_name_input">{% trans "Nome Dipartimento" %}</label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="department_name_input"
                                                     name="department_name_input" class="form-control">
@@ -76,7 +81,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="course_type_input">Course Type</label>
+                                            <label for="course_type_input">{% trans "Tipologia Corso" %}</label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="course_type_input" name="course_type_input"
                                                     class="form-control">
@@ -85,7 +90,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="course_class_id_input">Course Class Id</label>
+                                            <label for="course_class_id_input">{% trans "ID Classe Corso" %}</label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="course_class_id_input"
                                                     name="course_class_id_input" class="form-control">
@@ -94,7 +99,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="course_class_name_input">Course Class Name</label>
+                                            <label for="course_class_name_input"> {% trans "Nome Classe Corso" %} </label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="course_class_name_input"
                                                     name="course_class_name_input" class="form-control">
@@ -109,7 +114,7 @@
                                 <div class="row">
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="cds_language_input">CdS Language</label>
+                                            <label for="cds_language_input"> {% trans "Lingua Corso di Studi" %} </label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="cds_language_input" name="cds_language_input"
                                                     class="form-control">
@@ -118,7 +123,7 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="bootstrap-select-wrapper">
-                                            <label for="joint_degree_input">Joint Degree</label>
+                                            <label for="joint_degree_input">{% trans "Joint Degree" %}</label>
                                             <div class="w-30 mt-5">
                                                 <input type="text" id="joint_degree_input" name="joint_degree_input"
                                                     class="form-control">
@@ -133,6 +138,7 @@
             </div>
         </div>
     </div>
+    {% endblock filters_cdslist %}
 
 
     <list-panel v-bind:data="items" v-if="items.results"></list-panel>
@@ -145,15 +151,9 @@
                     <div class="card-body">
                         <h5 class="card-title">[[ item.CdSName ]]</h5>
                         <ul v-for="(value, name) in item">
-                            <li>[[ name ]]: [[ value ]]
+                            <li>[[ labels[name] ]]: [[ value ]]
                             </li>
                         </ul>
-                        <a class="read-more"
-                            v-bind:href="'http://test.unical.it:8000/portale/cdsinfo?cdsid=' + item.RegDidId">
-                            <span class="text">Leggi di più</span>
-                            <svg class="icon">
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -164,6 +164,7 @@
     <list-panel v-bind:data="items" v-if="items.results"></list-panel>
 </div>
 
+<script src="{% static 'js/utils.js' %}"> </script>
 
 <script>
 
@@ -209,10 +210,13 @@
         return dict
     }
 
-    function encodeQueryData(data) {
+    function encodeQueryData(data, args_input) {
         const ret = [];
         for (let d in data)
             ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+        
+        if (args_input)
+            return '&' + ret.join('&')
         return '?' + ret.join('&');
     }
 
@@ -235,14 +239,14 @@
                 <div class="col w-50 ">
                   <div class="float-right">
                   <span>
-                      <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="vue.prevPage()">
-                          <span class="sr-only"> Page </span> &lt; <small>Previous</small>
+                      <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="vue.CallURL(vue.previous_page)">
+                          <span class="sr-only"> {% trans "Pagina" %} </span> &lt; <small>{% trans "Precedente" %}</small>
                       </a>
                   </span>
 
                   <span class="mr-2 ml-2" >[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
-                      <a class="" style="color:#050b12;" @click="vue.nextPage()" v-if="data.page_number < data.total_pages">
-                          <span class="sr-only"><small>Page </span>Next &gt;</small>
+                      <a class="" style="color:#050b12;" @click="vue.CallURL(vue.next_page)" v-if="data.page_number < data.total_pages">
+                          <span class="sr-only"><small>{% trans "Pagina" %} </span>{% trans "Prossimo" %} &gt;</small>
                       </a>
                   </div>
                 </div>
@@ -254,48 +258,44 @@
   `
     });
 
+    div_id = changeId("{{ url }}");
 
     var vue = new Vue({
-        el: '#app',
+        el: '[id="' + div_id + '"]',
         data() {
             return {
                 parameters: "",
                 items: [],
-                url: 'https://storage.portale.unical.it/api/ricerca/cdslist',
+                labels: [],
+                url: '{{ url }}',
+                next_page: "",
+                previous_page: "",
+                args_input: false,
             }
         },
         mounted() {
-            this.CallURL();
+            this.CallURL(this.url + this.parameters);
+
+            let url_splitted = this.url.split("?");
+            if (url_splitted == this.url)
+                this.args_input = false
+            else
+                this.args_input = true
         },
         methods: {
             search() {
-                this.parameters = encodeQueryData(get_form_paramenters());
-                this.CallURL();
+                this.parameters = encodeQueryData(get_form_paramenters(), this.args_input);
+                this.CallURL(this.url + this.parameters);
             },
-            CallURL() {
-                console.log(this.url + this.parameters);
+            CallURL(url) {
                 axios
-                    .get(this.url + this.parameters)
-                    .then(response => (this.items = response.data))
-                    .then(response => (console.log(this.items)));
-            },
-            update_args(values) {
-                let base_args = encodeQueryData(get_form_paramenters());
-                if (values) base_args += values
-                this.parameters = base_args;
-                this.CallURL();
-            },
-            nextPage() {
-                let num = this.items.page_number + 1;
-                let sep = '';
-                if (this.get_args) sep = '&'
-                this.update_args(sep + 'page=' + num);
-            },
-            prevPage() {
-                let num = this.items.page_number - 1;
-                let sep = '';
-                if (this.get_args) sep = '&'
-                this.update_args(sep + 'page=' + num);
+                    .get(url)
+                    .then(response => {
+                        this.items = response.data;
+                        this.next_page = response.data.next;
+                        this.previous_page = response.data.previous;
+                        this.labels = response.data.labels;
+                    })
             },
 
         }
