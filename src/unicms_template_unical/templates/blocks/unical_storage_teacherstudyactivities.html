@@ -1,8 +1,11 @@
+{% load i18n %}
 {% load static %}
 
-{% load i18n %}
+{% load unicms_template_unical %}
 
-<div id="{{ url }}">
+{% random_id as id %}
+
+<div id="{{ id }}">
     {% block filters_teacherstudyactivities %}
     <div class="row">
         <div class="col-12">
@@ -20,10 +23,10 @@
                                             <span class="input-number">
                                                 <input type="number" id="year_input" name="year_input">
                                                 <button class="input-number-add">
-                                                    <span class="sr-only">Aumenta valore</span>
+                                                    <span class="sr-only">{% trans "Aumenta valore" %}</span>
                                                 </button>
                                                 <button class="input-number-sub">
-                                                    <span class="sr-only">Diminuisci valore</span>
+                                                    <span class="sr-only">{% trans "Diminuisci valore" %}</span>
                                                 </button>
                                             </span>
                                         </div>
@@ -36,10 +39,10 @@
                                             <span class="input-number">
                                                 <input type="number" id="year_from_input" name="year_from_input">
                                                 <button class="input-number-add">
-                                                    <span class="sr-only">Aumenta valore</span>
+                                                    <span class="sr-only">{% trans "Aumenta valore" %}</span>
                                                 </button>
                                                 <button class="input-number-sub">
-                                                    <span class="sr-only">Diminuisci valore</span>
+                                                    <span class="sr-only">{% trans "Diminuisci valore" %}</span>
                                                 </button>
                                             </span>
                                         </div>
@@ -52,10 +55,10 @@
                                             <span class="input-number">
                                                 <input type="number" id="year_to_input" name="year_to_input">
                                                 <button class="input-number-add">
-                                                    <span class="sr-only">Aumenta valore</span>
+                                                    <span class="sr-only">{% trans "Aumenta valore" %}</span>
                                                 </button>
                                                 <button class="input-number-sub">
-                                                    <span class="sr-only">Diminuisci valore</span>
+                                                    <span class="sr-only">{% trans "Diminuisci valore" %}</span>
                                                 </button>
                                             </span>
                                         </div>
@@ -87,7 +90,8 @@
                     <div class="card-body">
                         <h5 class="card-title">[[ item.StudyActivityName ]]</h5>
                         <ul v-for="(value, name) in item">
-                            <li>[[ labels[name] ]]: [[ value ]]
+                            <li>
+                                [[ labels[name] ]]: [[ value ]]
                             </li>
                         </ul>
                     </div>
@@ -99,116 +103,110 @@
 
     <list-panel v-bind:data="items" v-if="items.results"></list-panel>
 </div>
-
-<script src="{% static 'js/utils.js' %}"> </script>
-
 <script>
+function get_form_paramenters() {
+    let dict = {};
 
-    function get_form_paramenters() {
-        let dict = {};
+    // year
+    let year = document.getElementById('year_input').value
+    if (year) dict['year'] = year
 
-        // year
-        let year = document.getElementById('year_input').value
-        if (year) dict['year'] = year
+    // year_to
+    let year_to = document.getElementById('year_to_input').value
+    if (year_to) dict['yearTo'] = year_to
 
-        // year_to
-        let year_to = document.getElementById('year_to_input').value
-        if (year_to) dict['yearTo'] = year_to
+    // year_from
+    let year_from = document.getElementById('year_from_input').value
+    if (year_from) dict['yearFrom'] = year_from
 
-        // year_from
-        let year_from = document.getElementById('year_from_input').value
-        if (year_from) dict['yearFrom'] = year_from
+    return dict
+}
 
-        return dict
-    }
+function encodeQueryData(data, args_input) {
+    const ret = [];
+    for (let d in data)
+        ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
 
-    function encodeQueryData(data, args_input) {
-        const ret = [];
-        for (let d in data)
-            ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+    if (args_input)
+        return '&' + ret.join('&')
+    return '?' + ret.join('&');
+}
 
-        if (args_input)
-            return '&' + ret.join('&')
-        return '?' + ret.join('&');
-    }
+Vue.component('list-panel', {
+    props: {
+        data: Array,
+    },
+    template: `
+        <div class="card-wrapper card-space" >
+            <div class="card card-bg no-after">
+              <div class="card-body py-1">
 
-    Vue.component('list-panel', {
-        props: {
-            data: Array,
-        },
-        template: `
-    <div class="card-wrapper card-space" >
-        <div class="card card-bg no-after">
-          <div class="card-body py-1">
+                <div class="row">
+                    <div class="col w-50">
+                        <span style="color:#050b12;">
+                            <b>[[ data.count || 0]] results</b> in <b>[[ data.total_pages || 0 ]] pages</b>
+                        </span>
+                    </div>
 
-            <div class="row">
-                <div class="col w-50">
-                    <span style="color:#050b12;">
-                        <b>[[ data.count || 0]] results</b> in <b>[[ data.total_pages || 0 ]] pages</b>
-                    </span>
+                    <div class="col w-50 ">
+                      <div class="float-right">
+                      <span>
+                          <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="{{ id }}.CallURL({{ id }}.previous_page)">
+                              <span class="sr-only"> {% trans "Pagina" %} </span> &lt; <small>{% trans "Precedente" %}</small>
+                          </a>
+                      </span>
+
+                      <span class="mr-2 ml-2" >[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
+                          <a class="" style="color:#050b12;" @click="{{ id }}.CallURL({{ id }}.next_page)" v-if="data.page_number < data.total_pages">
+                              <span class="sr-only"><small>{% trans "Pagina" %} </span>{% trans "Successivo" %} &gt;</small>
+                          </a>
+                      </div>
+                    </div>
                 </div>
 
-                <div class="col w-50 ">
-                  <div class="float-right">
-                  <span>
-                      <a class="" style="color:#050b12;" v-if="data.page_number > 1" @click="vue.CallURL(vue.previous_page)">
-                          <span class="sr-only"> {% trans "Pagina" %} </span> &lt; <small>{% trans "Precedente" %}</small>
-                      </a>
-                  </span>
-
-                  <span class="mr-2 ml-2" >[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
-                      <a class="" style="color:#050b12;" @click="vue.CallURL(vue.next_page)" v-if="data.page_number < data.total_pages">
-                          <span class="sr-only"><small>{% trans "Pagina" %} </span>{% trans "Successivo" %} &gt;</small>
-                      </a>
-                  </div>
-                </div>
+              </div>
             </div>
-
-          </div>
         </div>
-    </div>
-  `
-    });
+    `
+});
 
-    div_id = changeId("{{ url }}");
-
-    var vue = new Vue({
-        el: '[id="' + div_id + '"]',
-        data() {
-            return {
-                parameters: "",
-                items: [],
-                labels: {},
-                url: '{{ url }}',
-                next_page: "",
-                previous_page: "",
-                args_input: false,
-            }
-        },
-        mounted() {
-            this.CallURL(this.url + this.parameters);
-
-            let url_splitted = this.url.split("?");
-            if (url_splitted == this.url)
-                this.args_input = false
-            else
-                this.args_input = true
-        },
-        methods: {
-            search() {
-                this.parameters = encodeQueryData(get_form_paramenters(), this.args_input);
-                this.CallURL(this.url + this.parameters);
-            },
-            CallURL(url) {
-                axios
-                    .get(url)
-                    .then(response => {
-                        this.items = response.data;
-                        this.next_page = response.data.next;
-                        this.previous_page = response.data.previous;
-                        this.labels = response.data.labels;
-                    })
-            },
+var {{ id }} = new Vue({
+    el: '[id="{{ id }}"]',
+    data() {
+        return {
+            parameters: "",
+            items: [],
+            labels: {},
+            url: '{{ url }}',
+            next_page: "",
+            previous_page: "",
+            args_input: false,
         }
-    })
+    },
+    mounted() {
+        this.CallURL(this.url + this.parameters);
+
+        let url_splitted = this.url.split("?");
+        if (url_splitted == this.url)
+            this.args_input = false
+        else
+            this.args_input = true
+    },
+    methods: {
+        search() {
+            this.parameters = encodeQueryData(get_form_paramenters(), this.args_input);
+            this.CallURL(this.url + this.parameters);
+        },
+        CallURL(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    this.items = response.data;
+                    this.next_page = response.data.next;
+                    this.previous_page = response.data.previous;
+                    this.labels = response.data.labels;
+                })
+        },
+    }
+})
 </script>

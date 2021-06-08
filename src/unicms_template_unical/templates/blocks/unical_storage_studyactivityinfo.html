@@ -1,19 +1,29 @@
 {% load static %}
+{% load unicms_template_unical %}
 
-<div id="{{ url }}">
+{% random_id as id %}
+
+<div id="{{ id }}">
     <template v-model="item">
         <h5 class="card-title">[[ item.StudyActivityName ]]</h5>
         <table class="table">
             <tbody>
                 <tr v-for="(value, name) in item">
                     <td class="col-3">[[ labels[name] ]]</td>
-                    <td v-if="name !== 'StudyActivitiesModules'" class="col-9"> <span style="white-space: pre-line;">[[
-                            value ]] </span></td>
-                    <td v-if="name === 'StudyActivitiesModules'" class="col-9">
+                    <td v-if="typeof value !== 'object'" class="col-9">
+                        <span style="white-space: pre-line;">
+                            [[ value ]]
+                        </span>
+                    </td>
+                    <td v-else class="col-9">
                         <ul v-for="(valueProfile, nameProfile) in value">
                             <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile" v-model="labels">
-                                <li>[[ nameProfileInstance ]] : <span style="white-space: pre-line;">[[
-                                        valueProfileInstance ]] </span></li>
+                                <li>
+                                    [[ nameProfileInstance ]] :
+                                    <span style="white-space: pre-line;">
+                                        [[ valueProfileInstance ]]
+                                    </span>
+                                </li>
                             </ul>
                         </ul>
                     </td>
@@ -22,14 +32,9 @@
         </table>
     </template>
 </div>
-
-<script src="{% static 'js/utils.js' %}"> </script>
-
 <script>
-    div_id = changeId("{{ url }}");
-
-    var search = new Vue({
-        el: '[id="' + div_id + '"]',
+    var {{ id }} = new Vue({
+        el: '[id="{{ id }}"]',
         data() {
             return {
                 item: {},

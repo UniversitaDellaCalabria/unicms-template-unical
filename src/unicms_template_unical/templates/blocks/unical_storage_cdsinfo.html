@@ -1,20 +1,30 @@
 {% load static %}
+{% load unicms_template_unical %}
 
-<div id="{{ url }}">
+{% random_id as id %}
+
+<div id="{{ id }}">
     <template v-model="item">
         <h5 class="card-title">[[ item.CdSName ]]</h5>
         <table class="table">
             <tbody>
                 <tr v-for="(value, name) in item">
                     <td class="col-3">[[ labels[name] ]]</td>
-                    <td v-if="name !== 'CdSProfiles'" class="col-9"> <span style="white-space: pre-line;">[[ value ]]
-                        </span></td>
+                    <td v-if="typeof value !== 'object'">
+                        <span style="white-space: pre-line;">
+                            [[ value ]]
+                        </span>
+                    </td>
                     <td v-else class="col-9">
                         <ul v-for="(valueProfile, nameProfile) in value">
                             <li>[[ nameProfile ]]
                                 <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile">
-                                    <li>[[ labels[nameProfile][nameProfileInstance] ]] : <span style="white-space: pre-line;">[[
-                                            valueProfileInstance ]] </span></li>
+                                    <li>
+                                        [[ labels[nameProfile][nameProfileInstance] ]] :
+                                        <span style="white-space: pre-line;">
+                                            [[ valueProfileInstance ]]
+                                        </span>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -24,34 +34,28 @@
         </table>
     </template>
 </div>
-
-<script src="{% static 'js/utils.js' %}"> </script>
-
 <script>
-    div_id = changeId("{{ url }}");
-
-    var search = new Vue({
-        el: '[id="' + div_id + '"]',
-        data() {
-            return {
-                item: {},
-                labels: {},
-                url: '{{ url }}'
-            }
-        },
-        mounted() {
-            this.CallURL();
-        },
-        methods: {
-            CallURL() {
-                axios
-                    .get(this.url)
-                    .then(response => {
-                        this.item = response.data.results;
-                        this.labels = response.data.labels;
-                        console.log(this.labels);
-                    });
-            }
+var {{ id }} = new Vue({
+    el: '[id="{{ id }}"]',
+    data() {
+        return {
+            item: {},
+            labels: {},
+            url: '{{ url }}'
         }
-    })
+    },
+    mounted() {
+        this.CallURL();
+    },
+    methods: {
+        CallURL() {
+            axios
+                .get(this.url)
+                .then(response => {
+                    this.item = response.data.results;
+                    this.labels = response.data.labels;
+                });
+        }
+    }
+})
 </script>

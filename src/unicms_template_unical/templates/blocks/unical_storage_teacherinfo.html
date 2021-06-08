@@ -1,26 +1,29 @@
 {% load static %}
 
-<div id="{{ url }}">
+{% load unicms_template_unical %}
+
+{% random_id as id %}
+
+<div id="{{ id }}">
     <template v-model="item">
         <h5 class="card-title">[[ item.TeacherLastName ]] [[ item.TeacherFirstName ]]</h5>
         <table class="table">
             <tbody>
                 <tr v-for="(value, name) in item">
                     <td>[[ labels[name] ]]</td>
-                    <td> <span style="white-space: pre-line;">[[ value ]] </span></td>
+                    <td>
+                        <span style="white-space: pre-line;">
+                            [[ value ]]
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </template>
 </div>
-
-<script src="{% static 'js/utils.js' %}"> </script>
-
 <script>
-    div_id = changeId("{{ url }}");
-
-    var search = new Vue({
-        el: '[id="' + div_id + '"]',
+    var {{ id }} = new Vue({
+        el: '[id="{{ id }}"]',
         data() {
             return {
                 item: {},
