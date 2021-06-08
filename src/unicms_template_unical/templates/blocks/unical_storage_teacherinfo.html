@@ -1,0 +1,45 @@
+{% load static %}
+
+<div id="{{ url }}">
+    <template v-model="item">
+        <h5 class="card-title">[[ item.TeacherLastName ]] [[ item.TeacherFirstName ]]</h5>
+        <table class="table">
+            <tbody>
+                <tr v-for="(value, name) in item">
+                    <td>[[ labels[name] ]]</td>
+                    <td> <span style="white-space: pre-line;">[[ value ]] </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+</div>
+
+<script src="{% static 'js/utils.js' %}"> </script>
+
+<script>
+    div_id = changeId("{{ url }}");
+
+    var search = new Vue({
+        el: '[id="' + div_id + '"]',
+        data() {
+            return {
+                item: {},
+                labels: {},
+                url: '{{ url }}',
+            }
+        },
+        mounted() {
+            this.CallURL();
+        },
+        methods: {
+            CallURL() {
+                axios
+                    .get(this.url)
+                    .then(response => {
+                        this.item = response.data.results;
+                        this.labels = response.data.labels;
+                    })
+            }
+        }
+    })
+</script>
