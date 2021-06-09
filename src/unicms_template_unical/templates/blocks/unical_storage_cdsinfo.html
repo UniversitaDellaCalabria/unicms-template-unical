@@ -5,7 +5,7 @@
 
 <div id="{{ id }}">
     <template v-model="item">
-        <h5 class="card-title">[[ item.CdSName ]]</h5>
+        <h3>[[ item.CdSName ]]</h3>
         <table class="table">
             <tbody>
                 <tr v-for="(value, name) in item">
@@ -17,10 +17,16 @@
                     </td>
                     <td v-else class="col-9">
                         <ul v-for="(valueProfile, nameProfile) in value">
-                            <li>[[ nameProfile ]]
+                            <li>
+                                [[ nameProfile ]]
                                 <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile">
                                     <li>
-                                        [[ labels[nameProfile][nameProfileInstance] ]] :
+                                        <span v-if="nameProfile in labels && nameProfileInstance in labels[nameProfile]">
+                                            [[ labels[nameProfile][nameProfileInstance] ]]
+                                        </span>
+                                        <span v-else>
+                                            [[ nameProfileInstance ]]
+                                        </span> :
                                         <span style="white-space: pre-line;">
                                             [[ valueProfileInstance ]]
                                         </span>
