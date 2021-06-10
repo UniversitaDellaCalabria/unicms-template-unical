@@ -16,8 +16,28 @@
                     <div class="card-body">
                         <h5 class="card-title">[[ item.StudyPlanName ]]</h5>
                         <ul v-for="(value, name) in item">
-                            <li>
-                                [[ labels[name] ]]: [[ value ]]
+                            <li v-if="typeof value !== 'object'">
+                                [[ labels[name] ]]: <span style="white-space: pre-line;">[[ value ]]</span>
+                            </li>
+                            <li v-else>
+                                [[ labels[name] ]]:
+                                <br>
+                                <br>
+                                <template v-for="v in value">
+                                    <div class="card-wrapper card-space">
+                                        <div class="card card-bg">
+                                            <div class="card-body">
+                                                <h5 class="card-title">[[ v.StudyActivityName ]]</h5>
+                                                <ul v-for="(v_instance, n_instance) in v">
+                                                    <li style="list-style-type:none;">
+                                                        [[ labels[n_instance] ]]: <span style="white-space: pre-line;">[[ v_instance
+                                                            ]]</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
                             </li>
                         </ul>
                     </div>
