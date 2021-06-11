@@ -1,8 +1,10 @@
 {% load i18n %}
 {% load static %}
 {% load unicms_template_unical %}
+{% load unicms_templates %}
 
 {% random_id as id %}
+{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
 
 <div id="{{ id }}">
     {% block filters_cdslist %}
@@ -151,7 +153,8 @@
                 <div class="card no-after">
                     <div class="card-body">
                         <h4>
-                            <a href="javascript:void(0)">
+                            {% settings_value "CMS_STORAGE_CDS_VIEW_PREFIX_PATH" as cds_prefix %}
+                            <a :href="'/{{ cms_path_prefix }}{{ cds_prefix }}/' + [[ item.RegDidId ]] +'/'">
                                 [[ item.CdSName ]]
                             </a>
                         </h4>

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% load unicms_template_unical %}
 
@@ -5,39 +6,66 @@
 
 <div id="{{ id }}">
     <template v-model="item">
-        <h3>[[ item.CdSName ]]</h3>
-        <table class="table">
-            <tbody>
-                <tr v-for="(value, name) in item">
-                    <td class="col-3">[[ labels[name] ]]</td>
-                    <td v-if="typeof value !== 'object'">
-                        <span style="white-space: pre-line;">
-                            [[ value ]]
+        <h3>{% trans "Laurea in" %} [[ item.CdSName ]]</h3>
+        <p>
+            {% trans "Classe di laurea" %} [[ item.CourseClassId ]]
+            <br>
+            [[ item.CourseClassName ]]
+        </p>
+
+        {% include "blocks/italia_link_iframe.html" with ratio="21by9" url="https://www.youtube.com/embed/KkxtyJKKyfI" %}
+
+        <p>
+            <span style="white-space: pre-line;">
+                [[ item.CdSIntro ]]
+            </span>
+        </p>
+
+        <div id="collapseDiv1-lft" class="collapse-div collapse-left-icon" role="tablist">
+            <div v-for="(value, name) in item">
+                <div class="collapse-header" :id="'heading-' + name +'-lft'">
+                    <button data-toggle="collapse" :data-target="'#collapse-' + name +'-lft'" aria-expanded="false" :aria-controls="'collapse-' + name +'-lft'">
+                        [[ labels[name] ]]
+                    </button>
+                </div>
+                <div :id="'collapse-' + name +'-lft'" class="collapse" role="tabpanel" :aria-labelledby="'heading-' + name +'-lft'">
+                    <div class="collapse-body">
+                        <span v-if="typeof value == 'object'" class="col-9">
+                            <ul v-for="(valueProfile, nameProfile) in value">
+                                <li>
+                                    [[ nameProfile ]]
+                                    <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile">
+                                        <li>
+                                            <span v-if="nameProfile in labels && nameProfileInstance in labels[nameProfile]">
+                                                [[ labels[nameProfile][nameProfileInstance] ]]
+                                            </span>
+                                            <span v-else>
+                                                [[ nameProfileInstance ]]
+                                            </span> :
+                                            <span style="white-space: pre-line;">
+                                                [[ valueProfileInstance ]]
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </span>
-                    </td>
-                    <td v-else class="col-9">
-                        <ul v-for="(valueProfile, nameProfile) in value">
-                            <li>
-                                [[ nameProfile ]]
-                                <ul v-for="(valueProfileInstance, nameProfileInstance) in valueProfile">
-                                    <li>
-                                        <span v-if="nameProfile in labels && nameProfileInstance in labels[nameProfile]">
-                                            [[ labels[nameProfile][nameProfileInstance] ]]
-                                        </span>
-                                        <span v-else>
-                                            [[ nameProfileInstance ]]
-                                        </span> :
-                                        <span style="white-space: pre-line;">
-                                            [[ valueProfileInstance ]]
-                                        </span>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        <span v-else-if="typeof value == 'array'" class="col-9">
+                            <ul>
+                                <li v-for="subvalue in value">
+                                    [[ subvalue ]]
+                                </li>
+                            </ul>
+                        </span>
+                        <span v-else>
+                            <span style="white-space: pre-line;">
+                                [[ value ]]
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </template>
 </div>
 <script>
