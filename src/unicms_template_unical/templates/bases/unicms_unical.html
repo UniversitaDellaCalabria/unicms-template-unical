@@ -44,7 +44,9 @@ bootstrap-italia-base.html
 <!-- Logo in Header -->
 {% block header_center_logo %}
 <div class="d-none d-lg-flex col-lg-12 px-0">
-    <image src="{% static 'images/logo_unical_white.svg' %}" class="w-100"/>
+    <image src="{% static 'images/logo_unical_white.svg' %}"
+           class="w-100"
+           alt="{% trans 'Università della Calabria' %}"/>
 </div>
 {% endblock header_center_logo %}
 
@@ -60,8 +62,12 @@ bootstrap-italia-base.html
     {% endif %}
     <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
         {% block unical_mobile_logo %}
-        <image src="{% static 'images/logo_unical_white.svg' %}" class="w-100 d-md-none"/>
-        <image src="{% static 'images/logo_unical_white.svg' %}" class="w-75 d-none d-md-block d-lg-none"/>
+        <image src="{% static 'images/logo_unical_white.svg' %}"
+               class="w-100 d-md-none"
+               alt="{% trans 'Università della Calabria' %}"/>
+        <image src="{% static 'images/logo_unical_white.svg' %}"
+               class="w-75 d-none d-md-block d-lg-none"
+               alt="{% trans 'Università della Calabria' %}"/>
         {% endblock unical_mobile_logo %}
     </div>
 {% endblock header_slim_wrapper %}
@@ -91,7 +97,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                     </svg>
                 </div>
                 <div class="col-9 col-lg-8">
-                    <input id="search-input" type="text" class="top-input" />
+                    <input id="search-input" type="text" placeholder="{% trans 'Cerca...' %}" class="top-input" />
                 </div>
             </div>
         </div>
@@ -186,7 +192,9 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 {% block footer_logo %}
 <div class="col-12 col-md-4 px-0">
-    <image src="{% static 'images/logo_unical_white.svg' %}" class="mw-100"/>
+    <image src="{% static 'images/logo_unical_white.svg' %}"
+           class="mw-100"
+           alt="{% trans 'Università della Calabria' %}"/>
 </div>
 {% endblock footer_logo %}
 
