@@ -24,13 +24,12 @@
             <span>{{ item.name }}</span>
     </a>
     {% if item.has_childs %}
-    <a href="javascript:void(0)"
-        data-toggle="dropdown" aria-expanded="false"
-        class="megamenu-dropdown-arrow m-lg-auto pb-lg-1">
+    <span data-toggle="dropdown" aria-expanded="false"
+          class="megamenu-dropdown-arrow m-lg-auto pb-lg-1">
         <svg class="icon icon-xs float-xs-right">
             <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
         </svg>
-    </a>
+    </span>
     {% endif %}
     {% if item.get_childs %}
 
