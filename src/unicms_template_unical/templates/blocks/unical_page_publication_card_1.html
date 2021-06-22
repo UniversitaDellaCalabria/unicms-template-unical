@@ -33,7 +33,7 @@
                         {{ publication.subheading|truncatechars:66 }}
                     </p>
                     <a href="#">
-                        <svg class="icon">
+                        <svg class="icon" alt="{% trans 'Share' %} {{ publication.title }}">
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
                         </svg>
                     </a>
