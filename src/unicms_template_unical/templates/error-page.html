@@ -1,0 +1,41 @@
+{% extends 'base-setup.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block header_slim_right_zone %}{% endblock header_slim_right_zone %}
+
+{% block menu_links %}
+    {% block menu_pre_buttons %}
+    {% endblock menu_pre_buttons %}
+    <li class="nav-item">
+        <a class="nav-link"
+           href="/">
+            <span>{% trans "Home" %}</span>
+        </a>
+    </li>
+    {% block menu_post_buttons %}
+    {% endblock menu_post_buttons %}
+{% endblock menu_links %}
+
+{% block centered_container %}
+<div class="callout danger mt-5">
+	<div class="callout-title">
+        <svg class="icon icon-primary icon-danger">
+            <use xlink:href="{% static 'svg/sprite.svg' %}#it-close-circle"></use>
+        </svg>
+        {% block error_type %}
+            {% trans "Error" %}
+        {% endblock error_type %}</div>
+	<p>
+        {% block error_description %}
+            {% trans "Error description" %}
+        {% endblock error_description %}
+        <hr>
+        <a role="button" class="btn btn-outline-secondary"
+           href="/">
+            {% trans "Home" %}
+        </a>
+    </p>
+</div>
+{% endblock centered_container %}
