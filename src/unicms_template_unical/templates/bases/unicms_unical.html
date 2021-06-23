@@ -32,7 +32,14 @@ bootstrap-italia-base.html
 
 
 <!-- Page Title -->
-{% block page_title %}{% trans "Università della Calabria" %}{% endblock page_title %}
+{% block page_title %}
+    {% if page %}
+        {{ page.title }} -
+    {% elif webpath %}
+        {{ webpath.name }}
+    {% endif %}
+    {% trans "Università della Calabria" %}
+{% endblock page_title %}
 <!-- Meta Description (for all pages if not overrided) -->
 {% block page_meta_description %}{% trans "Sito istituzionale dell'Università della Calabria" %}{% endblock page_meta_description %}
 
