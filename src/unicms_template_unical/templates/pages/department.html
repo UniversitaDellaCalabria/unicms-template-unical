@@ -13,9 +13,9 @@
 
 
 {% block header_center_logo %}
-    <div class="d-none d-lg-flex col-lg-12 px-0">
+    <div class="d-none d-lg-flex col-lg-12 px-0 department_logo_lg">
         {% block header_center_logo_side %}
-        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" />
+        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
         {% endblock header_center_logo_side %}
     </div>
 {% endblock header_center_logo %}
@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-12" style="margin: auto 0">
             {% block header_slim_mobile_org_name_side %}
-            <image src="{% static 'images/unical_logo_bullet_white.svg' %}" width="100%"/>
+            <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="w-100"/>
             {% endblock header_slim_mobile_org_name_side %}
         </div>
     </div>
