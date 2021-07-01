@@ -21,11 +21,7 @@
 {% endblock header_center_logo %}
 
 {% block unical_mobile_logo %}
-    <div class="row">
-        <div class="col-12" style="margin: auto 0">
-            {% block header_slim_mobile_org_name_side %}
-            <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="w-100"/>
-            {% endblock header_slim_mobile_org_name_side %}
-        </div>
-    </div>
+    {% block header_slim_mobile_org_name_side %}
+        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="mw-100"/>
+    {% endblock header_slim_mobile_org_name_side %}
 {% endblock unical_mobile_logo %}
