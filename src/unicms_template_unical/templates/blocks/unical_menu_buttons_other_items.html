@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_menus %}
+
+{% load_other_items_from_menu as items %}
+
+{% include "unical_menu_buttons.html" with items=items.items %}
