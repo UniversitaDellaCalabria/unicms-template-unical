@@ -3,6 +3,7 @@
 
 {% load unicms_menus %}
 
-{% load_other_items_from_menu as items %}
+{% load_other_items_from_menu exclude_item=False as items %}
 
-{% include "unical_menu_buttons.html" with items=items.items %}
+
+{% include "unical_menu_buttons.html" with items=items.items current=items.current title=items.parent.name %}
