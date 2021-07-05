@@ -1,8 +1,8 @@
 {% load i18n %}
 {% load static %}
 
-{% load unicms_menus %}
+{% load unicms_template_unical %}
 
-{% load_other_items_from_menu as items %}
+{% load_same_level_items as items %}
 
 {% include "unical_menu_side.html" with items=items.items title=items.parent.name %}

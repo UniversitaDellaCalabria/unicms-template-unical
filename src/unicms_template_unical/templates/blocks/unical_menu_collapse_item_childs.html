@@ -1,0 +1,10 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_menus %}
+{% load unicms_template_unical %}
+
+{% load_current_item_from_menu as current %}
+{% load_item_childs item=current as childs %}
+
+{% include "unical_menu_collapse.html" with items=childs title=current.name %}
