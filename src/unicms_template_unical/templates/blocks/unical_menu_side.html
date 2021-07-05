@@ -29,7 +29,7 @@
             <a class="list-item large medium right-icon"
                href="#collapse-{{item.id}}-{{ forloop.counter }}"
                data-toggle="collapse"
-               aria-expanded="false"
+               aria-expanded="true"
                aria-controls="collapseOne">
                 <svg class="icon icon-sm icon-secondary right" aria-hidden="true">
                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
@@ -38,7 +38,7 @@
             {% load_item_childs item as childs %}
             </b>
             </li>
-            <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
+            <ul class="link-sublist collapse show pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}
                 <li style="list-style: none">
