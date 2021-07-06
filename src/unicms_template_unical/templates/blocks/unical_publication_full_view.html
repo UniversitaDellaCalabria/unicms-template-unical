@@ -77,7 +77,9 @@
 <h4>{% trans "tags" %}</h4>
 <p style="font-size: 1.2rem">
     {% for tag in publication.tags.all %}
-        <span class="badge badge-grey-unical square-corners">{{ tag.name }}</span>
+        <span class="badge badge-grey-unical square-corners mw-100">
+            {{ tag.name }}
+        </span>
     {% endfor %}
 </p>
 {% endif %}

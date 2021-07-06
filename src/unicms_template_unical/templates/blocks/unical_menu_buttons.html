@@ -6,7 +6,7 @@
 
 
 {% if title %}
-<div class="col-12">
+<div>
     <h1 class="lighter">{{ title }}</h1>
     <hr class="my-4 bordeaux-unical-bg">
 </div>
@@ -16,7 +16,7 @@
 
     {% call obj=item method='link' request=request as link %}
 
-    <span class="badge badge-grey-unical square-corners my-1 mr-3 ml-0 pr-5 p-2">
+    <span class="badge badge-grey-unical square-corners my-1 mr-3 ml-0 pr-5 p-2 mw-100">
         <a href="{% if item.link %}{{ link }}{% else %}#{% endif %}">
             <h5>
                 {% if item == current %}<b>{% endif %}
