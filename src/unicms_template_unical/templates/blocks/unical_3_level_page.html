@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load static %}
+{% load unicms_template_unical %}
+
+{% load_current_item_from_menu as current_item %}
+
+
+{% include "blocks/unical_menu_buttons_other_items.html" with items=items %}
+
+{% include "blocks/unical_publication_full_view_light.html" with publication=current_item.publication %}
+
+{% include "blocks/unical_menu_collapse_item_childs.html" with items=items %}

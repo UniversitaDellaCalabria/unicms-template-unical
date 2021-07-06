@@ -3,7 +3,6 @@
 
 {% load unicms_template_unical %}
 
-{% load_same_level_items exclude_item=False as items %}
+{% load_same_level_items exclude_item=False as same_items %}
 
-
-{% include "unical_menu_buttons.html" with items=items.items current=items.current title=items.parent.name %}
+{% include "unical_menu_buttons.html" with items=same_items.items current=same_items.current title=same_items.parent.name %}
