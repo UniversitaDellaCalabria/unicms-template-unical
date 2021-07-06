@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load static %}
+
+
+<h4>{% trans "attachments" %}</h4>
+
+<!-- ATTACHMENTS -->
+<ul class="upload-file-list" style="list-style: none">
+    {% for item in publication.get_attachments %}
+    <li>
+        <a href="{{ item.file.url }}" >
+            <svg class="icon icon-secondary"
+                 aria-hidden="true">
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-file"></use>
+            </svg>
+            <span class="sr-only">{% trans "Attachment" %}:</span> {{ item.name }}
+            <span class="text-muted small">
+                &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)
+            </span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<!-- END ATTACHMENTS -->

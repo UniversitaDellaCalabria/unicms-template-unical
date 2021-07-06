@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load static %}
+
+
+<h4>{% trans "Links" %}</h4>
+<ul class="pl-0" style="list-style: none">
+{% for link in publication.related_links %}
+    <li class="mb-3">
+        <a href="{{ link.url }}">
+            <svg class="icon icon-xs">
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
+            </svg>
+            {{ link.name }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
