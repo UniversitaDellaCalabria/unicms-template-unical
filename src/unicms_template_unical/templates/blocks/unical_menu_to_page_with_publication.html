@@ -24,7 +24,7 @@
 {% load_item_inherited_content item as publication %}
 
 <div class="row mb-4">
-    {% if publication.presentation_image %}
+
     <div class="col-12 col-lg-4 mt-lg-2">
         {% if publication.presentation_image %}
         <div class="img-responsive-wrapper">
@@ -38,22 +38,19 @@
                 </figure>
             </div>
         </div>
+        {% else %}
+        <div class="w-100" style="height: 160px; background: #ccc"></div>
         {% endif %}
     </div>
+
     <div class="col-12 col-lg-8 pl-lg-4">
-    {% else %}
-    <div class="col">
-    {% endif %}
         <h3>
             <a href="{{ link }}">
                 {{ item.name }}
             </a>
         </h3>
 
-        {% if publication.subheading %}
         {{ publication.subheading }}
-        {% endif %}
-
 
         {% if item.get_childs %}
 
@@ -76,7 +73,9 @@
         {% endif %}
     </div>
 </div>
-
+{% if not forloop.last %}
+<hr class="my-4 bordeaux-unical-bg">
+{% endif %}
 {% endfor %}
 
 
