@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+
+
+{% random_id as id %}
+
+<div id="collapseDiv-{{ id }}-lft"
+     class="collapse-div collapse-left-icon"
+     role="tablist">
+
+    {% for item in items %}
+
+        {% call obj=item method='link' request=request as link %}
+        {% load_item_inherited_content item as publication %}
+
+        <div class="collapse-header" id="heading-{{ id }}-{{ forloop.counter0 }}-lft">
+            <button data-toggle="collapse"
+                    data-target="#collapse-{{ id }}-{{ forloop.counter0 }}-lft"
+                    aria-expanded="false"
+                    aria-controls="collapse-{{ id }}-{{ forloop.counter0 }}-lft">
+                {{ item.name }}
+            </button>
+        </div>
+        <div id="collapse-{{ id }}-{{ forloop.counter0 }}-lft"
+             class="collapse"
+             role="tabpanel"
+             aria-labelledby="heading-{{ id }}-{{ forloop.counter0 }}-lft">
+            <div class="collapse-body">
+                {% if publication.content %}
+                    <p>{{ publication.content | safe }}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
