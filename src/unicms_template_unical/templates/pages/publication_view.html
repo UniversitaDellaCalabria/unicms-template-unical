@@ -27,6 +27,7 @@
 -->
         <div class="row">
 
+<!--
             <div class="col-12 mb-4">
                 <div class="pt-2 pb-3 pl-3 background-yellow">
                     <h2 class="m-0 p-0">
@@ -35,25 +36,36 @@
                     </h2>
                 </div>
             </div>
-
-            <div class="col-12 mb-5">
-                <p style="font-size: 2rem">
-                {% for category in publication_context.publication.categories %}
-                    <span class="badge badge-grey-unical square-corners">
-                        <a href="{% call obj=publication_context method='get_url_list' category_name=cat %}?category_name={{ category }}">{{ category }}</a>
-                    </span>
-                {% endfor %}
-                </p>
-            </div>
+-->
 
             <div class="col-12 col-lg-8">
+
+                <div class="col-12 mb-3">
+                {% for category in publication_context.publication.categories %}
+                    <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4">
+                        <div>
+                            <a href="{% call obj=publication_context method='get_url_list' category_name=cat %}?category_name={{ category }}">
+                                <h5>
+                                    <span>
+                                        {{ category }}
+                                    </span>
+                                </h5>
+                            </a>
+                        </div>
+                    </span>
+                {% endfor %}
+                </div>
 
                 <p class="text-muted">
                     <svg class="icon icon-xs">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
                     </svg> {% trans "Published" %} {{ publication_context.publication.created }}
                 </p>
-                <h1 class="mb-4">{{ publication_context.publication.title }}</h1>
+
+                <h1 class="mb-4 lighter">
+                    {{ publication_context.publication.title }}
+                </h1>
+
                 <p class="bigger-font">{{ publication_context.publication.subheading }}</p>
                 {% if publication_context.publication.presentation_image %}
                 <div class="img-wrapper pb-3">
