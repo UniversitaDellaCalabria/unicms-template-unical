@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+
+{% if publications %}
+<div class="row d-lg-flex">
+
+    {% for pub in publications %}
+    <div class="col-12 col-md-3">
+        <div class="card-wrapper">
+            <div class="card card-bg no-after">
+                <div class="card-body">
+                    <div class="category-top">
+                        <span>{{ pub.date_start }}</span>
+                    </div>
+                    <a href="{{ pub.url }}">
+                        <h5 class="card-title">
+                            {{ pub.publication.title }}
+                        </h5>
+                    </a>
+                    <p class="card-text">
+                        {{ pub.publication.subheading|truncatechars:135 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
