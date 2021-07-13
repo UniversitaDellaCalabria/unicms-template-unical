@@ -95,9 +95,12 @@ col-10 offset-2 col-lg-12 offset-lg-0
     <div class="row w-100">
 
         <div class="col-2 offset-3 offset-md-0 col-md-6">
-            <svg class="icon d-md-none icon-sm icon-light">
-                <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
-            </svg>
+            {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+            <a href='/{{ cms_path_prefix | default_if_none:"/" }}search/'>
+                <svg class="icon d-md-none icon-sm icon-light">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+                </svg>
+            </a>
             <div class="row d-none d-md-flex">
                 <div class="col-2 col-lg-3 text-right">
                     <svg class="icon icon-md icon-light">
@@ -146,13 +149,13 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
         <div class="col-3 col-md-2 text-center">
             {% if user.is_authenticated %}
-            <a href="" class="nav-link p-0">
+            <a href="{% url 'logout' %}" class="nav-link p-0">
                 <span>
                     {% trans "Logout" %}
                 </span>
             </a>
             {% else %}
-            <a href="" class="nav-link p-0">
+            <a href="{% url 'login' %}" class="nav-link p-0">
                 <span>
                     {% trans "Login" %}
                 </span>
