@@ -370,3 +370,10 @@ select.form-control {
        color: inherit;
     }
 }
+
+
+.progress-spinner.progress-spinner-double .progress-spinner-inner:after {
+    border: 4px solid $bordeaux_unical;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
