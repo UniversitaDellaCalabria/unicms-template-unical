@@ -148,7 +148,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
         </div>
 
         <div class="col-3 col-md-2 text-center">
-            {% if user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}" class="nav-link p-0">
                 <span>
                     {% trans "Logout" %}
