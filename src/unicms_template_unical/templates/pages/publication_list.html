@@ -31,54 +31,49 @@
 
         {% block centered_container %}
         <div class="row">
-            <div class="col-12 col-md-8">
-
+            <div class="col-12 col-md-8"></div>
         </div>
         {% endblock centered_container %}
     </div>
 </div>
 
-<div class="row" id="news">
-</div>
+<div class="row" id="news"></div>
 
 <script>
 Vue.component('list-panel', {
-  props: {
-      data: Array,
+    props: {
+        data: Array,
     },
-  template: `
-  <div class="container">
-  <div class="row">
-    <div class="col">
-        <span class="page-link" style="color:#050b12;">
-            <b>[[ data.total ]] {% trans "news" %}</b> in <b>[[ data.total_pages ]] {% trans "pages" %}</b>
-        </span>
-    </div>
-    <div class="col">
-    </div>
+    template: `
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <span class="page-link" style="color:#050b12;">
+                        <b>[[ data.total ]] {% trans "news" %}</b> in <b>[[ data.total_pages ]] {% trans "pages" %}</b>
+                    </span>
+                </div>
+                <div class="col">
+                    <nav class="pagination-wrapper" aria-label="News pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.previous_url]] )" v-if="data.previous_url">
+                                    <span class="sr-only"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <span class="page-link" style="color:#050b12;">[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.next_url ]] )"  v-if="data.next_url">
+                                    <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
+                                </a>
+                            </li>
+                        </ul>
+                    </nav
+                </div>
 
-  <div class="row">
-    <nav class="pagination-wrapper" aria-label="News pagination">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.previous_url]] )" v-if="data.previous_url">
-              <span class="sr-only"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
-          </a>
-        </li>
-        <li class="page-item">
-          <span class="page-link" style="color:#050b12;">[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
-        </li>
-        <li class="page-item">
-          <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.next_url ]] )"  v-if="data.next_url">
-              <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-  </div>
-
-</div>
+            </div>
+        </div>
   `
 })
 
@@ -86,8 +81,9 @@ Vue.component('list-panel', {
 var news = new Vue({
   el: '#news',
   template: `
-    <div v-if="newsLoaded == false">
+    <div v-if="!newsLoaded">
       {% include "loading-jumbo.html" %}
+    </div>
     <div v-else>
 
         <list-panel v-bind:data="items"></list-panel>
@@ -177,5 +173,4 @@ page_number={% if request.GET.page_number %}{{ request.GET.page_number }}{% else
 })
 </script>
 {% endblock container %}
-
 
