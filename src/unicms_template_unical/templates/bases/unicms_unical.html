@@ -38,10 +38,10 @@ bootstrap-italia-base.html
     {% elif webpath %}
         {{ webpath.name }}
     {% endif %}
-    {% trans "Università della Calabria" %}
+    {% trans "University of Calabria" %}
 {% endblock page_title %}
 <!-- Meta Description (for all pages if not overrided) -->
-{% block page_meta_description %}{% trans "Sito istituzionale dell'Università della Calabria" %}{% endblock page_meta_description %}
+{% block page_meta_description %}{% trans "Official University of Calabria website" %}{% endblock page_meta_description %}
 
 {% block header_brand_wrapper %}
 <div class="d-none d-lg-inline col-lg-6">
@@ -54,7 +54,7 @@ bootstrap-italia-base.html
 <div class="d-none d-lg-flex col-lg-12 px-0">
     <image src="{% static 'images/logo_unical_white.svg' %}"
            class="w-100"
-           alt="{% trans 'Università della Calabria' %}"/>
+           alt="{% trans 'University of Calabria' %}"/>
 </div>
 {% endblock header_center_logo %}
 
@@ -72,10 +72,10 @@ bootstrap-italia-base.html
         {% block unical_mobile_logo %}
         <image src="{% static 'images/logo_unical_white.svg' %}"
                class="w-100 d-md-none"
-               alt="{% trans 'Università della Calabria' %}"/>
+               alt="{% trans 'University of Calabria' %}"/>
         <image src="{% static 'images/logo_unical_white.svg' %}"
                class="w-75 d-none d-md-block d-lg-none"
-               alt="{% trans 'Università della Calabria' %}"/>
+               alt="{% trans 'University of Calabria' %}"/>
         {% endblock unical_mobile_logo %}
     </div>
 {% endblock header_slim_wrapper %}
@@ -108,7 +108,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                     </svg>
                 </div>
                 <div class="col-9 col-lg-8">
-                    <input id="search-input" type="text" placeholder="{% trans 'Cerca' %}..." class="top-input" />
+                    <input id="search-input" type="text" placeholder="{% trans 'Search' %}..." class="top-input" />
                 </div>
             </div>
         </div>
@@ -215,7 +215,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="col-12 col-md-4 px-0">
     <image src="{% static 'images/logo_unical_white.svg' %}"
            class="mw-100"
-           alt="{% trans 'Università della Calabria' %}"/>
+           alt="{% trans 'University of Calabria' %}"/>
 </div>
 {% endblock footer_logo %}
 
