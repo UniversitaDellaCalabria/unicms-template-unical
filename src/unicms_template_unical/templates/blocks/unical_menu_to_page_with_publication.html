@@ -59,14 +59,16 @@
         <div class="row mt-3">
             <div class="col">
             {% for child in childs %}
-            {% call obj=child method='link' request=request as child_link %}
-            <span
-                class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
-                style="font-size: 100%">
-                <a href="{{ child_link }}">
-                    <b>{{ child.name }}</b>
-                </a>
-            </span>
+                {% call obj=child method='link' request=request as child_link %}
+                {% if child_link %}
+                <span
+                    class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
+                    style="font-size: 100%">
+                    <a href="{{ child_link }}">
+                        <b>{{ child.name }}</b>
+                    </a>
+                </span>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
