@@ -1,4 +1,3 @@
-{% load i18n %}
 {% load static %}
 
 {% load unicms_contexts %}
@@ -16,15 +15,9 @@
                     <div class="etichetta">
                         {% for cat in pub.publication.categories %}
                             <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
-                                <div>
-                                    <a href="{% call obj=pub method='get_url_list' category_name=cat %}">
-                                        <b>
-                                            <span>
-                                                {{ cat }}
-                                            </span>
-                                        </b>
-                                    </a>
-                                </div>
+                                <a href="{% call obj=pub method='get_url_list' category_name=cat %}">
+                                    <b>{{ cat }}</b>
+                                </a>
                             </span>
                         {% endfor %}
                     </div>
@@ -32,8 +25,10 @@
                     <div class="img-responsive-wrapper mb-3">
                         <div class="img-responsive img-responsive-panoramic">
                             <figure class="img-wrapper">
-                              <a style="" href="{{ pub.url }}">
-                                <img src="{{ pub.publication.image_url }}" title="img title" alt="imagealt">
+                              <a href="{{ pub.url }}">
+                                <img src="{{ pub.publication.image_url }}"
+                                     title="{{ pub.publication.presentation_image.title }}"
+                                     alt="{{ pub.publication.presentation_image.description }}">
                               </a>
                             </figure>
                         </div>
@@ -43,7 +38,7 @@
                         <span>{{ pub.date_start }}</span>
                     </div>
                     <h4 class="card-title">
-                        <a style="text-decoration: none; color: #17324d;" href="{{ pub.url }}">
+                        <a href="{{ pub.url }}">
                             {{ pub.publication.title }}
                         </a>
                     </h4>

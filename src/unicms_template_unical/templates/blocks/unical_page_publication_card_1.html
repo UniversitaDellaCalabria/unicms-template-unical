@@ -10,20 +10,19 @@
         <div class="card-wrapper card-space">
             <div class="card card-bg no-after">
                 {% if url %}
-                <a style="" href="{{ url }}">
+                <a href="{{ url }}">
                 {% endif %}
                     <img src="{{ publication.image_url }}"
                          title="{{ publication.title }}"
                          alt="{{ publication.title }}"
-                         style="width:100%">
+                         class="w-100">
                 {% if url %}
                 </a>
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">
                         {% if url %}
-                        <a style="text-decoration: none; color: #17324d;"
-                           href="{{ url }}">
+                        <a  href="{{ url }}">
                         {% endif %}
                             {{ publication.title }}
                         {% if url %}
@@ -31,7 +30,7 @@
                         {% endif %}
                     </h5>
                     <p class="card-text">
-                        {{ publication.subheading|truncatechars:66 }}
+                        {{ publication.subheading|truncatechars:135 }}
                     </p>
                     <a href="#">
                         <svg class="icon" alt="{% trans 'Share' %} {{ publication.title }}">
