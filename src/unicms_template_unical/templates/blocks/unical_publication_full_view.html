@@ -2,7 +2,9 @@
 {% load static %}
 
 
+{% block publication_title %}
 <h1 class="mb-4 lighter">{{ publication.title }}</h1>
+{% endblock publication_title %}
 
 {% if publication.subheading %}
 <div class="bigger-font mb-4">{{ publication.subheading }}</div>
@@ -23,6 +25,7 @@
 </div>
 {% endif %}
 
+{% block publication_attachments %}
 {% if publication.get_attachments %}
 <hr class="my-4">
 <h4>{% trans "attachments" %}</h4>
@@ -46,7 +49,9 @@
 </ul>
 <!-- END ATTACHMENTS -->
 {% endif %}
+{% endblock publication_attachments %}
 
+{% block publication_links %}
 {% if publication.related_links %}
 <hr class="my-4">
 <h4>{% trans "Links" %}</h4>
@@ -63,6 +68,7 @@
 {% endfor %}
 </ul>
 {% endif %}
+{% endblock publication_links %}
 
 {% if publication.related_galleries %}
 <hr class="my-4">
@@ -70,17 +76,5 @@
     {% for gallery in publication.related_galleries %}
         {% include "carousel_media_gallery.html" with media_items=gallery.collection.get_items %}
     {% endfor %}
-{% endif %}
-
-{% if publication.tags.all %}
-<hr class="my-4">
-<h4>{% trans "tags" %}</h4>
-<p style="font-size: 1.2rem">
-    {% for tag in publication.tags.all %}
-        <span class="badge badge-grey-unical square-corners mw-100">
-            {{ tag.name }}
-        </span>
-    {% endfor %}
-</p>
 {% endif %}
 <!-- END PUBLICATION BODY -->

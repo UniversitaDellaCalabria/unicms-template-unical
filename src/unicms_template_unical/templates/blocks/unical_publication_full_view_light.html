@@ -1,31 +1,14 @@
+{% extends "blocks/unical_publication_full_view.html" %}
+
 {% load i18n %}
 {% load static %}
 
 
-{% if publication.subheading %}
-<div class="bigger-font mb-4">{{ publication.subheading }}</div>
-{% endif %}
+{% block publication_title %}
+{% endblock publication_title %}
 
-{% if publication.presentation_image %}
-<div class="mb-4">
-    <img src="{{ publication.image_url }}"
-         title="{{ publication.presentation_image.title }}"
-         alt="{{ publication.presentation_image.description }}"
-         class="w-100">
-</div>
-{% endif %}
+{% block publication_attachments %}
+{% endblock publication_attachments %}
 
-{% if publication.html_content %}
-<div>
-    {{ publication.html_content|safe }}
-</div>
-{% endif %}
-
-{% if publication.related_galleries %}
-<hr class="my-4">
-<h4>{% trans "Photo galleries" %}</h4>
-    {% for gallery in publication.related_galleries %}
-        {% include "carousel_media_gallery.html" with media_items=gallery.collection.get_items %}
-    {% endfor %}
-{% endif %}
-<!-- END PUBLICATION BODY -->
+{% block publication_links %}
+{% endblock publication_links %}
