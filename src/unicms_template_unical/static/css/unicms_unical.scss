@@ -20,10 +20,19 @@ $light_grey_presta: #e3e9ec;
 
 a {
     text-decoration: none;
-    color: $dark_grey_unical;
+    color: $bordeaux_unical;
 }
-p a {
-    text-decoration: underline;
+a:visited {
+    color: #6f0b0a;
+}
+a:hover, a:active {
+    color: #e03231;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a,
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+    color: $dark_grey_unical;
 }
 
 .super-bold {
