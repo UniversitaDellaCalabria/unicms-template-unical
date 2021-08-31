@@ -42,8 +42,8 @@
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}
                 <li style="list-style: none">
-                    <a class="list-item" href="{{ child_link}}">
-                        <span class="text-dark">{{ child.name }}</span>
+                    <a class="list-item no-color" href="{{ child_link}}">
+                        {{ child.name }}
                     </a>
                 </li>
             {% endfor %}
