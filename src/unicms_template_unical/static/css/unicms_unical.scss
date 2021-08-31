@@ -10,8 +10,11 @@
 @import "unical-style";
 
 $cyan: #176fc1;
-$grey_presta: #d3d2cf;
-$light_grey_presta: #e3e9ec;
+$grey: #d3d2cf;
+$light_grey: #e3e9ec;
+
+$darker_bordeaux: #6f0b0a;
+$lighter_bordeaux: #e03231;
 
 @font-face {
   font-family: TitilliumWeb-Black;
@@ -23,15 +26,22 @@ a {
     color: $bordeaux_unical;
 }
 a:visited {
-    color: #6f0b0a;
+    color: $darker_bordeaux;
 }
 a:hover, a:active {
-    color: #e03231;
+    color: $lighter_bordeaux;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a,
-h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active,
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+/** only visited **/
+a.no-color  {
+    color: $dark_grey_unical;
+}
+a.no-color:visited {
+    color: $darker_bordeaux;
+}
+/** end only visited **/
+
+a.no-color-all  {
     color: $dark_grey_unical;
 }
 
@@ -64,7 +74,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
 }
 
 .dark-grey-background {
-    background: $grey_presta;
+    background: $grey;
 }
 
 .it-header-center-wrapper {
@@ -123,7 +133,7 @@ input.top-input {
 }
 
 .btn-grey-presta {
-    background: $grey_presta;
+    background: $grey;
 }
 .btn-grey-presta:hover {
     color: $white;
@@ -160,7 +170,7 @@ input.top-input {
 }
 
 .badge-grey-unical {
-    background: $light_grey_presta;
+    background: $light_grey;
     color: $dark_grey_unical;
     font-weight: 500;
 }

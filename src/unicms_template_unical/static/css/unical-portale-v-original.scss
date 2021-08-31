@@ -9,7 +9,7 @@
 @import "css/unical-style";
 
 $cyan: #176fc1;
-$grey_presta: #d3d2cf;
+$grey: #d3d2cf;
 
 @font-face {
   font-family: TitilliumWeb-Black;
@@ -33,7 +33,7 @@ a {
 }
 
 .dark-grey-background {
-    background: $grey_presta;
+    background: $grey;
 }
 
 .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
@@ -84,7 +84,7 @@ input.top-input {
 }
 
 .btn-grey-presta {
-    background: $grey_presta;
+    background: $grey;
 }
 .btn-grey-presta:hover {
     color: $white;

@@ -20,15 +20,15 @@
                 </a>
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">
-                        {% if url %}
-                        <a  href="{{ url }}">
-                        {% endif %}
+                    {% if url %}
+                    <a class="no-color" href="{{ url }}">
+                    {% endif %}
+                        <h5 class="card-title">
                             {{ publication.title }}
-                        {% if url %}
-                        </a>
-                        {% endif %}
-                    </h5>
+                        </h5>
+                    {% if url %}
+                    </a>
+                    {% endif %}
                     <p class="card-text">
                         {{ publication.subheading|truncatechars:135 }}
                     </p>

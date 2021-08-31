@@ -21,12 +21,12 @@
             <b>
         {% endif %}
 
-        <a href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
+        <a class="no-color" href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
             <span>{{ item.name }}</span>
         </a>
 
         {% if has_childs %}
-            <a class="list-item large medium right-icon"
+            <a class="list-item large medium right-icon no-color"
                href="#collapse-{{item.id}}-{{ forloop.counter }}"
                data-toggle="collapse"
                aria-expanded="true"
