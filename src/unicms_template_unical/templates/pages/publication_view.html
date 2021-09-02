@@ -41,7 +41,7 @@
                 {% for category in publication_context.publication.categories %}
                     <span class="badge badge-pill badge-grey-unical my-1 mr-1 py-2 px-4">
                         <div>
-                            <a class="no-color-all" href="{% call obj=publication_context method='get_url_list' category_name=cat %}?category_name={{ category }}">
+                            <a class="no-color" href="{% call obj=publication_context method='get_url_list' category_name=cat %}?category_name={{ category }}">
                                 <h5>
                                     <span>
                                         {{ category }}

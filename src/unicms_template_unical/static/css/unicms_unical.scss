@@ -23,40 +23,30 @@ $lighter_bordeaux: #e03231;
 
 a {
     text-decoration: none;
-    color: $bordeaux_unical;
+    color: #06c;
     text-decoration: underline;
 }
-a:visited {
-    color: $darker_bordeaux;
-}
+
 a:hover, a:active {
-    color: $lighter_bordeaux;
+    color: #004080;
     text-decoration: none;
 }
 
 /** only visited **/
-a.no-color  {
+a.no-color,
+ol.breadcrumb a  {
     color: $dark_grey_unical;
     text-decoration: none;
 }
-a.no-color:visited {
-    color: $darker_bordeaux;
-}
+
 a.no-color:hover,
-a.no-color:active {
+a.no-color:active,
+ol.breadcrumb a:hover,
+ol.breadcrumb a:active  {
     text-decoration: underline;
 }
-
 /** end only visited **/
 
-a.no-color-all  {
-    color: $dark_grey_unical;
-    text-decoration: none;
-}
-a.no-color-all:hover,
-a.no-color-all:active {
-    text-decoration: underline;
-}
 
 .super-bold {
     font-family: TitilliumWeb-Black;
