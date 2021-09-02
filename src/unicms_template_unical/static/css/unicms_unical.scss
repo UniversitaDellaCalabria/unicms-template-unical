@@ -24,25 +24,38 @@ $lighter_bordeaux: #e03231;
 a {
     text-decoration: none;
     color: $bordeaux_unical;
+    text-decoration: underline;
 }
 a:visited {
     color: $darker_bordeaux;
 }
 a:hover, a:active {
     color: $lighter_bordeaux;
+    text-decoration: none;
 }
 
 /** only visited **/
 a.no-color  {
     color: $dark_grey_unical;
+    text-decoration: none;
 }
 a.no-color:visited {
     color: $darker_bordeaux;
 }
+a.no-color:hover,
+a.no-color:active {
+    text-decoration: underline;
+}
+
 /** end only visited **/
 
 a.no-color-all  {
     color: $dark_grey_unical;
+    text-decoration: none;
+}
+a.no-color-all:hover,
+a.no-color-all:active {
+    text-decoration: underline;
 }
 
 .super-bold {
