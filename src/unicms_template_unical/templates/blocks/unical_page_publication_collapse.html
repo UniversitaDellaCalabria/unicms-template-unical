@@ -1,0 +1,30 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_templates %}
+
+
+{% random_id as id %}
+
+<div id="collapseDiv-{{ id }}-lft"
+     class="collapse-div collapse-left-icon"
+     role="tablist">
+
+    <div class="collapse-header" id="heading-{{ id }}-lft">
+        <button data-toggle="collapse"
+                data-target="#collapse-{{ id }}-lft"
+                aria-expanded="false"
+                aria-controls="collapse-{{ id }}-lft">
+            {{ publication.title }}
+        </button>
+    </div>
+    <div id="collapse-{{ id }}-lft"
+         class="collapse"
+         role="tabpanel"
+         aria-labelledby="heading-{{ id }}-lft">
+        <div class="collapse-body">
+            {% include "blocks/unical_publication_full_view_light.html" with publication=publication %}
+        </div>
+    </div>
+
+</div>
