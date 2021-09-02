@@ -16,7 +16,7 @@
 
     {% call obj=item method='link' request=request as link %}
 
-    <span class="badge badge-grey-unical square-corners my-1 mr-3 ml-0 pr-5 p-2 mw-100">
+    <span class="{% if item == current %}selected{% endif %} badge badge-grey-unical square-corners my-1 mr-3 ml-0 pr-5 p-2 mw-100">
         <a class="no-color" href="{% if item.link %}{{ link }}{% else %}#{% endif %}">
             <h5>
                 {% if item == current %}<b>{% endif %}

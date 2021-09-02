@@ -177,6 +177,11 @@ input.top-input {
     color: $dark_grey_unical;
     font-weight: 500;
 }
+.badge-grey-unical.selected {
+    background: $dark_grey_unical;
+
+    a {color: $light_grey;}
+}
 
 .square-corners {
     border-radius: 0;
