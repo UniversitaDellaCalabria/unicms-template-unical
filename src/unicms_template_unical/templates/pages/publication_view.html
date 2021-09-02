@@ -86,33 +86,6 @@
                 </p>
                 {% endif %}
 
-                {% if publication_context.publication.get_attachments %}
-                <hr>
-                <br>
-                <h4>{% trans "attachments" %}</h4>
-
-                <!-- ATTACHMENTS -->
-                <ul class="upload-file-list">
-
-                    {% for item in publication_context.publication.get_attachments %}
-                    <li class="upload-file success">
-                      <a href="{{ item.file.url }}" >
-                      <span  style="color: #000;">
-                        <svg class="icon icon-secondary" aria-hidden="true">
-                            <use xlink:href="{% static '/svg/sprite.svg' %}#it-file"></use>
-                        </svg>
-                        <span class="sr-only">{% trans "Attachment" %}:</span> {{ item.name }}
-                        <span class="text-muted small"> &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)</span>
-                      </span>
-                      </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-              <!-- END ATTACHMENTS -->
-
-            {% endif %}
-
-
                 {% if publication_context.publication.related_galleries %}
                 <hr>
 
@@ -168,6 +141,25 @@
                                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
                                 </svg>
                                 {{ link.name }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if publication_context.publication.get_attachments %}
+                    <h5 class="card-title">{% trans "Attachments" %}</h5>
+                    <ul class="pl-0" style="list-style: none">
+                    {% for item in publication_context.publication.get_attachments %}
+                        <li class="mb-3">
+                            <a href="{{ item.file.url }}">
+                                <svg class="icon icon-xs">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-file"></use>
+                                </svg>
+                                {{ item.name }}
+                                <span class="text-muted small">
+                                    &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)
+                                </span>
+                            </a>
                         </li>
                     {% endfor %}
                     </ul>
