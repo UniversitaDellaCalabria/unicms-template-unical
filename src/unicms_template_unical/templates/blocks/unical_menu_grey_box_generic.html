@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_menus %}
+
+
+<div class="row background-light-grey px-2 py-5">
+    {% if title %}
+    <h4>{{ title }}</h4>
+    <hr />
+    {% endif %}
+
+    {% block icon %}
+    {% endblock %}
+    <div class="col">
+        {% for item in items %}
+            {% call obj=item method='link' request=request as link %}
+            <li style="list-style: none">
+                <a class="no-color" href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
+                    <b>- {{ item.name }}</b>
+                </a>
+            </li>
+        {% endfor %}
+    </div>
+</div>
+
+
+

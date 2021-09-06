@@ -64,6 +64,11 @@ ol.breadcrumb a:active  {
     background: $white;
 }
 
+.background-light-grey {
+    background: $light_grey;
+    color: $dark_grey_unical;
+}
+
 .icon-light {
     fill: #fff !important;
 }
