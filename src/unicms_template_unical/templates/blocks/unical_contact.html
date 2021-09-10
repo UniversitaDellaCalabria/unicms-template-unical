@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load static %}
+
+<div class="mb-3">
+    <div class="row">
+        <div class="col-2">
+            {% if contact.image %}
+            <img src="{{ contact.image.get_media_path }}"
+                 alt="{{ contact.image.description }}"
+                 title="{{ contact.image.description }}"
+                 class="w-100" />
+            {% else %}
+            <svg class="icon icon-lg icon-muted">
+                {% if contact.contact_type == 'person' %}
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
+                {% else %}
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-info-circle"></use>
+                {% endif %}
+            </svg>
+            {% endif %}
+        </div>
+        <div class="col-9 pl-3 align-left">
+            <small>
+                <b>{{ contact.name }}</b>
+                {% if contact_infos %}
+                <div class="mt-2">
+                    {% for info in contact_infos %}
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                                <svg class="icon icon-sm icon-muted mr-2">
+                                    {% if info.info_type == 'email' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
+                                    {% elif info.info_type == 'location' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-map-marker"></use>
+                                    {% elif info.info_type == 'website' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
+                                    {% elif info.info_type == 'phone' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-telephone"></use>
+                                    {% endif %}
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="col-10">
+                            {{ info.label }}: {{ info.value }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </small>
+        </div>
+    </div>
+</div>
