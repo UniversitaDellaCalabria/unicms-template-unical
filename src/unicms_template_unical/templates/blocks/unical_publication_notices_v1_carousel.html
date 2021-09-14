@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+{% if publications %}
+<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
+    <div class="it-carousel-all owl-carousel it-card-bg">
+        {% for pub in publications %}
+        <div class="it-single-slide-wrapper">
+            <div class="card-wrapper">
+                <div class="card card-bg no-after">
+                    <div class="card-body">
+                        <div class="category-top">
+                            <span>{{ pub.date_start }}</span>
+                        </div>
+                        <h5 class="card-title">
+                            <a class="no-color" href="{{ pub.url }}">
+                                {{ pub.publication.title }}
+                            </a>
+                        </h5>
+                        <p class="card-text">
+                            {{ pub.publication.subheading|truncatechars:135 }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
