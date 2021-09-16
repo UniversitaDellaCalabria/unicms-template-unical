@@ -409,3 +409,7 @@ select.form-control {
     border-right: 4px solid transparent;
     border-bottom: 4px solid transparent;
 }
+
+figure.table tr:nth-of-type(2n) {
+    background-color: #f6f7f9;
+}
