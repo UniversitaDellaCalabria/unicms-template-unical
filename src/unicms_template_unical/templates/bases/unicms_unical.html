@@ -221,3 +221,146 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 {% block footer_org_text %}
 {% endblock footer_org_text %}
+
+{% block footer_contacts_section %}
+<section class="py-4 border-white border-top">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 pb-2">
+            <h4><a href="#" title="Vai alla pagina: Contatti">Contatti</a></h4>
+            <p>
+                <strong>Università della Calabria</strong>
+                <br>
+                Via Pietro Bucci
+                <br>
+                87036 Rende CS
+                <br>
+                Tel. +39 0984 4911
+                <br>
+                C.F. 80003950781 / P.I. 00419160783
+
+            </p>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: URP - Ufficio Relazioni con il Pubblico">URP - Ufficio Relazioni con il Pubblico</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 pb-2">
+            <h4><a href="#" title="Vai alla pagina: Lorem Ipsum">Lorem Ipsum</a></h4>
+        </div>
+        <div class="col-lg-4 col-md-4 pb-2">
+            <div class="pb-2">
+                <h4><a href="#" title="Vai alla pagina: Seguici su">Seguici su</a></h4>
+                <ul class="list-inline text-left social">
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
+                            </svg><span class="sr-only">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
+                            </svg><span class="sr-only">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
+                            </svg><span class="sr-only">Linkedin</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-instagram"></use>
+                            </svg><span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-youtube"></use>
+                            </svg><span class="sr-only">Youtube</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="p-2 text-white" href="#" target="_blank">
+                            <svg class="icon icon-sm icon-white align-top">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-github"></use>
+                            </svg><span class="sr-only">Github</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {% comment %}
+            <div class="pb-2">
+                <h4><a href="#" title="Vai alla pagina: Newsletter">Newsletter</a></h4>
+                <p>Form Newsletter</p>
+                  <!--<form action="#" method="post">
+                    <label for="input-newsletter" class="active">Iscriviti per riceverla</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                      </div>
+                      <input type="text" class="form-control" id="input-newsletter" name="input-newsletter" placeholder="Scrivi il tuo indirizzo email" >
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                      </div>
+                    </div>
+                    <button class="btn btn-default pull-right" type="submit">Iscriviti</button>
+                  </form>-->
+            </div>
+            {% endcomment %}
+        </div>
+    </div>
+</section>
+{% endblock footer_contacts_section %}
+
+{% block footer_bottom %}
+<div class="it-footer-small-prints clearfix">
+    <div class="container">
+        {% block footer_bottom_content %}
+        <h3 class="sr-only">Sezione Link Utili</h3>
+        <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+            <li class="list-inline-item">
+                <a href="#" title="Amministrazione trasparente">
+                    Amministrazione trasparente
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" title="Accessibilità">
+                    Accessibilità
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" title="Privacy">
+                    Privacy
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" title="Cookie">
+                    Cookie
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" title="Note Legali">
+                    Note legali
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#" title="Mappa del sito">
+                    Mappa del sito
+                </a>
+            </li>
+        </ul>
+        {% endblock footer_bottom_content %}
+    </div>
+</div>
+{% endblock footer_bottom %}
+
+
