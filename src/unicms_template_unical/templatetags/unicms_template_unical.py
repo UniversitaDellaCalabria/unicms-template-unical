@@ -35,7 +35,7 @@ def load_same_level_items(context, exclude_item=True):
     request = context['request']
     language = getattr(request, 'LANGUAGE_CODE', '')
 
-    path = append_slash(request.path)
+    path = context['page'].webpath.get_full_path()
 
     for item in context['items']:
         result = _get_same_level_items(item, path, language,
@@ -61,8 +61,7 @@ def load_current_item_from_menu(context):
 
     request = context['request']
     language = getattr(request, 'LANGUAGE_CODE', '')
-
-    path = append_slash(request.path)
+    path = context['page'].webpath.get_full_path()
 
     for item in context['items']:
         result = _get_current_item(item, path, language)
