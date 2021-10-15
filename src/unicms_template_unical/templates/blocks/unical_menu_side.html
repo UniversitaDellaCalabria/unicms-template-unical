@@ -16,7 +16,7 @@
 
     {% with has_childs=item.get_childs %}
 
-    <li style="list-style: none" {% if item.get_childs %}class="mt-2 mb-4"{% endif %}>
+    <li style="list-style: none" {% if item.get_childs %}class="my-2"{% endif %}>
         {% if has_childs %}
             <b>
         {% endif %}
@@ -54,3 +54,4 @@
 
     {% endwith %}
 {% endfor %}
+<hr />
