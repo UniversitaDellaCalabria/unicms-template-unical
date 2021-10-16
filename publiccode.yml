@@ -85,7 +85,7 @@ maintenance:
     - email: giuseppe.demarco@unical.it
       name: Giuseppe De Marco
   type: internal
-name: Unical template for uniCMS
+name: uniCMS - Unical template
 platforms:
   - linux
   - web
