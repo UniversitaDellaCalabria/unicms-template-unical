@@ -10,7 +10,7 @@
                  title="{{ contact.image.description }}"
                  class="w-100" />
             {% else %}
-            <svg class="icon icon-lg icon-muted">
+            <svg class="icon icon-muted">
                 {% if contact.contact_type == 'person' %}
                 <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
                 {% else %}
@@ -19,7 +19,7 @@
             </svg>
             {% endif %}
         </div>
-        <div class="col-9 pl-3 align-left">
+        <div class="col-9 align-left">
             <small>
                 <b>{{ contact.name }}</b>
                 {% if contact_infos %}
@@ -42,7 +42,10 @@
                             </span>
                         </div>
                         <div class="col-10">
-                            {{ info.label }}: {{ info.value }}
+                            {% if info.label %}
+                                {{ info.label }}:
+                            {% endif %}
+                            {{ info.value }}
                         </div>
                     </div>
                     {% endfor %}
