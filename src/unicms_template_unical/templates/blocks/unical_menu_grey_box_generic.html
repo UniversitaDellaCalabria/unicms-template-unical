@@ -18,7 +18,7 @@
             {% call obj=item method='link' request=request as link %}
             <li style="list-style: none">
                 <a class="no-color" href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
-                    <b>- {{ item.name }}</b>
+                    <small><b>- {{ item.name }}</b></small>
                 </a>
             </li>
         {% endfor %}
