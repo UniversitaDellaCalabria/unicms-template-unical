@@ -1,0 +1,25 @@
+{% load static %}
+
+
+{% with collection.get_items as collection_items %}
+    {% if collection_items %}
+    <div class="row">
+        {% for item in collection_items %}
+        <div class="col-12 col-lg-4">
+            <a href="{{ item.media.get_media_path }}">
+                {{ item.media.title }}
+            </a>
+            <p>
+                <small>
+                     {{ item.media.description }}
+                    <br>
+                    <span class="text-muted">
+                        {{ item.media.file_type }} - {{ item.media.file_size_kb }} KB
+                    </span>
+                </small>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
