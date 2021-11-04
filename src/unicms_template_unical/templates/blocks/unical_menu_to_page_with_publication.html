@@ -25,19 +25,14 @@
 
 <div class="row mb-4">
 
-    <div class="col-12 col-lg-4 mt-lg-2 mb-md-3 mb-lg-0">
+    <div class="col-12 col-lg-4 mt-lg-2 mb-3 mb-lg-0 text-left text-lg-center">
         {% if publication.image_url %}
-        <div class="img-responsive-wrapper">
-            <div class="img-responsive img-responsive-panoramic">
-                <figure class="img-wrapper">
-                  <a href="{{ link }}">
-                    <img src="{{ publication.image_url }}"
-                         title="{{ publication.image_title }}"
-                         alt="{{ publication.image_description }}">
-                  </a>
-                </figure>
-            </div>
-        </div>
+        <a href="{{ link }}">
+            <img src="{{ publication.image_url }}"
+                 title="{{ publication.image_title }}"
+                 alt="{{ publication.image_description }}"
+                 class="mw-100" style="max-height: 150px">
+        </a>
         {% else %}
         <div class="w-100" style="height: 160px; background: #ccc"></div>
         {% endif %}
