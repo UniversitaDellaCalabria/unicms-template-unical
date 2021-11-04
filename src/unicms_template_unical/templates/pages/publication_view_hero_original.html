@@ -17,7 +17,11 @@
   <!-- - img-->
   <div class="img-responsive-wrapper">
     <div class="img-responsive">
-        <div class="img-wrapper"><img src="{{ publication_context.publication.image_url }}" title="img title" alt="imagealt"></div>
+        <div class="img-wrapper">
+            <img src="{{ publication_context.publication.image_url }}"
+                 title="{{ publication_context.publication.image_title }}"
+                 alt="{{ publication_context.publication.image_description }}">
+        </div>
     </div>
   </div>
   <!-- - texts-->

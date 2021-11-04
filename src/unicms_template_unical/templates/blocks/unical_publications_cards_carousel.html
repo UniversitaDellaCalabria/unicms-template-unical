@@ -18,14 +18,14 @@
                             </span>
                         {% endfor %}
                     </div>
-                    {% if pub.publication.presentation_image %}
+                    {% if pub.publication.image_url %}
                     <div class="img-responsive-wrapper mb-3">
                         <div class="img-responsive img-responsive-panoramic">
                             <figure class="img-wrapper">
                               <a href="{{ pub.url }}">
                                 <img src="{{ pub.publication.image_url }}"
-                                     title="{{ pub.publication.presentation_image.title }}"
-                                     alt="{{ pub.publication.presentation_image.description }}">
+                                     title="{{ pub.publication.image_title }}"
+                                     alt="{{ pub.publication.image_description }}">
                               </a>
                             </figure>
                         </div>
@@ -39,7 +39,7 @@
                             {{ pub.publication.title }}
                         </a>
                     </h4>
-                    {% if not pub.publication.presentation_image %}
+                    {% if not pub.publication.image_url %}
                     <p class="card-text">
                         {{ pub.publication.subheading|truncatechars:135 }}
                     </p>
