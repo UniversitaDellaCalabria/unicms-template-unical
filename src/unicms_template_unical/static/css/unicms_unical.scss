@@ -182,10 +182,14 @@ input.top-input {
     color: $dark_grey_unical;
     font-weight: 500;
 }
+.badge-grey-unical:hover,
 .badge-grey-unical.selected {
     background: $dark_grey_unical;
 
-    a {color: $light_grey;}
+    a {
+        color: $light_grey;
+        text-decoration: none;
+    }
 }
 
 .square-corners {
