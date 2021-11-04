@@ -417,3 +417,21 @@ select.form-control {
 figure.table tr:nth-of-type(2n) {
     background-color: #f6f7f9;
 }
+
+.owl-carousel-cards .owl-stage {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.owl-carousel-cards .owl-item{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: grid;
+    height: auto !important;
+}
+
