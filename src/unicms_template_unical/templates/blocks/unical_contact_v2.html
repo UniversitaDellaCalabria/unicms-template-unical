@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load static %}
+
+<div class="mb-3">
+    <div class="row">
+        {% if contact.image %}
+        <div class="col-2">
+            <img src="{{ contact.image.get_media_path }}"
+                 alt="{{ contact.image.description }}"
+                 title="{{ contact.image.description }}"
+                 class="w-100" />
+
+        </div>
+        {% endif %}
+        <div class="col-align-left">
+            <small>
+                <b>{{ contact.name }}</b>
+                {% if contact_infos %}
+                <div class="mt-2">
+                    {% for info in contact_infos %}
+                    <div class="row">
+                        <div class="col-1">
+                            <span>
+                                <svg class="icon icon-sm icon-muted mr-2">
+                                    {% if info.info_type == 'email' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
+                                    {% elif info.info_type == 'hours' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
+                                    {% elif info.info_type == 'location' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-map-marker"></use>
+                                    {% elif info.info_type == 'website' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
+                                    {% elif info.info_type == 'phone' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-telephone"></use>
+                                    {% elif info.info_type == 'other' %}
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-chevron-right"></use>
+                                    {% endif %}
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="col-11">
+                            {% if info.label %}
+                                {{ info.label }}:
+                            {% endif %}
+                            {{ info.value }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </small>
+        </div>
+    </div>
+</div>
