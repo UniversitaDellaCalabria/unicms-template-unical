@@ -47,9 +47,17 @@
                         </div>
                         <div class="col-10">
                             {% if info.label %}
-                                {{ info.label }}:
+                                {% if info.info_type == 'website' %}
+                                    <a href="{{ info.value }}">{{ info.label }}</a>
+                                {% else %}
+                                    {{ info.label }}:
+                                {% endif %}
                             {% endif %}
-                            {{ info.value }}
+                            {% elif info.info_type == 'website' %}
+                                <a href="{{ info.value }}">{{ info.value }}</a>
+                            {% else %}
+                                {{ info.value }}
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}

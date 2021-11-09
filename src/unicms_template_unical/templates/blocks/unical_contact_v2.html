@@ -39,10 +39,18 @@
                             </span>
                         </div>
                         <div class="col-auto">
-                            {% if info.label %}
-                                {{ info.label }}:
+                            {% if info.info_type == 'website' %}
+                                {% if info.label %}
+                                    <a href="{{ info.value }}">{{ info.label }}</a>
+                                {% else %}
+                                    <a href="{{ info.value }}">{{ info.value }}</a>
+                                {% endif %}
+                            {% else %}
+                                {% if info.label %}
+                                    {{ info.label }}:
+                                {% endif %}
+                                {{ info.value }}
                             {% endif %}
-                            {{ info.value }}
                         </div>
                     </div>
                     {% endfor %}
