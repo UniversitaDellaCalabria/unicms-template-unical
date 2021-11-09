@@ -46,16 +46,16 @@
                             </span>
                         </div>
                         <div class="col-10">
-                            {% if info.label %}
-                                {% if info.info_type == 'website' %}
+                            {% if info.info_type == 'website' %}
+                                {% if info.label %}
                                     <a href="{{ info.value }}">{{ info.label }}</a>
                                 {% else %}
+                                    <a href="{{ info.value }}">{{ info.value }}</a>
+                                {% endif %}
+                            {% else %}
+                                {% if info.label %}
                                     {{ info.label }}:
                                 {% endif %}
-                            {% endif %}
-                            {% elif info.info_type == 'website' %}
-                                <a href="{{ info.value }}">{{ info.value }}</a>
-                            {% else %}
                                 {{ info.value }}
                             {% endif %}
                         </div>
