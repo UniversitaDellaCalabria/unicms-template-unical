@@ -1,0 +1,138 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_templates %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% random_id uid as id %}
+
+{% include "includes/unical_storage_loading.html" %}
+
+{% block content %}
+{% endblock content %}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}
+
+{% block scripts %}
+<script src="{% static 'js/unicms_api_utils.js' %}"></script>
+<script>
+function {{ id }}_encodeQueryData(data=[]) {
+    const ret = ["lang={{ LANGUAGE_CODE }}"];
+    for (let d in data)
+        ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+    let url = "{{ url }}";
+    if (url.includes("?"))
+        return '&' + ret.join('&')
+    return '?' + ret.join('&');
+}
+</script>
+
+<script>
+{% block component %}
+Vue.component('list-panel', {
+    props: {
+        data: Array,
+        id: String
+    },
+    template: `
+        <div class="card-wrapper card-space">
+            <div class="card card-bg no-after">
+              <div class="card-body py-1">
+
+                <div class="row">
+                    <div class="col w-50">
+                        <span style="color:#050b12;">
+                            <b>[[ data.count || 0]] {% trans "results" %}</b> in <b>[[ data.total_pages || 0 ]] {% trans "pages" %}</b>
+                        </span>
+                    </div>
+
+                    <div class="col w-50 ">
+                        <div class="float-right">
+                            <span>
+                                <a class="" style="color:#050b12;" v-if="data.page_number > 1" :onclick="[[ id ]] + '.CallURL(' + [[ id ]] + '.previous_page)'">
+                                    <span class="sr-only"> {% trans "page" %} </span> &lt; <small>{% trans "previous" %}</small>
+                                </a>
+                            </span>
+
+                            <span class="mr-2 ml-2" >[[ data.page ]] / <b>[[ data.total_pages ]]</b></span>
+                            <a class="" style="color:#050b12;" :onclick="[[ id ]] + '.CallURL(' + [[ id ]] + '.next_page)'" v-if="data.page_number < data.total_pages">
+                                <span class="sr-only"><small>{% trans "page" %} </span>{% trans "next" %} &gt;</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+    `
+});
+{% endblock component %}
+
+var {{ id }} = new Vue({
+    el: '[id="{{ id }}"]',
+    data() {
+        return {
+            parameters: {{ id }}_encodeQueryData(),
+            items: [],
+            initial_items: [],
+            labels: [],
+            url: '{{ url|safe }}',
+            next_page: "",
+            previous_page: "",
+            is_loading: true,
+            loader_source: '',
+
+            {% block extra_data %}
+            {% endblock extra_data %}
+        }
+    },
+    mounted() {
+        {% block extra_mounted %}
+        {% endblock extra_mounted %}
+
+        this.loader_source = this.url + this.parameters
+        this.CallURL(this.url + this.parameters, true);
+    },
+    methods: {
+        getItemsFromSession(id) {
+            let uid = window.location.href + "@" + id
+            return JSON.parse(sessionStorage.getItem(uid))
+        },
+        getItemFromSession(id, item) {
+            let uid = window.location.href + "@" + id;
+            if(sessionStorage.getItem(uid)){
+                return JSON.parse(sessionStorage.getItem(uid))[item]
+            }
+            return null
+        },
+
+        {% block method_search %}
+        search(keyword=null, value=null) {
+            this.parameters = {{ id }}_encodeQueryData({{ id }}_get_form_paramenters(keyword, value));
+            this.CallURL(this.url + this.parameters);
+        },
+        {% endblock method_search %}
+
+        {% block method_callurl %}
+        CallURL(url, initial=false) {
+            axios
+                .get(url)
+                .then(response => {
+                    if(initial) this.initial_items = response.data.results;
+                    this.items = response.data;
+                    this.next_page = response.data.next;
+                    this.previous_page = response.data.previous;
+                    this.labels = response.data.labels;
+                    this.is_loading = false;
+                })
+        },
+        {% endblock method_callurl %}
+
+        {% block extra_methods %}
+        {% endblock extra_methods %}
+    }
+})
+</script>
+{% endblock scripts %}

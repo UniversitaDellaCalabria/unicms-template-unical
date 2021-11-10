@@ -1,0 +1,120 @@
+{% extends "bases/unical_api_list.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load unicms_storage_handler %}
+{% load unicms_templates %}
+
+{% block content %}
+
+{% get_allowed_website request.get_host as host %}
+
+{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+
+<div id="{{ id }}">
+
+    <loading-icon
+        v-if="is_loading"
+        :loader_source="loader_source">
+    </loading-icon>
+
+    <div v-else-if="(initial_items && initial_items.length) || parameters">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card-wrapper card-space">
+                    <div class="card card-bg no-after">
+                        <br>
+                        <div class="card-body">
+
+                            {% include "includes/unical_storage_search_input.html" with id=id %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <list-panel v-bind:data="items" v-if="items.results" id="{{ id }}"></list-panel>
+
+        <div class="row mb-3"
+             v-for="item in items.results">
+            <div class="col-12">
+                <!--start card-->
+                <div class="card-wrapper pb-0">
+                    <div class="card no-after" style="border:1px solid #b71918">
+                        <div class="card-body">
+                            <h4>
+                                <a class="no-color" :href="item.media.file" target="_blank">
+                                    [[ item.media.title ]]
+
+                                    <svg class="icon float-right">
+                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-download"></use>
+                                    </svg>
+                                </a>
+                            </h4>
+                            <div class="row">
+                                <div class="col">
+                                    [[ item.media.description ]]
+                                    <br>
+                                    {% trans "Last edit" %}: [[ item.modified ]]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end card-->
+            </div>
+        </div>
+
+        <list-panel v-bind:data="items" v-if="items.results" id="{{ id }}"></list-panel>
+    </div>
+
+    <div v-else>
+        {% trans "No items here" %}
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+function {{ id }}_get_form_paramenters(keyword=null, value=null) {
+
+    let dict = {}
+
+    if (keyword)
+        dict[keyword] = value
+
+    // search
+    let search = document.getElementById('{{ id }}_search').value
+    if (search) dict['search'] = search
+
+    setItemInSession("{{ id }}", dict)
+
+    return dict
+}
+</script>
+{% endblock extra_scripts %}
+
+{% block extra_data %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+search_dict: {},
+
+selected_search: this.getItemFromSession("{{ id }}", 'search'),
+
+{% endblock extra_data %}
+
+{% block extra_mounted %}
+
+    this.url = "{% url 'unicms_api:media-collection-items' collection_id=collection.pk %}"
+
+    // if url if pre-filtered resize select field
+    // this allows to auto generate select options according to URL get filters!
+    let params = new URLSearchParams(this.url.split('?')[1]);
+    this.parameters = {{ id }}_encodeQueryData(this.getItemsFromSession("{{ id }}"))
+{% endblock extra_mounted %}
+</script>
+
