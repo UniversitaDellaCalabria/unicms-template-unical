@@ -68,16 +68,18 @@ bootstrap-italia-base.html
     {% if request.user.is_staff %}
     {{ block.super }}
     {% endif %}
-    <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
-        {% block unical_mobile_logo %}
-        <image src="{% static 'images/logo_unical_white.svg' %}"
-               class="w-100 d-md-none"
-               alt="{% trans 'University of Calabria' %}"/>
-        <image src="{% static 'images/logo_unical_white.svg' %}"
-               class="w-75 d-none d-md-block d-lg-none"
-               alt="{% trans 'University of Calabria' %}"/>
-        {% endblock unical_mobile_logo %}
-    </div>
+    <a href="/">
+        <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
+            {% block unical_mobile_logo %}
+            <image src="{% static 'images/logo_unical_white.svg' %}"
+                   class="w-100 d-md-none"
+                   alt="{% trans 'University of Calabria' %}"/>
+            <image src="{% static 'images/logo_unical_white.svg' %}"
+                   class="w-75 d-none d-md-block d-lg-none"
+                   alt="{% trans 'University of Calabria' %}"/>
+            {% endblock unical_mobile_logo %}
+        </div>
+    </a>
 {% endblock header_slim_wrapper %}
 
 {% block header_slim_right_zone %}
