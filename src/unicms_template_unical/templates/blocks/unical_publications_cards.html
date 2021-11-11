@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 
 {% load unicms_contexts %}
@@ -35,7 +36,7 @@
                     </div>
                     {% endif %}
                     <div class="category-top">
-                        <span>{{ pub.date_start }}</span>
+                        <span>{% trans "Published" %}: {{ pub.date_start }}</span>
                     </div>
                     <h4 class="card-title">
                         <a href="{{ pub.url }}" class="no-color">
