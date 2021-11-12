@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load static %}
+
+
+{% for item in carousel_items %}
+    <div class="row mb-4">
+
+        <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-left text-lg-center">
+            <a href="{{ link }}">
+                <img src="{{ item.image.file.url }}"
+                     title="{{ item.image.name }}"
+                     alt="{{ item.image.name }}"
+                     class="mw-100" style="max-height: 150px">
+            </a>
+        </div>
+
+        <div class="col-12 col-lg-9 pl-lg-4">
+            <h3>
+                {{ item.heading }}
+            </h3>
+
+            {{ item.pre_heading }}
+
+            {% if item.get_links %}
+
+            <div class="row mt-3">
+                <div class="col">
+                {% for link in item.get_links %}
+                    <span
+                        class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
+                        style="font-size: 100%">
+                        <a class="no-color" href="{{ link.url }}">
+                            <b>{{ link.get_title }}</b>
+                        </a>
+                    </span>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% if not forloop.last %}
+    <hr class="my-4 bordeaux-unical-bg">
+    {% endif %}
+{% endfor %}
