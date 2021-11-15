@@ -7,7 +7,15 @@
 
 {% if title %}
 <div>
-    <h1 class="lighter">{{ title }}</h1>
+    <h1 class="lighter">
+        {% if link %}
+        <a href="{{ link }}" class="no-color">
+        {% endif %}
+            {{ title }}
+        {% if link %}
+        </a>
+        {% endif %}
+    </h1>
     <hr class="my-4 bordeaux-unical-bg">
 </div>
 {% endif %}
