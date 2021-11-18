@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+<!--start card-->
+<div class="card-wrapper card-space">
+    <div class="card card-bg no-after">
+        <div class="card-body">
+            <div class="etichetta">
+                {% for cat in publication.categories %}
+                    <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                        <a class="no-color" href="">
+                            <b>{{ cat }}</b>
+                        </a>
+                    </span>
+                {% endfor %}
+            </div>
+            {% if publication.image_url %}
+            <div class="img-responsive-wrapper mb-3">
+                <div class="img-responsive img-responsive-panoramic">
+                    <figure class="img-wrapper">
+                      <a href="{{ url }}">
+                        <img src="{{ publication.image_url }}"
+                             title="{{ publication.image_title }}"
+                             alt="{{ publication.image_description }}">
+                      </a>
+                    </figure>
+                </div>
+            </div>
+            {% endif %}
+            <div class="category-top">
+                <span>{% trans "Published" %}: {{ date_start }}</span>
+            </div>
+            <h4 class="card-title">
+                <a href="{{ url }}" class="no-color">
+                    {{ publication.title }}
+                </a>
+            </h4>
+            {% if not publication.image_url %}
+            <p class="card-text">
+                {{ publication.subheading|truncatechars:135 }}
+            </p>
+            {% endif %}
+            <a href="#">
+                <svg class="icon">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<!--end card-->

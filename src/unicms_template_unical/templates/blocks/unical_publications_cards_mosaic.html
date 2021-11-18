@@ -1,0 +1,165 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+{% if publications %}
+<div class="row d-lg-flex">
+
+    {% for item in publications %}
+
+        {% if forloop.first %}
+        <div class="col-12 col-lg-8">
+            <div class="card-wrapper card-space">
+                <div class="card card-bg no-after">
+                    <div class="card-body pl-0">
+                        <div class="row">
+                            <div class="col-6">
+                                {% if url %}
+                                <a href="{{ item.url }}">
+                                {% endif %}
+                                    <img src="{{ item.publication.image_url }}"
+                                         title="{{ item.publication.image_title }}"
+                                         alt="{{ item.publication.image_description }}"
+                                         class="h-100">
+                                {% if url %}
+                                </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-6">
+                                <div class="etichetta">
+                                    {% for cat in item.publication.categories %}
+                                    <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
+                                            <b>{{ cat }}</b>
+                                        </a>
+                                    </span>
+                                    {% endfor %}
+                                </div>
+
+                                 <div class="category-top">
+                                    <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                                </div>
+
+                                {% if url %}
+                                <a class="no-color" href="{{ item.url }}">
+                                {% endif %}
+                                    <h4 class="card-title">
+                                        {{ item.publication.title }}
+                                    </h4>
+                                {% if url %}
+                                </a>
+                                {% endif %}
+                                {% if item.publication.subheading %}
+                                <p class="card-text">
+                                    {{ item.publication.subheading|truncatechars:50 }}
+                                </p>
+                                {% endif %}
+                                <a href="#">
+                                    <svg class="icon" alt="{% trans 'Share' %} {{ item.publication.title }}">
+                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% elif forloop.counter0 == 1 %}
+        <div class="col-12 col-lg-4">
+            <div class="card-wrapper card-space">
+                <div class="card card-bg no-after">
+                    <div class="card-body">
+                        <div class="etichetta">
+                            {% for cat in item.publication.categories %}
+                            <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
+                                    <b>{{ cat }}</b>
+                                </a>
+                            </span>
+                            {% endfor %}
+                        </div>
+
+                         <div class="category-top">
+                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                        </div>
+
+                        <h4 class="card-title">
+                            {% if url %}
+                            <a href="{{ item.url }}" class="no-color">
+                            {% endif %}
+                                {{ item.publication.title }}
+                            {% if url %}
+                            </a>
+                            {% endif %}
+                        </h4>
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="col-12 col-lg-4">
+            <!--start card-->
+            <div class="card-wrapper card-space">
+                <div class="card card-bg no-after">
+                    <div class="card-body">
+                        <div class="etichetta">
+                            {% for cat in item.publication.categories %}
+                                <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                    <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
+                                        <b>{{ cat }}</b>
+                                    </a>
+                                </span>
+                            {% endfor %}
+                        </div>
+                        {% if item.publication.image_url %}
+                        <div class="img-responsive-wrapper mb-3 mx-n4">
+                            <div class="img-responsive img-responsive-panoramic">
+                                <figure class="img-wrapper">
+                                  <a href="{{ item.url }}">
+                                    <img src="{{ item.publication.image_url }}"
+                                         title="{{ item.publication.image_title }}"
+                                         alt="{{ item.publication.image_description }}">
+                                  </a>
+                                </figure>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="category-top">
+                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                        </div>
+
+                        <h4 class="card-title">
+                            <a href="{{ item.url }}" class="no-color">
+                                {{ item.publication.title }}
+                            </a>
+                        </h4>
+                        {% if not item.publication.image_url %}
+                        <p class="card-text">
+                            {{ item.publication.subheading|truncatechars:135 }}
+                        </p>
+                        {% endif %}
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--end card-->
+        </div>
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+{% endif %}

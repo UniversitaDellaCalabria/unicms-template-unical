@@ -5,33 +5,47 @@
 
 {% call obj=publication method='url' webpath=webpath as url %}
 
-<div class="row">
-    <div class="col">
-        <div class="card-wrapper card-space">
-            <div class="card card-bg no-after">
-                {% if url %}
-                <a href="{{ url }}">
-                {% endif %}
-                    <img src="{{ publication.image_url }}"
-                         title="{{ publication.image_title }}"
-                         alt="{{ publication.image_description }}"
-                         class="w-100">
-                {% if url %}
-                </a>
-                {% endif %}
-                <div class="card-body">
+
+<div class="card-wrapper card-space">
+    <div class="card card-bg no-after">
+        <div class="card-body pl-0">
+            <div class="row">
+                <div class="col-6">
                     {% if url %}
-                    <a class="no-color" href="{{ url }}">
+                    <a href="{{ url }}">
                     {% endif %}
-                        <h5 class="card-title">
-                            {{ publication.title }}
-                        </h5>
+                        <img src="{{ publication.image_url }}"
+                             title="{{ publication.image_title }}"
+                             alt="{{ publication.image_description }}"
+                             class="w-100">
                     {% if url %}
                     </a>
                     {% endif %}
+                </div>
+                <div class="col-6">
+                     <div class="etichetta">
+                        {% for cat in publication.categories %}
+                        <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                            <a class="no-color" href="{% call obj=publication method='get_url_list' category_name=cat %}">
+                                <b>{{ cat }}</b>
+                            </a>
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {% if url %}
+                    <a class="no-color" href="{{ url }}">
+                    {% endif %}
+                        <h4 class="card-title">
+                            {{ publication.title }}
+                        </h4>
+                    {% if url %}
+                    </a>
+                    {% endif %}
+                    {% if publication.subheading %}
                     <p class="card-text">
-                        {{ publication.subheading|truncatechars:135 }}
+                        {{ publication.subheading|truncatechars:50 }}
                     </p>
+                    {% endif %}
                     <a href="#">
                         <svg class="icon" alt="{% trans 'Share' %} {{ publication.title }}">
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
