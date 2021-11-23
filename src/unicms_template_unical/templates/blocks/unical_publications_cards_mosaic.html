@@ -9,7 +9,11 @@
     {% for item in publications %}
 
         {% if forloop.first %}
+        {% if publications.count == 1 %}
+        <div class="col-12">
+        {% else %}
         <div class="col-12 col-lg-8">
+        {% endif %}
             <div class="card-wrapper card-space">
                 <div class="card card-bg no-after">
                     <div class="card-body pl-lg-0">
