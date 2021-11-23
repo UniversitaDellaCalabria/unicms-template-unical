@@ -1,0 +1,93 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+
+{% if publications %}
+{% with publications.first as item %}
+<div class="row d-lg-flex">
+
+        <div class="col-12">
+            <div class="card-wrapper card-space">
+                <div class="card card-bg no-after">
+                    <div class="card-body pl-lg-0">
+                        <div class="row h-100">
+                            {% if item.publication.image_url %}
+                            <div class="col-12 col-lg-6">
+                                <div class="etichetta d-lg-none">
+                                    {% for cat in item.publication.categories %}
+                                    <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
+                                            <b>{{ cat }}</b>
+                                        </a>
+                                    </span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="img-responsive-wrapper mb-3 mx-n4 d-lg-none">
+                                    <div class="img-responsive img-responsive-panoramic">
+                                        <figure class="img-wrapper">
+                                          <a href="{{ item.url }}">
+                                            <img src="{{ item.publication.image_url }}"
+                                                 title="{{ item.publication.image_title }}"
+                                                 alt="{{ item.publication.image_description }}">
+                                          </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="img-responsive-wrapper d-none d-lg-block h-100">
+                                    <div class="img-responsive img-responsive-panoramic h-100">
+                                        <figure class="img-wrapper">
+                                          <a href="{{ item.url }}" class="d-none d-lg-block h-100">
+                                                <img src="{{ item.publication.image_url }}"
+                                                     title="{{ item.publication.image_title }}"
+                                                     alt="{{ item.publication.image_description }}"
+                                                     class="h-100">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endif %}
+                            <div class="col-12 col-lg-6 pl-lg-4">
+
+                                <div class="etichetta d-none d-lg-block">
+                                    {% for cat in item.publication.categories %}
+                                    <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
+                                            <b>{{ cat }}</b>
+                                        </a>
+                                    </span>
+                                    {% endfor %}
+                                </div>
+
+                                 <div class="category-top">
+                                    <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                                </div>
+
+                                <a class="no-color" href="{{ item.url }}">
+                                    <h4 class="card-title">
+                                        {{ item.publication.title }}
+                                    </h4>
+                                </a>
+                                {% if item.publication.subheading %}
+                                <p class="card-text">
+                                    {{ item.publication.subheading|truncatechars:50 }}
+                                </p>
+                                {% endif %}
+                                <a href="#">
+                                    <svg class="icon" alt="{% trans 'Share' %} {{ item.publication.title }}">
+                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+{% endwith %}
+{% endif %}
