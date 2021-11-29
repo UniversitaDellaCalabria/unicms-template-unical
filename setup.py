@@ -47,6 +47,7 @@ setup(
     ],
     install_requires=[
         'django>=2.0,<4.0',
-        'unicms-template-italia'
+        'unicms-template-italia',
+        'unicms-unical-storage-handler'
     ],
 )
