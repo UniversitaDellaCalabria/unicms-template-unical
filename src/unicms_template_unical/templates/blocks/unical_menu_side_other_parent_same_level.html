@@ -7,4 +7,4 @@
 {% load_current_item_from_menu as current %}
 {% load_item_childs item=current.parent.parent exclude=current.parent as items %}
 
-{% include "unical_menu_side.html" with items=items title=current.parent.parent.name %}
+{% include "unical_menu_side.html" with items=items title=current.parent.parent.name title_href=current.parent.parent.link %}

@@ -5,4 +5,4 @@
 
 {% load_same_level_items as items %}
 
-{% include "unical_menu_side.html" with items=items.items title=items.parent.name %}
+{% include "unical_menu_side.html" with items=items.items title=items.parent.name title_href=items.parent.link %}

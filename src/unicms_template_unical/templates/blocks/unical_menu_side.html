@@ -6,7 +6,15 @@
 
 
 {% if title %}
-<h4>{{ title }}</h4>
+<h4>
+    {% if title_href %}
+    <a class="no-color" href="{{ title_href }}">
+    {% endif %}
+        {{ title }}
+    {% if title_href %}
+    </a>
+    {% endif %}
+</h4>
 <hr />
 {% endif %}
 
