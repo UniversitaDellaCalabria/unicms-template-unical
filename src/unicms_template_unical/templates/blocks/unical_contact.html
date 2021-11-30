@@ -26,6 +26,7 @@
                 <div class="mt-2">
                     {% for info in contact_infos %}
                     <div class="row">
+                        {% if info.info_type != 'other' %}
                         <div class="col-2">
                             <span>
                                 <svg class="icon icon-sm icon-muted mr-2">
@@ -39,13 +40,21 @@
                                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
                                     {% elif info.info_type == 'phone' %}
                                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-telephone"></use>
+                                    {% comment %}
                                     {% elif info.info_type == 'other' %}
                                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-chevron-right"></use>
+                                    {% endcomment %}
                                     {% endif %}
                                 </svg>
                             </span>
                         </div>
+                        {% endif %}
+
+                        {% if info.info_type != 'other' %}
                         <div class="col-10">
+                        {% else %}
+                        <div class="col-12">
+                        {% endif %}
                             {% if info.info_type == 'website' %}
                                 {% if info.label %}
                                     <a href="{{ info.value }}">{{ info.label }}</a>
