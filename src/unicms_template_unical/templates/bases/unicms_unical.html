@@ -234,11 +234,91 @@ col-10 offset-2 col-lg-12 offset-lg-0
 {% block footer_org_text %}
 {% endblock footer_org_text %}
 
+
+
+ <!-- Footer middle section with menu blocks -->
+{% block footer_menu_section %}
+<section>
+    <div class="row">
+
+        {% block first_column %}
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+            <h4>
+                <a href="#" title="Vai alla pagina: Amministrazione">Amministrazione</a>
+            </h4>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Giunta e consiglio">Giunta e consiglio</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Aree di competenza">Aree di competenza</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Dipendenti">Rubrica</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Luoghi">Luoghi</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock first_column %}
+
+        {% block second_column %}
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+            <h4>
+                <a href="#" title="Vai alla pagina: Servizi">Servizi</a>
+            </h4>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Pagamenti">Pagamenti</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Sostegno">Sostegno</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Domande e iscrizioni">Domande e iscrizioni</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Certificati e dichiarazioni">Certificati e dichiarazioni</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock second_column %}
+
+        {% block third_column %}
+        <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+            <h4>
+                <a href="#" title="Vai alla pagina: Novità">Servizi online</a>
+            </h4>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Front office on-line">Front office on-line</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Ticket on line">Ticket on line</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Smart Campus">Smart Campus</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: UnicalLife">UnicalLife</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock third_column %}
+
+        {% block fourth_column %}
+        <div class="col-lg-3 col-md-3 col-sm-6">
+            <h4>
+                <a href="#" title="Vai alla pagina: Documenti">Campus</a>
+            </h4>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Progetti e attività">Vivere il campus</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Delibere, determine e ordinanze">Visita il campus</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Bandi">Organizzazione</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endblock fourth_column %}
+
+    </div>
+</section>
+{% endblock footer_menu_section %}
+
+
+
 {% block footer_contacts_section %}
 <section class="py-4 border-white border-top">
     <div class="row">
         <div class="col-lg-4 col-md-4 pb-2">
-            <h4><a href="#" title="Vai alla pagina: Contatti">Contatti</a></h4>
+            <h4>
+                <a href="#" title="Vai alla pagina: Contatti">
+                    {% trans "Contacts" %}
+                </a>
+            </h4>
             <p>
                 <strong>Università della Calabria</strong>
                 <br>
@@ -248,19 +328,25 @@ col-10 offset-2 col-lg-12 offset-lg-0
                 <br>
                 Tel. +39 0984 4911
                 <br>
+                <a class="text-white" href="#" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a>
+                <br>
                 C.F. 80003950781 / P.I. 00419160783
-
             </p>
+        </div>
+
+        <div class="col-lg-4 col-md-4 pb-2">
+            <h4>
+                <a href="#" title="Vai alla pagina: Novità">News</a>
+            </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: URP - Ufficio Relazioni con il Pubblico">URP - Ufficio Relazioni con il Pubblico</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Front office on-line">Notizia 1</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Ticket on line">Notizia 2</a></li>
+                    <li><a class="list-item" href="#" title="Vai alla pagina: Smart Campus">Notizia 3</a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 pb-2">
-            <h4><a href="#" title="Vai alla pagina: Lorem Ipsum">Lorem Ipsum</a></h4>
-        </div>
+
         <div class="col-lg-4 col-md-4 pb-2">
             <div class="pb-2">
                 <h4><a href="#" title="Vai alla pagina: Seguici su">Seguici su</a></h4>
