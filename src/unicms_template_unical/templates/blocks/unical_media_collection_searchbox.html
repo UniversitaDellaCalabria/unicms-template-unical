@@ -2,12 +2,10 @@
 
 {% load i18n %}
 {% load static %}
-{% load unicms_storage_handler %}
+
 {% load unicms_templates %}
 
 {% block content %}
-
-{% get_allowed_website request.get_host as host %}
 
 {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
 
