@@ -14,14 +14,16 @@
     {% block icon %}
     {% endblock %}
     <div class="col">
+        <ul class="pl-0 list-unstyled">
         {% for item in items %}
             {% call obj=item method='link' request=request as link %}
-            <li style="list-style: none">
+            <li>
                 <a class="no-color" href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
                     <small><b>- {{ item.name }}</b></small>
                 </a>
             </li>
         {% endfor %}
+        </ul>
     </div>
 </div>
 

@@ -5,7 +5,7 @@
 <h4>{% trans "Attachments" %}</h4>
 
 <!-- ATTACHMENTS -->
-<ul class="upload-file-list" style="list-style: none">
+<ul class="upload-file-list list-unstyled">
     {% for item in publication.get_attachments %}
     <li>
         <a href="{{ item.file.url }}" target="_blank">

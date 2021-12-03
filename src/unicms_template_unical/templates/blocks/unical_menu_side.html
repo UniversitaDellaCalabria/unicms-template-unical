@@ -18,13 +18,14 @@
 <hr />
 {% endif %}
 
+<ul class="list-unstyled">
 {% for item in items %}
 
     {% call obj=item method='link' request=request as link %}
 
     {% with has_childs=item.get_childs %}
 
-    <li style="list-style: none" {% if item.get_childs %}class="my-2"{% endif %}>
+    <li {% if item.get_childs %}class="my-2"{% endif %}>
         {% if has_childs %}
             <b>
         {% endif %}
@@ -49,7 +50,7 @@
             <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}
-                <li style="list-style: none">
+                <li class="list-unstyled">
                     <a class="list-item no-color" href="{{ child_link}}">
                         {{ child.name }}
                     </a>
@@ -62,4 +63,5 @@
 
     {% endwith %}
 {% endfor %}
+</ul>
 <hr />
