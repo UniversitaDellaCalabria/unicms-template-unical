@@ -16,7 +16,8 @@
 
 {% breadcrumbs webpath=webpath leaf=handler %}
 
-<div class="container">
+<div class="container py-5">
+<!--
     <br>
     <div class="col-12 mb-4">
         <div class="pt-2 pb-3 pl-3 background-yellow">
@@ -26,14 +27,11 @@
             </h2>
         </div>
     </div>
+-->
 
-    <div class="col-12 py-2 bd-content">
-
-        {% block centered_container %}
-        <div class="row">
-            <div class="col-12 col-md-8"></div>
-        </div>
-        {% endblock centered_container %}
+<div class="row">
+    <div class="col">
+        <h1 class="mb-4 lighter">News</h1>
     </div>
 </div>
 
@@ -95,11 +93,11 @@ var news = new Vue({
                     <div class="card-wrapper card-space">
                         <div class="card card-bg no-after">
 
-                             <div class="img-responsive-wrapper mb-1">
+                             <div class="img-responsive-wrapper mb-1" v-if="item.image">
                                 <div class="img-responsive img-responsive-panoramic">
                                     <figure class="img-wrapper">
                                       <a style="" v-bind:href="item.path">
-                                        <img  v-bind:src="item.image" />
+                                        <img v-bind:src="item.image" />
                                       </a>
                                     </figure>
                                 </div>
