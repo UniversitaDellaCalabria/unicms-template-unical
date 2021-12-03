@@ -2,7 +2,9 @@
 {% load static %}
 
 {% load unicms_contexts %}
+{% load unicms_templates %}
 
+{% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
 {% if publications %}
 <div class="row d-lg-flex">
@@ -30,4 +32,15 @@
     {% endfor %}
 
 </div>
+
+<p class="mt-3 ml-2">
+    <a href="{{ page_news_suffix }}" class="no-color">
+        <span class="text-black font-weight-bold">
+            <svg class="icon mr-2">
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
+            </svg>
+            {% trans "Go to all news" %}
+        </span>
+    </a>
+</p>
 {% endif %}
