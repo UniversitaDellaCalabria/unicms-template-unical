@@ -13,8 +13,8 @@
 
     {% block icon %}
     {% endblock %}
-    <div class="col">
-        <ul class="pl-0 list-unstyled">
+    <div class="col m-auto align-middle">
+        <ul class="mb-0 pl-0 list-unstyled">
         {% for item in items %}
             {% call obj=item method='link' request=request as link %}
             <li>
