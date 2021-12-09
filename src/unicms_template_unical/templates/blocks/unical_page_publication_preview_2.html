@@ -3,3 +3,7 @@
 {% block title %}
 <h3>{{ publication.title }}</h3>
 {% endblock title %}
+
+{% block publication_content %}
+{{ publication.content|safe }}
+{% endblock publication_content %}

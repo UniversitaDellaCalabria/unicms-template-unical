@@ -25,6 +25,9 @@
         {{ publication.subheading }}
         {% endif %}
 
+        {% block publication_content %}
+        {% endblock publication_content %}
+
         {% if publication.related_links %}
         <div class="row mt-3">
             <div class="col">
