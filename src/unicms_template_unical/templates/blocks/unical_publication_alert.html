@@ -1,0 +1,14 @@
+{% load static %}
+{% load unicms_contexts %}
+
+
+<div class="background-light-grey p-3 unical-alert">
+    <div class="row">
+        <div class="col-auto">
+            <img src="{% static 'images/alert-red.svg' %}" style="width: 50px">
+        </div>
+        <div class="col ml-1">
+            {{ publication.content|safe }}
+        </div>
+    </div>
+</div>
