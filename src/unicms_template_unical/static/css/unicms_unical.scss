@@ -439,3 +439,10 @@ figure.table tr:nth-of-type(2n) {
 .unical-alert ul {
     margin-bottom: 0;
 }
+
+.unical-progress.progress {
+    background-color: $light_grey;
+}
+.unical-progress .progress-bar {
+    background-color: $bordeaux_unical;
+}
