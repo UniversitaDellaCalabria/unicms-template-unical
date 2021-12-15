@@ -20,5 +20,35 @@ col-auto m-auto col-lg-12
 {% endblock header_center_wrapper_columns %}
 
 {% block header_center_right_zone %}
-<h4 class="text-white">OpenData</h4>
+<div class="it-right-zone col-12 col-lg-2">
+    <div class="row w-100">
+        <div class="col-2 col-md-2 text-center">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle p-0 text-center"
+                   href="#"
+                   data-toggle="dropdown"
+                   aria-expanded="false">
+                    <span>{{ request.LANGUAGE_CODE }}</span>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="link-list-wrapper">
+                                <ul class="link-list">
+                                    {% language_menu as language_urls %}
+                                    {% for lang,url in language_urls.items %}
+                                    <li><a class="list-item" href="{{ url }}"><span>{{ lang }}</span></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4 class="text-white" style="line-height: 1">OpenData</h4>
+        </div>
+    </div>
+</div>
 {% endblock header_center_right_zone %}
