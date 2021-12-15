@@ -13,7 +13,13 @@
 
 
 {% block main_menu %}
-<div style="height:30px; background: #c2dfee"></div>
+<div style="background: #c2dfee">
+    <div class="container py-3">
+        <h4 class="pl-1" style="color: #383838">
+            OpenData
+        </h4>
+    </div>
+</div>
 {% endblock main_menu %}
 
 {% block header_center_wrapper_columns %}
@@ -21,7 +27,7 @@ col-auto m-auto col-lg-12
 {% endblock header_center_wrapper_columns %}
 
 {% block header_center_right_zone %}
-<div class="it-right-zone col-12 col-lg-2">
+<div class="it-right-zone col-12 col-lg-auto">
     <div class="row w-100">
         <div class="col-2 col-md-2 text-center">
             <div class="nav-item dropdown">
@@ -46,9 +52,6 @@ col-auto m-auto col-lg-12
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <h4 class="text-white" style="line-height: 1">OpenData</h4>
         </div>
     </div>
 </div>
