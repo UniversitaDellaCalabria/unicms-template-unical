@@ -14,28 +14,31 @@
 
 {% block container %}
 
+{% get_current_language as LANGUAGE_CODE %}
+
 {% breadcrumbs webpath=webpath leaf=handler %}
 
 <div class="container py-5">
-<!--
-    <br>
-    <div class="col-12 mb-4">
-        <div class="pt-2 pb-3 pl-3 background-yellow">
-            <h2 class="m-0 p-0">
-                <span style="font-weight: 500">unical</span>
-                <span class="super-bold">world</span>
-            </h2>
+    <!--
+        <br>
+        <div class="col-12 mb-4">
+            <div class="pt-2 pb-3 pl-3 background-yellow">
+                <h2 class="m-0 p-0">
+                    <span style="font-weight: 500">unical</span>
+                    <span class="super-bold">world</span>
+                </h2>
+            </div>
+        </div>
+    -->
+
+    <div class="row">
+        <div class="col">
+            <h1 class="mb-4 lighter">News</h1>
         </div>
     </div>
--->
 
-<div class="row">
-    <div class="col">
-        <h1 class="mb-4 lighter">News</h1>
-    </div>
+    <div class="row" id="news"></div>
 </div>
-
-<div class="row" id="news"></div>
 
 <script>
 Vue.component('list-panel', {
@@ -43,36 +46,43 @@ Vue.component('list-panel', {
         data: Array,
     },
     template: `
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <span class="page-link" style="color:#050b12;">
-                        <b>[[ data.total ]] {% trans "news" %}</b> in <b>[[ data.total_pages ]] {% trans "pages" %}</b>
-                    </span>
-                </div>
-                <div class="col">
-                    <nav class="pagination-wrapper" aria-label="News pagination">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.previous_url]] )" v-if="data.previous_url">
+
+        <div class="card-wrapper card-space">
+            <div class="card card-bg no-after">
+              <div class="card-body py-1">
+
+                <div class="row">
+                    <div class="col w-50" v-if="data.total_pages > 1">
+                        <span style="color:#050b12;">
+                            <b>[[ data.count || 0]] {% trans "results" %}</b> in <b>[[ data.total_pages || 0 ]] {% trans "pages" %}</b>
+                        </span>
+                    </div>
+                    <div class="col w-50" v-else>
+                        <span style="color:#050b12;">
+                            <b>[[ data.count || 0]] {% trans "results" %}
+                        </span>
+                    </div>
+
+                    <div class="col w-50" v-if="data.total_pages > 1">
+                        <div class="float-right">
+                            <span>
+                                <a style="color:#050b12;" @click="news.callURL( [[ data.previous]] )" v-if="data.previous">
                                     <span class="sr-only"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
                                 </a>
-                            </li>
-                            <li class="page-item">
-                                <span class="page-link" style="color:#050b12;">[[ data.page_number ]] / <b>[[ data.total_pages ]]</b></span>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link text" style="color:#050b12;" @click="news.CallURL( [[ data.next_url ]] )"  v-if="data.next_url">
-                                    <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
-                                </a>
-                            </li>
-                        </ul>
-                    </nav
+                            </span>
+
+                            <span class="mr-2 ml-2" >[[ data.page ]] / <b>[[ data.total_pages ]]</b></span>
+                            <a style="color:#050b12;" @click="news.callURL( [[ data.next ]] )"  v-if="data.next">
+                                <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
+              </div>
             </div>
         </div>
-  `
+    `
 })
 
 
@@ -80,7 +90,12 @@ var news = new Vue({
   el: '#news',
   template: `
     <div v-if="!newsLoaded">
-      {% include "loading-jumbo.html" %}
+        <div>
+            <div class="progress progress-indeterminate my-3 unical-progress">
+                <span class="sr-only">{% trans "Loading data" %}</span>
+                <div class="progress-bar" role="progressbar"></div>
+            </div>
+        </div>
     </div>
     <div v-else>
 
@@ -88,16 +103,16 @@ var news = new Vue({
 
         <div class="container" v-if="items">
             <div class="row">
-             <div class="col-12 col-lg-4 " v-for="item in items.results" :key="item.id">
-                <!--start card-->
+                <div class="col-12 col-lg-4 " v-for="item in items.results" :key="item.id">
+                    <!--start card-->
                     <div class="card-wrapper card-space">
                         <div class="card card-bg no-after">
 
-                             <div class="img-responsive-wrapper mb-1" v-if="item.image">
+                            <div class="img-responsive-wrapper mb-1" v-if="item.publication.image">
                                 <div class="img-responsive img-responsive-panoramic">
                                     <figure class="img-wrapper">
                                       <a style="" v-bind:href="item.path">
-                                        <img v-bind:src="item.image" />
+                                        <img v-bind:src="item.publication.image" />
                                       </a>
                                     </figure>
                                 </div>
@@ -105,70 +120,58 @@ var news = new Vue({
 
                             <div class="card-body">
                                 <div class="etichetta mb-0">
-                                    <span v-for="(cat, index) in item.categories">
+                                    <span v-for="(cat, index) in item.publication.category_data">
                                         <span v-if="index>0">&nbsp;&middot</span>
-                                        <a v-bind:href="'?category_name=' + cat" style="color: #176fc1;">
-                                            [[ cat ]]
+                                        <a v-bind:href="'?category_name=' + cat.name" style="color: #176fc1;">
+                                            [[ cat.name ]]
                                         </a>
                                     </span>
                                 </div>
-                                <span class="small text-muted mb-2">[[ item.published|formatDate ]]</span>
+                                <span class="small text-muted mb-2">[[ item.publication.published|formatDate ]]</span>
                                 <h4 class="card-title mt-3">
                                     <a style="text-decoration: none; color: #17324d;" v-bind:href="[[ item.path ]]">
-                                        <p>[[ item.title ]]</p>
+                                        <p>[[ item.publication.title ]]</p>
                                     </a>
                                 </h4>
-                                <p>[[ item.subheading | truncate(128) ]]</p>
+                                <p>[[ item.publication.subheading ]]</p>
                             </div>
 
                         </div>
                     </div>
-                <!--end card-->
-             </div>
+                    <!--end card-->
+                </div>
             </div>
         </div>
 
         <list-panel v-bind:data="items"></list-panel>
 
     </div>
-    </div>
     `,
-  data () {
-    return {
-      items: [],
-      newsLoaded: false,
-    }
-  },
-
-  mounted () {
+    data () {
+        return {
+            items: [],
+            newsLoaded: false,
+            url: '{{ url|safe }}&lang={{ LANGUAGE_CODE }}'
+        }
     },
-
-  beforeMount () {
-    let get_args = `?{% if request.GET.category_name %}category_name={{ request.GET.category_name }}&{% endif %}
-page_number={% if request.GET.page_number %}{{ request.GET.page_number }}{% else%}1{% endif %}
-&lang={{ request.LANGUAGE_CODE }}`
-
-    axios
-      .get('{% url "unicms_api:api-news-by-contexts" webpath_id=webpath.pk %}'+get_args)
-      .then(response => (this.items = response.data))
-      .then(response => (this.newsLoaded = true))
-  },
-  methods: {
-    CallURL ( url ) {
-        this.newsLoaded = false;
-
-        axios
-          .get( url )
-          .then(response => (this.items = response.data))
-          .then(response => (this.newsLoaded = true))
-          .then(response => (this.scrollToTop()))
-      },
-   scrollToTop () {
-        // faulty on mobile ...
-        window.scrollTo({top:100, left:0, behavior: 'smooth'});
+    mounted(){
+        this.callURL(this.url)
+    },
+    methods: {
+        callURL (url) {
+            axios
+                .get( url )
+                .then(response => {
+                    this.items = response.data
+                    this.newsLoaded = true
+                    this.scrollToTop()
+                })
+        },
+        scrollToTop () {
+            // faulty on mobile ...
+            window.scrollTo({top:100, left:0, behavior: 'smooth'});
         }
     }
 })
 </script>
 {% endblock container %}
-
