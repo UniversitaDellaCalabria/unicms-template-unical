@@ -149,8 +149,8 @@ var news = new Vue({
                                         <figure class="img-wrapper">
                                           <a :href="item.path">
                                             <img :src="item.publication.image"
-                                                 title="{{ item.publication.image_title }}"
-                                                 alt="{{ item.publication.image_description }}">
+                                                 :title="item.publication.image_title"
+                                                 :alt="item.publication.image_description">
                                           </a>
                                         </figure>
                                     </div>
