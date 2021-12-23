@@ -15,6 +15,7 @@
 {% block container %}
 
 {% get_current_language as LANGUAGE_CODE %}
+{% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as publication_list_prefix %}
 
 {% breadcrumbs webpath=webpath leaf=handler %}
 
@@ -33,7 +34,20 @@
 
     <div class="row">
         <div class="col">
-            <h1 class="mb-4 lighter">News</h1>
+            <h1 class="mb-4 lighter">News {% if category_name %}in {{ category_name }}{% endif %}</h1>
+
+            {% if category_name %}
+            <div class="mb-4">
+                <a href="{{ webpath.get_full_path }}{{ publication_list_prefix }}" class="no-color">
+                    <span class="text-black font-weight-bold">
+                        <svg class="icon mr-2">
+                            <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
+                        </svg>
+                        {% trans "Back to all news" %}
+                    </span>
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 

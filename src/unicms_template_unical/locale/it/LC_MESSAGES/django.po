@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-23 15:36+0100\n"
-"PO-Revision-Date: 2021-12-23 15:36+0100\n"
+"POT-Creation-Date: 2021-12-23 16:38+0100\n"
+"PO-Revision-Date: 2021-12-23 16:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr "Rubrica"
 
 #: templates/bases/base_v_original.html:82
 #: templates/bases/unicms_unical.html:119
-#: templates/pages/publication_list.html:121
+#: templates/pages/publication_list.html:132
 msgid "Search"
 msgstr "Cerca"
 
@@ -76,13 +76,13 @@ msgid "Home"
 msgstr "Pagina iniziale"
 
 #: templates/bases/unical_api_list.html:46
-#: templates/pages/publication_list.html:56
-#: templates/pages/publication_list.html:61
+#: templates/pages/publication_list.html:67
+#: templates/pages/publication_list.html:72
 msgid "results"
 msgstr "risultati"
 
 #: templates/bases/unical_api_list.html:46
-#: templates/pages/publication_list.html:56
+#: templates/pages/publication_list.html:67
 msgid "pages"
 msgstr "pagine"
 
@@ -127,7 +127,7 @@ msgstr "Leggi di più"
 #: templates/blocks/unical_publications_cards_mosaic.html:88
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:80
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:84
-#: templates/pages/publication_list.html:177
+#: templates/pages/publication_list.html:188
 msgid "Share"
 msgstr "Condividi"
 
@@ -164,7 +164,7 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:66
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:68
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:161
-#: templates/pages/publication_list.html:159
+#: templates/pages/publication_list.html:170
 #: templates/pages/publication_view.html:59
 #: templates/pages/publication_view_hero_original.html:56
 msgid "Published"
@@ -204,24 +204,26 @@ msgstr "Preferenze"
 msgid "I agree"
 msgstr "Accetto"
 
-#: templates/pages/publication_list.html:69
-#: templates/pages/publication_list.html:75
+#: templates/pages/publication_list.html:44
+msgid "Back to all news"
+msgstr "Torna a tutte le notizie"
+
+#: templates/pages/publication_list.html:80
+#: templates/pages/publication_list.html:86
 msgid "Page"
 msgstr "Pagina"
 
-#: templates/pages/publication_list.html:69
+#: templates/pages/publication_list.html:80
 msgid "Previous"
 msgstr "Precedente"
 
-#: templates/pages/publication_list.html:75
+#: templates/pages/publication_list.html:86
 msgid "Next"
 msgstr "Successivo"
 
-#: templates/pages/publication_list.html:94
-#, fuzzy
-#| msgid "Loading"
+#: templates/pages/publication_list.html:105
 msgid "Loading data"
-msgstr "Caricamento"
+msgstr "Caricamento dati"
 
 #: templates/pages/publication_view.html:82
 #: templates/pages/publication_view_hero_original.html:65
