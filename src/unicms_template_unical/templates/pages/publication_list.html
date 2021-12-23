@@ -39,7 +39,6 @@
 
     <div class="row" id="news"></div>
 </div>
-
 <script>
 Vue.component('list-panel', {
     props: {
@@ -99,6 +98,34 @@ var news = new Vue({
     </div>
     <div v-else>
 
+        <div class="row form-group">
+            <div class="input-group">
+                <label for="search"></label>
+                <input type="text"
+                       class="form-control"
+                       id="news_search"
+                       name="news_search"
+                       v-model="selected_search"
+                       v-on:keyup.enter="search()">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <svg class="icon icon-sm icon-muted">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+                        </svg>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            type="button"
+                            id="search-button"
+                            @click="search()">
+                        {% trans "Search" %}
+                    </button>
+
+
+                </div>
+            </div>
+        </div>
+
         <list-panel v-bind:data="items"></list-panel>
 
         <div class="container" v-if="items">
@@ -151,6 +178,7 @@ var news = new Vue({
         return {
             items: [],
             newsLoaded: false,
+            selected_search: '',
             url: '{{ url|safe }}&lang={{ LANGUAGE_CODE }}'
         }
     },
@@ -166,6 +194,10 @@ var news = new Vue({
                     this.newsLoaded = true
                     this.scrollToTop()
                 })
+        },
+        search() {
+            this.parameters = '&search=' + this.selected_search
+            this.callURL(this.url + this.parameters);
         },
         scrollToTop () {
             // faulty on mobile ...
