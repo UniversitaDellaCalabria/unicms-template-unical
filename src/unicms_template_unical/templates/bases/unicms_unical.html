@@ -123,11 +123,17 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
         <div class="col-2 col-md-2 text-center">
             <a href="{{ addressbook_link }}" target="_blank">
-                <svg class="icon icon-sm d-lg-none icon-light align-middle">
-                  <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+                <svg class="icon icon-sm d-lg-none icon-light align-middle" aria-labelledby="Addressbook">
+                    <title id="Addressbook">
+                        {% trans 'Addressbook' %}
+                    </title>
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
                 </svg>
-                <svg class="icon icon-md d-none d-lg-inline icon-light align-middle">
-                  <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+                <svg class="icon icon-md d-none d-lg-inline icon-light align-middle" aria-labelledby="Addressbook">
+                    <title id="Addressbook">
+                        {% trans 'Addressbook' %}
+                    </title>
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
                 </svg>
             </a>
         </div>
