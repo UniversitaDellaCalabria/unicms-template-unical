@@ -107,74 +107,102 @@
             </div>
 
             <div class="col-12 col-lg-3 offset-lg-1">
-
-                <h5 class="card-title">{% trans "Published in" %}</h5>
-                <ul class="pl-0" style="list-style: none">
+                <h4>{% trans "Published in" %}</h4>
+                <hr />
+                <ul class="list-unstyled">
                 {% for pub_context in publication_context.publication.related_contexts %}
-                    <li class="mb-3">
-                        <a href="{{ pub_context.webpath.get_full_path }}">{{ pub_context.webpath.name }}</a>
+                    <li>
+                        <a class="no-color" href="{{ pub_context.webpath.get_full_path }}">
+                            <span>{{ pub_context.webpath.name }}</span>
+                        </a>
                     </li>
                 {% endfor %}
                 </ul>
 
                 {% if publication_context.publication.related_publications %}
-                <h5 class="card-title">{% trans "Related pages" %}</h5>
-                <ul class="pl-0" style="list-style: none">
-                {% for related_pub in publication_context.publication.related_publications %}
-                    <li class="mb-3">
-                        <a href="{{ related_pub.first_available_url }}">{{ related_pub.related }}</a>
-                        <br>
-                        <svg class="icon icon-xs">
-                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
-                        </svg> <small class="text-muted">{{ related_pub.related.created|date:"d M Y" }}</small>
-                    </li>
-                {% endfor %}
-                </ul>
+                <div class="row background-light-grey px-2 py-3 mb-2">
+                    <div class="col-2">
+                        <b>
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-arrow-right-circle"></use>
+                            </svg>
+                        </b>
+                    </div>
+                    <div class="col m-auto align-middle">
+                        <ul class="mb-0 pl-0 list-unstyled">
+                        {% for related_pub in publication_context.publication.related_publications %}
+                            <li>
+                                <a class="no-color" href="{{ related_pub.first_available_url }}">
+                                    <small><b>- {{ related_pub.related }}</b></small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 {% endif %}
 
                 {% if publication_context.publication.related_links %}
-                    <h5 class="card-title">{% trans "Links" %}</h5>
-                    <ul class="pl-0" style="list-style: none">
-                    {% for link in publication_context.publication.related_links %}
-                        <li class="mb-3">
-                            <a href="{{ link.url }}">
-                                <svg class="icon icon-xs">
-                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
-                                </svg>
-                                {{ link.name }}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                <div class="row background-light-grey px-2 py-3 mb-2">
+                    <div class="col-2 text-center" style="font-size: x-large">
+                        <b>@</b>
+                    </div>
+                    <div class="col m-auto align-middle">
+                        <ul class="mb-0 pl-0 list-unstyled">
+                        {% for link in publication_context.publication.related_links %}
+                            <li>
+                                <a class="no-color" href="{{ link.url }}">
+                                    <small><b>- {{ link.name }}</b></small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 {% endif %}
 
                 {% if publication_context.publication.get_attachments %}
-                    <h5 class="card-title">{% trans "Attachments" %}</h5>
-                    <ul class="pl-0" style="list-style: none">
-                    {% for item in publication_context.publication.get_attachments %}
-                        <li class="mb-3">
-                            <a href="{{ item.file.url }}">
-                                <svg class="icon icon-xs">
-                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-file"></use>
-                                </svg>
-                                {{ item.name }}
-                                <span class="text-muted small">
-                                    &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)
-                                </span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                <div class="row background-light-grey px-2 py-3 mb-2">
+                    <div class="col-2">
+                        <b>
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-files"></use>
+                            </svg>
+                        </b>
+                    </div>
+                    <div class="col m-auto align-middle">
+                        <ul class="mb-0 pl-0 list-unstyled">
+                        {% for item in publication_context.publication.get_attachments %}
+                            <li>
+                                <a class="no-color" href="{{ item.file.url }}">
+                                    <small><b>- {{ item.name }}</b></small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 {% endif %}
 
                 {% if publication_context.publication.available_in_languages %}
-                    <h5 class="card-title">{% trans "Available in languages" %}</h5>
-                    <ul class="pl-0" style="list-style: none">
-                    {% for lang,language in publication_context.publication.available_in_languages %}
-                        <li class="mb-3">
-                            <p>{{ language }}</p>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                <div class="row background-light-grey px-2 py-3 mb-2">
+                    <div class="col-2">
+                        <b>
+                            <svg class="icon">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-comment"></use>
+                            </svg>
+                        </b>
+                    </div>
+                    <div class="col m-auto align-middle">
+                        <ul class="mb-0 pl-0 list-unstyled">
+                        {% for lang,language in publication_context.publication.available_in_languages %}
+                            <li>
+                                <small><b>- {{ language }}</b></small>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 {% endif %}
 
             </div>
