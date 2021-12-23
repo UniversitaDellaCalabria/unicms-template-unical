@@ -197,6 +197,7 @@ var news = new Vue({
         },
         search() {
             this.parameters = '&search=' + this.selected_search
+            this.newsLoaded = false
             this.callURL(this.url + this.parameters);
         },
         scrollToTop () {
