@@ -23,7 +23,7 @@
                         {% endfor %}
                     </div>
                     {% if pub.publication.image_url %}
-                    <div class="img-responsive-wrapper mb-3">
+                    <div class="img-responsive-wrapper mb-3 mx-n4 d-lg-none">
                         <div class="img-responsive img-responsive-panoramic">
                             <figure class="img-wrapper">
                               <a href="{{ pub.url }}">
@@ -31,6 +31,18 @@
                                      title="{{ pub.publication.image_title }}"
                                      alt="{{ pub.publication.image_description }}">
                               </a>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="img-responsive-wrapper d-none d-lg-block h-100">
+                        <div class="img-responsive img-responsive-panoramic h-100">
+                            <figure class="img-wrapper">
+                              <a href="{{ pub.url }}" class="d-none d-lg-block h-100">
+                                    <img src="{{ pub.publication.image_url }}"
+                                         title="{{ pub.publication.image_title }}"
+                                         alt="{{ pub.publication.image_description }}"
+                                         class="h-100">
+                                </a>
                             </figure>
                         </div>
                     </div>
