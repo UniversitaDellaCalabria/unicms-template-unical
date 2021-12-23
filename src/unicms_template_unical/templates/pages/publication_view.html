@@ -67,16 +67,21 @@
 
                 {% if publication_context.publication.presentation_image %}
                 <div class="img-wrapper pb-3">
-                    <img src="{{ publication_context.publication.image_main_url }}"
+                    <img src="{{ publication_context.publication.presentation_image.get_media_path }}"
                          title="{{ publication_context.publication.presentation_image.title }}"
                          alt="{{ publication_context.publication.presentation_image.description }}"
                          class="w-100">
                 </div>
+                {% elif publication_context.publication.preview_image %}
+                <div class="img-wrapper mb-3 pr-3 pt-2 float-left w-50 mw-100">
+                    <img src="{{ publication_context.publication.preview_image.get_media_path }}"
+                         title="{{ publication_context.publication.preview_image.title }}"
+                         alt="{{ publication_context.publication.preview_image.description }}"
+                         class="w-100">
+                </div>
                 {% endif %}
 
-                <div>
-                    {{ publication_context.publication.html_content|safe }}
-                </div>
+                {{ publication_context.publication.html_content|safe }}
 
                 {% if publication_context.publication.tags.all %}
                 <h4>{% trans "tags" %}</h4>
