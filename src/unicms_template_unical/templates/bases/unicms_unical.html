@@ -97,8 +97,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 {% get_allowed_website request.get_host as host %}
 {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
-{% settings_value "CMS_STORAGE_BASE_PATH" as storage_base_prefix %}
-{% settings_value "CMS_STORAGE_ADDRESSBOOK_VIEW_PREFIX_PATH" as addressbook_prefix %}
+{% settings_value "ADDRESSBOOK_LINK" as addressbook_link %}
 
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
@@ -123,7 +122,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
         </div>
 
         <div class="col-2 col-md-2 text-center">
-            <a href="//{{ host }}/{{ cms_path_prefix }}{{ storage_base_prefix }}/{{ addressbook_prefix }}/">
+            <a href="{{ addressbook_link }}" target="_blank">
                 <svg class="icon icon-sm d-lg-none icon-light align-middle">
                   <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
                 </svg>
