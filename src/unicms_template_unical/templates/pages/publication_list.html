@@ -134,35 +134,39 @@ var news = new Vue({
                     <!--start card-->
                     <div class="card-wrapper card-space">
                         <div class="card card-bg no-after">
-
-                            <div class="img-responsive-wrapper mb-1" v-if="item.publication.image">
-                                <div class="img-responsive img-responsive-panoramic">
-                                    <figure class="img-wrapper">
-                                      <a style="" v-bind:href="item.path">
-                                        <img v-bind:src="item.publication.image" />
-                                      </a>
-                                    </figure>
-                                </div>
-                            </div>
-
                             <div class="card-body">
-                                <div class="etichetta mb-0">
-                                    <span v-for="(cat, index) in item.publication.category_data">
-                                        <span v-if="index>0">&nbsp;&middot</span>
-                                        <a v-bind:href="'?category_name=' + cat.name" style="color: #176fc1;">
-                                            [[ cat.name ]]
+                                <div class="etichetta">
+                                    <span v-for="(cat, index) in item.publication.category_data"
+                                        class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                        <a class="no-color" :href="'?category_name=' + cat.name">
+                                            <b>[[ cat.name ]]</b>
                                         </a>
                                     </span>
                                 </div>
-                                <span class="small text-muted mb-2">[[ item.publication.published|formatDate ]]</span>
+
+                                <div class="img-responsive-wrapper mb-3 mx-n4" v-if="item.publication.image">
+                                    <div class="img-responsive img-responsive-panoramic">
+                                        <figure class="img-wrapper">
+                                          <a :href="item.path">
+                                            <img :src="item.publication.image"
+                                                 title="{{ item.publication.image_title }}"
+                                                 alt="{{ item.publication.image_description }}">
+                                          </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="category-top">
+                                    <span>{% trans "Published" %}: [[ item.date_start|formatDate ]]</span>
+                                </div>
                                 <h4 class="card-title mt-3">
                                     <a style="text-decoration: none; color: #17324d;" v-bind:href="[[ item.path ]]">
                                         <p>[[ item.publication.title ]]</p>
                                     </a>
                                 </h4>
-                                <p>[[ item.publication.subheading ]]</p>
+                                <p v-if="item.publication.subheading">
+                                    [[ item.publication.subheading ]]
+                                </p>
                             </div>
-
                         </div>
                     </div>
                     <!--end card-->
