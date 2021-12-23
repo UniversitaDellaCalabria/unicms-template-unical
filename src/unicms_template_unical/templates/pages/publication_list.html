@@ -166,6 +166,14 @@ var news = new Vue({
                                 <p v-if="item.publication.subheading">
                                     [[ item.publication.subheading ]]
                                 </p>
+                                <a href="#">
+                                    <svg class="icon" :aria-labelledby="item.id+'Title'">
+                                        <title id="item.id+'Title'">
+                                            {% trans 'Share' %} [[ item.publication.title ]]
+                                        </title>
+                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
