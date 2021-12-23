@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-03 11:55+0100\n"
-"PO-Revision-Date: 2021-12-03 11:57+0100\n"
+"POT-Creation-Date: 2021-12-23 15:36+0100\n"
+"PO-Revision-Date: 2021-12-23 15:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 3.0\n"
 
 #: templates/404.html:6
@@ -37,7 +37,7 @@ msgstr "Questo servizio ha riscontrato un errore imprevisto"
 #: templates/bases/base_v_original.html:32
 #: templates/bases/unicms_unical.html:42 templates/bases/unicms_unical.html:58
 #: templates/bases/unicms_unical.html:77 templates/bases/unicms_unical.html:80
-#: templates/bases/unicms_unical.html:230
+#: templates/bases/unicms_unical.html:235
 msgid "University of Calabria"
 msgstr "Università della Calabria"
 
@@ -47,16 +47,19 @@ msgid "Official University of Calabria website"
 msgstr "Sito istituzionale dell'Universitàa della Calabria"
 
 #: templates/bases/base_v_original.html:77
+#: templates/bases/unicms_unical.html:128
+#: templates/bases/unicms_unical.html:134
 msgid "Address book"
 msgstr "Rubrica"
 
 #: templates/bases/base_v_original.html:82
-#: templates/bases/unicms_unical.html:120
+#: templates/bases/unicms_unical.html:119
+#: templates/pages/publication_list.html:121
 msgid "Search"
 msgstr "Cerca"
 
 #: templates/bases/base_v_original.html:107
-#: templates/bases/unicms_unical.html:201
+#: templates/bases/unicms_unical.html:206
 msgid "close"
 msgstr "chiudi"
 
@@ -73,11 +76,13 @@ msgid "Home"
 msgstr "Pagina iniziale"
 
 #: templates/bases/unical_api_list.html:46
+#: templates/pages/publication_list.html:56
+#: templates/pages/publication_list.html:61
 msgid "results"
 msgstr "risultati"
 
 #: templates/bases/unical_api_list.html:46
-#: templates/pages/publication_list.html:52
+#: templates/pages/publication_list.html:56
 msgid "pages"
 msgstr "pagine"
 
@@ -94,15 +99,15 @@ msgstr "precedente"
 msgid "next"
 msgstr "successiva"
 
-#: templates/bases/unicms_unical.html:165
+#: templates/bases/unicms_unical.html:170
 msgid "Logout"
 msgstr "Esci"
 
-#: templates/bases/unicms_unical.html:171
+#: templates/bases/unicms_unical.html:176
 msgid "Login"
 msgstr "Accedi"
 
-#: templates/bases/unicms_unical.html:319
+#: templates/bases/unicms_unical.html:253
 msgid "Contacts"
 msgstr "Contatti"
 
@@ -122,11 +127,11 @@ msgstr "Leggi di più"
 #: templates/blocks/unical_publications_cards_mosaic.html:88
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:80
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:84
+#: templates/pages/publication_list.html:177
 msgid "Share"
 msgstr "Condividi"
 
 #: templates/blocks/unical_publication_attachments.html:5
-#: templates/pages/publication_view.html:151
 msgid "Attachments"
 msgstr "Allegati"
 
@@ -141,7 +146,6 @@ msgstr "allegati"
 
 #: templates/blocks/unical_publication_full_view.html:57
 #: templates/blocks/unical_publication_links.html:5
-#: templates/pages/publication_view.html:136
 #: templates/pages/publication_view_hero_original.html:113
 msgid "Links"
 msgstr ""
@@ -153,25 +157,28 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publication_notices_v1.html:18
 #: templates/blocks/unical_publication_notices_v1_carousel.html:17
 #: templates/blocks/unical_publications_card.html:33
-#: templates/blocks/unical_publications_cards.html:39
+#: templates/blocks/unical_publications_cards.html:41
 #: templates/blocks/unical_publications_cards_carousel.html:39
 #: templates/blocks/unical_publications_cards_mosaic.html:72
-#: templates/blocks/unical_publications_cards_mosaic.html:115
-#: templates/blocks/unical_publications_cards_mosaic.html:163
+#: templates/blocks/unical_publications_cards_mosaic.html:165
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:66
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:68
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:111
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:159
+#: templates/blocks/unical_publications_cards_mosaic_v3.html:161
+#: templates/pages/publication_list.html:159
 #: templates/pages/publication_view.html:59
 #: templates/pages/publication_view_hero_original.html:56
 msgid "Published"
 msgstr "Pubblicato"
 
 #: templates/blocks/unical_publication_notices_v1.html:42
-#: templates/blocks/unical_publication_notices_v1_carousel.html:40
+#: templates/blocks/unical_publications_cards.html:74
 #: templates/blocks/unical_publications_cards_carousel.html:69
 msgid "Go to all news"
 msgstr "Vai a tutte le notizie"
+
+#: templates/blocks/unical_publication_notices_v1_carousel.html:40
+msgid "Go to all notices"
+msgstr "Vai a tutti gli avvisi"
 
 #: templates/loading-jumbo.html:19
 msgid "please wait"
@@ -197,22 +204,24 @@ msgstr "Preferenze"
 msgid "I agree"
 msgstr "Accetto"
 
-#: templates/pages/publication_list.html:52
-msgid "news"
-msgstr "notizie"
-
-#: templates/pages/publication_list.html:60
-#: templates/pages/publication_list.html:68
+#: templates/pages/publication_list.html:69
+#: templates/pages/publication_list.html:75
 msgid "Page"
 msgstr "Pagina"
 
-#: templates/pages/publication_list.html:60
+#: templates/pages/publication_list.html:69
 msgid "Previous"
 msgstr "Precedente"
 
-#: templates/pages/publication_list.html:68
+#: templates/pages/publication_list.html:75
 msgid "Next"
 msgstr "Successivo"
+
+#: templates/pages/publication_list.html:94
+#, fuzzy
+#| msgid "Loading"
+msgid "Loading data"
+msgstr "Caricamento"
 
 #: templates/pages/publication_view.html:82
 #: templates/pages/publication_view_hero_original.html:65
@@ -223,19 +232,25 @@ msgstr ""
 msgid "photo gallery"
 msgstr "galleria fotografica"
 
-#: templates/pages/publication_view.html:111
+#: templates/pages/publication_view.html:110
 #: templates/pages/publication_view_hero_original.html:97
 msgid "Published in"
 msgstr "Pubblicato in"
 
-#: templates/pages/publication_view.html:121
-msgid "Related pages"
-msgstr "Pagine collegate"
-
-#: templates/pages/publication_view.html:170
-msgid "Available in languages"
-msgstr "Disponibile nelle lingue"
-
 #: templates/pages/publication_view_hero_original.html:77
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
+
+#, fuzzy
+#~| msgid "Address book"
+#~ msgid "Addressbook"
+#~ msgstr "Rubrica"
+
+#~ msgid "news"
+#~ msgstr "notizie"
+
+#~ msgid "Related pages"
+#~ msgstr "Pagine collegate"
+
+#~ msgid "Available in languages"
+#~ msgstr "Disponibile nelle lingue"
