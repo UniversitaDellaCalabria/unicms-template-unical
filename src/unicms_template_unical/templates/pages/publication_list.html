@@ -112,7 +112,7 @@ var news = new Vue({
     </div>
     <div v-else>
 
-        <div class="row form-group">
+        <div class="form-group">
             <div class="input-group">
                 <label for="search"></label>
                 <input type="text"
@@ -142,7 +142,7 @@ var news = new Vue({
 
         <list-panel v-bind:data="items"></list-panel>
 
-        <div class="container" v-if="items">
+        <div v-if="items">
             <div class="row">
                 <div class="col-12 col-lg-4 " v-for="item in items.results" :key="item.id">
                     <!--start card-->
