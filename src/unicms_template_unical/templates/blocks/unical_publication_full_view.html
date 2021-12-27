@@ -12,7 +12,7 @@
 
 {% if publication.presentation_image %}
 <div class="mb-4">
-    <img src="{{ publication.image_main_url }}"
+    <img src="{{ publication.presentation_image.get_media_path }}"
          title="{{ publication.presentation_image.title }}"
          alt="{{ publication.presentation_image.description }}"
          class="w-100">
