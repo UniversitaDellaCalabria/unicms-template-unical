@@ -6,6 +6,9 @@
 
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
+{% random_id as uid %}
+
+
 {% if publications %}
 <div class="row d-lg-flex">
 
@@ -51,8 +54,8 @@
                     </p>
                     {% endif %}
                     <a href="#">
-                        <svg class="icon" aria-labelledby="{{ pub.pk }}Title catDesc">
-                            <title id="{{ pub.pk }}Title">title</title>
+                        <svg class="icon" aria-labelledby="{{ pub.pk }}_share">
+                            <title id="{{ pub.pk }}_share">{% trans "Share" %}</title>
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
                         </svg>
                     </a>
@@ -68,7 +71,8 @@
 <p class="mt-3 ml-2">
     <a href="{{ page_news_suffix }}" class="no-color">
         <span class="text-black font-weight-bold">
-            <svg class="icon mr-2">
+            <svg class="icon mr-2" aria-labelledby="{{ uid }}_news">
+                <title id="{{ uid }}_news">{% trans "Go to all news" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
             {% trans "Go to all news" %}

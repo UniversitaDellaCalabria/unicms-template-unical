@@ -10,7 +10,8 @@
                  title="{{ contact.image.description }}"
                  class="w-100" />
             {% else %}
-            <svg class="icon icon-muted">
+            <svg class="icon icon-muted" aria-labelledby="{{ contact.pk }}_img">
+                <title id="{{ contact.pk }}_img">{{ contact.image.description }}</title>
                 {% if contact.contact_type == 'person' %}
                 <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
                 {% else %}

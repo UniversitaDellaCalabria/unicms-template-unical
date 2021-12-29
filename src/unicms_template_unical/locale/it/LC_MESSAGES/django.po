@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-23 16:38+0100\n"
-"PO-Revision-Date: 2021-12-23 16:39+0100\n"
+"POT-Creation-Date: 2021-12-29 11:05+0100\n"
+"PO-Revision-Date: 2021-12-29 11:06+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr "Rubrica"
 
 #: templates/bases/base_v_original.html:82
 #: templates/bases/unicms_unical.html:119
-#: templates/pages/publication_list.html:132
+#: templates/pages/publication_list.html:135
 msgid "Search"
 msgstr "Cerca"
 
@@ -76,13 +76,13 @@ msgid "Home"
 msgstr "Pagina iniziale"
 
 #: templates/bases/unical_api_list.html:46
-#: templates/pages/publication_list.html:67
-#: templates/pages/publication_list.html:72
+#: templates/pages/publication_list.html:70
+#: templates/pages/publication_list.html:75
 msgid "results"
 msgstr "risultati"
 
 #: templates/bases/unical_api_list.html:46
-#: templates/pages/publication_list.html:67
+#: templates/pages/publication_list.html:70
 msgid "pages"
 msgstr "pagine"
 
@@ -123,11 +123,29 @@ msgstr "Nessun risultato prodotto"
 msgid "Read more"
 msgstr "Leggi di più"
 
+#: templates/blocks/unical_menu_grey_box_@.html:7
+msgid "Digital services"
+msgstr "Servizi digitali"
+
+#: templates/blocks/unical_menu_grey_box_arrow.html:10
+msgid "Informations"
+msgstr "Informazioni"
+
+#: templates/blocks/unical_menu_grey_box_chat.html:10
+msgid "Support"
+msgstr "Supporto"
+
+#: templates/blocks/unical_menu_grey_box_document.html:10
+msgid "Documents"
+msgstr "Documenti"
+
 #: templates/blocks/unical_page_publication_card_1.html:50
+#: templates/blocks/unical_publications_card.html:47
+#: templates/blocks/unical_publications_cards.html:58
 #: templates/blocks/unical_publications_cards_mosaic.html:88
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:80
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:84
-#: templates/pages/publication_list.html:188
+#: templates/pages/publication_list.html:191
 msgid "Share"
 msgstr "Condividi"
 
@@ -157,21 +175,22 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publication_notices_v1.html:18
 #: templates/blocks/unical_publication_notices_v1_carousel.html:17
 #: templates/blocks/unical_publications_card.html:33
-#: templates/blocks/unical_publications_cards.html:41
+#: templates/blocks/unical_publications_cards.html:44
 #: templates/blocks/unical_publications_cards_carousel.html:39
 #: templates/blocks/unical_publications_cards_mosaic.html:72
 #: templates/blocks/unical_publications_cards_mosaic.html:165
 #: templates/blocks/unical_publications_cards_mosaic_v2.html:66
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:68
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:161
-#: templates/pages/publication_list.html:170
+#: templates/pages/publication_list.html:173
 #: templates/pages/publication_view.html:59
 #: templates/pages/publication_view_hero_original.html:56
 msgid "Published"
 msgstr "Pubblicato"
 
 #: templates/blocks/unical_publication_notices_v1.html:42
-#: templates/blocks/unical_publications_cards.html:74
+#: templates/blocks/unical_publications_cards.html:75
+#: templates/blocks/unical_publications_cards.html:78
 #: templates/blocks/unical_publications_cards_carousel.html:69
 msgid "Go to all news"
 msgstr "Vai a tutte le notizie"
@@ -204,37 +223,37 @@ msgstr "Preferenze"
 msgid "I agree"
 msgstr "Accetto"
 
-#: templates/pages/publication_list.html:44
+#: templates/pages/publication_list.html:46
 msgid "Back to all news"
 msgstr "Torna a tutte le notizie"
 
-#: templates/pages/publication_list.html:80
-#: templates/pages/publication_list.html:86
+#: templates/pages/publication_list.html:83
+#: templates/pages/publication_list.html:89
 msgid "Page"
 msgstr "Pagina"
 
-#: templates/pages/publication_list.html:80
+#: templates/pages/publication_list.html:83
 msgid "Previous"
 msgstr "Precedente"
 
-#: templates/pages/publication_list.html:86
+#: templates/pages/publication_list.html:89
 msgid "Next"
 msgstr "Successivo"
 
-#: templates/pages/publication_list.html:105
+#: templates/pages/publication_list.html:108
 msgid "Loading data"
 msgstr "Caricamento dati"
 
-#: templates/pages/publication_view.html:82
+#: templates/pages/publication_view.html:87
 #: templates/pages/publication_view_hero_original.html:65
 msgid "tags"
 msgstr ""
 
-#: templates/pages/publication_view.html:94
+#: templates/pages/publication_view.html:99
 msgid "photo gallery"
 msgstr "galleria fotografica"
 
-#: templates/pages/publication_view.html:110
+#: templates/pages/publication_view.html:115
 #: templates/pages/publication_view_hero_original.html:97
 msgid "Published in"
 msgstr "Pubblicato in"
