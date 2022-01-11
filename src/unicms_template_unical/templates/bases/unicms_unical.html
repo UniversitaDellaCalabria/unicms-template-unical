@@ -102,16 +102,22 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
 
-        <div class="col-2 offset-3 offset-md-0 col-md-6">
+        <div class="col-2 offset-6 offset-md-0 col-md-8">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
-            <a href='/{{ cms_path_prefix | default_if_none:"/" }}search/'>
-                <svg class="icon d-md-none icon-sm icon-light">
+            <a href='/{{ cms_path_prefix }}search/'>
+                <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search">
+                    <title id="search">
+                        {% trans 'Search' %}
+                    </title>
                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
                 </svg>
             </a>
             <div class="row d-none d-md-flex">
                 <div class="col-2 col-lg-3 text-right">
-                    <svg class="icon icon-md icon-light">
+                    <svg class="icon icon-md icon-light" aria-labelledby="search">
+                        <title id="search">
+                            {% trans 'Search' %}
+                        </title>
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
                     </svg>
                 </div>
@@ -123,17 +129,17 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
         <div class="col-2 col-md-2 text-center">
             <a href="{{ addressbook_link }}" target="_blank">
-                <svg class="icon icon-sm d-lg-none icon-light align-middle" aria-labelledby="Address book">
-                    <title id="Address book">
+                <svg class="icon icon-sm d-lg-none icon-light align-middle" aria-labelledby="addressbook">
+                    <title id="addressbook">
                         {% trans 'Address book' %}
                     </title>
-                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
                 </svg>
-                <svg class="icon icon-md d-none d-lg-inline icon-light align-middle" aria-labelledby="Address book">
-                    <title id="Address book">
+                <svg class="icon icon-md d-none d-lg-inline icon-light align-middle" aria-labelledby="addressbook">
+                    <title id="addressbook">
                         {% trans 'Address book' %}
                     </title>
-                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-card"></use>
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
                 </svg>
             </a>
         </div>
@@ -141,6 +147,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
         <div class="col-2 col-md-2 text-center">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle p-0 text-center"
+                   title="{% trans 'Language' %}"
                    href="#"
                    data-toggle="dropdown"
                    aria-expanded="false">
@@ -163,6 +170,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </div>
         </div>
 
+        {% comment %}
         <div class="col-3 col-md-2 text-center">
             {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}" class="nav-link p-0">
@@ -178,6 +186,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </a>
             {% endif %}
         </div>
+        {% endcomment %}
     </div>
 </div>
 {% endblock header_center_right_zone %}
