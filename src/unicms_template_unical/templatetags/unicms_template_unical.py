@@ -84,7 +84,11 @@ def load_current_item_from_menu(context):
                                             webpath=context['page'].webpath,
                                             webpath__alias__isnull=True,
                                             webpath__is_active=True).first()
-    return item if item else None
+    if item:
+        if item.inherited_content: item.inherited_content.translate_as(language)
+        if item.publication: item.publication.translate_as(language)
+        return item
+    # return item if item else None
 
     # path = context['page'].webpath.get_full_path()
 
