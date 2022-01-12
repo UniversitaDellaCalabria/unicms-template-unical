@@ -5,6 +5,7 @@
 {% load unicms_templates %}
 
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
+{% settings_value "UNICAL_PUBLICATION_CAROUSEL_ITEMS" as carousel_items %}
 {% random_id as uid %}
 
 {% if publications %}
@@ -123,7 +124,7 @@ $(document).ready(function() {
             },
             // breakpoint from 1024 up
             1024 : {
-                items: 4
+                items: {{ carousel_items }}
             }
         }
     });
