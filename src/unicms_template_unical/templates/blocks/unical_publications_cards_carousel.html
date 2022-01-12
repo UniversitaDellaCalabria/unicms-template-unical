@@ -5,61 +5,81 @@
 {% load unicms_templates %}
 
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
+{% random_id as uid %}
 
 {% if publications %}
-<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
-    <div class="it-carousel-all owl-carousel owl-carousel-cards it-card-bg">
-        {% for pub in publications %}
-        <div class="card-wrapper card-space">
-            <div class="card card-bg no-after">
-                <div class="card-body">
-                    <div class="etichetta">
-                        {% for cat in pub.publication.categories %}
-                            <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
-                                <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat %}">
-                                    <b>{{ cat }}</b>
-                                </a>
-                            </span>
-                        {% endfor %}
-                    </div>
-                    {% if pub.publication.image_url %}
-                    <div class="img-responsive-wrapper mb-3 mx-n4">
-                        <div class="img-responsive img-responsive-panoramic">
-                            <figure class="img-wrapper">
-                              <a href="{{ pub.url }}">
-                                <img src="{{ pub.publication.image_url }}"
-                                     title="{{ pub.publication.image_title }}"
-                                     alt="{{ pub.publication.image_description }}">
-                              </a>
-                            </figure>
-                        </div>
-                    </div>
-                    {% endif %}
-                    <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
-                    </div>
-                    <h4 class="card-title">
-                        <a href="{{ pub.url }}" class="no-color">
-                            {{ pub.publication.title }}
-                        </a>
-                    </h4>
-                    {% if not pub.publication.image_url %}
-                    <p class="card-text">
-                        {{ pub.publication.subheading|truncatechars:135 }}
-                    </p>
-                    {% endif %}
-                    <a href="#">
-                        <svg class="icon">
-                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                        </svg>
-                    </a>
+<div class="custom-unical owl-carousel" id="carousel_{{ uid }}">
+    {% for pub in publications %}
+    <div class="card-wrapper card-space">
+        <div class="card card-bg no-after">
+            <div class="card-body">
+                {% block item_body %}
+                <div class="etichetta">
+                    {% for cat in pub.publication.categories %}
+                        <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                            <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat %}">
+                                <b>{{ cat }}</b>
+                            </a>
+                        </span>
+                    {% endfor %}
                 </div>
+                {% if pub.publication.image_url %}
+                <div class="img-responsive-wrapper mb-3 mx-n4">
+                    <div class="img-responsive img-responsive-panoramic">
+                        <figure class="img-wrapper">
+                          <a href="{{ pub.url }}">
+                            <img src="{{ pub.publication.image_url }}"
+                                 title="{{ pub.publication.image_title }}"
+                                 alt="{{ pub.publication.image_description }}">
+                          </a>
+                        </figure>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="category-top">
+                    <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
+                </div>
+                <h5 class="card-title">
+                    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+                        {{ pub.publication.title|truncatechars:120 }}
+                    </a>
+                </h5>
+                {% if not pub.publication.image_url %}
+                <p class="card-text">
+                    {{ pub.publication.subheading|truncatechars:135 }}
+                </p>
+                {% endif %}
+                <a href="#">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
+                    </svg>
+                </a>
+                {% endblock item_body %}
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
+</div>
+<div class="customNavigation text-right">
+    <a class="{{ uid }}_prev">
+        <span class="text-black font-weight-bold">
+            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_prev">
+                <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-left-circle"></use>
+            </svg>
+        </span>
+    </a>
+    <a class="{{ uid }}_next">
+        <span class="text-black font-weight-bold">
+            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_next">
+                <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
+            </svg>
+        </span>
+    </a>
 </div>
 
+{% block all_items_link %}
 <p class="mt-3 ml-2">
     <a href="{{ page_news_suffix }}" class="no-color">
         <span class="text-black font-weight-bold">
@@ -70,4 +90,49 @@
         </span>
     </a>
 </p>
+{% endblock all_items_link %}
+
+<script>
+$(document).ready(function() {
+    var owl_{{ uid }} = $("#carousel_{{ uid }}");
+
+    owl_{{ uid }}.owlCarousel({
+        nav : true, // Show next and prev buttons
+        //loop: true,
+        //slideSpeed : 300,
+        //paginationSpeed : 400,
+        //autoplay: true,
+        //items : 4,
+        //itemsDesktop : false,
+        //itemsDesktopSmall : false,
+        //itemsTablet: false,
+        //itemsMobile : false,
+        dots: false,
+        margin: 25,
+        //dotsEach: false,
+        stagePadding: 1,
+
+        responsive : {
+            // breakpoint from 0 up
+            0 : {
+                items: 1
+            },
+            // breakpoint from 480 up
+            480 : {
+                items: 2
+            },
+            // breakpoint from 1024 up
+            1024 : {
+                items: 4
+            }
+        }
+    });
+    $(".{{ uid }}_next").click(function(){
+        owl_{{ uid }}.trigger('next.owl.carousel');
+      })
+    $(".{{ uid }}_prev").click(function(){
+        owl_{{ uid }}.trigger('prev.owl.carousel');
+    })
+});
+</script>
 {% endif %}

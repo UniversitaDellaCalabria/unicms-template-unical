@@ -250,7 +250,8 @@ a .badge-grey-unical.selected {
     display: none;
 }
 
-.owl-carousel-cards .owl-stage {
+.owl-carousel-cards .owl-stage,
+.custom-unical .owl-stage{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -260,11 +261,20 @@ a .badge-grey-unical.selected {
     flex-wrap: wrap;
 }
 
-.owl-carousel-cards .owl-item{
+.owl-carousel-cards .owl-item,
+.custom-unical .owl-item{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: grid;
     height: auto !important;
+}
+
+.custom-unical .card-wrapper {
+    padding-bottom: 16px;
+}
+
+.it-carousel-wrapper.custom-unical .owl-carousel .owl-dots {
+    display: none;
 }
 
 .navbar .navbar-collapsable .navbar-nav li a.nav-link {

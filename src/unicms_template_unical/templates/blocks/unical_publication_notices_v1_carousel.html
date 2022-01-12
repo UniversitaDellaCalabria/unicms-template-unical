@@ -1,36 +1,29 @@
+{% extends "blocks/unical_publications_cards_carousel.html" %}
+
 {% load i18n %}
 {% load static %}
 
-{% load unicms_contexts %}
 {% load unicms_templates %}
 
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
-{% if publications %}
-<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
-    <div class="it-carousel-all owl-carousel owl-carousel-cards it-card-bg">
-        {% for pub in publications %}
-        <div class="card-wrapper">
-            <div class="card card-bg no-after">
-                <div class="card-body">
-                    <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start }}</span>
-                    </div>
-                    <h5 class="card-title">
-                        <a class="no-color" href="{{ pub.url }}">
-                            {{ pub.publication.title }}
-                        </a>
-                    </h5>
-                    <p class="card-text">
-                        {{ pub.publication.subheading|truncatechars:135 }}
-                    </p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
 
+{% block item_body %}
+<div class="category-top">
+    <span>{% trans "Published" %}: {{ pub.date_start }}</span>
+</div>
+<h5 class="card-title">
+    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+        {{ pub.publication.title|truncatechars:120 }}
+    </a>
+</h5>
+<p class="card-text">
+    {{ pub.publication.subheading|truncatechars:135 }}
+</p>
+{% endblock item_body %}
+
+
+{% block all_items_link %}
 <p class="mt-3 ml-2">
     <a href="{{ page_news_suffix }}?category_name=avvisi" class="no-color">
         <span class="text-black font-weight-bold">
@@ -41,4 +34,4 @@
         </span>
     </a>
 </p>
-{% endif %}
+{% endblock all_items_link %}
