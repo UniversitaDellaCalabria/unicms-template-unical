@@ -20,7 +20,6 @@ bootstrap-italia-base.html
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
-{% load unicms_storage_handler %}
 
 <!-- Custom extra head params -->
 {% block extra_head %}
@@ -95,7 +94,6 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 {% block header_center_right_zone %}
 
-{% get_allowed_website request.get_host as host %}
 {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
 {% settings_value "ADDRESSBOOK_LINK" as addressbook_link %}
 
