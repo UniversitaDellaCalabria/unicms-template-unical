@@ -68,7 +68,7 @@ bootstrap-italia-base.html
     {% if request.user.is_staff %}
     {{ block.super }}
     {% endif %}
-    <a href="/">
+    <a href="/" aria-label="{% trans 'University of Calabria' %}">
         <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
             {% block unical_mobile_logo %}
             <image src="{% static 'images/logo_unical_white.svg' %}"
@@ -102,7 +102,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
         <div class="col-2 offset-6 offset-md-0 col-md-8">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
-            <a href='/{{ cms_path_prefix }}search/'>
+            <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
                     <title id="search_mobile">
                         {% trans 'Search' %}
