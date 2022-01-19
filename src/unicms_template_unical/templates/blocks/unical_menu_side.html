@@ -35,7 +35,7 @@
         </a>
 
         {% if has_childs %}
-            <a class="list-item large medium right-icon no-color"
+            <span class="list-item large medium right-icon no-color"
                href="#collapse-{{item.id}}-{{ forloop.counter }}"
                data-toggle="collapse"
                aria-expanded="false"
@@ -43,7 +43,7 @@
                 <svg class="icon icon-sm icon-secondary right" aria-hidden="true">
                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
                 </svg>
-            </a>
+            </span>
             {% load_item_childs item as childs %}
             </b>
             </li>
