@@ -81,7 +81,7 @@
                                     {{ item.publication.subheading }}
                                 </p>
                                 {% endif %}
-                                <a href="#">
+                                <a href="#" aria-label="{% trans 'Share' %}">
                                     <svg class="icon" aria-labelledby="{{ item.pk }}Title catDesc">
                                         <title id="{{ item.pk }}Title">
                                             {% trans 'Share' %} {{ item.publication.title }}
@@ -120,7 +120,7 @@
                                 {{ item.publication.title }}
                             </a>
                         </h4>
-                        <a href="#">
+                        <a href="#" aria-label="{% trans 'Share' %}">
                             <svg class="icon">
                                 <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
                             </svg>
@@ -174,7 +174,7 @@
                         </p>
                         {% endif %}
 
-                        <a href="#">
+                        <a href="#" aria-label="{% trans 'Share' %}">
                             <svg class="icon">
                                 <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
                             </svg>

@@ -42,7 +42,7 @@
                 {{ publication.subheading|truncatechars:135 }}
             </p>
             {% endif %}
-            <a href="#">
+            <a href="#" aria-label="{% trans 'Share' %}">
                 <svg class="icon" aria-labelledby="{{ pub.pk }}_share">
                     <title id="{{ pub.pk }}_share">{% trans "Share" %}</title>
                     <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
