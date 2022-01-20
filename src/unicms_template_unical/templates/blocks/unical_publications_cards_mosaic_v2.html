@@ -2,6 +2,9 @@
 {% load static %}
 
 {% load unicms_contexts %}
+{% load unicms_templates %}
+
+{% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
 {% if publications %}
 {% with publications.first as item %}
