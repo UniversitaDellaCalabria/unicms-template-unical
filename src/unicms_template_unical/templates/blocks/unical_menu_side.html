@@ -51,9 +51,13 @@
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}
                 <li class="list-unstyled">
+                    {% if child_link %}
                     <a class="list-item no-color" href="{{ child_link}}">
+                    {% endif %}
                         {{ child.name }}
+                    {% if child_link %}
                     </a>
+                    {% endif %}
                 </li>
             {% endfor %}
             </ul>
