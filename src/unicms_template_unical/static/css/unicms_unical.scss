@@ -456,3 +456,9 @@ figure.table tr:nth-of-type(2n) {
 .progress-bar {
     background-color: $bordeaux_unical;
 }
+
+@media all and (max-width: 768px) {
+    .full-width-mobile {
+        width: 100%;
+    }
+}
