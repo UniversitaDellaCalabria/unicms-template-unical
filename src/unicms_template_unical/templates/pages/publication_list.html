@@ -168,8 +168,8 @@ var news = new Vue({
                                         <figure class="img-wrapper">
                                           <a :href="item.path">
                                             <img :src="item.publication.image"
-                                                 :title="item.publication.image_title"
-                                                 :alt="item.publication.image_description">
+                                                 :title="item.publication.preview_image.title || item.publication.presentation_image.title"
+                                                 :alt="item.publication.preview_image.description || item.publication.presentation_image.description">
                                           </a>
                                         </figure>
                                     </div>
@@ -198,7 +198,7 @@ var news = new Vue({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="{% trans 'Share on' %} Facebook"
-                                        style="text-decoration: none">
+                                        style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
                                         </svg>
@@ -211,7 +211,7 @@ var news = new Vue({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="{% trans 'Share on' %} Twitter"
-                                        style="text-decoration: none">
+                                        style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
                                         </svg>
@@ -224,7 +224,7 @@ var news = new Vue({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="{% trans 'Share on' %} Whatsapp"
-                                        style="text-decoration: none">
+                                        style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-whatsapp"></use>
                                         </svg>
@@ -237,7 +237,7 @@ var news = new Vue({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="{% trans 'Share on' %} Linkedin"
-                                        style="text-decoration: none">
+                                        style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
                                         </svg>
@@ -250,7 +250,7 @@ var news = new Vue({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         title="{% trans 'Share on' %} Email"
-                                        style="text-decoration: none">
+                                        style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
                                         </svg>
