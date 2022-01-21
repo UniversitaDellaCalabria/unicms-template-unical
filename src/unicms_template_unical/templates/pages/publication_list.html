@@ -194,7 +194,7 @@ var news = new Vue({
                                 <div>
                                     <!-- Facebook -->
                                     <span
-                                        :onclick="'javascript:window.open(&quot;{{ facebook_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        :onclick="'javascript:window.open(&quot;{{ facebook_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Facebook"
                                         style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
@@ -205,7 +205,7 @@ var news = new Vue({
 
                                     <!-- Twitter -->
                                     <span
-                                        :onclick="'javascript:window.open(&quot;{{ twitter_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        :onclick="'javascript:window.open(&quot;{{ twitter_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Twitter"
                                         style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
@@ -216,7 +216,7 @@ var news = new Vue({
 
                                     <!-- Whatsapp -->
                                     <span
-                                        :onclick="'javascript:window.open(&quot;{{ whatsapp_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        :onclick="'javascript:window.open(&quot;{{ whatsapp_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Whatsapp"
                                         style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
@@ -227,7 +227,7 @@ var news = new Vue({
 
                                     <!-- Linkedin -->
                                     <span
-                                        :onclick="'javascript:window.open(&quot;{{ linkedin_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        :onclick="'javascript:window.open(&quot;{{ linkedin_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Linkedin"
                                         style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
@@ -238,7 +238,7 @@ var news = new Vue({
 
                                     <!-- Email -->
                                     <span
-                                        :onclick="'javascript:window.open(&quot;{{ mail_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        :onclick="'javascript:window.open(&quot;{{ mail_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Email"
                                         style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
