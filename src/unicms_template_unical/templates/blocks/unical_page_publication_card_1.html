@@ -46,11 +46,10 @@
                         {{ publication.subheading|truncatechars:50 }}
                     </p>
                     {% endif %}
-                    <a href="#" aria-label="{% trans 'Share' %}">
-                        <svg class="icon" alt="{% trans 'Share' %} {{ publication.title }}">
-                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                        </svg>
-                    </a>
+
+                    {% if url %}
+                    {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:url %}
+                    {% endif %}
                 </div>
             </div>
         </div>
