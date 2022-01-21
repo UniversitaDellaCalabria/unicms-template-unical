@@ -20,6 +20,7 @@
 <p class="card-text">
     {{ pub.publication.subheading|truncatechars:135 }}
 </p>
+{% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
 {% endblock item_body %}
 
 

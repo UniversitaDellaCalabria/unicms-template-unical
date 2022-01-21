@@ -81,14 +81,8 @@
                                     {{ item.publication.subheading }}
                                 </p>
                                 {% endif %}
-                                <a href="#" aria-label="{% trans 'Share' %}">
-                                    <svg class="icon" aria-labelledby="{{ item.pk }}Title catDesc">
-                                        <title id="{{ item.pk }}Title">
-                                            {% trans 'Share' %} {{ item.publication.title }}
-                                        </title>
-                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                                    </svg>
-                                </a>
+
+                                {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:item.url %}
                             </div>
                         </div>
                     </div>
@@ -120,11 +114,7 @@
                                 {{ item.publication.title }}
                             </a>
                         </h4>
-                        <a href="#" aria-label="{% trans 'Share' %}">
-                            <svg class="icon">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                            </svg>
-                        </a>
+                        {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:item.url %}
                     </div>
                 </div>
             </div>
@@ -174,11 +164,7 @@
                         </p>
                         {% endif %}
 
-                        <a href="#" aria-label="{% trans 'Share' %}">
-                            <svg class="icon">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                            </svg>
-                        </a>
+                        {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:item.url %}
                     </div>
                 </div>
             </div>

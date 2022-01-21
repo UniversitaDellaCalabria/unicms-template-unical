@@ -16,6 +16,11 @@
 
 {% get_current_language as LANGUAGE_CODE %}
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as publication_list_prefix %}
+{% settings_value "FACEBOOK_ENDPOINT" as facebook_share %}
+{% settings_value "TWITTER_ENDPOINT" as twitter_share %}
+{% settings_value "WHATSAPP_ENDPOINT" as whatsapp_share %}
+{% settings_value "LINKEDIN_ENDPOINT" as linkedin_share %}
+{% settings_value "MAIL_ENDPOINT" as mail_share %}
 
 {% breadcrumbs webpath=webpath leaf=handler %}
 
@@ -185,14 +190,75 @@ var news = new Vue({
                                 <p v-if="item.publication.subheading">
                                     [[ item.publication.subheading ]]
                                 </p>
-                                <a href="#">
-                                    <svg class="icon" :aria-labelledby="item.id+'Title'">
-                                        <title id="item.id+'Title'">
-                                            {% trans 'Share' %} [[ item.publication.title ]]
-                                        </title>
-                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-share"></use>
-                                    </svg>
-                                </a>
+
+                                <div>
+                                    <!-- Facebook -->
+                                    <a :href="'{{ facebook_share }}{{ request.get_host }}' + item.path"
+                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{% trans 'Share on' %} Facebook"
+                                        style="text-decoration: none">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
+                                        </svg>
+                                        <span class="sr-only">{% trans 'Share on' %} Facebook</span>
+                                    </a>
+
+                                    <!-- Twitter -->
+                                    <a :href="'{{ twitter_share }}{{ request.get_host }}' + item.path"
+                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{% trans 'Share on' %} Twitter"
+                                        style="text-decoration: none">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
+                                        </svg>
+                                        <span class="sr-only">{% trans 'Share on' %} Twitter</span>
+                                    </a>
+
+                                    <!-- Whatsapp -->
+                                    <a :href="'{{ whatsapp_share }}{{ request.get_host }}' + item.path"
+                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{% trans 'Share on' %} Whatsapp"
+                                        style="text-decoration: none">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-whatsapp"></use>
+                                        </svg>
+                                        <span class="sr-only">{% trans 'Share on' %} Whatsapp</span>
+                                    </a>
+
+                                    <!-- Linkedin -->
+                                    <a :href="'{{ linkedin_share }}{{ request.get_host }}' + item.path"
+                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{% trans 'Share on' %} Linkedin"
+                                        style="text-decoration: none">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
+                                        </svg>
+                                        <span class="sr-only">{% trans 'Share on' %} Linkedin</span>
+                                    </a>
+
+                                    <!-- Email -->
+                                    <a :href="'{{ mail_share }}{{ request.get_host }}' + item.path"
+                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="{% trans 'Share on' %} Email"
+                                        style="text-decoration: none">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
+                                        </svg>
+                                        <span class="sr-only">{% trans 'Share on' %} Email</span>
+                                    </a>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -202,7 +268,6 @@ var news = new Vue({
         </div>
 
         <list-panel v-bind:data="items"></list-panel>
-
     </div>
     `,
     data () {

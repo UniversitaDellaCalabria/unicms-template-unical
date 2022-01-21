@@ -53,6 +53,10 @@
                 {% endfor %}
                 </div>
 
+                <div class="mb-3 text-right">
+                    {% include "includes/social_share.html" with share_title=publication_context.publication.title share_url=request.build_absolute_uri %}
+                </div>
+
                 <p class="text-muted">
                     <svg class="icon icon-xs mr-2">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
