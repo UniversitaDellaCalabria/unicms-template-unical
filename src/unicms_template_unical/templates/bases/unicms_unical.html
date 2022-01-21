@@ -261,7 +261,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                 </a>
             </h4>
             <p>
-                <strong>Università della Calabria</strong>
+                <strong>{% trans 'University of Calabria' %}</strong>
                 <br>
                 Via Pietro Bucci
                 <br>
@@ -269,7 +269,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                 <br>
                 Tel. +39 0984 4911
                 <br>
-                <a class="text-white" href="#" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a>
+                <a class="text-white" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
                 <br>
                 C.F. 80003950781 / P.I. 00419160783
             </p>
@@ -279,13 +279,13 @@ col-10 offset-2 col-lg-12 offset-lg-0
         {% block second_column %}
         <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="Vai alla pagina: Amministrazione">Amministrazione</a>
+                <a href="#" title="{% trans 'Administration' %}">{% trans 'Administration' %}</a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Organizzazione">Organizzazione</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Amministrazione trasparente">Amministrazione trasparente</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Albo ufficiale di Ateneo">Albo ufficiale di Ateneo</a></li>
+                    <li><a class="list-item" href="/portale/organizzazione/" title="{% trans 'Organization' %}">{% trans 'Organization' %}</a></li>
+                    <li><a class="list-item" href="/portale/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">{% trans 'Transparent administration' %}</a></li>
+                    <li><a class="list-item" href="https://titulus-unical.cineca.it/albo/" target="_blank" rel="noopener noreferrer" title="{% trans 'Official register of the University' %}">{% trans 'Official register of the University' %}</a></li>
                 </ul>
             </div>
         </div>
@@ -294,16 +294,16 @@ col-10 offset-2 col-lg-12 offset-lg-0
         {% block third_column %}
         <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="Vai alla pagina: Novità">Servizi online</a>
+                <a href="#" title="{% trans 'Online services' %}">{% trans 'Online services' %}</a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Front office on-line">Front office on-line</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Posta certificata">Posta certificata</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Servizi ICT">Servizi ICT</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Smart Campus">Smart Campus</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Ticket on line">Ticket on line</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: UnicalLife">UnicalLife</a></li>
+                    <li><a class="list-item" href="/portale/didattica/orientamento/front-office-online-orientamento-inclusione-e-career-service/" title="{% trans 'Online front-office' %}">{% trans 'Online front-office' %}</a></li>
+                    <li><a class="list-item" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a></li>
+                    <li><a class="list-item" href="/portale/servizi-ict" title="{% trans 'ITC services' %}">{% trans 'ITC services' %}</a></li>
+                    <li><a class="list-item" href="/portale/servizi-ict/applicazioni-per-la-didattica-e-la-vita-nel-campus/smart-campus/" title="Smart Campus">Smart Campus</a></li>
+                    <li><a class="list-item" href="https://ticket.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Online ticket' %}">{% trans 'Online ticket' %}</a></li>
+                    <li><a class="list-item" href="/portale/servizi-ict/applicazioni-per-la-didattica-e-la-vita-nel-campus/unicalife/" title="UnicalLife">UnicalLife</a></li>
                 </ul>
             </div>
         </div>
@@ -312,13 +312,13 @@ col-10 offset-2 col-lg-12 offset-lg-0
         {% block fourth_column %}
         <div class="col-lg-2 col-sm-6">
             <h4>
-                <a href="#" title="Vai alla pagina: Documenti">Campus</a>
+                <a href="#" title="{% trans 'Campus' %}">{% trans 'Campus' %}</a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Servizi per gli studenti">Servizi per gli studenti</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Vivere il campus">Vivere il campus</a></li>
-                    <li><a class="list-item" href="#" title="Vai alla pagina: Visita il campus">Visita il campus</a></li>
+                    <li><a class="list-item" href="/campus/servizi/" title="{% trans 'Services for students' %}">{% trans 'Services for students' %}</a></li>
+                    <li><a class="list-item" href="/portale/campus/vivere-il-campus/" title="{% trans 'Living on campus' %}">{% trans 'Living on campus' %}</a></li>
+                    <li><a class="list-item" href="/portale/campus/visita-il-campus/#" title="{% trans 'Visit our campus' %}">{% trans 'Visit our campus' %}</a></li>
                 </ul>
             </div>
         </div>
@@ -339,36 +339,36 @@ col-10 offset-2 col-lg-12 offset-lg-0
         {% block footer_bottom_content %}
         <div class="row">
             <div class="col-12 col-lg-auto">
-                <h3 class="sr-only">Sezione Link Utili</h3>
+                <h3 class="sr-only">{% trans "Useful links" %}</h3>
                 <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
                     <li class="list-inline-item">
-                        <a href="#" title="Amministrazione trasparente">
-                            Amministrazione trasparente
+                        <a href="/portale/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">
+                            {% trans 'Transparent administration' %}
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" title="Accessibilità">
-                            Accessibilità
+                        <a href="/portale/accessibilita" title="{% trans 'Accessibility' %}">
+                            {% trans 'Accessibility' %}
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" title="Privacy">
+                        <a href="/portale/privacy" title="Privacy">
                             Privacy
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" title="Cookie">
+                        <a href="/portale/cookie" title="Cookie">
                             Cookie
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" title="Note Legali">
-                            Note legali
+                        <a href="/portale/note-legali" title="{% trans 'Legal notes' %}">
+                            {% trans 'Legal notes' %}
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" title="Mappa del sito">
-                            Mappa del sito
+                        <a href="/portale/sitemap.xml" title="{% trans 'Sitemap' %}">
+                            {% trans 'Sitemap' %}
                         </a>
                     </li>
                 </ul>
