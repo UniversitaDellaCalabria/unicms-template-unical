@@ -193,69 +193,59 @@ var news = new Vue({
 
                                 <div>
                                     <!-- Facebook -->
-                                    <a :href="'{{ facebook_share }}{{ request.get_host }}' + item.path"
-                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ facebook_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Facebook"
                                         style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
                                         </svg>
                                         <span class="sr-only">{% trans 'Share on' %} Facebook</span>
-                                    </a>
+                                    </span>
 
                                     <!-- Twitter -->
-                                    <a :href="'{{ twitter_share }}{{ request.get_host }}' + item.path"
-                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ twitter_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Twitter"
                                         style="text-decoration: none; cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
                                         </svg>
                                         <span class="sr-only">{% trans 'Share on' %} Twitter</span>
-                                    </a>
+                                    </span>
 
                                     <!-- Whatsapp -->
-                                    <a :href="'{{ whatsapp_share }}{{ request.get_host }}' + item.path"
-                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ whatsapp_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Whatsapp"
-                                        style="text-decoration: none; cursor: pointer">
+                                        style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-whatsapp"></use>
                                         </svg>
                                         <span class="sr-only">{% trans 'Share on' %} Whatsapp</span>
-                                    </a>
+                                    </span>
 
                                     <!-- Linkedin -->
-                                    <a :href="'{{ linkedin_share }}{{ request.get_host }}' + item.path"
-                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ linkedin_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Linkedin"
-                                        style="text-decoration: none; cursor: pointer">
+                                        style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
                                         </svg>
                                         <span class="sr-only">{% trans 'Share on' %} Linkedin</span>
-                                    </a>
+                                    </span>
 
                                     <!-- Email -->
-                                    <a :href="'{{ mail_share }}{{ request.get_host }}' + item.path"
-                                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ mail_share }}{{ request.get_host }}&quot;' + item.path +', &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
                                         title="{% trans 'Share on' %} Email"
-                                        style="text-decoration: none; cursor: pointer">
+                                        style="cursor: pointer">
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
                                         </svg>
                                         <span class="sr-only">{% trans 'Share on' %} Email</span>
-                                    </a>
+                                    </span>
 
                                 </div>
 
