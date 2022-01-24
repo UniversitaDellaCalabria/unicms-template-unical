@@ -96,18 +96,14 @@
                 </p>
                 {% endif %}
 
-                {% if publication_context.publication.related_galleries %}
+                {% if publication_context.publication.related_media_collections %}
                 <hr>
 
                 <br>
-                <h4>{% trans "photo gallery" %}</h4>
 
+                    {% for gallery in publication_context.publication.related_media_collections %}
 
-                    {% for gallery in publication_context.publication.related_galleries %}
-
-                        {% include "carousel_media_gallery.html" with media_items=gallery.collection.get_items %}
-
-                        {% include "grid_media_gallery.html" with media_items=gallery.collection.get_items %}
+                        {% include "italia_media_collection_image_slider.html" with collection=gallery.collection %}
 
                     {% endfor %}
                 {% endif %}
