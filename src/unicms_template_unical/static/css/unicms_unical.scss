@@ -462,3 +462,13 @@ figure.table tr:nth-of-type(2n) {
         width: 100%;
     }
 }
+
+.card-columns-2 {
+    column-count: 2;
+}
+
+@media all and (max-width: 992px) {
+	.card-columns-2 {
+        column-count: 1;
+    }
+}
