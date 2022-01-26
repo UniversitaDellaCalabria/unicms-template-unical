@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/** Università della Calabria Portale Style SCSS */
+/** Università della Calabria COLORS */
+/** Università della Calabria Style SCSS */
+/** Università della Calabria COLORS */
+/** Generic elements */
+a { cursor: pointer; color: #b71918; }
+
+a:hover, a:active { color: #383838; }
+
+a.read-more { color: #9d9d9c; }
+
+.badge-primary { background: #b71918; }
+
+.badge-secondary { background: #383838; }
+
+.btn-primary { background: #383838; }
+
+.btn-primary:hover { background: #9d9d9c; }
+
+.btn-outline-primary, .btn-outline-primary:visited { color: #383838; -webkit-box-shadow: inset 0 0 0 1px #383838; box-shadow: inset 0 0 0 1px #383838; }
+
+.btn-outline-primary:hover { color: #9d9d9c; -webkit-box-shadow: inset 0 0 0 1px #9d9d9c; box-shadow: inset 0 0 0 1px #9d9d9c; }
+
+.btn-outline-primary:active, .btn-outline-primary:focus { color: #383838 !important; box-shadow: inset 0 1px 0 #9d9d9c, 0 1px 1px #9d9d9c, 0 0 0 0.2rem rgba(101, 101, 102, 0.5) !important; }
+
+.btn-secondary { background: #b71918; }
+
+.btn-secondary:hover { background: #383838; }
+
+.btn:not(.btn-outline-primary):not(.btn-outline-secondary):active, .btn:not(.btn-outline-primary):not(.btn-outline-secondary):focus { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 0.2rem rgba(101, 101, 102, 0.5) !important; background-color: #475664 !important; }
+
+.text-primary { color: #383838 !important; }
+
+.text-secondary { color: #b71918 !important; }
+
+/** Header Slim Wrapper */
+.it-header-slim-wrapper { background: #b71918; }
+
+.it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone button { background: #383838; }
+
+.it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone button:hover { background: #9d9d9c; color: #383838; }
+
+/** Header Center Wrapper */
+@media (min-width: 992px) { .it-header-center-wrapper { height: 130px; } }
+
+.it-header-center-wrapper { background: #ffffff; }
+
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a, .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone { color: #383838; }
+
+.it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone .it-socials ul .icon, .it-header-center-wrapper .it-header-center-content-wrapper .it-search-wrapper a.rounded-icon svg { fill: #383838; }
+
+/** Logo */
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .img { width: 100%; }
+
+/** Header Navbar Wrapper */
+/* Desktops and laptops ----------- */
+@media (min-width: 992px) { .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .logo_icon image { width: 100%; } }
+
+/* Others than desktop ----------- */
+@media (max-width: 991px) { .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .logo_icon image { height: 100%; } }
+
+/** Header Navbar Wrapper */
+/* Desktops and laptops ----------- */
+@media (min-width: 992px) { .it-header-navbar-wrapper { background: #383838; } }
+
+/* Others than desktop ----------- */
+@media (max-width: 991px) { .it-header-navbar-wrapper { background: none; } .custom-navbar-toggler svg { fill: #383838; } }
+
+/** Main Body */
+/** Footer Main */
+.it-footer-main { background: #383838; }
+
+/** Footer Small Prints */
+.it-footer-small-prints { background: #b71918; }
+
+/** ------------------------------------------------------------- */
+/** Carousel */
+.it-carousel-wrapper .owl-dots .owl-dot { background: #383838; }
+
+/** Back to top */
+.back-to-top { background: #9d9d9c; }
+
+.back-to-top:hover { background: #383838; }
+
+/** Form Bootstrap Italia */
+.toggles label input[type="checkbox"]:checked + .lever::after { background-color: #b71918; }
+
+.form-check [type=radio]:checked + label::after, .form-check [type=checkbox]:checked + label::after { background-color: #b71918; border-color: #b71918; }
+
+.form-check [type=radio]:checked + label::before { border-color: #b71918; }
+
+/** Section muted */
+.section.section-muted { background-color: #f7f7f7; }
+
+@font-face { font-family: TitilliumWeb-Black; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/TitilliumWeb-Black.ttf); }
+
+a { text-decoration: none; color: #B01717; text-decoration: underline; }
+
+a:hover, a:active { color: #6f0b0a; text-decoration: none; }
+
+/** only visited **/
+a.no-color, ol.breadcrumb a { color: #383838; text-decoration: none; }
+
+a.no-color:hover, a.no-color:active, ol.breadcrumb a:hover, ol.breadcrumb a:active { text-decoration: underline; }
+
+/** end only visited **/
+.super-bold { font-family: TitilliumWeb-Black; }
+
+.lighter { font-weight: lighter; }
+
+.background-yellow { background: #ffed00; }
+
+.background-white { background: #ffffff; }
+
+.background-light-grey { background: #e3e9ec; color: #383838; }
+
+.icon-light { fill: #fff !important; }
+
+.bigger-font { font-size: 1.5rem; }
+
+.negative-mt-5 { margin-top: -48px; }
+
+.dark-grey-background { background: #d3d2cf; }
+
+.it-header-center-wrapper { background: #b71918; }
+
+.it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone { color: #fff; }
+
+input.top-input { background: none; border: 1px solid #fff; height: 1.7rem; width: 100%; color: #ffffff; }
+
+.it-hero-wrapper .it-hero-text-wrapper h1 { background: #fff; color: #383838; padding: 1rem; font-family: TitilliumWeb-Black; }
+
+.section-title-label { background: #fff; }
+
+.card.card-bg { margin-left: 0; margin-right: 0; }
+
+.card .card-body .category-top { text-transform: none; }
+
+.card .etichetta { font-size: 1rem; text-transform: lowercase; margin-bottom: 15px; color: #176fc1; display: block; }
+
+.card-title { font-weight: bold; }
+
+.card .card-title { line-height: 1; }
+
+.card .card-body .card-text { font-family: Titillium Web; font-size: 16px; }
+
+.btn-grey-presta { background: #d3d2cf; }
+
+.btn-grey-presta:hover { color: #ffffff; background: #383838; }
+
+.bg-dark .btn-secondary { background: #b71918; }
+
+.bg-dark .btn-secondary:hover { background: #383838; }
+
+.it-right-zone .nav-link { color: #ffffff; }
+
+@media (max-width: 991px) { .custom-navbar-toggler svg { fill: #ffffff; } }
+
+.nav-mobile { width: 100%; }
+
+.it-header-slim-wrapper { background: #383838; }
+
+.it-header-slim-wrapper .container { padding-left: 0; padding-right: 0; }
+
+.badge-grey-unical { background: #e3e9ec; color: #383838; font-weight: 500; }
+
+a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838; color: #e3e9ec; text-decoration: none; }
+
+.square-corners { border-radius: 0; }
+
+.publication-hero { min-height: 300px; }
+
+.breadcrumb-container { padding-top: 15px; padding-bottom: 15px; border-top: 2px solid #b71918; border-bottom: 2px solid #b71918; font-size: 0.78rem; }
+
+.breadcrumb-container .breadcrumb { margin-bottom: 0; }
+
+/** Medium with */
+@media (min-width: 992px) { .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { padding-top: 1.7rem; } .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper nav { padding-left: 0; padding-right: 0; } .it-header-center-wrapper .it-header-center-content-wrapper { padding-left: 0; padding-right: 0; } .navbar .navbar-collapsable .navbar-nav li.nav-item { font-size: 1.2rem; } .it-header-navbar-wrapper { background: #ffffff; } }
+
+/** De Marco */
+.menu-wrapper { z-index: 1 !important; }
+
+.owl-carousel { z-index: 0; }
+
+.owl-nav { display: none; }
+
+.owl-carousel-cards .owl-stage, .custom-unical .owl-stage { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+
+.owl-carousel-cards .owl-item, .custom-unical .owl-item { display: -webkit-flex; display: -ms-flexbox; display: grid; height: auto !important; }
+
+.custom-unical .card-wrapper { padding-bottom: 16px; }
+
+.it-carousel-wrapper.custom-unical .owl-carousel .owl-dots { display: none; }
+
+.navbar .navbar-collapsable .navbar-nav li a.nav-link { color: #000; }
+
+.it-carousel-wrapper .owl-stage-outer { padding-top: 0px; padding-bottom: 0; }
+
+.it-hero-wrapper { background-color: #fff !important; }
+
+/** Main Menu */
+.dropdown-menu { padding: 16px 2px !important; }
+
+.menu-wrapper > ul > li.nav-item.dropdown.megamenu.show > div { border-style: solid; border-width: thin; border: 0.5px 0.5px 0.5px 0.5px solid #000; border-bottom: none; }
+
+.menu-wrapper > ul > li.nav-item.dropdown.show > div { border-style: solid; border-width: thin; border: 0.5px 0.5px 0.5px 0.5px solid #000; border-bottom: none; }
+
+.navbar .dropdown-menu:before { display: none; }
+
+.bordeaux-unical-bg { background: #b71918; }
+
+.bordeaux-unical-color { color: #b71918; }
+
+.white-unical-color { color: #ffffff; }
+
+li .list-item.sub { line-height: inherit; }
+
+@media all and (min-width: 992px) { .navbar .nav-item .dropdown-menu { display: none; } .navbar .nav-item:hover .nav-link { text-decoration: underline; } .navbar .nav-item:hover .dropdown-menu { display: block; } .navbar .nav-item .dropdown-menu { margin-top: 0; } }
+
+@media all and (max-width: 768px) { .navbar .nav-item a.nav-link { float: left; } .navbar .nav-item span.megamenu-dropdown-arrow { float: right; margin: 10px; } .navbar .nav-item .dropdown-menu { float: left; } }
+
+.collapse-header [data-toggle=collapse][aria-expanded=false], .collapse-header [data-toggle=collapse]:before { color: #383838; }
+
+.collapse-div.collapse-left-icon .collapse-header [data-toggle=collapse][aria-expanded=false]:before { content: ' \2295'; font-weight: normal; }
+
+.collapse-div.collapse-left-icon .collapse-header [data-toggle=collapse][aria-expanded=true]:before { content: ' \2296'; font-weight: normal; }
+
+.nav-tabs .nav-link, .nav-tabs .nav-link:hover { color: #9d9d9c; }
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { border-bottom-color: #b71918; color: #383838; }
+
+.link-list-wrapper ul li a span, .link-list-wrapper ul li a:hover:not(.disabled) span { color: #383838; }
+
+.department_logo_lg { height: 63px; }
+
+select.form-control { border-width: 1px; }
+
+.card .card-body a h5.card-title { color: #383838; }
+
+.it-header-center-wrapper ::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color: inherit; }
+
+.it-header-center-wrapper :-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: inherit; opacity: 1; }
+
+.it-header-center-wrapper ::-moz-placeholder { /* Mozilla Firefox 19+ */ color: inherit; opacity: 1; }
+
+.it-header-center-wrapper :-ms-input-placeholder { /* Internet Explorer 10-11 */ color: inherit; }
+
+.it-header-center-wrapper ::-ms-input-placeholder { /* Microsoft Edge */ color: inherit; }
+
+.it-header-center-wrapper ::placeholder { /* Most modern browsers support this now. */ color: inherit; }
+
+.progress-spinner.progress-spinner-double .progress-spinner-inner:after { border: 4px solid #b71918; border-right: 4px solid transparent; border-bottom: 4px solid transparent; }
+
+figure.table tr:nth-of-type(2n) { background-color: #f6f7f9; }
+
+.col img { max-width: 100%; }
+
+.unical-alert ul { margin-bottom: 0; }
+
+.progress { background-color: #e3e9ec; }
+
+.progress-bar { background-color: #b71918; }
+
+@media all and (max-width: 768px) { .full-width-mobile { width: 100%; } }
+
+.card-columns-2 { column-count: 2; }
+
+@media all and (max-width: 992px) { .card-columns-2 { column-count: 1; } }
