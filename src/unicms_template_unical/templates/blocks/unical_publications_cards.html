@@ -10,7 +10,14 @@
 
 
 {% if publications %}
-{% if categories %}<h2 class="mb-3">{{ categories }}</h2>{% endif %}
+{% if categories %}
+<h2 class="mb-3">
+    {% for category in categories %}
+        {{ category }}
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</h2>
+{% endif %}
 <div class="row d-lg-flex">
 
     {% for pub in publications %}
@@ -66,13 +73,13 @@
 </div>
 
 <p class="mt-3 ml-2">
-    <a href="{{ page_news_suffix }}" class="no-color">
+    <a href="{{ page_news_suffix }}{% if categories|length == 1 %}?category_name={{ categories.0 }}{% endif %}" class="no-color">
         <span class="text-black font-weight-bold">
             <svg class="icon mr-2" aria-labelledby="{{ uid }}_news">
                 <title id="{{ uid }}_news">{% trans "Go to all news" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
-            {% trans "Go to all news" %}
+            {% trans "Go to all news" %} {% if categories|length == 1 %}in {{ categories.0 }}{% endif %}
         </span>
     </a>
 </p>
