@@ -142,6 +142,16 @@
                 {% endfor %}
                 </ul>
 
+                {% with publication_context.publication.related_embedded_links as related_embedded_links %}
+                {% if related_embedded_links %}
+                {% for link in related_embedded_links %}
+                <div class="row mb-2">
+                    {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
                 {% if publication_context.publication.related_publications %}
                 <div class="row background-light-grey px-2 py-3 mb-2">
                     <div class="col-2">
@@ -165,14 +175,15 @@
                 </div>
                 {% endif %}
 
-                {% if publication_context.publication.related_links %}
+                {% with publication_context.publication.related_plain_links as related_links %}
+                {% if related_links %}
                 <div class="row background-light-grey px-2 py-3 mb-2">
                     <div class="col-2 text-center" style="font-size: x-large">
                         <b>@</b>
                     </div>
                     <div class="col m-auto align-middle">
                         <ul class="mb-0 pl-0 list-unstyled">
-                        {% for link in publication_context.publication.related_links %}
+                        {% for link in related_links %}
                             <li>
                                 <a class="no-color" href="{{ link.url }}">
                                     <small><b>- {{ link.name }}</b></small>
@@ -183,8 +194,10 @@
                     </div>
                 </div>
                 {% endif %}
+                {% endwith %}
 
-                {% if publication_context.publication.get_attachments %}
+                {% with publication_context.publication.get_plain_attachments as attachments %}
+                {% if attachments %}
                 <div class="row background-light-grey px-2 py-3 mb-2">
                     <div class="col-2">
                         <b>
@@ -195,7 +208,7 @@
                     </div>
                     <div class="col m-auto align-middle">
                         <ul class="mb-0 pl-0 list-unstyled">
-                        {% for item in publication_context.publication.get_attachments %}
+                        {% for item in attachments %}
                             <li>
                                 <a class="no-color" href="{{ item.file.url }}">
                                     <small><b>- {{ item.name }}</b></small>
@@ -206,6 +219,7 @@
                     </div>
                 </div>
                 {% endif %}
+                {% endwith %}
 
                 {% if publication_context.publication.available_in_languages %}
                 <div class="row background-light-grey px-2 py-3 mb-2">
