@@ -43,7 +43,7 @@
                     {% load_item_childs child as subchilds %}
 
                     <!-- Render a full col div -->
-                    <div class="col-lg-3">
+                    <div class="col-lg-{% if childs.count > 3 %}3{% else %}4{% endif %}">
                         <div class="link-list-wrapper">
                             <ul class="link-list">
                                 <li>
@@ -67,7 +67,7 @@
                     <!-- If current item hasn't got childs, render a stack-->
                 {% else %}
                     <!-- If previous item has child, render new col, else add items in stack -->
-                    <div class="col-lg-3">
+                    <div class="col-lg-{% if childs.count > 3 %}3{% else %}4{% endif %}">
                         <div class="link-list-wrapper">
                             <ul class="link-list">
                                 <li>
