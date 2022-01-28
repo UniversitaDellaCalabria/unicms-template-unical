@@ -22,10 +22,34 @@
             <div class="col-12">
                 <div class="card-wrapper card-space">
                     <div class="card card-bg no-after">
-                        <br>
                         <div class="card-body">
 
-                            {% include "includes/unical_storage_search_input.html" with id=id %}
+                            <div class="row form-group">
+                                <div class="input-group">
+                                    <label for="{{ id }}_search"></label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="{{ id }}_search"
+                                           name="{{ id }}_search"
+                                           v-model="selected_search"
+                                           v-on:keyup.enter="{{ id }}.search({{ input_args }})">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <svg class="icon icon-sm icon-muted">
+                                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+                                                </svg>
+                                            </div>
+
+                                            <button class="btn btn-primary"
+                                                    type="button"
+                                                    id="search-button"
+                                                    @click="{{ id }}.search()">
+                                                {% trans "Search" %}
+                                            </button>
+
+                                        </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
