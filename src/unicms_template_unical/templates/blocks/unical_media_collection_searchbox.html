@@ -42,15 +42,13 @@
                 <div class="card-wrapper pb-0">
                     <div class="card no-after" style="border:1px solid #b71918">
                         <div class="card-body">
-                            <h4>
-                                <a class="no-color" :href="item.media.file" target="_blank" rel="noopener" rel="noreferrer">
-                                    [[ item.media.title ]]
+                            <a class="no-color" :href="item.media.file" target="_blank" rel="noopener" rel="noreferrer">
+                                <b>[[ item.media.title ]]</b>
 
-                                    <svg class="icon float-right">
-                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-download"></use>
-                                    </svg>
-                                </a>
-                            </h4>
+                                <svg class="icon float-right">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-download"></use>
+                                </svg>
+                            </a>
                             <div class="row">
                                 <div class="col">
                                     [[ item.media.description ]]
