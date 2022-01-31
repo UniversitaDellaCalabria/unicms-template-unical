@@ -36,6 +36,7 @@
 
 {% block container %}
 {% breadcrumbs webpath=webpath leaf=handler %}
+{% with publication_context.publication.related_embedded_links as related_embedded_links %}
 
 <div class="container">
     <div class="col-12 py-5 bd-content">
@@ -94,6 +95,10 @@
                          alt="{{ publication_context.publication.presentation_image.description }}"
                          class="w-100">
                 </div>
+                {% elif related_embedded_links %}
+                <div class="row mb-2">
+                    {% include "blocks/italia_link_iframe.html" with url=related_embedded_links.0.url ratio="16by9" %}
+                </div>
                 {% elif publication_context.publication.preview_image %}
                 <div class="img-wrapper mb-3 pr-3 pt-2 float-left w-50 mw-100">
                     <img src="{{ publication_context.publication.preview_image.get_media_path }}"
@@ -142,15 +147,16 @@
                 {% endfor %}
                 </ul>
 
-                {% with publication_context.publication.related_embedded_links as related_embedded_links %}
                 {% if related_embedded_links %}
+
                 {% for link in related_embedded_links %}
+                {% if publication_context.publication.presentation_image or not forloop.first %}
                 <div class="row mb-2">
                     {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
                 </div>
+                {% endif %}
                 {% endfor %}
                 {% endif %}
-                {% endwith %}
 
                 {% if publication_context.publication.related_publications %}
                 <div class="row background-light-grey px-2 py-3 mb-2">
@@ -249,4 +255,5 @@
         {% endblock %}
     </div>
 </div>
+{% endwith %}
 {% endblock container %}
