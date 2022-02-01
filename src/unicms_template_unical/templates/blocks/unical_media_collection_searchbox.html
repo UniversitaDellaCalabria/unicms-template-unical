@@ -22,10 +22,36 @@
             <div class="col-12">
                 <div class="card-wrapper card-space">
                     <div class="card card-bg no-after">
-                        <br>
                         <div class="card-body">
 
-                            {% include "includes/unical_storage_search_input.html" with id=id %}
+                            <div class="row">
+                                <div class="input-group">
+                                    <label for="{{ id }}_search" class="sr-only">
+                                        {% trans 'Search' %}
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="{{ id }}_search"
+                                           name="{{ id }}_search"
+                                           v-model="selected_search"
+                                           v-on:keyup.enter="{{ id }}.search({{ input_args }})">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <svg class="icon icon-sm icon-muted">
+                                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+                                            </svg>
+                                        </div>
+
+                                        <button class="btn btn-primary"
+                                                type="button"
+                                                id="search-button"
+                                                @click="{{ id }}.search()">
+                                            {% trans "Search" %}
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -35,6 +61,28 @@
 
         <list-panel v-bind:data="items" v-if="items.results" id="{{ id }}"></list-panel>
 
+        {% comment %}
+        <div class="link-list-wrapper">
+            <ul class="link-list">
+                <li v-for="item in items.results">
+                    <a class="list-item left-icon"
+                       :href="item.media.file"
+                       alt="[[ item.media.description ]]">
+                        <svg class="icon icon-secondary">
+                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-file"></use>
+                        </svg>
+                        <span>
+                            [[ item.media.title ]]
+                            <span class="text-muted small">
+                                [ [[ item.media.file_type ]] - [[ item.media.file_size_kb ]] KB ]
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {% endcomment %}
+
         <div class="row mb-3"
              v-for="item in items.results">
             <div class="col-12">
@@ -42,22 +90,17 @@
                 <div class="card-wrapper pb-0">
                     <div class="card no-after" style="border:1px solid #b71918">
                         <div class="card-body">
-                            <h4>
-                                <a class="no-color" :href="item.media.file" target="_blank" rel="noopener" rel="noreferrer">
-                                    [[ item.media.title ]]
+                            <a class="no-color" :href="item.media.file" target="_blank" rel="noopener" rel="noreferrer">
+                                <b>[[ item.media.title ]]</b>
 
-                                    <svg class="icon float-right">
-                                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-download"></use>
-                                    </svg>
-                                </a>
-                            </h4>
-                            <div class="row">
-                                <div class="col">
-                                    [[ item.media.description ]]
-                                    <br>
-                                    {% trans "Last edit" %}: [[ item.modified ]]
-                                </div>
-                            </div>
+                                <svg class="icon float-right">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-download"></use>
+                                </svg>
+                            </a>
+                            <br>
+                            <span class="text-muted small">
+                            [ [[ item.media.file_type ]] - [[ item.media.file_size ]] KB ]
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -107,11 +150,10 @@ selected_search: this.getItemFromSession("{{ id }}", 'search'),
 
 {% block extra_mounted %}
 
-    this.url = "{% url 'unicms_api:media-collection-items' collection_id=collection.pk %}"
+    this.url = "{% url 'unicms_api:media-collection-public-items' collection_id=collection.pk %}"
 
     // if url if pre-filtered resize select field
     // this allows to auto generate select options according to URL get filters!
-    let params = new URLSearchParams(this.url.split('?')[1]);
     this.parameters = {{ id }}_encodeQueryData(this.getItemsFromSession("{{ id }}"))
 {% endblock extra_mounted %}
 </script>
