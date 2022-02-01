@@ -1,4 +1,12 @@
 {% extends "blocks/unical_publications_cards_carousel.html" %}
 
+{% block item_title %}
+<h4 class="card-title">
+    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+        {{ pub.publication.title|truncatechars:120 }}
+    </a>
+</h4>
+{% endblock item_title %}
+
 {% block all_items_link %}
 {% endblock all_items_link %}
