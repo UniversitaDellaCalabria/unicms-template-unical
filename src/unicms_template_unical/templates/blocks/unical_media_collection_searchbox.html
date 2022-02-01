@@ -150,7 +150,7 @@ selected_search: this.getItemFromSession("{{ id }}", 'search'),
 
 {% block extra_mounted %}
 
-    this.url = "{% url 'unicms_api:media-collection-items' collection_id=collection.pk %}"
+    this.url = "{% url 'unicms_api:media-collection-public-items' collection_id=collection.pk %}"
 
     // if url if pre-filtered resize select field
     // this allows to auto generate select options according to URL get filters!
