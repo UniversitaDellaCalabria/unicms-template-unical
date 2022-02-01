@@ -49,7 +49,7 @@
                     </div>
                     {% endif %}
                     <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start }}</span>
+                        <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
                     </div>
                     <h4 class="card-title">
                         <a href="{{ pub.url }}" class="no-color">
