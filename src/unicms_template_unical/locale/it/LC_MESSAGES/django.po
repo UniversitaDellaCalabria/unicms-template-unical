@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-21 14:56+0100\n"
+"POT-Creation-Date: 2022-02-04 08:02+0100\n"
 "PO-Revision-Date: 2022-01-21 14:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,35 +35,37 @@ msgid "This service has encourrend and unexpected error"
 msgstr "Questo servizio ha riscontrato un errore imprevisto"
 
 #: templates/bases/base_v_original.html:32
-#: templates/bases/unicms_unical.html:41 templates/bases/unicms_unical.html:57
-#: templates/bases/unicms_unical.html:71 templates/bases/unicms_unical.html:76
-#: templates/bases/unicms_unical.html:79 templates/bases/unicms_unical.html:243
-#: templates/bases/unicms_unical.html:265
+#: templates/bases/unicms_unical.html:38 templates/bases/unicms_unical.html:54
+#: templates/bases/unicms_unical.html:68 templates/bases/unicms_unical.html:73
+#: templates/bases/unicms_unical.html:76 templates/bases/unicms_unical.html:240
+#: templates/bases/unicms_unical.html:262
 msgid "University of Calabria"
 msgstr "Università della Calabria"
 
 #: templates/bases/base_v_original.html:37
-#: templates/bases/unicms_unical.html:44
+#: templates/bases/unicms_unical.html:41
 msgid "Official University of Calabria website"
 msgstr "Sito istituzionale dell'Universitàa della Calabria"
 
 #: templates/bases/base_v_original.html:77
-#: templates/bases/unicms_unical.html:132
-#: templates/bases/unicms_unical.html:138
+#: templates/bases/unicms_unical.html:129
+#: templates/bases/unicms_unical.html:135
 msgid "Address book"
 msgstr "Rubrica"
 
 #: templates/bases/base_v_original.html:82
+#: templates/bases/unicms_unical.html:102
 #: templates/bases/unicms_unical.html:105
-#: templates/bases/unicms_unical.html:108
-#: templates/bases/unicms_unical.html:117
-#: templates/bases/unicms_unical.html:123
+#: templates/bases/unicms_unical.html:114
+#: templates/bases/unicms_unical.html:120
+#: templates/blocks/unical_media_collection_searchbox.html:30
+#: templates/blocks/unical_media_collection_searchbox.html:49
 #: templates/pages/publication_list.html:140
 msgid "Search"
 msgstr "Cerca"
 
 #: templates/bases/base_v_original.html:107
-#: templates/bases/unicms_unical.html:214
+#: templates/bases/unicms_unical.html:211
 msgid "close"
 msgstr "chiudi"
 
@@ -90,106 +92,102 @@ msgstr "risultati"
 msgid "pages"
 msgstr "pagine"
 
-#: templates/bases/unical_api_list.html:54
-#: templates/bases/unical_api_list.html:60
+#: templates/bases/unical_api_list.html:53
+#: templates/bases/unical_api_list.html:59
 msgid "page"
 msgstr "pagina"
 
-#: templates/bases/unical_api_list.html:54
+#: templates/bases/unical_api_list.html:53
 msgid "previous"
 msgstr "precedente"
 
-#: templates/bases/unical_api_list.html:60
+#: templates/bases/unical_api_list.html:59
 msgid "next"
 msgstr "successiva"
 
-#: templates/bases/unicms_unical.html:148
+#: templates/bases/unicms_unical.html:145
 msgid "Language"
 msgstr "Lingua"
 
-#: templates/bases/unicms_unical.html:261
+#: templates/bases/unicms_unical.html:258
 msgid "Contacts"
 msgstr "Contatti"
 
-#: templates/bases/unicms_unical.html:273
-#: templates/bases/unicms_unical.html:303
+#: templates/bases/unicms_unical.html:270
+#: templates/bases/unicms_unical.html:300
 msgid "Certified email"
 msgstr "Posta elettronica certificata"
 
-#: templates/bases/unicms_unical.html:283
+#: templates/bases/unicms_unical.html:280
 msgid "Administration"
 msgstr "Amministrazione"
 
-#: templates/bases/unicms_unical.html:287
+#: templates/bases/unicms_unical.html:284
 msgid "Organization"
 msgstr "Organizzazione"
 
-#: templates/bases/unicms_unical.html:288
-#: templates/bases/unicms_unical.html:346
-#: templates/bases/unicms_unical.html:347
+#: templates/bases/unicms_unical.html:285
+#: templates/bases/unicms_unical.html:343
+#: templates/bases/unicms_unical.html:344
 msgid "Transparent administration"
 msgstr "Amministrazione trasparente"
 
-#: templates/bases/unicms_unical.html:289
+#: templates/bases/unicms_unical.html:286
 msgid "Official register of the University"
 msgstr "Albo ufficiale di Ateneo"
 
-#: templates/bases/unicms_unical.html:298
+#: templates/bases/unicms_unical.html:295
 msgid "Online services"
 msgstr "Servizi online"
 
-#: templates/bases/unicms_unical.html:302
+#: templates/bases/unicms_unical.html:299
 msgid "Online front-office"
 msgstr "Front-office online"
 
-#: templates/bases/unicms_unical.html:304
+#: templates/bases/unicms_unical.html:301
 msgid "ITC services"
 msgstr "Servizi ICT"
 
-#: templates/bases/unicms_unical.html:306
+#: templates/bases/unicms_unical.html:303
 msgid "Online ticket"
 msgstr "Ticket online"
 
-#: templates/bases/unicms_unical.html:316
+#: templates/bases/unicms_unical.html:313
 msgid "Campus"
 msgstr ""
 
-#: templates/bases/unicms_unical.html:320
+#: templates/bases/unicms_unical.html:317
 msgid "Services for students"
 msgstr "Servizi agli studenti"
 
-#: templates/bases/unicms_unical.html:321
+#: templates/bases/unicms_unical.html:318
 msgid "Living on campus"
 msgstr "Vivere il campus"
 
-#: templates/bases/unicms_unical.html:322
+#: templates/bases/unicms_unical.html:319
 msgid "Visit our campus"
 msgstr "Visita il campus"
 
-#: templates/bases/unicms_unical.html:343
+#: templates/bases/unicms_unical.html:340
 msgid "Useful links"
 msgstr "Link utili"
 
-#: templates/bases/unicms_unical.html:351
-#: templates/bases/unicms_unical.html:352
+#: templates/bases/unicms_unical.html:348
+#: templates/bases/unicms_unical.html:349
 msgid "Accessibility"
 msgstr "Accessibilità"
 
-#: templates/bases/unicms_unical.html:366
-#: templates/bases/unicms_unical.html:367
+#: templates/bases/unicms_unical.html:363
+#: templates/bases/unicms_unical.html:364
 msgid "Legal notes"
 msgstr "Note legali"
 
-#: templates/bases/unicms_unical.html:371
-#: templates/bases/unicms_unical.html:372
+#: templates/bases/unicms_unical.html:368
+#: templates/bases/unicms_unical.html:369
 msgid "Sitemap"
 msgstr "Mappa del sito"
 
-#: templates/blocks/unical_media_collection_searchbox.html:58
-msgid "Last edit"
-msgstr "Ultima modifica"
-
-#: templates/blocks/unical_media_collection_searchbox.html:72
+#: templates/blocks/unical_media_collection_searchbox.html:116
 msgid "No items here"
 msgstr "Nessun risultato prodotto"
 
@@ -239,7 +237,7 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publication_notices_v1.html:18
 #: templates/blocks/unical_publication_notices_v1_carousel.html:13
 #: templates/blocks/unical_publications_card.html:33
-#: templates/blocks/unical_publications_cards.html:45
+#: templates/blocks/unical_publications_cards.html:52
 #: templates/blocks/unical_publications_cards_carousel.html:41
 #: templates/blocks/unical_publications_cards_mosaic.html:75
 #: templates/blocks/unical_publications_cards_mosaic.html:159
@@ -247,17 +245,17 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:71
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:154
 #: templates/pages/publication_list.html:178
-#: templates/pages/publication_view.html:63
+#: templates/pages/publication_view.html:82
 #: templates/pages/publication_view_hero_original.html:56
 msgid "Published"
 msgstr "Pubblicato"
 
 #: templates/blocks/unical_publication_notices_v1.html:42
-#: templates/blocks/unical_publications_cards.html:72
-#: templates/blocks/unical_publications_cards.html:75
-#: templates/blocks/unical_publications_cards_carousel.html:87
+#: templates/blocks/unical_publications_cards.html:79
+#: templates/blocks/unical_publications_cards.html:82
+#: templates/blocks/unical_publications_cards_carousel.html:89
 #: templates/blocks/unical_publications_cards_mosaic.html:191
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:186
+#: templates/blocks/unical_publications_cards_mosaic_v3.html:187
 msgid "Go to all news"
 msgstr "Vai a tutte le notizie"
 
@@ -265,12 +263,12 @@ msgstr "Vai a tutte le notizie"
 msgid "Go to all notices"
 msgstr "Vai a tutti gli avvisi"
 
-#: templates/blocks/unical_publications_cards_carousel.html:65
+#: templates/blocks/unical_publications_cards_carousel.html:67
 #: templates/pages/publication_list.html:88
 msgid "Previous"
 msgstr "Precedente"
 
-#: templates/blocks/unical_publications_cards_carousel.html:73
+#: templates/blocks/unical_publications_cards_carousel.html:75
 #: templates/pages/publication_list.html:94
 msgid "Next"
 msgstr "Successivo"
@@ -325,16 +323,12 @@ msgstr "Caricamento dati"
 msgid "Share on"
 msgstr "Condividi su"
 
-#: templates/pages/publication_view.html:91
+#: templates/pages/publication_view.html:114
 #: templates/pages/publication_view_hero_original.html:65
 msgid "tags"
 msgstr ""
 
-#: templates/pages/publication_view.html:103
-msgid "photo gallery"
-msgstr "galleria fotografica"
-
-#: templates/pages/publication_view.html:119
+#: templates/pages/publication_view.html:138
 #: templates/pages/publication_view_hero_original.html:97
 msgid "Published in"
 msgstr "Pubblicato in"
@@ -342,6 +336,12 @@ msgstr "Pubblicato in"
 #: templates/pages/publication_view_hero_original.html:77
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
+
+#~ msgid "Last edit"
+#~ msgstr "Ultima modifica"
+
+#~ msgid "photo gallery"
+#~ msgstr "galleria fotografica"
 
 #~ msgid "Logout"
 #~ msgstr "Esci"
