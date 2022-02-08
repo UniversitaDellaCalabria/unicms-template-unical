@@ -40,11 +40,13 @@
                 <div class="category-top">
                     <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
                 </div>
+                {% block item_title %}
                 <h5 class="card-title">
                     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
                         {{ pub.publication.title|truncatechars:120 }}
                     </a>
                 </h5>
+                {% endblock item_title %}
                 {% if not pub.publication.image_url %}
                 <p class="card-text">
                     {{ pub.publication.subheading|truncatechars:135 }}
@@ -107,7 +109,7 @@ $(document).ready(function() {
         //itemsTablet: false,
         //itemsMobile : false,
         dots: false,
-        margin: 25,
+        margin: 12,
         //dotsEach: false,
         stagePadding: 1,
 
