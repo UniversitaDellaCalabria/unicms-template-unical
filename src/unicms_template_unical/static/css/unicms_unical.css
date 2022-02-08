@@ -267,3 +267,8 @@ figure.table tr:nth-of-type(2n) { background-color: #f6f7f9; }
 .card-columns-2 { column-count: 2; }
 
 @media all and (max-width: 992px) { .card-columns-2 { column-count: 1; } }
+
+/** fix publication tables images size */
+figure.table table td figure.image { text-align: center; }
+
+figure.table table td figure.image img { width: 80px; max-width: 80px; }
