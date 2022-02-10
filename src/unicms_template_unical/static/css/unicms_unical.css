@@ -218,7 +218,7 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838;
 
 @media all and (min-width: 992px) { .navbar .nav-item .dropdown-menu { display: none; } .navbar .nav-item:hover .nav-link { text-decoration: underline; } .navbar .nav-item:hover .dropdown-menu { display: block; } .navbar .nav-item .dropdown-menu { margin-top: 0; } }
 
-@media all and (max-width: 768px) { .navbar .nav-item a.nav-link { float: left; } .navbar .nav-item span.megamenu-dropdown-arrow { float: right; margin: 10px; } .navbar .nav-item .dropdown-menu { float: left; } }
+@media all and (max-width: 991px) { .navbar .nav-item a.nav-link { float: left; } .navbar .nav-item span.megamenu-dropdown-arrow { float: right; margin: 10px; } .navbar .nav-item .dropdown-menu { float: left; } }
 
 .collapse-header [data-toggle=collapse][aria-expanded=false], .collapse-header [data-toggle=collapse]:before { color: #383838; }
 
