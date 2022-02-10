@@ -214,7 +214,7 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838;
 
 .white-unical-color { color: #ffffff; }
 
-li .list-item.sub { line-height: inherit; }
+.link-list-wrapper ul li a { line-height: inherit; }
 
 @media all and (min-width: 992px) { .navbar .nav-item .dropdown-menu { display: none; } .navbar .nav-item:hover .nav-link { text-decoration: underline; } .navbar .nav-item:hover .dropdown-menu { display: block; } .navbar .nav-item .dropdown-menu { margin-top: 0; } }
 
