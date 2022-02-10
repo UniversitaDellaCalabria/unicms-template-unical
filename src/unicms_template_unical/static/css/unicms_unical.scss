@@ -394,6 +394,11 @@ li .list-item.sub {
     color: $dark_grey_unical;
 }
 
+.link-list-wrapper ul.link-list li b a {
+    line-height: inherit;
+    margin-bottom: 10px;
+}
+
 .department_logo_lg {
     height: 63px
 }
