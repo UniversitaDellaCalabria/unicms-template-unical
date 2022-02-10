@@ -272,3 +272,5 @@ figure.table tr:nth-of-type(2n) { background-color: #f6f7f9; }
 figure.table table td figure.image { text-align: center; }
 
 figure.table table td figure.image img { width: 80px; max-width: 80px; }
+
+.it-footer { border-top: 1px solid rgba(0,0,0,.1); }
