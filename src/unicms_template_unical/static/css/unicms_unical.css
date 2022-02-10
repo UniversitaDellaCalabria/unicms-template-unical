@@ -193,7 +193,7 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838;
 
 .it-carousel-wrapper.custom-unical .owl-carousel .owl-dots { display: none; }
 
-.navbar .navbar-collapsable .navbar-nav li a.nav-link { color: #000; text-decoration: none !important; }
+.navbar .navbar-collapsable .navbar-nav li a.nav-link { color: #000; border-bottom: none !important; }
 
 .it-carousel-wrapper .owl-stage-outer { padding-top: 0px; padding-bottom: 0; }
 
