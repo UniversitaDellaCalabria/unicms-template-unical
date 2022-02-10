@@ -8,9 +8,6 @@ bootstrap-italia-base.html
 {% load i18n %}
 
 <!-- From app django-sass-processor -->
-{% if debug %}
-    {% load sass_tags %}
-{% endif %}
 {% load static %}
 
 <!-- load custom template tags -->
@@ -23,8 +20,8 @@ bootstrap-italia-base.html
 
 <!-- Custom extra head params -->
 {% block extra_head %}
-    <link rel="shortcut icon" href="{% static 'images/favicon/favicon-32x32.png' %}">
-    <link rel="stylesheet" href="{% sass_src 'css/unicms_unical.scss' %}" type="text/css">
+    <link rel="shortcut icon" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/css/unicms_unical.css" type="text/css">
     {% block head_inits %}
         {{ block.super }}
     {% endblock head_inits %}
@@ -52,7 +49,7 @@ bootstrap-italia-base.html
 <!-- Logo in Header -->
 {% block header_center_logo %}
 <div class="d-none d-lg-flex col-lg-12 px-0">
-    <image src="{% static 'images/logo_unical_white.svg' %}"
+    <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
            class="w-100"
            alt="{% trans 'University of Calabria' %}"/>
 </div>
@@ -71,10 +68,10 @@ bootstrap-italia-base.html
     <a href="/" aria-label="{% trans 'University of Calabria' %}">
         <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
             {% block unical_mobile_logo %}
-            <image src="{% static 'images/logo_unical_white.svg' %}"
+            <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
                    class="w-100 d-md-none"
                    alt="{% trans 'University of Calabria' %}"/>
-            <image src="{% static 'images/logo_unical_white.svg' %}"
+            <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
                    class="w-75 d-none d-md-block d-lg-none"
                    alt="{% trans 'University of Calabria' %}"/>
             {% endblock unical_mobile_logo %}
@@ -100,7 +97,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
 
-        <div class="col-2 offset-6 offset-md-0 col-md-8">
+        <div class="col-2 offset-7 offset-md-1 col-md-8">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
             <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
@@ -125,20 +122,9 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </div>
         </div>
 
-        <div class="col-2 col-md-2 text-center">
+        <div class="col-1 text-center">
             <a href="{{ addressbook_link }}" target="_blank" rel="noopener" rel="noreferrer">
-                <svg class="icon icon-sm d-lg-none icon-light align-middle" aria-labelledby="addressbook_mobile">
-                    <title id="addressbook_mobile">
-                        {% trans 'Address book' %}
-                    </title>
-                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
-                </svg>
-                <svg class="icon icon-md d-none d-lg-inline icon-light align-middle" aria-labelledby="addressbook">
-                    <title id="addressbook">
-                        {% trans 'Address book' %}
-                    </title>
-                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-user"></use>
-                </svg>
+                <img src="{% static 'images/addressbook.svg' %}" style="width: 35px" alt="{% trans 'Address book' %}" title="{% trans 'Address book' %}"/>
             </a>
         </div>
 
@@ -237,7 +223,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 {% block footer_logo %}
 <div class="col-12 col-md-4 px-0">
-    <image src="{% static 'images/logo_unical_white.svg' %}"
+    <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
            class="mw-100"
            alt="{% trans 'University of Calabria' %}"/>
 </div>
