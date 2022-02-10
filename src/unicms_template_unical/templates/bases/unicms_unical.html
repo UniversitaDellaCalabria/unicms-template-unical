@@ -97,7 +97,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
 
-        <div class="col-2 offset-7 offset-md-1 col-md-8">
+        <div class="col-2 offset-6 offset-md-1 col-md-8">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
             <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
@@ -122,7 +122,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </div>
         </div>
 
-        <div class="col-1 text-center">
+        <div class="col-2 col-md-1 text-center">
             <a href="{{ addressbook_link }}" target="_blank" rel="noopener" rel="noreferrer">
                 <img src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/addressbook.svg"
                      style="height: 32px"
@@ -137,7 +137,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </a>
         </div>
 
-        <div class="col-2 col-md-2 text-center">
+        <div class="col-2 text-center">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle p-0 text-center"
                    title="{% trans 'Language' %}"
