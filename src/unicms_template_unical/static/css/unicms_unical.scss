@@ -339,7 +339,7 @@ a .badge-grey-unical.selected {
     color: $white;
 }
 
-li .list-item.sub {
+.link-list-wrapper ul li a {
     line-height: inherit;
 }
 
@@ -353,7 +353,7 @@ li .list-item.sub {
 	.navbar .nav-item .dropdown-menu{ margin-top:0; }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 991px) {
     .navbar .nav-item a.nav-link {
         float: left;
     }
@@ -392,11 +392,6 @@ li .list-item.sub {
 .link-list-wrapper ul li a span,
 .link-list-wrapper ul li a:hover:not(.disabled) span {
     color: $dark_grey_unical;
-}
-
-.link-list-wrapper ul.link-list li b a {
-    line-height: inherit;
-    margin-bottom: 10px;
 }
 
 .department_logo_lg {

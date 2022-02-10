@@ -48,7 +48,7 @@
                             <ul class="link-list">
                                 <li>
                                     <b>
-                                        <a class="list-item" href="{{ child_link }}">
+                                        <a class="list-item pb-2 {% if not forloop.first %}pt-2{% endif %} pt-lg-0" href="{{ child_link }}">
                                             <span class="text-dark">{{ child.name }}</span>
                                         </a>
                                     </b>
@@ -72,7 +72,7 @@
                             <ul class="link-list">
                                 <li>
                                     <b>
-                                        <a class="list-item" href="{{ child_link}}">
+                                        <a class="list-item pb-2 {% if not forloop.first %}pt-2{% endif %} pt-lg-0" href="{{ child_link}}">
                                             <span class="text-dark">{{ child.name }}</span>
                                         </a>
                                     </b>
