@@ -35,7 +35,7 @@ a.read-more { color: #9d9d9c; }
 .text-secondary { color: #b71918 !important; }
 
 /** Header Slim Wrapper */
-.it-header-slim-wrapper { background: #b71918; }
+.it-header-slim-wrapper { background: #b71918; border-bottom: 1px solid #fff; }
 
 .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone button { background: #383838; }
 
