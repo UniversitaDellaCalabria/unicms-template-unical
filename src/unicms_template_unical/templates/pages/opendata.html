@@ -12,6 +12,34 @@
 {% load unicms_publications %}
 
 
+{% block header_slim_wrapper %}
+{% settings_value "MAIN_DOMAIN" as cms_main_domain %}
+<div class="it-header-slim-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-header-slim-wrapper-content">
+                    <a target="_blank" href="//{{ cms_main_domain }}" title="UniCal.it" alt="UniCal.it">
+                        UniCal.it
+                    </a>
+                    {% if request.user.is_staff %}
+                    {% include "components/italia_editorialboard_frontend_menu.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/" aria-label="{% trans 'University of Calabria' %}">
+    <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
+        {% block unical_mobile_logo %}
+            {{ block.super }}
+        {% endblock unical_mobile_logo %}
+    </div>
+</a>
+{% endblock header_slim_wrapper %}
+
+
 {% block main_menu %}
 <div style="background: #c2dfee">
     <div class="container py-3">
