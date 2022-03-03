@@ -131,6 +131,8 @@ input.top-input { background: none; border: 1px solid #fff; height: 1.7rem; widt
 
 .it-hero-wrapper .it-hero-text-wrapper h1 { background: #fff; color: #383838; padding: 1rem; font-family: TitilliumWeb-Black; }
 
+.it-hero-wrapper.it-overlay.it-dark .img-responsive-wrapper:after { background: none; }
+
 .section-title-label { background: #fff; }
 
 .card.card-bg { margin-left: 0; margin-right: 0; }
