@@ -122,7 +122,7 @@
         {% endcomment %}
         {% else %}
 
-        <div class="col-12 col-lg-4">
+        <div class="col-12 {% if publications.count > 3 %}col-lg-4{% else %}col-lg{% endif %}">
             <!--start card-->
             <div class="card-wrapper card-space">
                 <div class="card card-bg no-after">
