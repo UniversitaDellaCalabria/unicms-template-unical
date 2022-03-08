@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 08:41+0100\n"
-"PO-Revision-Date: 2022-02-14 08:42+0100\n"
+"POT-Creation-Date: 2022-03-08 10:55+0100\n"
+"PO-Revision-Date: 2022-03-08 11:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,15 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: templates/404.html:6
 msgid "Error 404"
 msgstr "Errore 404"
 
 #: templates/404.html:10
-msgid "Page or Resource not found 404"
-msgstr "Pagina o risorsa non trovata - 404"
+msgid "Page or Resource not found"
+msgstr "Pagina o risorsa non trovata"
+
+#: templates/404.html:11
+msgid "You may have clicked on an invalid link or misspelled the page address."
+msgstr ""
+"Potresti aver cliccato su un link non più valido o aver digitato male "
+"l'indirizzo della pagina."
+
+#: templates/404.html:12
+msgid ""
+"You can search for it starting from the home page or it could be reachable "
+"on the previous version of the website which can be found at www2.unical.it"
+msgstr ""
+"Puoi cercarla a partire dalla pagina iniziale oppure potrebbe essere "
+"raggiungibile sulla versione precedente del portale che si trova "
+"all'indirizzo www2.unical.it"
 
 #: templates/500.html:6
 msgid "Internal Error 500"
@@ -38,7 +53,8 @@ msgstr "Questo servizio ha riscontrato un errore imprevisto"
 #: templates/bases/unicms_unical.html:38 templates/bases/unicms_unical.html:54
 #: templates/bases/unicms_unical.html:68 templates/bases/unicms_unical.html:73
 #: templates/bases/unicms_unical.html:76 templates/bases/unicms_unical.html:238
-#: templates/bases/unicms_unical.html:309
+#: templates/bases/unicms_unical.html:309 templates/pages/department.html:33
+#: templates/pages/opendata.html:33
 msgid "University of Calabria"
 msgstr "Università della Calabria"
 
@@ -191,6 +207,10 @@ msgstr "Note legali"
 #: templates/bases/unicms_unical.html:417
 msgid "Sitemap"
 msgstr "Mappa del sito"
+
+#: templates/bases/unicms_unical.html:421
+msgid "UniCal old website"
+msgstr "Vecchio sito UniCal"
 
 #: templates/blocks/unical_media_collection_searchbox.html:116
 msgid "No items here"
