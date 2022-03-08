@@ -383,9 +383,9 @@ col-10 offset-2 col-lg-12 offset-lg-0
     <div class="container">
         {% block footer_bottom_content %}
         <div class="row">
-            <div class="col-12 col-lg-auto">
+            <div class="col-12">
                 <h3 class="sr-only">{% trans "Useful links" %}</h3>
-                <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+                <ul class="it-footer-small-prints-list list-inline mb-0 d-flex d-lg-block flex-column flex-md-row">
                     <li class="list-inline-item">
                         <a href="/portale/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">
                             {% trans 'Transparent administration' %}
@@ -414,6 +414,11 @@ col-10 offset-2 col-lg-12 offset-lg-0
                     <li class="list-inline-item">
                         <a href="/portale/sitemap.xml" title="{% trans 'Sitemap' %}">
                             {% trans 'Sitemap' %}
+                        </a>
+                    </li>
+                    <li class="list-inline-item float-right">
+                        <a href="https://www2.unical.it" rel="noopener noreferrer" title="{% trans 'UniCal old website' %}">
+                            www2.unical.it
                         </a>
                     </li>
                 </ul>
