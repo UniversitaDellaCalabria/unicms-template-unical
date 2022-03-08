@@ -7,5 +7,13 @@
 {% endblock error_type %}
 
 {% block error_description %}
-    {% trans "Page or Resource not found 404" %}
+    <p>{% trans "Page or Resource not found" %}</p>
+    <p>{% trans "You may have clicked on an invalid link or misspelled the page address." %}</p>
+    <p>{% trans "You can search for it starting from the home page or it could be reachable on the previous version of the website which can be found at www2.unical.it" %}</p>
 {% endblock error_description %}
+
+{% block other_buttons %}
+<a role="button" class="btn btn-outline-secondary ml-2" href="https://www2.unical.it" target="_blank" rel="noopener noreferrer">
+    www2.unical.it
+</a>
+{% endblock other_buttons %}
