@@ -95,6 +95,8 @@ a.read-more { color: #9d9d9c; }
 
 @font-face { font-family: TitilliumWeb-Black; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/TitilliumWeb-Black.ttf); }
 
+@font-face { font-family: Lora-Regular; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/lora-v20-latin-ext_latin-italic.ttf); }
+
 a { text-decoration: none; color: #B01717; text-decoration: underline; }
 
 a:hover, a:active { color: #6f0b0a; text-decoration: none; }
@@ -282,3 +284,14 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 .it-footer { border-top: 1px solid rgba(0,0,0,.1); }
 
 .it-footer-small-prints { border-top: 1px solid #fff; }
+
+/** UniCal Hero slider */
+@media all and (max-width: 991px) { .it-hero-text-wrapper.unical-hero-text-wrapper { padding: 26px; } }
+
+@media all and (min-width: 992px) { .it-hero-text-wrapper.unical-hero-text-wrapper { padding: 120px 26px 168px; } }
+
+.it-hero-wrapper .it-hero-text-wrapper h5.unical-hero-preheading { padding: 20px; background: #b71918; position: inherit; text-transform: inherit; color: #fff; width: fit-content; font-weight: bold; margin-bottom: 24px; }
+
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading { background: #fff; color: #b71918; padding: 1rem; font-family: Lora-Regular; width: fit-content; }
+
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description { background: #b71918; color: #fff; padding: 1rem; font-family: Lora-Regular; width: fit-content; }

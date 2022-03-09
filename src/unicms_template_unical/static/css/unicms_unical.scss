@@ -20,6 +20,10 @@ $lighter_bordeaux: #e03231;
   font-family: TitilliumWeb-Black;
   src: url(../fonts/TitilliumWeb-Black.ttf);
 }
+@font-face {
+  font-family: Lora-Regular;
+  src: url(../fonts/lora-v20-latin-ext_latin-italic);
+}
 
 a {
     text-decoration: none;
@@ -504,3 +508,42 @@ figure.table table td figure.image img {
 .it-footer-small-prints {
     border-top: 1px solid #fff;
 }
+
+/**
+ * UniCal Hero slider
+ */
+@media (max-width: 991px) {
+    .it-hero-text-wrapper.unical-hero-text-wrapper {
+        padding: 26px;
+    }
+}
+@media (min-width: 992px) {
+    .it-hero-text-wrapper.unical-hero-text-wrapper {
+        padding: 120px 26px 168px;
+    }
+}
+.it-hero-wrapper .it-hero-text-wrapper h5.unical-hero-preheading {
+    padding: 20px;
+    background: $bordeaux_unical;
+    position: inherit;
+    text-transform: inherit;
+    color: #fff;
+    width: fit-content;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading {
+    background: #fff;
+    color: $bordeaux_unical;
+    padding: 1rem;
+    font-family: Lora-Regular;
+    width: fit-content;
+}
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description {
+    background: $bordeaux_unical;
+    color: #fff;
+    padding: 1rem;
+    font-family: Lora-Regular;
+    width: fit-content;
+}
+

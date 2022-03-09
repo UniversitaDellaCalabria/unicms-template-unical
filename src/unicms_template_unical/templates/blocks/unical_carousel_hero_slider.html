@@ -1,0 +1,103 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_templates %}
+
+{% random_id as id %}
+
+{% if carousel_items %}
+<div id="italia_carousel_{{ id }}" class="owl-carousel owl-theme">
+
+    {% for item in carousel_items %}
+    {% with item.get_links as item_links %}
+    <div class="item">
+        <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %}">
+
+            <!-- - img-->
+            {% if item_links.count == 1 %}
+            <a href="{{ item_links.first.url }}" class="w-100" style="text-decoration: none">
+            {% endif %}
+            <div class="img-responsive-wrapper">
+                <div class="img-responsive">
+                    <div class="img-wrapper">
+                        <picture>
+                            {% if item.mobile_image %}
+                            <source srcset="{{ item.mobile_image.file.url }}"
+                                    media="(max-width: 767px)"
+                                    title="{{ item.mobile_image.name }}"
+                                    alt="{{ item.mobile_image.description }}">
+                            {% endif %}
+                            <img srcset="{{ item.image.file.url }}"
+                                 title="{{ item.image.name }}"
+                                 alt="{{ item.image.description }}">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+
+
+            {% if item.pre_heading or item.heading or item.description %}
+            <!-- - texts-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="it-hero-text-wrapper unical-hero-text-wrapper {% if item.heading %}bg-dark{% endif %}">
+                            {% if item.pre_heading %}
+                            <h5 class="unical-hero-preheading">
+                                {{ item.pre_heading }}
+                            </h5>
+                            {% endif %}
+                            {% if item.heading %}
+                            <h1 class="no_toc unical-hero-heading">
+                                {{ item.heading }}
+                            </h1>
+                            {% endif %}
+                            {% if item.description %}
+                            <h1 class="no_toc unical-hero-description">
+                                {{ item.description }}
+                            </h1>
+                            {% endif %}
+                            {% if item_links.count > 1 %}
+                            <div class="it-btn-container">
+                                {% for link in item_links %}
+                                <a class="btn btn-sm btn-secondary" href="{{ link.url }}">
+                                    {{ link.get_title }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if item_links.count == 1 %}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endwith %}
+    {% endfor %}
+</div>
+
+<script>
+$(document).ready(function() {
+  $("#italia_carousel_{{ id }}").owlCarousel({
+      navigation : true, // Show next and prev buttons
+      loop: true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      items : 1,
+      itemsDesktop : false,
+      itemsDesktopSmall : false,
+      itemsTablet: false,
+      itemsMobile : false,
+      dots: false,
+      //lazyLoad : true,
+  });
+});
+</script>
+{% endif %}
