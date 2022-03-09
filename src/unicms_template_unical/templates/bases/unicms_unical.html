@@ -20,11 +20,13 @@ bootstrap-italia-base.html
 
 <!-- Custom extra head params -->
 {% block extra_head %}
+    {% settings_value "ANALYTICS_CODE" as analytics_code %}
     <link rel="shortcut icon" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/css/unicms_unical.css" type="text/css">
     {% block head_inits %}
         {{ block.super }}
     {% endblock head_inits %}
+    {{ analytics_code|safe }}
 {% endblock extra_head %}
 
 
