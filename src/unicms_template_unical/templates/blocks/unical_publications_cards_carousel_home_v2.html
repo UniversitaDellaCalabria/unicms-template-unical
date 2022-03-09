@@ -1,0 +1,30 @@
+{% extends "blocks/unical_publications_cards_carousel_home.html" %}
+
+
+{% block desktop_item_title %}
+<h5 class="card-title">
+    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+        {{ pub.publication.title|truncatechars:120 }}
+    </a>
+</h5>
+{% endblock desktop_item_title %}
+
+{% block mobile_item_title %}
+<h5 class="card-title">
+    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+        {{ pub.publication.title|truncatechars:120 }}
+    </a>
+</h5>
+{% endblock mobile_item_title %}
+
+{% block desktop_subheading %}
+<p class="card-text">
+    {{ pub.publication.subheading|truncatechars:135 }}
+</p>
+{% endblock desktop_subheading %}
+
+{% block mobile_subheading %}
+<p class="card-text">
+    {{ pub.publication.subheading|truncatechars:135 }}
+</p>
+{% endblock mobile_subheading %}

@@ -47,11 +47,14 @@
                     </a>
                 </h4>
                 {% endblock desktop_item_title %}
+
+                {% block desktop_subheading %}
                 {% if not pub.publication.image_url %}
                 <p class="card-text">
                     {{ pub.publication.subheading|truncatechars:135 }}
                 </p>
                 {% endif %}
+                {% endblock desktop_subheading %}
 
                 {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
                 {% endblock desktop_item_body %}
@@ -99,11 +102,14 @@
                     </a>
                 </h4>
                 {% endblock mobile_item_title %}
+
+                {% block mobile_subheading %}
                 {% if not pub.publication.image_url %}
                 <p class="card-text">
                     {{ pub.publication.subheading|truncatechars:135 }}
                 </p>
                 {% endif %}
+                {% endblock mobile_subheading %}
 
                 {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
                 {% endblock mobile_item_body %}
