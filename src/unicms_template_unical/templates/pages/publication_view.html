@@ -36,6 +36,8 @@
 
 {% block container %}
 {% breadcrumbs webpath=webpath leaf=handler %}
+{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+
 {% with publication_context.publication.related_embedded_links as related_embedded_links %}
 
 <div class="container">
@@ -114,7 +116,13 @@
                 <h4>{% trans "tags" %}</h4>
                 <p style="font-size: 1.2rem">
                 {% for tag in publication_context.publication.tags.all %}
-                    <span class="badge badge-grey-unical square-corners">{{ tag.name }}</span>
+                    <span class="badge badge-grey-unical square-corners">
+                        <a href='/{{ cms_path_prefix }}search/?search="{{ tag.name }}"' class="no-color">
+                            <svg class="icon icon-xs">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-pin"></use>
+                            </svg> {{ tag.name }}
+                        </a>
+                    </span>
                 {% endfor %}
                 </p>
                 {% endif %}

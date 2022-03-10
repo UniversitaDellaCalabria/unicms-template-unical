@@ -43,6 +43,8 @@
 <div class="container">
     <div class="col-12 py-5 bd-content">
         {% block centered_container %}
+        {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+
 <!--
         <p><img src="{{ publication_context.publication.image_url }}" width="100%"></p>
 -->
@@ -65,7 +67,13 @@
                 <span class="text-muted">{% trans "tags" %}</span>
                 <p style="font-size: 1.2rem">
                 {% for tag in publication_context.publication.tags.all %}
-                    <span class="badge badge-grey-unical square-corners">{{ tag.name }}</span>
+                    <span class="badge badge-grey-unical square-corners">
+                        <a href='/{{ cms_path_prefix }}search/?search="{{ tag.name }}"' class="no-color">
+                            <svg class="icon icon-xs">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-pin"></use>
+                            </svg> {{ tag.name }}
+                        </a>
+                    </span>
                 {% endfor %}
                 </p>
             </div>
