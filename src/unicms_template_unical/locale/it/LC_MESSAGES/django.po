@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-10 13:38+0100\n"
-"PO-Revision-Date: 2022-03-10 13:39+0100\n"
+"POT-Creation-Date: 2022-03-10 15:38+0100\n"
+"PO-Revision-Date: 2022-03-10 15:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -47,7 +47,7 @@ msgid ""
 "page, clear your browser cache."
 msgstr ""
 "Se continui ad ottenere questo errore, nonostante tu stia cercando di "
-"raggiungere la home page, cancella la cache del tuo browser"
+"raggiungere la home page, cancella la cache del tuo browser."
 
 #: templates/500.html:6
 msgid "Internal Error 500"
@@ -259,7 +259,7 @@ msgstr "allegati"
 
 #: templates/blocks/unical_publication_full_view.html:57
 #: templates/blocks/unical_publication_links.html:5
-#: templates/pages/publication_view_hero_original.html:113
+#: templates/pages/publication_view_hero_original.html:121
 msgid "Links"
 msgstr ""
 
@@ -282,8 +282,8 @@ msgstr "Gallerie fotografiche"
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:71
 #: templates/blocks/unical_publications_cards_mosaic_v3.html:154
 #: templates/pages/publication_list.html:178
-#: templates/pages/publication_view.html:82
-#: templates/pages/publication_view_hero_original.html:56
+#: templates/pages/publication_view.html:84
+#: templates/pages/publication_view_hero_original.html:58
 msgid "Published"
 msgstr "Pubblicato"
 
@@ -366,17 +366,17 @@ msgstr "Caricamento dati"
 msgid "Share on"
 msgstr "Condividi su"
 
-#: templates/pages/publication_view.html:114
-#: templates/pages/publication_view_hero_original.html:65
+#: templates/pages/publication_view.html:116
+#: templates/pages/publication_view_hero_original.html:67
 msgid "tags"
 msgstr ""
 
-#: templates/pages/publication_view.html:138
-#: templates/pages/publication_view_hero_original.html:97
+#: templates/pages/publication_view.html:146
+#: templates/pages/publication_view_hero_original.html:105
 msgid "Published in"
 msgstr "Pubblicato in"
 
-#: templates/pages/publication_view_hero_original.html:77
+#: templates/pages/publication_view_hero_original.html:85
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
 
