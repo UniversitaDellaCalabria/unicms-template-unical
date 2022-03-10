@@ -61,7 +61,7 @@ msgstr "Università della Calabria"
 #: templates/bases/base_v_original.html:37
 #: templates/bases/unicms_unical.html:41
 msgid "Official University of Calabria website"
-msgstr "Sito istituzionale dell'Universitàa della Calabria"
+msgstr "Sito istituzionale dell'Università della Calabria"
 
 #: templates/bases/base_v_original.html:77
 #: templates/bases/unicms_unical.html:130
