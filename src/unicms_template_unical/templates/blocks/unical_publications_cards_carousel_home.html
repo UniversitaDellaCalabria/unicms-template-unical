@@ -15,6 +15,8 @@
         <div class="card card-bg no-after">
             <div class="card-body">
                 {% block desktop_item_body %}
+
+                {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
                         <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
@@ -24,8 +26,10 @@
                         </span>
                     {% endfor %}
                 </div>
+                {% endif %}
+
                 {% if pub.publication.image_url %}
-                <div class="img-responsive-wrapper mb-3 mx-n4">
+                <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
                     <div class="img-responsive img-responsive-panoramic">
                         <figure class="img-wrapper">
                           <a href="{{ pub.url }}">
@@ -70,6 +74,7 @@
         <div class="card card-bg no-after">
             <div class="card-body">
                 {% block mobile_item_body %}
+                {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
                         <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
@@ -79,8 +84,9 @@
                         </span>
                     {% endfor %}
                 </div>
+                {% endif %}
                 {% if pub.publication.image_url %}
-                <div class="img-responsive-wrapper mb-3 mx-n4">
+                <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
                     <div class="img-responsive img-responsive-panoramic">
                         <figure class="img-wrapper">
                           <a href="{{ pub.url }}">
