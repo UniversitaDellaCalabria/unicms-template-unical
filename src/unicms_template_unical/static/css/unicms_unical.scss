@@ -19,10 +19,12 @@ $lighter_bordeaux: #e03231;
 @font-face {
   font-family: TitilliumWeb-Black;
   src: url(../fonts/TitilliumWeb-Black.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: Lora-Regular;
   src: url(../fonts/lora-v20-latin-ext_latin-italic);
+  font-display: swap;
 }
 
 a {

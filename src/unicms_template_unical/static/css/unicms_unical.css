@@ -93,9 +93,9 @@ a.read-more { color: #9d9d9c; }
 /** Section muted */
 .section.section-muted { background-color: #f7f7f7; }
 
-@font-face { font-family: TitilliumWeb-Black; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/TitilliumWeb-Black.ttf); }
+@font-face { font-family: TitilliumWeb-Black; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/TitilliumWeb-Black.ttf); font-display: swap; }
 
-@font-face { font-family: Lora-Regular; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/lora-v20-latin-ext_latin-italic.ttf); }
+@font-face { font-family: Lora-Regular; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/lora-v20-latin-ext_latin-italic.ttf); font-display: swap; }
 
 a { text-decoration: none; color: #B01717; text-decoration: underline; }
 
