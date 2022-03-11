@@ -126,22 +126,22 @@
 </div>
 
 <div class="customNavigation text-right d-none d-lg-block">
-    <a class="{{ uid }}_prev">
+    <span class="{{ uid }}_prev" style="cursor: pointer">
         <span class="text-black font-weight-bold">
             <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_prev">
                 <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-left-circle"></use>
             </svg>
         </span>
-    </a>
-    <a class="{{ uid }}_next">
+    </span>
+    <span class="{{ uid }}_next" style="cursor: pointer">
         <span class="text-black font-weight-bold">
             <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_next">
                 <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
         </span>
-    </a>
+    </span>
 </div>
 
 {% block all_items_link %}
