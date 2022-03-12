@@ -193,6 +193,10 @@ input.top-input {
     color: $dark_grey_unical;
     font-weight: 500;
 }
+.badge-left-text-unical {
+    text-align: left;
+    white-space: inherit;
+}
 a .badge-grey-unical:hover,
 a .badge-grey-unical.selected {
     background: $dark_grey_unical;

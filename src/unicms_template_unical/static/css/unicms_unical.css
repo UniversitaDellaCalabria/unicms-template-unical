@@ -171,6 +171,8 @@ input.top-input { background: none; border: 1px solid #fff; height: 1.7rem; widt
 
 a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838; color: #e3e9ec; text-decoration: none; }
 
+.badge-left-text-unical { text-align: left; white-space: inherit; }
+
 .square-corners { border-radius: 0; }
 
 .publication-hero { min-height: 300px; }
