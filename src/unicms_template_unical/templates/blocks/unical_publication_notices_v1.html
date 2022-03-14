@@ -15,7 +15,7 @@
             <div class="card card-bg no-after">
                 <div class="card-body">
                     <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start }}</span>
+                        <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
                     </div>
                     <h5 class="card-title">
                         <a class="no-color" href="{{ pub.url }}">

@@ -55,7 +55,7 @@
                 <p class="text-muted">
                     <svg class="icon icon-xs">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
-                    </svg> {% trans "Published" %} {{ publication_context.publication.created }}
+                    </svg> {% trans "Published" %} {{ publication_context.publication.date_start|date:"d/m/Y, H:i" }}
                 </p>
                 <div style="text-align: justify;">
                     <p><i>{{ publication_context.publication.subheading }}</i></p>
@@ -90,7 +90,7 @@
                                     <br>
                                     <svg class="icon icon-xs">
                                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
-                                    </svg> <small class="text-muted">{{ related_pub.related.created|date:"d M Y" }}</small>
+                                    </svg> <small class="text-muted">{{ related_pub.related.date_start|date:"d/m/Y, H:i" }}</small>
                                 </li>
                             {% endfor %}
                             </ul>

@@ -42,7 +42,7 @@
                 </div>
                 {% endif %}
                 <div class="category-top">
-                    <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
+                    <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
                 </div>
                 {% block desktop_item_title %}
                 <h4 class="card-title">
@@ -99,7 +99,7 @@
                 </div>
                 {% endif %}
                 <div class="category-top">
-                    <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
+                    <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
                 </div>
                 {% block mobile_item_title %}
                 <h4 class="card-title">

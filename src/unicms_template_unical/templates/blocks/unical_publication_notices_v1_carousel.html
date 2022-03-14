@@ -10,7 +10,7 @@
 
 {% block item_body %}
 <div class="category-top">
-    <span>{% trans "Published" %}: {{ pub.date_start }}</span>
+    <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
 </div>
 <h5 class="card-title">
     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">

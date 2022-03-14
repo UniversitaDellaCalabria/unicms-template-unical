@@ -72,7 +72,7 @@
                                 </div>
 
                                  <div class="category-top">
-                                    <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                                    <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
                                 </div>
 
                                 <a class="no-color" href="{{ item.url }}">
@@ -110,7 +110,7 @@
                         </div>
 
                          <div class="category-top">
-                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
                         </div>
 
                         <h4 class="card-title">
@@ -155,7 +155,7 @@
                         </div>
                         {% endif %}
                         <div class="category-top">
-                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/n/Y H:i" }}</span>
+                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
                         </div>
 
                         <h4 class="card-title">
