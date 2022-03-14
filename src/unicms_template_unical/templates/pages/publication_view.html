@@ -82,7 +82,8 @@
                     <img src="{{ publication_context.publication.presentation_image.get_media_path }}"
                          title="{{ publication_context.publication.presentation_image.title }}"
                          alt="{{ publication_context.publication.presentation_image.description }}"
-                         class="w-100">
+                         class="w-100"
+                         loading="lazy">
                 </div>
                 {% elif related_embedded_links %}
                 <div class="row mb-2">
@@ -93,7 +94,8 @@
                     <img src="{{ publication_context.publication.preview_image.get_media_path }}"
                          title="{{ publication_context.publication.preview_image.title }}"
                          alt="{{ publication_context.publication.preview_image.description }}"
-                         class="w-100">
+                         class="w-100"
+                         loading="lazy">
                 </div>
                 {% endif %}
 

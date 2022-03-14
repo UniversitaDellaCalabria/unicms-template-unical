@@ -8,7 +8,8 @@
             <img src="{{ contact.image.get_media_path }}"
                  alt="{{ contact.image.description }}"
                  title="{{ contact.image.description }}"
-                 class="w-100" />
+                 class="w-100"
+                 loading="lazy">
             {% else %}
             <svg class="icon icon-muted" aria-labelledby="{{ contact.pk }}_img">
                 <title id="{{ contact.pk }}_img">{{ contact.image.description }}</title>

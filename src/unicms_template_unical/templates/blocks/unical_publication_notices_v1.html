@@ -18,7 +18,7 @@
                         <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
                     </div>
                     <h5 class="card-title">
-                        <a class="no-color" href="{{ pub.url }}">
+                        <a class="no-color" href="{{ pub.url }}" title="{{ pub.publication.title }}">
                             {{ pub.publication.title }}
                         </a>
                     </h5>

@@ -15,7 +15,8 @@
     <img src="{{ publication.presentation_image.get_media_path }}"
          title="{{ publication.presentation_image.title }}"
          alt="{{ publication.presentation_image.description }}"
-         class="w-100">
+         class="w-100"
+         loading="lazy">
 </div>
 {% elif publication.related_embedded_links %}
 <div class="row mb-2">
