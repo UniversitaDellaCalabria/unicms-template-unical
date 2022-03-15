@@ -6,6 +6,25 @@
 {% random_id as id %}
 
 {% if carousel_items %}
+<div class="customNavigation w-100" id="{{ id }}_customNavigation" style="position: absolute; z-index: 10">
+    <span class="{{ id }}_prev" id="{{ id }}_prev" style="cursor: pointer">
+        <span class="text-white font-weight-bold">
+            <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_prev">
+                <title id="{{ id }}_carousel_prev">{% trans "Previous" %}</title>
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-chevron-left"></use>
+            </svg>
+        </span>
+    </span>
+    <span class="{{ id }}_next float-right" id="{{ id }}_next" style="cursor: pointer">
+        <span class="text-white font-weight-bold">
+            <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_next">
+                <title id="{{ id }}_carousel_next">{% trans "Next" %}</title>
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-chevron-right"></use>
+            </svg>
+        </span>
+    </span>
+</div>
+
 <div id="italia_carousel_{{ id }}" class="owl-carousel owl-theme">
 
     {% for item in carousel_items %}
@@ -83,21 +102,28 @@
 
 <script>
 $(document).ready(function() {
-  $("#italia_carousel_{{ id }}").owlCarousel({
-      navigation : true, // Show next and prev buttons
-      loop: true,
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      items : 1,
-      itemsDesktop : false,
-      itemsDesktopSmall : false,
-      itemsTablet: false,
-      itemsMobile : false,
-      dots: false,
-      //lazyLoad : true,
-  });
+    var owl_{{ id }} = $("#italia_carousel_{{ id }}");
+
+    owl_{{ id }}.owlCarousel({
+        navigation : false, // Show next and prev buttons
+        loop: true,
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        items : 1,
+        dots: false,
+        //lazyLoad : true,
+    });
+    $(".{{ id }}_next").click(function(){
+        owl_{{ id }}.trigger('next.owl.carousel');
+    });
+    $(".{{ id }}_prev").click(function(){
+        owl_{{ id }}.trigger('prev.owl.carousel');
+    });
+
+    let banner_height = document.querySelector('#italia_carousel_{{ id }}').offsetHeight;
+    document.getElementById("{{ id }}_customNavigation").style.marginTop = (banner_height/2)-32 + "px";
 });
 </script>
 {% endif %}
