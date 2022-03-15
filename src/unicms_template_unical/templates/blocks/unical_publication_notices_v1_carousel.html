@@ -8,7 +8,7 @@
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
 
-{% block item_body %}
+{% block desktop_item_body %}
 <div class="category-top">
     <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
 </div>
@@ -21,8 +21,22 @@
     {{ pub.publication.subheading|truncatechars:135 }}
 </p>
 {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
-{% endblock item_body %}
+{% endblock desktop_item_body %}
 
+{% block mobile_item_body %}
+<div class="category-top">
+    <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
+</div>
+<h5 class="card-title">
+    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+        {{ pub.publication.title|truncatechars:120 }}
+    </a>
+</h5>
+<p class="card-text">
+    {{ pub.publication.subheading|truncatechars:135 }}
+</p>
+{% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
+{% endblock mobile_item_body %}
 
 {% block all_items_link %}
 <p class="mt-3 ml-2">
