@@ -5,29 +5,31 @@
 {% load unicms_menus %}
 
 
-<div class="row background-light-grey px-2 py-3 mb-2">
+<div class="background-light-grey px-2 py-3 mb-2 w-100">
     {% if title %}
     <h4>{{ title }}</h4>
     <hr />
     {% endif %}
 
-    {% block icon %}
-    {% endblock %}
-    <div class="col m-auto align-middle">
-        <ul class="mb-0 pl-0 list-unstyled">
-        {% for item in items %}
-            {% call obj=item method='link' request=request as link %}
-            <li>
-                {% if link %}
-                <a class="no-color" href="{{ link }}">
-                {% endif %}
-                    <small><b>- {{ item.name }}</b></small>
-                {% if link %}
-                </a>
-                {% endif %}
-            </li>
-        {% endfor %}
-        </ul>
+    <div class="row">
+        {% block icon %}
+        {% endblock %}
+        <div class="col m-auto align-middle">
+            <ul class="mb-0 pl-0 list-unstyled">
+            {% for item in items %}
+                {% call obj=item method='link' request=request as link %}
+                <li>
+                    {% if link %}
+                    <a class="no-color" href="{{ link }}">
+                    {% endif %}
+                        <small><b>- {{ item.name }}</b></small>
+                    {% if link %}
+                    </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 
