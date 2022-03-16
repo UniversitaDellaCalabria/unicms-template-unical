@@ -148,8 +148,10 @@
 
                 {% for link in related_embedded_links %}
                 {% if publication_context.publication.presentation_image or not forloop.first %}
-                <div class="row mb-2">
-                    {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
+                <div class="row mb-4">
+                    <div class="col">
+                        {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
+                    </div>
                 </div>
                 {% endif %}
                 {% endfor %}
