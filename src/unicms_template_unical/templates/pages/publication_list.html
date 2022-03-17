@@ -153,7 +153,8 @@ var news = new Vue({
                     <!--start card-->
                     <div class="card-wrapper card-space">
                         <div class="card card-bg no-after">
-                            <div class="card-body">
+                            <div class="card-body {% if category_name %}pt-0{% endif %}">
+                                {% if not category_name %}
                                 <div class="etichetta">
                                     <span v-for="(cat, index) in item.publication.category_data"
                                         class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
@@ -162,7 +163,7 @@ var news = new Vue({
                                         </a>
                                     </span>
                                 </div>
-
+                                {% endif %}
                                 <div class="img-responsive-wrapper mb-3 mx-n4" v-if="item.publication.image">
                                     <div class="img-responsive img-responsive-panoramic">
                                         <figure class="img-wrapper">
