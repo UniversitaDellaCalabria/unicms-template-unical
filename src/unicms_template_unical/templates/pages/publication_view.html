@@ -136,8 +136,9 @@
                 <hr />
                 <ul class="list-unstyled">
                 {% for pub_context in publication_context.publication.related_contexts %}
+                    {% get_site_path webpath=pub_context.webpath as path %}
                     <li>
-                        <a class="no-color" href="{{ pub_context.webpath.get_full_path }}">
+                        <a class="no-color" href="{{ path }}">
                             <span>{{ pub_context.webpath.name }}</span>
                         </a>
                     </li>
