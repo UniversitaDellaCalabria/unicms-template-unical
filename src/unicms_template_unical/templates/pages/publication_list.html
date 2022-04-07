@@ -182,6 +182,16 @@ var news = new Vue({
                                                                                                                  year: 'numeric',
                                                                                                                  hour: '2-digit',
                                                                                                                  minute:'2-digit'}) ]]</span>
+                                    {% if request.user.is_authenticated %}
+                                    {% settings_value "EDITORIAL_BOARD_NEWS_EDIT_URL_JS" as editorial_board_url %}
+                                    <span class="float-right">
+                                        <a :href="{{ editorial_board_url|safe }}" target="_blank" alt="{% trans 'Edit' %}" title="{% trans 'Edit' %}">
+                                            <svg class="icon icon-xs mr-2">
+                                                <use xlink:href="{% static '/svg/sprite.svg' %}#it-settings"></use>
+                                            </svg>
+                                        </a>
+                                    </span>
+                                    {% endif %}
                                 </div>
                                 <h4 class="card-title mt-3">
                                     <a style="text-decoration: none; color: #17324d;" v-bind:href="[[ item.path ]]">

@@ -17,6 +17,7 @@
                 {% block desktop_item_body %}
                 <div class="category-top">
                     <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
+                    {% include "includes/edit_news.html" with item=pub %}
                 </div>
                 <h5 class="card-title">
                     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
@@ -42,6 +43,7 @@
                 {% block mobile_item_body %}
                 <div class="category-top">
                     <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
+                    {% include "includes/edit_news.html" with item=pub %}
                 </div>
                 <h5 class="card-title">
                     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">

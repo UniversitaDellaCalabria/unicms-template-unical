@@ -16,6 +16,7 @@
                 <div class="card-body">
                     <div class="category-top">
                         <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
+                        {% include "includes/edit_news.html" with item=pub %}
                     </div>
                     <h5 class="card-title">
                         <a class="no-color" href="{{ pub.url }}" title="{{ pub.publication.title }}">

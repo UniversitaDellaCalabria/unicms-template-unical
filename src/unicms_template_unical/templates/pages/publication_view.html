@@ -69,6 +69,7 @@
                     <svg class="icon icon-xs mr-2">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
                     </svg> {% trans "Published" %} {{ publication_context.date_start }}
+                    {% include "includes/edit_news.html" with item=publication_context %}
                 </p>
 
                 <h1 class="mb-4 lighter">

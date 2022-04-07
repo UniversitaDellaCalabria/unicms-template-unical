@@ -71,6 +71,7 @@
 
                                 <div class="category-top">
                                     <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
+                                    {% include "includes/edit_news.html" with item=item %}
                                 </div>
 
                                 <a class="no-color" href="{{ item.url }}">
@@ -109,6 +110,7 @@
 
                          <div class="category-top">
                             <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
+                            {% include "includes/edit_news.html" with item=item %}
                         </div>
 
                         <h4 class="card-title">
@@ -154,6 +156,7 @@
                         {% endif %}
                         <div class="category-top">
                             <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
+                            {% include "includes/edit_news.html" with item=item %}
                         </div>
 
                         <h4 class="card-title">

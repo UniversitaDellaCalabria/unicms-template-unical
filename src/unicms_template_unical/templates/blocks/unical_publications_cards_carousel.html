@@ -43,6 +43,7 @@
                 {% endif %}
                 <div class="category-top">
                     <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
+                    {% include "includes/edit_news.html" with item=pub %}
                 </div>
                 {% block desktop_item_title %}
                 <h4 class="card-title">
@@ -101,6 +102,7 @@
                 {% endif %}
                 <div class="category-top">
                     <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
+                    {% include "includes/edit_news.html" with item=pub %}
                 </div>
                 {% block mobile_item_title %}
                 <h4 class="card-title">

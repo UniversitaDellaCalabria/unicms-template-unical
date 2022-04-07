@@ -51,6 +51,7 @@
                     {% endif %}
                     <div class="category-top">
                         <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
+                        {% include "includes/edit_news.html" with item=pub %}
                     </div>
                     <h4 class="card-title">
                         <a href="{{ pub.url }}" class="no-color">
