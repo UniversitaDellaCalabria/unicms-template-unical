@@ -23,6 +23,7 @@
          role="tabpanel"
          aria-labelledby="heading-{{ id }}-lft">
         <div class="collapse-body">
+            <p>{% include "includes/edit_page_publication.html" with item=page_publication %}</p>
             {% include "blocks/unical_publication_full_view_light.html" with publication=publication %}
         </div>
     </div>

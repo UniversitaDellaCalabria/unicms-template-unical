@@ -8,6 +8,7 @@
             <img src="{% static 'images/alert-red.svg' %}" style="width: 50px" loading="lazy">
         </div>
         <div class="col ml-1">
+            {% include "includes/edit_page_publication.html" with item=page_publication %}
             {{ publication.content|safe }}
         </div>
     </div>

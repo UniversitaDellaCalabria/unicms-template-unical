@@ -186,7 +186,7 @@ var news = new Vue({
                                     {% settings_value "EDITORIAL_BOARD_NEWS_EDIT_URL_JS" as editorial_board_url %}
                                     <span class="float-right">
                                         <a :href="{{ editorial_board_url|safe }}" target="_blank" alt="{% trans 'Edit' %}" title="{% trans 'Edit' %}">
-                                            <svg class="icon icon-xs mr-2">
+                                            <svg class="icon icon-xs">
                                                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-settings"></use>
                                             </svg>
                                         </a>

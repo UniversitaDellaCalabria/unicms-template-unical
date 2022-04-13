@@ -19,6 +19,9 @@
                     </div>
 
                     {% call obj=publication method='url' webpath=webpath as url %}
+
+                    {% include "includes/edit_page_publication.html" with item=page_publication %}
+
                     <h4 class="card-title">
                         {% if url %}
                         <a href="{{ url }}" class="no-color">

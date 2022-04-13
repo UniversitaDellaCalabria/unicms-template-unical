@@ -2,6 +2,8 @@
 {% load static %}
 
 
+{% include "includes/edit_page_publication.html" with item=page_publication %}
+
 {% block publication_title %}
 <h1 class="mb-4 lighter">{{ publication.title }}</h1>
 {% endblock publication_title %}
