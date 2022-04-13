@@ -169,8 +169,13 @@ var news = new Vue({
                                         <figure class="img-wrapper">
                                           <a :href="item.path">
                                             <img :src="item.publication.image"
-                                                 :title="item.publication.preview_image.title || item.publication.presentation_image.title"
-                                                 :alt="item.publication.preview_image.description || item.publication.presentation_image.description"/>
+                                                 :title="item.publication.preview_image.title"
+                                                 :alt="item.publication.preview_image.description"
+                                                 v-if="item.publication.preview_image"/>
+                                            <img :src="item.publication.image"
+                                                 :title="item.publication.presentation_image.title"
+                                                 :alt="item.publication.presentation_image.description"
+                                                 v-else-if="item.publication.presentation_image"/>
                                           </a>
                                         </figure>
                                     </div>
