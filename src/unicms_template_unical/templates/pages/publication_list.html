@@ -164,7 +164,7 @@ var news = new Vue({
                                     </span>
                                 </div>
                                 {% endif %}
-                                <div class="img-responsive-wrapper mb-3 mx-n4" v-if="item.publication.image">
+                                <div class="img-responsive-wrapper mx-n4" v-if="item.publication.image">
                                     <div class="img-responsive img-responsive-panoramic">
                                         <figure class="img-wrapper">
                                           <a :href="item.path">
@@ -180,7 +180,7 @@ var news = new Vue({
                                         </figure>
                                     </div>
                                 </div>
-                                <div class="category-top">
+                                <div class="category-top mt-3">
                                     <span>{% trans "Published" %}: [[ new Date(item.date_start).toLocaleString("{{ LANGUAGE_CODE }}",
                                                                                                                 {day: '2-digit',
                                                                                                                  month: '2-digit',
