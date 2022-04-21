@@ -39,7 +39,7 @@
 
     <div class="row">
         <div class="col">
-            <h1 class="mb-4 lighter">News {% if category_name %}in {{ category_name }}{% endif %}</h1>
+            <h1 class="mb-4 lighter">{% if category_name %}{{ category_name }}{% else %}News{% endif %}</h1>
 
             {% if category_name %}
             <div class="mb-4">
