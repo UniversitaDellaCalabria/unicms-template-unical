@@ -153,7 +153,7 @@ var news = new Vue({
                     <!--start card-->
                     <div class="card-wrapper card-space">
                         <div class="card card-bg no-after">
-                            <div class="card-body {% if category_name %}pt-0{% endif %}">
+                            <div class="card-body">
                                 {% if not category_name %}
                                 <div class="etichetta">
                                     <span v-for="(cat, index) in item.publication.category_data"
@@ -164,7 +164,7 @@ var news = new Vue({
                                     </span>
                                 </div>
                                 {% endif %}
-                                <div class="img-responsive-wrapper mx-n4" v-if="item.publication.image">
+                                <div class="img-responsive-wrapper mx-n4 mb-3 {% if category_name %}mt-n4{% endif %}" v-if="item.publication.image">
                                     <div class="img-responsive img-responsive-panoramic">
                                         <figure class="img-wrapper">
                                           <a :href="item.path">
@@ -180,7 +180,7 @@ var news = new Vue({
                                         </figure>
                                     </div>
                                 </div>
-                                <div class="category-top mt-3">
+                                <div class="category-top">
                                     <span>{% trans "Published" %}: [[ new Date(item.date_start).toLocaleString("{{ LANGUAGE_CODE }}",
                                                                                                                 {day: '2-digit',
                                                                                                                  month: '2-digit',
