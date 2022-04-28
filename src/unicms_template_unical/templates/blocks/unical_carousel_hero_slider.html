@@ -28,13 +28,13 @@
 <div id="italia_carousel_{{ id }}" class="owl-carousel owl-theme">
 
     {% for item in carousel_items %}
-    {% with item.get_links as item_links %}
+    {% with item.links as item_links %}
     <div class="item">
         <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %}">
 
             <!-- - img-->
-            {% if item_links.count == 1 %}
-            <a href="{{ item_links.first.url }}" class="w-100" style="text-decoration: none">
+            {% if item_links|length == 1 %}
+            <a href="{{ item_links.0.url }}" class="w-100" style="text-decoration: none">
             {% endif %}
             <div class="img-responsive-wrapper">
                 <div class="img-responsive">
@@ -76,7 +76,7 @@
                                 {{ item.description }}
                             </h1>
                             {% endif %}
-                            {% if item_links.count > 1 %}
+                            {% if item_links|length > 1 %}
                             <div class="it-btn-container">
                                 {% for link in item_links %}
                                 <a class="btn btn-sm btn-secondary" href="{{ link.url }}">
@@ -91,7 +91,7 @@
             </div>
             {% endif %}
 
-            {% if item_links.count == 1 %}
+            {% if item_links|length == 1 %}
             </a>
             {% endif %}
         </div>
