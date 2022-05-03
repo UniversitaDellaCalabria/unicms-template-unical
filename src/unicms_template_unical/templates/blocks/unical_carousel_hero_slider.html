@@ -30,7 +30,7 @@
     {% for item in carousel_items %}
     {% with item.links as item_links %}
     <div class="item">
-        <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %}">
+        <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %} {% block extra_class %}{% endblock %}">
 
             <!-- - img-->
             {% if item_links|length == 1 %}
@@ -61,16 +61,23 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="it-hero-text-wrapper unical-hero-text-wrapper {% if item.heading %}bg-dark{% endif %}">
+
+                            {% block pre_heading %}
                             {% if item.pre_heading %}
                             <h5 class="unical-hero-preheading">
                                 {{ item.pre_heading }}
                             </h5>
                             {% endif %}
+                            {% endblock pre_heading %}
+
+                            {% block heading %}
                             {% if item.heading %}
                             <h1 class="no_toc unical-hero-heading">
                                 {{ item.heading }}
                             </h1>
                             {% endif %}
+                            {% endblock heading %}
+
                             {% if item.description %}
                             <h1 class="no_toc unical-hero-description">
                                 {{ item.description }}

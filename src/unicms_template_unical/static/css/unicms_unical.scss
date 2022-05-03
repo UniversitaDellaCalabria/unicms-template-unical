@@ -528,6 +528,7 @@ figure.table table td figure.image img {
         padding: 120px 26px 168px;
     }
 }
+
 .it-hero-wrapper .it-hero-text-wrapper h5.unical-hero-preheading {
     padding: 20px;
     background: $bordeaux_unical;
@@ -538,14 +539,28 @@ figure.table table td figure.image img {
     font-weight: bold;
     margin-bottom: 24px;
 }
-.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading {
+
+.it-hero-wrapper .it-hero-text-wrapper h6.unical-hero-preheading {
+    padding: 10px 20px;
+    background: $bordeaux_unical;
+    position: inherit;
+    text-transform: inherit;
+    color: #fff;
+    width: fit-content;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading,
+.it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-heading {
     background: #fff;
     color: $bordeaux_unical;
     padding: 1rem;
     font-family: Lora-Regular;
     width: fit-content;
 }
-.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description {
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description,
+.it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-description {
     background: $bordeaux_unical;
     color: #fff;
     padding: 1rem;
@@ -553,3 +568,11 @@ figure.table table td figure.image img {
     width: fit-content;
 }
 
+.it-hero-wrapper.unical-hero-wrapper-slim {
+    min-height: 300px;
+}
+@media (min-width: 992px) {
+    .it-hero-wrapper.unical-hero-wrapper-slim .it-hero-text-wrapper.unical-hero-text-wrapper {
+        padding: 20px 26px;
+    }
+}
