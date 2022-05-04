@@ -19,7 +19,7 @@ def _get_same_level_items(item, language, exclude_item=True):
             else parent.get_childs(lang=language)
     return {'parent': parent.localized(lang=language),
             'items': items,
-            'current': item}
+            'current': item.localized(lang=language)}
     # return {}
 
     # webpath = item.webpath
@@ -87,7 +87,7 @@ def load_current_item_from_menu(context):
     if item:
         if item.inherited_content: item.inherited_content.translate_as(language)
         if item.publication: item.publication.translate_as(language)
-        return item
+        return item.localized(lang=language)
     # return item if item else None
 
     # path = context['page'].webpath.get_full_path()
