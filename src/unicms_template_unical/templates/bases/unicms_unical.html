@@ -190,6 +190,10 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 <!-- Main Menu -->
 {% block main_menu %}
+
+{% load_blocks section='head' as head %}
+{{ head }}
+
 <div class="it-header-navbar-wrapper">
     <div class="container">
         <div class="row">
