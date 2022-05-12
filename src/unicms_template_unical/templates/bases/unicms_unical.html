@@ -304,135 +304,171 @@ col-10 offset-2 col-lg-12 offset-lg-0
 {% block footer_menu_section %}
 <section>
     <div class="row">
-
-        {% block first_column %}
-       <div class="col-lg-4 col-sm-6 pb-2">
-            <h4>
-                <a href="#" title="Vai alla pagina: Contatti">
-                    {% trans "Contacts" %}
-                </a>
-            </h4>
-            <p>
-                <strong>{% trans 'University of Calabria' %}</strong>
-                <br>
+        <div class="col-12 border-white border-bottom mb-4">
+            <p class="mb-4">
                 Via Pietro Bucci
                 <br>
                 87036 Rende CS
                 <br>
                 Tel. +39 0984 4911
                 <br>
-                <a class="text-white" href="/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
+                <a class="text-white" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
                 <br>
                 C.F. 80003950781 / P.I. 00419160783
             </p>
         </div>
+
+        {% block first_column %}
+        <div class="col-lg-4 col-sm-6 pb-2">
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Servizi didattici/Segreterie Studenti' %}">{% trans 'Servizi didattici/Segreterie Studenti' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Catalogo insegnamenti' %}">{% trans 'Catalogo insegnamenti' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Prenotazioni esami - ESSE3' %}">{% trans 'Prenotazioni esami - ESSE3' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Piattaforma e-learning' %}">{% trans 'Piattaforma e-learning' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Stage e lavoro / Lavora con noi' %}">{% trans 'Stage e lavoro / Lavora con noi' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Career Service - Job placement' %}">{% trans 'Career Service - Job placement' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Studenti con disabilità, DSA e BES' %}">{% trans 'Studenti con disabilità, DSA e BES' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Accordi e network internazionali' %}">{% trans 'Accordi e network internazionali' %}</a></li>
+                </ul>
+
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Dipartimenti' %}">{% trans 'Dipartimenti' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Centro Residenziale' %}">{% trans 'Centro Residenziale' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Centri di Ateneo' %}">{% trans 'Centri di Ateneo' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'TIC Teatri in campus' %}">{% trans 'TIC Teatri in campus' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Centro Sanitario - Emergenze' %}">{% trans 'Centro Sanitario - Emergenze' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Centro congressi' %}">{% trans 'Centro congressi' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Polo d\'infanzia' %}">{% trans 'Polo d\'infanzia' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Sistema Bibliotecario di Ateneo' %}">{% trans 'Sistema Bibliotecario di Ateneo' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Musei' %}">{% trans 'Musei' %}</a></li>
+                    <li><a class="list-item" href="" target="_blank" rel="noopener noreferrer" title="{% trans 'Accomodation Residenza Socrates' %}">{% trans 'Accomodation Residenza Socrates' %}</a></li>
+                </ul>
+            </div>
+        </div>
         {% endblock first_column %}
 
         {% block second_column %}
-        <div class="col-lg-3 col-sm-6 pb-2">
-            <h4>
-                <a href="#" title="{% trans 'Administration' %}">{% trans 'Administration' %}</a>
-            </h4>
+        <div class="col-lg-4 col-sm-6 pb-2">
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/organizzazione/" title="{% trans 'Organization' %}">{% trans 'Organization' %}</a></li>
-                    <li><a class="list-item" href="/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">{% trans 'Transparent administration' %}</a></li>
-                    <li><a class="list-item" href="https://titulus-unical.cineca.it/albo/" target="_blank" rel="noopener noreferrer" title="{% trans 'Official register of the University' %}">{% trans 'Official register of the University' %}</a></li>
-                    <li><a class="list-item" href="https://unical.portaleamministrazionetrasparente.it/pagina639_bandi-di-concorso.html" target="_blank" rel="noopener noreferrer" title="{% trans 'Work with us' %}">{% trans 'Work with us' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Orientamento' %}">{% trans 'Orientamento' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Counselling Psicologico' %}">{% trans 'Counselling Psicologico' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'UniCal ID / SPID' %}">{% trans 'UniCal ID / SPID' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Tasse on line / PagoPA' %}">{% trans 'Tasse on line / PagoPA' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Front Office Online' %}">{% trans 'Front Office Online' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Richieste via ticket SPID/Unical ID' %}">{% trans 'Richieste via ticket SPID/Unical ID' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Servizi on-line ICT' %}">{% trans 'Servizi on-line ICT' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Servizi Wi-Fi' %}">{% trans 'Servizi Wi-Fi' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'HELPDesk ICT' %}">{% trans 'HELPDesk ICT' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Web mail Studenti' %}">{% trans 'Web mail Studenti' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Web mail Dipendenti' %}">{% trans 'Web mail Dipendenti' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Start up / Spin off' %}">{% trans 'Start up / Spin off' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Portafoglio Brevetti' %}">{% trans 'Portafoglio Brevetti' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Web radio' %}">{% trans 'Web radio' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Magazine on-line' %}">{% trans 'Magazine on-line' %}</a></li>
                 </ul>
             </div>
         </div>
         {% endblock second_column %}
 
         {% block third_column %}
-        <div class="col-lg-3 col-sm-6 pb-2">
-            <h4>
-                <a href="#" title="{% trans 'Online services' %}">{% trans 'Online services' %}</a>
-            </h4>
+        <div class="col-lg-4 col-sm-6 pb-2">
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/front-office/" title="{% trans 'Online front-office' %}">{% trans 'Online front-office' %}</a></li>
-                    <li><a class="list-item" href="/servizi-ict" title="{% trans 'ITC services' %}">{% trans 'ITC services' %}</a></li>
-                    <li><a class="list-item" href="https://unical.esse3.cineca.it/" target="_blank" rel="noopener noreferrer" title="ESSE3 web">ESSE3 web</a></li>
-                    <li><a class="list-item" href="https://smartcampus.unical.it/" target="_blank" rel="noopener noreferrer" title="Smart Campus">Smart Campus</a></li>
-                    <li><a class="list-item" href="https://ticket.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Online ticket' %}">{% trans 'Online ticket' %}</a></li>
-                    <li><a class="list-item" href="https://soscr.unical.it/Default.aspx?tabid=212"  target="_blank" rel="noopener noreferrer" title="UnicalLife">UnicalLife</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'TFA/Sostegno/PAS' %}">{% trans 'TFA/Sostegno/PAS' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'FIT/24 CFU' %}">{% trans 'FIT/24 CFU' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Esami di stato' %}">{% trans 'Esami di stato' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Piano Strategico 2020-2022' %}">{% trans 'Piano Strategico 2020-2022' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Amministrazione trasparente PAT' %}">{% trans 'Amministrazione trasparente PAT' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Albo Ufficiale di Ateneo' %}">{% trans 'Albo Ufficiale di Ateneo' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Sistema di Assicurazione della Qualitá' %}">{% trans 'Sistema di Assicurazione della Qualitá' %}</a></li>
+                </ul>
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="" title="{% trans 'Consigliera di Fiducia dell\'Ateneo' %}">{% trans 'Consigliera di Fiducia dell\'Ateneo' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Codice etico e di comportamento' %}">{% trans 'Codice etico e di comportamento' %}</a></li>
+                    <li><a class="list-item" href="" title="{% trans 'Fundraising, Donazioni, 5x1000' %}">{% trans 'Fundraising, Donazioni, 5x1000' %}</a></li>
                 </ul>
             </div>
         </div>
         {% endblock third_column %}
 
         {% block fourth_column %}
-        <div class="col-lg-2 col-sm-6">
-            <h4>
-                <a href="#" title="{% trans 'Campus' %}">{% trans 'Campus' %}</a>
-            </h4>
-            <div class="link-list-wrapper">
-                <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/campus/servizi/" title="{% trans 'Services for students' %}">{% trans 'Services for students' %}</a></li>
-                    <li><a class="list-item" href="/campus/vivere-il-campus/" title="{% trans 'Living on campus' %}">{% trans 'Living on campus' %}</a></li>
-                    <li><a class="list-item" href="/campus/visita-il-campus/#" title="{% trans 'Visit our campus' %}">{% trans 'Visit our campus' %}</a></li>
-                </ul>
-            </div>
-        </div>
         {% endblock fourth_column %}
 
     </div>
 </section>
 {% endblock footer_menu_section %}
 
-
-
 {% block footer_contacts_section %}
 {% endblock footer_contacts_section %}
 
 {% block footer_bottom %}
-<div class="it-footer-small-prints clearfix">
+<div class="it-footer-main clearfix py-4 border-white border-top" style="background: #b71918;">
     <div class="container">
-        {% block footer_bottom_content %}
-        <div class="row">
-            <div class="col-12">
-                <h3 class="sr-only">{% trans "Useful links" %}</h3>
-                <ul class="it-footer-small-prints-list list-inline mb-0 d-flex d-lg-block flex-column flex-md-row">
-                    <li class="list-inline-item">
-                        <a href="/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">
-                            {% trans 'Transparent administration' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/accessibilita" title="{% trans 'Accessibility' %}">
-                            {% trans 'Accessibility' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/privacy" title="Privacy">
-                            Privacy
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/cookie" title="Cookie">
-                            Cookie
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/note-legali" title="{% trans 'Legal notes' %}">
-                            {% trans 'Legal notes' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/sitemap" title="{% trans 'Sitemap' %}">
-                            {% trans 'Sitemap' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item float-right">
-                        <a href="https://www2.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'UniCal old website' %}">
-                            www2.unical.it
-                        </a>
-                    </li>
-                </ul>
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                <div class="link-list-wrapper">
+                    <ul class="footer-list link-list clearfix">
+                        <li><a class="list-item" href="" title="{% trans 'Posta certificata' %}">{% trans 'Posta certificata' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Fatturazione elettronica' %}">{% trans 'Fatturazione elettronica' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Redazione web / Contatti' %}">{% trans 'Redazione web / Contatti' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Accessibilità e prestazioni' %}">{% trans 'Accessibilità e prestazioni' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Credits' %}">{% trans 'Credits' %}</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        {% endblock footer_bottom_content %}
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="link-list-wrapper">
+                    <ul class="footer-list link-list clearfix">
+                        <li><a class="list-item" href="" title="{% trans 'Protezione dati - GDPR' %}">{% trans 'Protezione dati - GDPR' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Privacy' %}">{% trans 'Privacy' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Cookie e modalità di consenso' %}">{% trans 'Cookie e modalità di consenso' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Note legali' %}">{% trans 'Note legali' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Legal Notes' %}">{% trans 'Legal Notes' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="link-list-wrapper">
+                    <ul class="footer-list link-list clearfix">
+                        <li><a class="list-item" href="" title="{% trans 'Phishing: Come proteggersi' %}">{% trans 'Phishing: Come proteggersi' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Statistiche accessi web' %}">{% trans 'Statistiche accessi web' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Guida d\'uso - CMS' %}">{% trans 'Guida d\'uso - CMS' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Ects Guide' %}">{% trans 'Ects Guide' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Area intranet' %}">{% trans 'Area intranet' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-sm-6">
+                <div class="link-list-wrapper">
+                    <ul class="footer-list link-list clearfix">
+                        <li><a class="list-item" href="" title="{% trans 'Feed RSS' %}">{% trans 'Feed RSS' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Sezione Alumni' %}">{% trans 'Sezione Alumni' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Sezione identitá / Logo' %}">{% trans 'Sezione identitá / Logo' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Mappa del sito' %}">{% trans 'Mappa del sito' %}</a></li>
+                        <li><a class="list-item" href="" title="{% trans 'Info territorio' %}">{% trans 'Info territorio' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
     </div>
 </div>
 {% endblock footer_bottom %}
