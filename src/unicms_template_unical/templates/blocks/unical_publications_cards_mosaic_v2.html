@@ -20,8 +20,8 @@
                                 <div class="etichetta d-lg-none">
                                     {% for cat in item.publication.categories %}
                                     <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
-                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
-                                            <b>{{ cat }}</b>
+                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat.name %}">
+                                            <b>{{ cat.name }}</b>
                                         </a>
                                     </span>
                                     {% endfor %}
@@ -60,8 +60,8 @@
                                 <div class="etichetta d-none d-lg-block">
                                     {% for cat in item.publication.categories %}
                                     <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
-                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat %}">
-                                            <b>{{ cat }}</b>
+                                        <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat.name %}">
+                                            <b>{{ cat.name }}</b>
                                         </a>
                                     </span>
                                     {% endfor %}
