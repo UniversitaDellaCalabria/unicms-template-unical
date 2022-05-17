@@ -26,8 +26,7 @@
                 {% for item in collection_items %}
                 <li class="mb-2">
                     <a class="left-icon"
-                       href="{{ item.media.get_media_path }}"
-                       alt="{{ item.media.description }}">
+                       href="{{ item.media.get_media_path }}">
                         <svg class="icon icon-secondary">
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-file"></use>
                         </svg>
