@@ -46,10 +46,9 @@
                                 {% if item.mobile_image %}
                                 <source srcset="{{ item.mobile_image.file.url }}"
                                         media="(max-width: 767px)"
-                                        title="{{ item.mobile_image.name }}"
-                                        alt="{{ item.mobile_image.description }}">
+                                        title="{{ item.mobile_image.name }}">
                                 {% endif %}
-                                <img srcset="{{ item.image.file.url }}"
+                                <img src="{{ item.image.file.url }}"
                                      title="{{ item.image.name }}"
                                      alt="{{ item.image.description }}">
                             </picture>
