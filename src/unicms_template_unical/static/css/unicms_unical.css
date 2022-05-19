@@ -299,3 +299,5 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 .it-hero-wrapper.unical-hero-wrapper-slim { min-height: 300px; }
 
 @media (min-width: 992px) { .it-hero-wrapper.unical-hero-wrapper-slim .it-hero-text-wrapper.unical-hero-text-wrapper { padding: 20px 26px; } }
+
+.it-footer-main { font-size: 15px; }
