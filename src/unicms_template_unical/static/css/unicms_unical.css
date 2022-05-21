@@ -306,5 +306,4 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 
 .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: -45px; }
 
-@media (min-width: 992px)
-.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: 0; }
+@media (min-width: 992px) { .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: 0; } }

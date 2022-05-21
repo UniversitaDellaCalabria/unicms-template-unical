@@ -26,8 +26,8 @@ bootstrap-italia-base.html
     {% endif %}
 
     {% settings_value "ANALYTICS_CODE" as analytics_code %}
-    <link rel="shortcut icon" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/css/unicms_unical.css" type="text/css">
+    <link rel="shortcut icon" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="stylesheet" href="{% static 'css/unicms_unical.css' %}" type="text/css">
     {% block head_inits %}
         {{ block.super }}
     {% endblock head_inits %}
@@ -123,7 +123,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
         CENSIS MOD
         <div class="col-2 offset-6 offset-md-1 col-md-8">
         {% endcomment %}
-        <div class="col-2 offset-6 offset-md-1 col-md-10">
+        <div class="col-2 offset-8 offset-md-1 col-md-10">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
             <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
@@ -222,12 +222,24 @@ col-10 offset-2 col-lg-12 offset-lg-0
     <div class="container text-center text-lg-right">
         <div class="row">
             <div class="col">
-                <img src="{% static '/images/flags/it.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
-                <img src="{% static '/images/flags/gb.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
-                <img src="{% static '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
-                <img src="{% static '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
-                <img src="{% static '/images/flags/cn.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
-                <img src="{% static '/images/flags/sa.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
+                <a href="" style="cursor: pointer;" title="{% trans 'Italian' %}">
+                    <img src="{% static '/images/flags/it.svg' %}" alt="it" style="width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="" style="cursor: pointer;" title="{% trans 'English' %}">
+                    <img src="{% static '/images/flags/gb.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="" style="cursor: pointer;" title="{% trans 'Chinese' %}">
+                    <img src="{% static '/images/flags/cn.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="" style="cursor: pointer;" title="{% trans 'French' %}">
+                    <img src="{% static '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
+                    <img src="{% static '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="" style="cursor: pointer;" title="{% trans 'Arabic' %}">
+                    <img src="{% static '/images/flags/sa.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
+                </a>
             </div>
         </div>
     </div>
