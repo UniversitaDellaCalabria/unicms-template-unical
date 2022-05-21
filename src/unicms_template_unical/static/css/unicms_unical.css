@@ -303,3 +303,8 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 .it-footer-main { font-size: 15px; }
 
 .it-footer-main h4 a { border-bottom: 1px solid #B01717; }
+
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: -45px; }
+
+@media (min-width: 992px)
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: 0; }

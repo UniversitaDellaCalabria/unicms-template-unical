@@ -94,7 +94,7 @@ bootstrap-italia-base.html
                    class="w-100 d-md-none"
                    alt="{% trans 'University of Calabria' %}"/>
             <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
-                   class="w-75 d-none d-md-block d-lg-none"
+                   class="w-75 d-none d-md-block"
                    alt="{% trans 'University of Calabria' %}"/>
             {% endblock unical_mobile_logo %}
         </div>
@@ -119,7 +119,11 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
 
+        {% comment %}
+        CENSIS MOD
         <div class="col-2 offset-6 offset-md-1 col-md-8">
+        {% endcomment %}
+        <div class="col-2 offset-6 offset-md-1 col-md-10">
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
             <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
@@ -161,6 +165,8 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </a>
         </div>
 
+        {% comment %}
+        CENSIS MOD
         <div class="col-2 text-center">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle p-0 text-center"
@@ -186,6 +192,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                 </div>
             </div>
         </div>
+        {% endcomment %}
 
         {% comment %}
         <div class="col-3 col-md-2 text-center">
@@ -210,6 +217,21 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 <!-- Main Menu -->
 {% block main_menu %}
+
+<div class="dark-grey-background py-2">
+    <div class="container text-center text-lg-right">
+        <div class="row">
+            <div class="col">
+                <img src="{% static '/images/flags/it.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
+                <img src="{% static '/images/flags/gb.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
+                <img src="{% static '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
+                <img src="{% static '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
+                <img src="{% static '/images/flags/cn.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-3"/>
+                <img src="{% static '/images/flags/sa.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
+            </div>
+        </div>
+    </div>
+</div>
 
 {% load_blocks section='head' as head %}
 {{ head }}

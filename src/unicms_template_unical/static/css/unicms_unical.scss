@@ -565,3 +565,12 @@ figure.table table td figure.image img {
 .it-footer-main h4 a {
     border-bottom: 1px solid $bordeaux_unical;
 }
+
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    margin-top: -45px;
+}
+
+@media (min-width: 992px)
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    margin-top: 0;
+}
