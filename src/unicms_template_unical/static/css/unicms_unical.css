@@ -182,7 +182,7 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected { background: #383838;
 .breadcrumb-container .breadcrumb { margin-bottom: 0; }
 
 /** Medium with */
-@media (min-width: 992px) { .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { padding-top: 1.7rem; } .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper nav { padding-left: 0; padding-right: 0; } .it-header-center-wrapper .it-header-center-content-wrapper { padding-left: 0; padding-right: 0; } .navbar .navbar-collapsable .navbar-nav li.nav-item { font-size: 1.2rem; } .it-header-navbar-wrapper { background: #ffffff; } }
+@media (min-width: 992px) { .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { padding-top: 1.7rem; margin-top: 0; } .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper nav { padding-left: 0; padding-right: 0; } .it-header-center-wrapper .it-header-center-content-wrapper { padding-left: 0; padding-right: 0; } .navbar .navbar-collapsable .navbar-nav li.nav-item { font-size: 1.2rem; } .it-header-navbar-wrapper { background: #ffffff; } }
 
 /** De Marco */
 .menu-wrapper { z-index: 1 !important; }
@@ -305,5 +305,3 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 .it-footer-main h4 a { border-bottom: 1px solid #B01717; }
 
 .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: -45px; }
-
-@media (min-width: 992px) { .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper { margin-top: 0; } }
