@@ -307,3 +307,15 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 .it-footer-main h4 a { border-bottom: 1px solid #B01717; }
 
 @media (max-width: 991px) { .it-footer-main .link-list-wrapper ul li a { padding: 24px 0; } }
+
+.owl-carousel {
+    display: block;
+}
+
+.owl-carousel .slide-owl-wrap:not(:first-child) {
+    display: none;
+}
+
+.owl-carousel img {
+    width: 100%;
+}
