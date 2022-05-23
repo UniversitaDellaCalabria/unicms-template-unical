@@ -95,8 +95,6 @@ a.read-more { color: #9d9d9c; }
 
 @font-face { font-family: TitilliumWeb-Black; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/TitilliumWeb-Black.ttf); font-display: swap; }
 
-@font-face { font-family: Lora-Regular; src: url(https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/fonts/lora-v20-latin-ext_latin-italic.ttf); font-display: swap; }
-
 a { text-decoration: none; color: #B01717; text-decoration: underline; }
 
 a:hover, a:active { color: #6f0b0a; text-decoration: none; }
@@ -294,9 +292,9 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 
 .it-hero-wrapper .it-hero-text-wrapper h6.unical-hero-preheading { padding: 10px 20px; background: #b71918; position: inherit; text-transform: inherit; color: #fff; width: fit-content; font-weight: bold; margin-bottom: 12px; }
 
-.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h2.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-heading { background: #fff; color: #b71918; padding: 1rem; font-family: Lora-Regular; width: fit-content; }
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h2.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-heading, .it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-heading { background: #fff; color: #b71918; padding: 1rem; font-family: Lora; font-style: italic; width: fit-content; }
 
-.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h2.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-description { background: #b71918; color: #fff; padding: 1rem; font-family: Lora-Regular; width: fit-content; }
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h2.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-description, .it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-description { background: #b71918; color: #fff; padding: 1rem; font-family: Lora; font-style: italic; width: fit-content; }
 
 .it-hero-wrapper.unical-hero-wrapper-slim { min-height: 300px; }
 
@@ -308,14 +306,9 @@ figure.table table td figure.image img { width: 80px; max-width: 80px; }
 
 @media (max-width: 991px) { .it-footer-main .link-list-wrapper ul li a { padding: 24px 0; } }
 
-.owl-carousel {
-    display: block;
-}
+/** Owl CLS fix */
+.owl-carousel { display: block; }
 
-.owl-carousel .slide-owl-wrap:not(:first-child) {
-    display: none;
-}
+.owl-carousel .slide-owl-wrap:not(:first-child) { display: none; }
 
-.owl-carousel img {
-    width: 100%;
-}
+.owl-carousel img { width: 100%; }

@@ -21,11 +21,6 @@ $lighter_bordeaux: #e03231;
   src: url(../fonts/TitilliumWeb-Black.ttf);
   font-display: swap;
 }
-@font-face {
-  font-family: Lora-Regular;
-  src: url(../fonts/lora-v20-latin-ext_latin-italic);
-  font-display: swap;
-}
 
 a {
     text-decoration: none;
@@ -539,7 +534,8 @@ figure.table table td figure.image img {
     background: #fff;
     color: $bordeaux_unical;
     padding: 1rem;
-    font-family: Lora-Regular;
+    font-family: Lora;
+    font-style: italic;
     width: fit-content;
 }
 .it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description,
@@ -549,7 +545,8 @@ figure.table table td figure.image img {
     background: $bordeaux_unical;
     color: #fff;
     padding: 1rem;
-    font-family: Lora-Regular;
+    font-family: Lora;
+    font-style: italic;
     width: fit-content;
 }
 
@@ -574,4 +571,17 @@ figure.table table td figure.image img {
     .it-footer-main .link-list-wrapper ul li a {
         padding: 24px 0;
     }
+}
+
+/** Owl CLS fix */
+.owl-carousel {
+    display: block;
+}
+
+.owl-carousel .slide-owl-wrap:not(:first-child) {
+    display: none;
+}
+
+.owl-carousel img {
+    width: 100%;
 }
