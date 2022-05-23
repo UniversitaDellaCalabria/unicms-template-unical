@@ -184,7 +184,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                                 <ul class="link-list">
                                     {% language_menu as language_urls %}
                                     {% for cod,params in language_urls.items %}
-                                    <li><a class="list-item" href="{{ params.1 }}"><span>{{ params.0 }}</span></a></li>
+                                    <li><a class="cursor: pointer;; list-item" href="{{ params.1 }}"><span>{{ params.0 }}</span></a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
@@ -230,7 +230,18 @@ col-10 offset-2 col-lg-12 offset-lg-0
                         <img src="{{ flag_path }}" alt="{{ cod }}" style="width: 27px; height: 27px;" class="mr-2"/>
                     </a>
                 {% endfor %}
-
+                <a href="/chinese/" style="cursor: pointer;" title="{% trans 'Chinese' %}">
+                    <img src="{% static '/images/flags/zh.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/francais/" style="cursor: pointer;" title="{% trans 'French' %}">
+                    <img src="{% static '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/portugues/" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
+                    <img src="{% static '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/arabo/" style="cursor: pointer;" title="{% trans 'Arabic' %}">
+                    <img src="{% static '/images/flags/ar.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
+                </a>
             </div>
         </div>
     </div>
