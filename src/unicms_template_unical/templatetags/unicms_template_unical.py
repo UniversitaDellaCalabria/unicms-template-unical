@@ -1,6 +1,7 @@
 import logging
 
 from django import template
+from django.templatetags.static import static
 
 from cms.contexts.utils import append_slash
 from cms.menus.models import NavigationBarItem
@@ -95,3 +96,9 @@ def load_current_item_from_menu(context):
     # for item in context['items']:
         # result = _get_current_item(item, path, language)
         # if result: return result
+
+
+@register.simple_tag
+def load_lang_flag(lang):
+    if not lang: return ''
+    return static(f'/images/flags/{lang}.svg')

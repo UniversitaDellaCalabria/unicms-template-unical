@@ -17,6 +17,7 @@ bootstrap-italia-base.html
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
+{% load unicms_template_unical %}
 
 <!-- Custom extra head params -->
 {% block extra_head %}
@@ -222,24 +223,14 @@ col-10 offset-2 col-lg-12 offset-lg-0
     <div class="container text-center text-lg-right">
         <div class="row">
             <div class="col">
-                <a href="" style="cursor: pointer;" title="{% trans 'Italian' %}">
-                    <img src="{% static '/images/flags/it.svg' %}" alt="it" style="width: 27px; height: 27px;" class="mr-2"/>
-                </a>
-                <a href="" style="cursor: pointer;" title="{% trans 'English' %}">
-                    <img src="{% static '/images/flags/en.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
-                </a>
-                <a href="" style="cursor: pointer;" title="{% trans 'Chinese' %}">
-                    <img src="{% static '/images/flags/zh.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
-                </a>
-                <a href="" style="cursor: pointer;" title="{% trans 'French' %}">
-                    <img src="{% static '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
-                </a>
-                <a href="" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
-                    <img src="{% static '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
-                </a>
-                <a href="" style="cursor: pointer;" title="{% trans 'Arabic' %}">
-                    <img src="{% static '/images/flags/ar.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
-                </a>
+                {% language_menu as language_urls %}
+                {% for lang,url in language_urls.items %}
+                    {% load_lang_flag lang as flag_path %}
+                    <a href="{{ url }}" style="cursor: pointer;" title="{{ lang }}">
+                        <img src="{{ flag_path }}" alt="{{ lang }}" style="width: 27px; height: 27px;" class="mr-2"/>
+                    </a>
+                {% endfor %}
+
             </div>
         </div>
     </div>
