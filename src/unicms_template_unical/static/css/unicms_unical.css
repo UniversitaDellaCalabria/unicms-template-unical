@@ -93,7 +93,7 @@ a.read-more { color: #9d9d9c; }
 /** Section muted */
 .section.section-muted { background-color: #f7f7f7; }
 
-@font-face { font-family: TitilliumWeb-Black; src: ../fonts/TitilliumWeb-Black.ttf; font-display: swap; }
+@font-face { font-family: TitilliumWeb-Black; src: url(../fonts/TitilliumWeb-Black.ttf); font-display: swap; }
 
 a { text-decoration: none; color: #B01717; text-decoration: underline; }
 
