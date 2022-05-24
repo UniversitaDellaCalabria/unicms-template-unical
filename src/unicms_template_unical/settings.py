@@ -5,4 +5,4 @@ NOINDEX = False
 
 # CDN FOR STATICS
 UNICMS_TEMPLATE_UNICAL_USE_CDN = False
-UNICMS_TEMPLATE_UNICAL_CDN = 'https://cdn.jsdelivr.net/gh/UniversitaDellaCalabria/unicms-template-unical@0.21.0/src/unicms_template_unical/static'
+UNICMS_TEMPLATE_UNICAL_CDN = 'https://cdn.jsdelivr.net/gh/UniversitaDellaCalabria/unicms-template-unical@0.21.2/src/unicms_template_unical/static'
