@@ -10,18 +10,48 @@
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
+{% load unicms_template_unical %}
 
+{% block header_slim_wrapper %}
+{% settings_value "MAIN_DOMAIN" as cms_main_domain %}
+<div class="it-header-slim-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-header-slim-wrapper-content">
+                    <a target="_blank" href="//{{ cms_main_domain }}" title="UniCal.it" alt="UniCal.it">
+                        <b>UniCal.it</b>
+                    </a>
+                    {% if request.user.is_staff %}
+                    {% include "components/italia_editorialboard_frontend_menu.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/" aria-label="{% trans 'University of Calabria' %}">
+    <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
+        {% block unical_mobile_logo %}
+            {% block header_slim_mobile_org_name_side %}
+                <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" class="mw-100"/>
+            {% endblock header_slim_mobile_org_name_side %}
+        {% endblock unical_mobile_logo %}
+    </div>
+</a>
+{% endblock header_slim_wrapper %}
 
 {% block header_center_logo %}
     <div class="d-none d-lg-flex col-lg-12 px-0 department_logo_lg">
         {% block header_center_logo_side %}
-        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
+        <image src="{% static 'unicms_template_unical_static_path/unical_logo_bullet_white.svg' %}" class="h-100" />
         {% endblock header_center_logo_side %}
     </div>
 {% endblock header_center_logo %}
 
-{% block unical_mobile_logo %}
-    {% block header_slim_mobile_org_name_side %}
-        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" class="mw-100"/>
-    {% endblock header_slim_mobile_org_name_side %}
-{% endblock unical_mobile_logo %}
+{% block header_slim_right_zone %}
+{% if request.user.is_staff %}
+{% include "components/italia_editorialboard_frontend_menu.html" %}
+{% endif %}
+{% endblock header_slim_right_zone %}
+

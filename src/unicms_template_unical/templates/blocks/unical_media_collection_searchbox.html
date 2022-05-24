@@ -155,6 +155,7 @@ selected_search: this.getItemFromSession("{{ id }}", 'search'),
     // if url if pre-filtered resize select field
     // this allows to auto generate select options according to URL get filters!
     this.parameters = {{ id }}_encodeQueryData(this.getItemsFromSession("{{ id }}"))
+    this.parameters += "&ordering=order"
 {% endblock extra_mounted %}
 </script>
 

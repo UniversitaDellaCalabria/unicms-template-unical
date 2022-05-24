@@ -10,17 +10,18 @@
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
+{% load unicms_template_unical %}
 
 {% block header_center_logo %}
     <div class="d-none d-lg-flex col-lg-12 px-0">
-        <image src="{% static 'images/unical_logo_bullet_white.svg' %}" style="height: 100%;"/>
+        <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" style="height: 100%;"/>
         {% block header_center_logo_side %}
         {% endblock header_center_logo_side %}
     </div>
 {% endblock header_center_logo %}
 
 {% block header_slim_mobile_org_name %}
-    <image src="{% static 'images/unical_logo_bullet_white.svg' %}" style="height: 100%;"/>
+    <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" style="height: 100%;"/>
     {% block header_slim_mobile_org_name_side %}
     {% endblock header_slim_mobile_org_name_side %}
 {% endblock header_slim_mobile_org_name %}

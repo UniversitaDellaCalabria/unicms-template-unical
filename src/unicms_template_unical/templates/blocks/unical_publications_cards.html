@@ -10,7 +10,7 @@
 
 
 {% if publications %}
-{% if categories %}
+{% if categories and not exclude_categories %}
 <h2 class="mb-3">
     {% for category in categories %}
         {{ category }}
@@ -29,8 +29,8 @@
                     <div class="etichetta">
                         {% for cat in pub.publication.categories %}
                             <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
-                                <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat %}">
-                                    <b>{{ cat }}</b>
+                                <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
+                                    <b>{{ cat.name }}</b>
                                 </a>
                             </span>
                         {% endfor %}
@@ -42,14 +42,16 @@
                               <a href="{{ pub.url }}">
                                 <img src="{{ pub.publication.image_url }}"
                                      title="{{ pub.publication.image_title }}"
-                                     alt="{{ pub.publication.image_description }}">
+                                     alt="{{ pub.publication.image_description }}"
+                                     loading="lazy">
                               </a>
                             </figure>
                         </div>
                     </div>
                     {% endif %}
                     <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start | date:"d/n/Y H:i" }}</span>
+                        <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
+                        {% include "includes/edit_news.html" with item=pub %}
                     </div>
                     <h4 class="card-title">
                         <a href="{{ pub.url }}" class="no-color">
@@ -73,13 +75,16 @@
 </div>
 
 <p class="mt-3 ml-2">
-    <a href="{{ page_news_suffix }}{% if categories|length == 1 %}?category_name={{ categories.0 }}{% endif %}" class="no-color">
+    <a href="{{ page_news_suffix }}{% if categories|length == 1 and not exclude_categories %}?category_name={{ categories.0 }}{% endif %}" class="no-color">
         <span class="text-black font-weight-bold">
             <svg class="icon mr-2" aria-labelledby="{{ uid }}_news">
                 <title id="{{ uid }}_news">{% trans "Go to all news" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
-            {% trans "Go to all news" %} {% if categories|length == 1 %}in {{ categories.0 }}{% endif %}
+            {% trans "Go to all news" %}
+            {% if categories|length == 1 and not exclude_categories %}
+                in {{ categories.0 }}
+            {% endif %}
         </span>
     </a>
 </p>

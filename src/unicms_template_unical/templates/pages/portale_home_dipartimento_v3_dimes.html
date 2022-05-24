@@ -10,15 +10,15 @@
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
-
+{% load unicms_template_unical %}
 
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
 <div class="d-none d-lg-flex col-lg-12 px-0">
-    <image src="{% static 'images/dimes.svg' %}" style="height: 100%;"/>
+    <image src="{% unicms_template_unical_static_path 'images/dimes.svg' %}" style="height: 100%;"/>
 </div>
 {% endblock header_center_logo_side %}
 
 {% block header_slim_mobile_org_name_side %}
-<image src="{% static 'images/dimes.svg' %}" style="height: 100%;"/>
+<image src="{% unicms_template_unical_static_path 'images/dimes.svg' %}" style="height: 100%;"/>
 {% endblock header_slim_mobile_org_name_side %}

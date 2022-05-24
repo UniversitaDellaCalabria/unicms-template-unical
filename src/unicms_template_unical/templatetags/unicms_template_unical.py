@@ -1,6 +1,7 @@
 import logging
 
 from django import template
+from django.templatetags.static import static
 
 from cms.contexts.utils import append_slash
 from cms.menus.models import NavigationBarItem
@@ -19,7 +20,7 @@ def _get_same_level_items(item, language, exclude_item=True):
             else parent.get_childs(lang=language)
     return {'parent': parent.localized(lang=language),
             'items': items,
-            'current': item}
+            'current': item.localized(lang=language)}
     # return {}
 
     # webpath = item.webpath
@@ -87,7 +88,7 @@ def load_current_item_from_menu(context):
     if item:
         if item.inherited_content: item.inherited_content.translate_as(language)
         if item.publication: item.publication.translate_as(language)
-        return item
+        return item.localized(lang=language)
     # return item if item else None
 
     # path = context['page'].webpath.get_full_path()
@@ -95,3 +96,17 @@ def load_current_item_from_menu(context):
     # for item in context['items']:
         # result = _get_current_item(item, path, language)
         # if result: return result
+
+
+@register.simple_tag
+def load_lang_flag(lang):
+    if not lang: return ''
+    return static(f'/images/flags/{lang}.svg')
+
+
+@register.simple_tag
+def unicms_template_unical_static_path(resource):
+    if not resource: return ''
+    if settings.UNICMS_TEMPLATE_UNICAL_USE_CDN:
+        return f'{settings.UNICMS_TEMPLATE_UNICAL_CDN}/{resource}'
+    return static(resource)

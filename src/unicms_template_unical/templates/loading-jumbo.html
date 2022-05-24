@@ -1,12 +1,13 @@
 {% load i18n %}
 {% load static %}
+{% load unicms_template_unical %}
 
 <div class="it-hero-wrapper it-dark it-overlay publication-hero mb-4 ">
   <!-- - img-->
   <div class="img-responsive-wrapper">
     <div class="img-responsive">
         <div class="img-wrapper w-50 center-block">
-            <img src="{% static 'images/loading.gif' %}"/>
+            <img src="{% unicms_template_unical_static_path 'images/loading.gif' %}"/>
         </div>
     </div>
   </div>

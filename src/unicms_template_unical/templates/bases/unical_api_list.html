@@ -13,9 +13,10 @@
 
 {% block extra_scripts %}
 {% endblock extra_scripts %}
+{% load unicms_template_unical %}
 
 {% block scripts %}
-<script src="{% static 'js/unicms_api_utils.js' %}"></script>
+<script src="{% unicms_template_unical_static_path 'js/unicms_api_utils.js' %}"></script>
 <script>
 function {{ id }}_encodeQueryData(data=[]) {
     const ret = ["lang={{ LANGUAGE_CODE }}"];

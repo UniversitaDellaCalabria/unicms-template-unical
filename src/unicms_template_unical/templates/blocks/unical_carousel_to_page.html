@@ -6,12 +6,12 @@
     <div class="row mb-4">
 
         <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-left text-lg-center">
-            <a href="{{ link }}">
-                <img src="{{ item.image.file.url }}"
-                     title="{{ item.image.name }}"
-                     alt="{{ item.image.name }}"
-                     class="mw-100" style="max-height: 150px">
-            </a>
+            <img src="{{ item.image.file.url }}"
+                 title="{{ item.image.name }}"
+                 alt="{{ item.image.name }}"
+                 class="mw-100"
+                 style="max-height: 150px"
+                 loading="lazy">
         </div>
 
         <div class="col-12 col-lg-9 pl-lg-4">
@@ -21,11 +21,11 @@
 
             {{ item.pre_heading }}
 
-            {% if item.get_links %}
+            {% if item.links %}
 
             <div class="row mt-3">
                 <div class="col">
-                {% for link in item.get_links %}
+                {% for link in item.links %}
                     <span
                         class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
                         style="font-size: 100%">

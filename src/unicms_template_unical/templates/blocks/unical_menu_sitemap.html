@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_menus %}
+
+
+{% if not level %}
+    <ul class="list-unstyled">
+{% else %}
+    <ul class="pl-4 list-unstyled">
+{% endif %}
+
+{% for item in items %}
+<li>
+    {% call obj=item method='link' request=request as link %}
+    <small>
+        {% if not level %}
+            <a href="{{ link }}" class="no-color">
+            <h4 {% if forloop.counter0 > 0 %}class="mb-2 mt-3"{% endif %}>{{ item.name }}</h4>
+        {% else %}
+            {% if link %}
+                <a href="{{ link }}">
+            {% else %}
+                <span>
+            {% endif %}
+            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_news">
+                <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-triangle"></use>
+            </svg> {{ item.name }}
+            {% if link %}
+                </a>
+            {% else %}
+                </span>
+            {% endif %}
+        {% endif %}
+        </a>
+    </small>
+    {% with has_childs=item.get_childs %}
+    {% if has_childs %}
+        {% load_item_childs item as childs %}
+        {% include "blocks/unical_menu_sitemap.html" with items=childs level=1 %}
+    {% endif %}
+    {% endwith %}
+</li>
+{% endfor %}
+</ul>

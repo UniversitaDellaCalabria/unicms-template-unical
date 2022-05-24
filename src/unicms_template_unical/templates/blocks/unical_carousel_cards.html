@@ -24,7 +24,8 @@
                                     <figure class="img-wrapper">
                                         <img src="{{ item.image.file.url }}"
                                              title="{{ item.image.name }}"
-                                             alt="{{ item.image.name }}">
+                                             alt="{{ item.image.name }}"
+                                             loading="lazy">
                                     </figure>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@
                             </p>
                             {% endif %}
 
-                            {% for link in item.get_links %}
+                            {% for link in item.links %}
                             <p>
                                 <a class="read-more"
                                    style="position: inherit"

@@ -17,14 +17,40 @@ bootstrap-italia-base.html
 {% load unicms_templates %}
 {% load unicms_pages %}
 {% load unicms_publications %}
+{% load unicms_template_unical %}
 
 <!-- Custom extra head params -->
 {% block extra_head %}
-    <link rel="shortcut icon" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/css/unicms_unical.css" type="text/css">
+    {% settings_value "NOINDEX" as noindex %}
+    {% if noindex %}
+    <meta name="robots" content="noindex">
+    {% endif %}
+
+    {% settings_value "ANALYTICS_CODE" as analytics_code %}
+    <link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
+    <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
     {% block head_inits %}
         {{ block.super }}
     {% endblock head_inits %}
+
+    {% block social_tags %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:image" content="https://{{ request.get_host }}/static/images/logo.png">
+    <meta property="og:image:alt" content="{{ page.title }}" />
+    <meta property="og:image:width" content="330" />
+    <meta property="og:image:height" content="330" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:image" content="https://{{ request.get_host }}/static/images/logo.png">
+    <meta name="twitter:image:alt" content="{{ page.title }}">
+    {% endblock social_tags %}
+
+    {{ analytics_code|safe }}
 {% endblock extra_head %}
 
 
@@ -55,11 +81,8 @@ bootstrap-italia-base.html
 </div>
 {% endblock header_center_logo %}
 
-{% block header_center_org_name %}
-{% endblock header_center_org_name %}
-
-{% block header_center_org_subname %}
-{% endblock header_center_org_subname %}
+{% block header_brand_text %}
+{% endblock header_brand_text %}
 
 {% block header_slim_wrapper %}
     {% if request.user.is_staff %}
@@ -69,10 +92,10 @@ bootstrap-italia-base.html
         <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
             {% block unical_mobile_logo %}
             <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
-                   class="w-100 d-md-none"
+                   class="w-100 h-100 d-md-none"
                    alt="{% trans 'University of Calabria' %}"/>
             <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
-                   class="w-75 d-none d-md-block d-lg-none"
+                   class="w-75 h-100 d-none d-md-block"
                    alt="{% trans 'University of Calabria' %}"/>
             {% endblock unical_mobile_logo %}
         </div>
@@ -97,7 +120,12 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <div class="it-right-zone col-12 col-lg-5 offset-lg-1">
     <div class="row w-100">
 
-        <div class="col-2 offset-7 offset-md-1 col-md-8">
+        {% comment %}
+        CENSIS MOD
+        <div class="col-2 offset-6 offset-md-1 col-md-8">
+        {% endcomment %}
+        <div class="col-2 offset-8 offset-md-1 col-md-10">
+
             {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
             <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
                 <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
@@ -122,13 +150,26 @@ col-10 offset-2 col-lg-12 offset-lg-0
             </div>
         </div>
 
-        <div class="col-1 text-center">
-            <a href="{{ addressbook_link }}" target="_blank" rel="noopener" rel="noreferrer">
-                <img src="{% static 'images/addressbook.svg' %}" style="width: 35px" alt="{% trans 'Address book' %}" title="{% trans 'Address book' %}"/>
+        <div class="col-2 col-md-1 text-center">
+            <a href="{{ addressbook_link }}">
+                <img src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/addressbook.svg"
+                     style="height: 32px; width: 38px;"
+                     class="d-none d-lg-block"
+                     alt="{% trans 'Address book' %}"
+                     title="{% trans 'Address book' %}"
+                     loading="lazy">
+                <img src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/addressbook.svg"
+                     style="height: 24px; width: 28px;"
+                     class="d-lg-none"
+                     alt="{% trans 'Address book' %}"
+                     title="{% trans 'Address book' %}"
+                     loading="lazy">
             </a>
         </div>
 
-        <div class="col-2 col-md-2 text-center">
+        {% comment %}
+        CENSIS MOD
+        <div class="col-2 text-center">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle p-0 text-center"
                    title="{% trans 'Language' %}"
@@ -143,8 +184,8 @@ col-10 offset-2 col-lg-12 offset-lg-0
                             <div class="link-list-wrapper">
                                 <ul class="link-list">
                                     {% language_menu as language_urls %}
-                                    {% for lang,url in language_urls.items %}
-                                    <li><a class="list-item" href="{{ url }}"><span>{{ lang }}</span></a></li>
+                                    {% for cod,params in language_urls.items %}
+                                    <li><a class="cursor: pointer;; list-item" href="{{ params.1 }}"><span>{{ params.0 }}</span></a></li>
                                     {% endfor %}
                                 </ul>
                             </div>
@@ -153,6 +194,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                 </div>
             </div>
         </div>
+        {% endcomment %}
 
         {% comment %}
         <div class="col-3 col-md-2 text-center">
@@ -177,6 +219,44 @@ col-10 offset-2 col-lg-12 offset-lg-0
 
 <!-- Main Menu -->
 {% block main_menu %}
+
+<div class="dark-grey-background py-2">
+    <div class="container text-center text-lg-right">
+        <div class="row">
+            <div class="col">
+                {% language_menu as language_urls %}
+                {% for cod,params in language_urls.items %}
+                    {% load_lang_flag cod as flag_path %}
+                    <a href="{{ params.1 }}" style="cursor: pointer;" title="{{ params.0 }}">
+                        <img src="{{ flag_path }}" alt="{{ params.0 }}" style="width: 27px; height: 27px;" class="mr-2"/>
+                    </a>
+                {% endfor %}
+                <a href="/chinese/" style="cursor: pointer;" title="{% trans 'Chinese' %}">
+                    <img alt="{% trans 'Chinese' %}" src="{% unicms_template_unical_static_path '/images/flags/zh.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/francais/" style="cursor: pointer;" title="{% trans 'French' %}">
+                    <img alt="{% trans 'French' %}" src="{% unicms_template_unical_static_path '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/portugues/" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
+                    <img alt="{% trans 'Portuguese' %}" src="{% unicms_template_unical_static_path '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/espanol/" style="cursor: pointer;" title="{% trans 'Espanol' %}">
+                    <img alt="{% trans 'Espanol' %}" src="{% unicms_template_unical_static_path '/images/flags/es.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/arabo/" style="cursor: pointer;" title="{% trans 'Arabic' %}">
+                    <img alt="{% trans 'Arabic' %}" src="{% unicms_template_unical_static_path '/images/flags/ar.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
+                </a>
+                <a href="/russo/" style="cursor: pointer;" title="{% trans 'Russian' %}">
+                    <img alt="{% trans 'Russian' %}" src="{% unicms_template_unical_static_path '/images/flags/ru.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load_blocks section='head' as head %}
+{{ head }}
+
 <div class="it-header-navbar-wrapper">
     <div class="container">
         <div class="row">
@@ -221,57 +301,111 @@ col-10 offset-2 col-lg-12 offset-lg-0
     dark-grey-background py-5
 {% endblock section_2_classes %}
 
-{% block footer_logo %}
-<div class="col-12 col-md-4 px-0">
-    <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
-           class="mw-100"
-           alt="{% trans 'University of Calabria' %}"/>
+{% block footer_top_section %}
+{% endblock footer_top_section %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-left">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://it-it.facebook.com/unicalufficiale/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
+                </svg><span class="sr-only">Facebook</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://twitter.com/UniCalPortale?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer" title="Twitter">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
+                </svg><span class="sr-only">Twitter</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://it.linkedin.com/school/university-of-calabria/" target="_blank" rel="noopener noreferrer" title="Linkedin">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
+                </svg><span class="sr-only">Linkedin</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.instagram.com/unical_official/" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-instagram"></use>
+                </svg><span class="sr-only">Instagram</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.youtube.com/channel/UCnd5Oen95TMO9aLfVRUAABQ" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-youtube"></use>
+                </svg><span class="sr-only">Youtube</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://github.com/UniversitaDellaCalabria" target="_blank" rel="noopener noreferrer" title="Github">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-github"></use>
+                </svg><span class="sr-only">Github</span>
+            </a>
+        </li>
+    </ul>
 </div>
-{% endblock footer_logo %}
-
-{% block footer_org_text %}
-{% endblock footer_org_text %}
-
+{% endblock footer_top %}
 
 
  <!-- Footer middle section with menu blocks -->
 {% block footer_menu_section %}
 <section>
-    <div class="row">
+    <div class="row" style="padding-top: 20px;">
 
         {% block first_column %}
-       <div class="col-lg-4 col-sm-6 pb-2">
+        <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="Vai alla pagina: Contatti">
-                    {% trans "Contacts" %}
+                <a href="#" title="{% trans 'UniCal for students' %}">
+                    {% trans 'UniCal for students' %}
                 </a>
             </h4>
-            <p>
-                <strong>{% trans 'University of Calabria' %}</strong>
-                <br>
-                Via Pietro Bucci
-                <br>
-                87036 Rende CS
-                <br>
-                Tel. +39 0984 4911
-                <br>
-                <a class="text-white" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
-                <br>
-                C.F. 80003950781 / P.I. 00419160783
-            </p>
+            <div class="link-list-wrapper">
+                <ul class="footer-list link-list clearfix">
+                    <li><a class="list-item" href="/campus/servizi/" title="{% trans 'Prospective students, Enrolled and Graduates' %}">{% trans 'Prospective students, Enrolled and Graduates' %}</a></li>
+                    <li><a class="list-item" href="/didattica/offerta-formativa/" title="{% trans 'Educational offer' %}">{% trans 'Educational offer' %}</a></li>
+                    <li><a class="list-item" href="/didattica/offerta-formativa/catalogo/" title="{% trans 'Teaching catalog' %}">{% trans 'Teaching catalog' %}</a></li>
+                    <li><a class="list-item" href="/didattica/iscriversi-studiare-laurearsi/" title="{% trans 'Enroll, study and graduate' %}">{% trans 'Enroll, study and graduate' %}</a></li>
+                    <li><a class="list-item" href="/didattica/diritto-allo-studio/" title="{% trans 'Right to study' %}">{% trans 'Right to study' %}</a></li>
+                    <li><a class="list-item" href="/didattica/orientamento/" title="{% trans 'Orientation' %}">{% trans 'Orientation' %}</a></li>
+                    <li><a class="list-item" href="/didattica/diritto-allo-studio/servizi-per-studenti-con-disabilita-e-dsa/" title="{% trans 'Services for disabled and dyslexic students' %}">{% trans 'Services for disabled and dyslexic students' %}</a></li>
+                    <li><a class="list-item" href="/didattica/orientamento/counselling/" title="{% trans 'Psychological counseling' %}">{% trans 'Psychological counseling' %}</a></li>
+                    <li><a class="list-item" href="http://careerservices.unical.it/" target="_blank" rel="noopener noreferrer" title="{% trans 'Career Service / Job Placement' %}">{% trans 'Career Service / Job Placement' %}</a></li>
+                    <li><a class="list-item" href="/internazionale/studiare-all-estero/accordi-e-reti/accordi-internazionali/" title="{% trans 'International agreements and networks' %}">{% trans 'International agreements and networks' %}</a></li>
+                    <li><a class="list-item" href="/didattica/offerta-formativa/formazione-insegnanti/" title="{% trans 'Teacher training courses' %}">{% trans 'Teacher training courses' %}</a></li>
+                    <li><a class="list-item" href="/didattica/offerta-formativa/esami-di-stato/" title="{% trans 'State examinations' %}">{% trans 'State examinations' %}</a></li>
+                </ul>
+            </div>
         </div>
         {% endblock first_column %}
 
         {% block second_column %}
         <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="{% trans 'Administration' %}">{% trans 'Administration' %}</a>
+                <a href="#" title="{% trans 'UniCal online' %}">
+                    {% trans 'UniCal online' %}
+                </a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/portale/organizzazione/" title="{% trans 'Organization' %}">{% trans 'Organization' %}</a></li>
-                    <li><a class="list-item" href="/portale/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">{% trans 'Transparent administration' %}</a></li>
-                    <li><a class="list-item" href="https://titulus-unical.cineca.it/albo/" target="_blank" rel="noopener noreferrer" title="{% trans 'Official register of the University' %}">{% trans 'Official register of the University' %}</a></li>
+                    <li><a class="list-item" href="/front-office/" title="{% trans 'Online front-office' %}">{% trans 'Online front-office' %}</a></li>
+                    <li><a class="list-item" href="https://ticket.unical.it/" target="_blank" rel="noopener noreferrer" title="{% trans 'Online ticket' %}">{% trans 'Online ticket' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict" title="{% trans 'ITC Services' %}">{% trans 'ITC Services' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-studenti/accesso-wifi-ateneo/" title="{% trans 'Wi-Fi Services' %}">{% trans 'Wi-Fi Services' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-studenti/posta-elettronica-studenti/" title="{% trans 'Students webmail' %}">{% trans 'Students webmail' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-utente/posta-elettronica/" title="{% trans 'Employees webmail' %}">{% trans 'Employees webmail' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-utente/credenziali-di-ateneo/" title="{% trans 'SPID / UniCal ID' %}">{% trans 'SPID / UniCal ID' %}</a></li>
+                    <li><a class="list-item" href="/didattica/iscriversi-studiare-laurearsi/tasse-ed-esoneri/" title="{% trans 'Online Taxes / PagoPA' %}">{% trans 'Online Taxes / PagoPA' %}</a></li>
+                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-studenti/esse3-web/" title="{% trans 'Exam reservations - ESSE3' %}">{% trans 'Exam reservations - ESSE3' %}</a></li>
+                    <li><a class="list-item" href="https://24cfu.unical.it/elearning/" target="_blank" rel="noopener noreferrer" title="{% trans 'e-Learning platform' %}">{% trans 'e-Learning platform' %}</a></li>
+                    <li><a class="list-item" href="/web-radio" title="{% trans 'Web Radio' %}">{% trans 'Web Radio' %}</a></li>
+                    <li><a class="list-item" href="/unical-magazine/" title="{% trans 'Online Magazine' %}">{% trans 'Online Magazine' %}</a></li>
                 </ul>
             </div>
         </div>
@@ -280,31 +414,49 @@ col-10 offset-2 col-lg-12 offset-lg-0
         {% block third_column %}
         <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="{% trans 'Online services' %}">{% trans 'Online services' %}</a>
+                <a href="#" title="{% trans 'Living on Campus' %}">
+                    {% trans 'Living on Campus' %}
+                </a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/portale/front-office/" title="{% trans 'Online front-office' %}">{% trans 'Online front-office' %}</a></li>
-                    <li><a class="list-item" href="/portale/servizi-ict" title="{% trans 'ITC services' %}">{% trans 'ITC services' %}</a></li>
-                    <li><a class="list-item" href="https://unical.esse3.cineca.it/" target="_blank" rel="noopener noreferrer" title="ESSE3 web">ESSE3 web</a></li>
-                    <li><a class="list-item" href="https://smartcampus.unical.it/" target="_blank" rel="noopener noreferrer" title="Smart Campus">Smart Campus</a></li>
-                    <li><a class="list-item" href="https://ticket.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Online ticket' %}">{% trans 'Online ticket' %}</a></li>
-                    <li><a class="list-item" href="https://soscr.unical.it/Default.aspx?tabid=212"  target="_blank" rel="noopener noreferrer" title="UnicalLife">UnicalLife</a></li>
+                    <li><a class="list-item" href="/organizzazione/strutture/dipartimenti/" title="{% trans 'Departments' %}">{% trans 'Departments' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/quartieri/" title="{% trans 'Campus residences' %}">{% trans 'Campus residences' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/servizio-mensa/" title="{% trans 'Canteen services' %}">{% trans 'Canteen services' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/biblioteche/" title="{% trans 'Libraries' %}">{% trans 'Libraries' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/sistema-museale/" title="{% trans 'Museum hub' %}">{% trans 'Museum hub' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/teatri-e-cinema/" title="{% trans 'Theaters and cinemas' %}">{% trans 'Theaters and cinemas' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/centro-linguistico-di-ateneo/" title="{% trans 'Language Centre' %}">{% trans 'Language Centre' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/centro-sanitario/" title="{% trans 'Health Center' %}">{% trans 'Health Center' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/centro-sportivo/" title="{% trans 'Sports Center' %}">{% trans 'Sports Center' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/centro-congressi/" title="{% trans 'Convention Center' %}">{% trans 'Convention Center' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/polo-infanzia/" title="{% trans 'Infants Center' %}">{% trans 'Infants Center' %}</a></li>
+                    <li><a class="list-item" href="/campus/vivere-il-campus/servizio-foresteria/" title="{% trans 'Accomodation - Socrates Residence' %}">{% trans 'Accomodation - Socrates Residence' %}</a></li>
+                    <li><a class="list-item" href="/campus/visita-il-campus/territorio/" title="{% trans 'Territory info' %}">{% trans 'Territory info' %}</a></li>
                 </ul>
             </div>
         </div>
         {% endblock third_column %}
 
         {% block fourth_column %}
-        <div class="col-lg-2 col-sm-6">
+        <div class="col-lg-3 col-sm-6 pb-2">
             <h4>
-                <a href="#" title="{% trans 'Campus' %}">{% trans 'Campus' %}</a>
+                <a href="#" title="{% trans 'Transparent UniCal' %}">
+                    {% trans 'Transparent UniCal' %}
+                </a>
             </h4>
             <div class="link-list-wrapper">
                 <ul class="footer-list link-list clearfix">
-                    <li><a class="list-item" href="/portale/campus/servizi/" title="{% trans 'Services for students' %}">{% trans 'Services for students' %}</a></li>
-                    <li><a class="list-item" href="/portale/campus/vivere-il-campus/" title="{% trans 'Living on campus' %}">{% trans 'Living on campus' %}</a></li>
-                    <li><a class="list-item" href="/portale/campus/visita-il-campus/#" title="{% trans 'Visit our campus' %}">{% trans 'Visit our campus' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/strutture/direzioni-aree/" title="{% trans 'Organization' %}">{% trans 'Organization' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">{% trans 'Transparent administration' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/chi-siamo/linee-strategiche/" title="{% trans 'Strategic plan 2020/2022' %}">{% trans 'Strategic plan 2020/2022' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/chi-siamo/organi/" title="{% trans 'Governing bodies' %}">{% trans 'Governing bodies' %}</a></li>
+                    <li><a class="list-item" href="https://titulus-unical.cineca.it/albo/" target="_blank" rel="noopener noreferrer" title="{% trans 'Official register of the University' %}">{% trans 'Official register of the University' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/chi-siamo/assicurazione-qualita/" title="{% trans 'Quality Assurance System' %}">{% trans 'Quality Assurance System' %}</a></li>
+                    <li><a class="list-item" href="/consigliera-di-fiducia/" title="{% trans 'Trusted Advisor of the University' %}">{% trans 'Trusted Advisor of the University' %}</a></li>
+                    <li><a class="list-item" href="/organizzazione/chi-siamo/organi/altri-organi-e-organismi/commissione-etica/" title="{% trans 'Code of ethics and conduct' %}">{% trans 'Code of ethics and conduct' %}</a></li>
+                    <li><a class="list-item" href="/innovazione-societa/trasferimento-tecnologico/creazione-imprese-innovative/spin-off/" title="{% trans 'Spinoff / Patent Showcase' %}">{% trans 'Spinoff / Patent Showcase' %}</a></li>
+                    <li><a class="list-item" href="/5x1000" title="{% trans 'Fundraising, donations, 5x1000' %}">{% trans 'Fundraising, donations, 5x1000' %}</a></li>
                 </ul>
             </div>
         </div>
@@ -314,101 +466,85 @@ col-10 offset-2 col-lg-12 offset-lg-0
 </section>
 {% endblock footer_menu_section %}
 
-
-
 {% block footer_contacts_section %}
 {% endblock footer_contacts_section %}
 
 {% block footer_bottom %}
-<div class="it-footer-small-prints clearfix">
+<div class="it-footer-main clearfix py-4 border-white border-top" style="background: #b71918;">
     <div class="container">
-        {% block footer_bottom_content %}
-        <div class="row">
-            <div class="col-12 col-lg-auto">
-                <h3 class="sr-only">{% trans "Useful links" %}</h3>
-                <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
-                    <li class="list-inline-item">
-                        <a href="/portale/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">
-                            {% trans 'Transparent administration' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/portale/accessibilita" title="{% trans 'Accessibility' %}">
-                            {% trans 'Accessibility' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/portale/privacy" title="Privacy">
-                            Privacy
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/portale/cookie" title="Cookie">
-                            Cookie
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/portale/note-legali" title="{% trans 'Legal notes' %}">
-                            {% trans 'Legal notes' %}
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="/portale/sitemap.xml" title="{% trans 'Sitemap' %}">
-                            {% trans 'Sitemap' %}
-                        </a>
-                    </li>
-                </ul>
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/pec/" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a></li>
+                                    <li><a class="list-item" href="/fatturazione-elettronica/" title="{% trans 'Electronic invoicing' %}">{% trans 'Electronic invoicing' %}</a></li>
+                                    <li><a class="list-item" href="mailto:redazioneportale@unical.it" title="{% trans 'Web editor / Contacts' %}">{% trans 'Web editor / Contacts' %}</a></li>
+                                    <li><a class="list-item" href="/accessibilita/" title="{% trans 'Accessibility and performance' %}">{% trans 'Accessibility and performance' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/privacy/" title="{% trans 'Data protection / GDPR' %}">{% trans 'Data protection / GDPR' %}</a></li>
+                                    <li><a class="list-item" href="/cookie/" title="{% trans 'Cookies and consent methods' %}">{% trans 'Cookies and consent methods' %}</a></li>
+                                    <li><a class="list-item" href="/note-legali/" title="{% trans 'Legal notes' %}">{% trans 'Legal notes' %}</a></li>
+                                    <li><a class="list-item" href="/credits/" title="{% trans 'Credits' %}">{% trans 'Credits' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/media/medias/2021/phishing.pdf" title="{% trans 'Phishing: how to protect yourself' %}">{% trans 'Phishing: how to protect yourself' %}</a></li>
+                                    <li><a class="list-item" href="/statistiche-accessi-web" title="{% trans 'Web access statistics' %}">{% trans 'Web access statistics' %}</a></li>
+                                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-utente/gestione-sito/" title="{% trans 'User Guide - UniCMS' %}">{% trans 'User Guide - UniCMS' %}</a></li>
+                                    <li><a class="list-item" href="/editorial-board/" title="{% trans 'Intranet area' %}">{% trans 'Intranet area' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/feed-rss/" title="{% trans 'RSS feeds' %}">{% trans 'RSS feeds' %}</a></li>
+                                    <li><a class="list-item" href="/sezione-alumni" title="{% trans 'Alumni' %}">{% trans 'Alumni' %}</a></li>
+                                    <li><a class="list-item" href="/identita-visiva-di-ateneo/" title="{% trans 'Identity / Logo section' %}">{% trans 'Identity / Logo section' %}</a></li>
+                                    <li><a class="list-item" href="/sitemap/" title="{% trans 'Sitemap' %}">{% trans 'Sitemap' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="mb-3">
+                        <image src="https://universitadellacalabria.github.io/unicms-template-unical/src/unicms_template_unical/static/images/logo_unical_white.svg"
+                               class="w-100 h-100"
+                               alt="{% trans 'University of Calabria' %}"/>
+                    </div>
+                    <p class="mb-4">
+                        Via Pietro Bucci
+                        <br>
+                        87036 Rende CS
+                        <br>
+                        <a class="text-white" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
+                        <br>
+                        C.F. 80003950781 / P.I. 00419160783
+                    </p>
+                </div>
             </div>
-            <div class="col-12 col-lg">
-                <ul class="list-inline text-right social py-4 mt-2 mb-0">
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://it-it.facebook.com/unicalufficiale/" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
-                            </svg><span class="sr-only">Facebook</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://twitter.com/UniCalPortale?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
-                            </svg><span class="sr-only">Twitter</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://it.linkedin.com/school/university-of-calabria/" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
-                            </svg><span class="sr-only">Linkedin</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://www.instagram.com/unical_official/" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-instagram"></use>
-                            </svg><span class="sr-only">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://www.youtube.com/channel/UCnd5Oen95TMO9aLfVRUAABQ" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-youtube"></use>
-                            </svg><span class="sr-only">Youtube</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="p-2 text-white" href="https://github.com/UniversitaDellaCalabria" target="_blank" rel="noopener" rel="noreferrer">
-                            <svg class="icon icon-sm icon-white align-top">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-github"></use>
-                            </svg><span class="sr-only">Github</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        {% endblock footer_bottom_content %}
+            {% endblock footer_bottom_content %}
+        </section>
     </div>
 </div>
 {% endblock footer_bottom %}
 
-
+{% block extra_scripts %}
+{{ block.super }}
+<script src="{% unicms_template_unical_static_path 'js/external_link_new_tab.js' %}"></script>
+{% endblock extra_scripts %}

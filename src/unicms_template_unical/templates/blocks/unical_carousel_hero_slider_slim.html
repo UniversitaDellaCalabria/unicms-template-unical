@@ -1,0 +1,27 @@
+{% extends "blocks/unical_carousel_hero_slider.html" %}
+
+{% block extra_class %}unical-hero-wrapper-slim{% endblock %}
+
+{% block pre_heading %}
+{% if item.pre_heading %}
+<h6 class="unical-hero-preheading">
+    {{ item.pre_heading }}
+</h6>
+{% endif %}
+{% endblock pre_heading %}
+
+{% block heading %}
+{% if item.heading %}
+<h4 class="no_toc unical-hero-heading">
+    {{ item.heading }}
+</h4>
+{% endif %}
+{% endblock heading %}
+
+{% block description %}
+{% if item.description %}
+<h4 class="no_toc unical-hero-description">
+    {{ item.description }}
+</h4>
+{% endif %}
+{% endblock description %}

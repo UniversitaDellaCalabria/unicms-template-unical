@@ -1,13 +1,15 @@
 {% load static %}
 {% load unicms_contexts %}
+{% load unicms_template_unical %}
 
 
 <div class="background-light-grey p-3 unical-alert">
     <div class="row">
         <div class="col-auto">
-            <img src="{% static 'images/alert-red.svg' %}" style="width: 50px">
+            <img src="{% unicms_template_unical_static_path 'images/alert-red.svg' %}" style="width: 50px" loading="lazy">
         </div>
         <div class="col ml-1">
+            {% include "includes/edit_page_publication.html" with item=page_publication %}
             {{ publication.content|safe }}
         </div>
     </div>

@@ -2,6 +2,8 @@
 {% load static %}
 
 
+{% include "includes/edit_page_publication.html" with item=page_publication %}
+
 {% block publication_title %}
 <h1 class="mb-4 lighter">{{ publication.title }}</h1>
 {% endblock publication_title %}
@@ -11,11 +13,16 @@
 {% endif %}
 
 {% if publication.presentation_image %}
-<div class="mb-4">
+<div class="img-wrapper mb-4">
     <img src="{{ publication.presentation_image.get_media_path }}"
          title="{{ publication.presentation_image.title }}"
          alt="{{ publication.presentation_image.description }}"
-         class="w-100">
+         class="w-100"
+         loading="lazy">
+</div>
+{% elif publication.related_embedded_links %}
+<div class="row mb-2">
+    {% include "blocks/italia_link_iframe.html" with url=publication.related_embedded_links.0.url ratio="16by9" %}
 </div>
 {% endif %}
 
@@ -52,6 +59,7 @@
 {% endblock publication_attachments %}
 
 {% block publication_links %}
+{% with publication_context.publication.related_plain_links as related_links %}
 {% if publication.related_links %}
 <hr class="my-4">
 <h4>{% trans "Links" %}</h4>
@@ -68,6 +76,7 @@
 {% endfor %}
 </ul>
 {% endif %}
+{% endwith %}
 {% endblock publication_links %}
 
 {% if publication.related_galleries %}

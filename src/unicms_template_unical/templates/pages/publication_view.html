@@ -16,13 +16,13 @@
 {% block page_meta_description %}{{ publication_context.publication.subheading }}{% endblock page_meta_description %}
 {% block page_meta_keywords %}{% for tag in publication_context.publication.tags.all %}{{ tag }},{% endfor %}{% endblock page_meta_keywords %}
 
-{% block extra_head %}
-{{ block.super }}
+{% block social_tags %}
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="{{ publication_context.publication.title }}" />
 <meta property="og:description" content="{{ publication_context.publication.subheading }}" />
 <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ publication_context.publication.image_url }}" />
+<meta property="og:image:alt" content="{{ publication_context.publication.title }}" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="314" />
 
@@ -31,31 +31,19 @@
 <meta name="twitter:description" content="{{ publication_context.publication.subheading }}">
 <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ publication_context.publication.image_url }}">
 <meta name="twitter:image:alt" content="{{ publication_context.publication.title }}">
-
-{% endblock extra_head %}
+{% endblock social_tags %}
 
 {% block container %}
 {% breadcrumbs webpath=webpath leaf=handler %}
+{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+
 {% with publication_context.publication.related_embedded_links as related_embedded_links %}
 
 <div class="container">
     <div class="col-12 py-5 bd-content">
         {% block centered_container %}
         <div class="row">
-
-<!--
-            <div class="col-12 mb-4">
-                <div class="pt-2 pb-3 pl-3 background-yellow">
-                    <h2 class="m-0 p-0">
-                        <span style="font-weight: 500">unical</span>
-                        <span class="super-bold">world</span>
-                    </h2>
-                </div>
-            </div>
--->
-
             <div class="col-12 col-lg-8">
-
                 <div class="mb-3">
                 {% for category in publication_context.publication.categories %}
                     <span class="badge badge-pill badge-grey-unical my-1 mr-1 py-2 px-4">
@@ -80,6 +68,7 @@
                     <svg class="icon icon-xs mr-2">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
                     </svg> {% trans "Published" %} {{ publication_context.date_start }}
+                    {% include "includes/edit_news.html" with item=publication_context %}
                 </p>
 
                 <h1 class="mb-4 lighter">
@@ -93,7 +82,8 @@
                     <img src="{{ publication_context.publication.presentation_image.get_media_path }}"
                          title="{{ publication_context.publication.presentation_image.title }}"
                          alt="{{ publication_context.publication.presentation_image.description }}"
-                         class="w-100">
+                         class="w-100"
+                         loading="lazy">
                 </div>
                 {% elif related_embedded_links %}
                 <div class="row mb-2">
@@ -104,7 +94,8 @@
                     <img src="{{ publication_context.publication.preview_image.get_media_path }}"
                          title="{{ publication_context.publication.preview_image.title }}"
                          alt="{{ publication_context.publication.preview_image.description }}"
-                         class="w-100">
+                         class="w-100"
+                         loading="lazy">
                 </div>
                 {% endif %}
 
@@ -114,7 +105,13 @@
                 <h4>{% trans "tags" %}</h4>
                 <p style="font-size: 1.2rem">
                 {% for tag in publication_context.publication.tags.all %}
-                    <span class="badge badge-grey-unical square-corners">{{ tag.name }}</span>
+                    <span class="badge badge-grey-unical square-corners">
+                        <a href="/{{ cms_path_prefix }}search/?tags={{ tag.name }}" class="no-color">
+                            <svg class="icon icon-xs">
+                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-pin"></use>
+                            </svg> {{ tag.name }}
+                        </a>
+                    </span>
                 {% endfor %}
                 </p>
                 {% endif %}
@@ -134,13 +131,14 @@
             <!-- END PUBLICATION BODY -->
             </div>
 
-            <div class="col-12 col-lg-3 offset-lg-1">
+            <div class="col-12 col-lg-3 offset-lg-1 mt-5 mt-lg-0">
                 <h4>{% trans "Published in" %}</h4>
                 <hr />
                 <ul class="list-unstyled">
                 {% for pub_context in publication_context.publication.related_contexts %}
+                    {% get_site_path webpath=pub_context.webpath as path %}
                     <li>
-                        <a class="no-color" href="{{ pub_context.webpath.get_full_path }}">
+                        <a class="no-color" href="{{ path }}">
                             <span>{{ pub_context.webpath.name }}</span>
                         </a>
                     </li>
@@ -151,52 +149,58 @@
 
                 {% for link in related_embedded_links %}
                 {% if publication_context.publication.presentation_image or not forloop.first %}
-                <div class="row mb-2">
-                    {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
+                <div class="row mb-4">
+                    <div class="col">
+                        {% include "blocks/italia_link_iframe.html" with url=link.url ratio="16by9" %}
+                    </div>
                 </div>
                 {% endif %}
                 {% endfor %}
                 {% endif %}
 
                 {% if publication_context.publication.related_publications %}
-                <div class="row background-light-grey px-2 py-3 mb-2">
-                    <div class="col-2">
-                        <b>
-                            <svg class="icon">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-arrow-right-circle"></use>
-                            </svg>
-                        </b>
-                    </div>
-                    <div class="col m-auto align-middle">
-                        <ul class="mb-0 pl-0 list-unstyled">
-                        {% for related_pub in publication_context.publication.related_publications %}
-                            <li>
-                                <a class="no-color" href="{{ related_pub.first_available_url }}">
-                                    <small><b>- {{ related_pub.related }}</b></small>
-                                </a>
-                            </li>
-                        {% endfor %}
-                        </ul>
+                <div class="background-light-grey px-2 py-3 mb-2 w-100">
+                    <div class="row">
+                        <div class="col-2">
+                            <b>
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-arrow-right-circle"></use>
+                                </svg>
+                            </b>
+                        </div>
+                        <div class="col m-auto align-middle">
+                            <ul class="mb-0 pl-0 list-unstyled">
+                            {% for related_pub in publication_context.publication.related_publications %}
+                                <li>
+                                    <a class="no-color" href="{{ related_pub.first_available_url }}">
+                                        <small><b>- {{ related_pub.related }}</b></small>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {% endif %}
 
                 {% with publication_context.publication.related_plain_links as related_links %}
                 {% if related_links %}
-                <div class="row background-light-grey px-2 py-3 mb-2">
-                    <div class="col-2 text-center" style="font-size: x-large">
-                        <b>@</b>
-                    </div>
-                    <div class="col m-auto align-middle">
-                        <ul class="mb-0 pl-0 list-unstyled">
-                        {% for link in related_links %}
-                            <li>
-                                <a class="no-color" href="{{ link.url }}">
-                                    <small><b>- {{ link.name }}</b></small>
-                                </a>
-                            </li>
-                        {% endfor %}
-                        </ul>
+                <div class="background-light-grey px-2 py-3 mb-2 w-100">
+                    <div class="row">
+                        <div class="col-2 text-center" style="font-size: x-large">
+                            <b>@</b>
+                        </div>
+                        <div class="col m-auto align-middle">
+                            <ul class="mb-0 pl-0 list-unstyled">
+                            {% for link in related_links %}
+                                <li>
+                                    <a class="no-color" href="{{ link.url }}">
+                                        <small><b>- {{ link.name }}</b></small>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {% endif %}
@@ -204,46 +208,50 @@
 
                 {% with publication_context.publication.get_plain_attachments as attachments %}
                 {% if attachments %}
-                <div class="row background-light-grey px-2 py-3 mb-2">
-                    <div class="col-2">
-                        <b>
-                            <svg class="icon">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-files"></use>
-                            </svg>
-                        </b>
-                    </div>
-                    <div class="col m-auto align-middle">
-                        <ul class="mb-0 pl-0 list-unstyled">
-                        {% for item in attachments %}
-                            <li>
-                                <a class="no-color" href="{{ item.file.url }}">
-                                    <small><b>- {{ item.name }}</b></small>
-                                </a>
-                            </li>
-                        {% endfor %}
-                        </ul>
+                <div class="background-light-grey px-2 py-3 mb-2 w-100">
+                    <div class="row">
+                        <div class="col-2">
+                            <b>
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-files"></use>
+                                </svg>
+                            </b>
+                        </div>
+                        <div class="col m-auto align-middle">
+                            <ul class="mb-0 pl-0 list-unstyled">
+                            {% for item in attachments %}
+                                <li>
+                                    <a class="no-color" href="{{ item.file.url }}">
+                                        <small><b>- {{ item.name }}</b></small>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {% endif %}
                 {% endwith %}
 
                 {% if publication_context.publication.available_in_languages %}
-                <div class="row background-light-grey px-2 py-3 mb-2">
-                    <div class="col-2">
-                        <b>
-                            <svg class="icon">
-                                <use xlink:href="{% static 'svg/sprite.svg' %}#it-comment"></use>
-                            </svg>
-                        </b>
-                    </div>
-                    <div class="col m-auto align-middle">
-                        <ul class="mb-0 pl-0 list-unstyled">
-                        {% for lang,language in publication_context.publication.available_in_languages %}
-                            <li>
-                                <small><b>- {{ language }}</b></small>
-                            </li>
-                        {% endfor %}
-                        </ul>
+                <div class="background-light-grey px-2 py-3 mb-2 w-100">
+                    <div class="row">
+                        <div class="col-2">
+                            <b>
+                                <svg class="icon">
+                                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-comment"></use>
+                                </svg>
+                            </b>
+                        </div>
+                        <div class="col m-auto align-middle">
+                            <ul class="mb-0 pl-0 list-unstyled">
+                            {% for lang,language in publication_context.publication.available_in_languages %}
+                                <li>
+                                    <small><b>- {{ language }}</b></small>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 {% endif %}
