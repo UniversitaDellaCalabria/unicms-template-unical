@@ -1,3 +1,5 @@
+{% extends 'blocks/unical_publications_cards_carousel.html' %}
+
 {% load i18n %}
 {% load static %}
 {% load unicms_templates %}
@@ -16,48 +18,3 @@
     </a>
 </p>
 {% endblock all_items_link %}
-
-<script>
-$(document).ready(function() {
-    var owl_{{ uid }} = $("#carousel_{{ uid }}");
-
-    owl_{{ uid }}.owlCarousel({
-        nav : true, // Show next and prev buttons
-        rewind: true,
-        //loop: true,
-        //slideSpeed : 300,
-        //paginationSpeed : 400,
-        //autoplay: true,
-        //items : 4,
-        //itemsDesktop : false,
-        //itemsDesktopSmall : false,
-        //itemsTablet: false,
-        //itemsMobile : false,
-        dots: false,
-        margin: 12,
-        //dotsEach: false,
-        stagePadding: 1,
-
-        responsive : {
-            // breakpoint from 0 up
-            0 : {
-                items: 1
-            },
-            // breakpoint from 480 up
-            480 : {
-                items: 2
-            },
-            // breakpoint from 1024 up
-            1024 : {
-                items: {{ carousel_items }}
-            }
-        }
-    });
-    $(".{{ uid }}_next").click(function(){
-        owl_{{ uid }}.trigger('next.owl.carousel');
-      })
-    $(".{{ uid }}_prev").click(function(){
-        owl_{{ uid }}.trigger('prev.owl.carousel');
-    })
-});
-</script>
