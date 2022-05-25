@@ -19,13 +19,14 @@ bootstrap-italia-base.html
 {% load unicms_publications %}
 {% load unicms_template_unical %}
 
+
+{% settings_value "NOINDEX" as noindex %}
+{% if noindex %}
+{% block page_meta_robots %}noindex{% endblock page_meta_robots %}
+{% endif %}
+
 <!-- Custom extra head params -->
 {% block extra_head %}
-    {% settings_value "NOINDEX" as noindex %}
-    {% if noindex %}
-    <meta name="robots" content="noindex">
-    {% endif %}
-
     {% settings_value "ANALYTICS_CODE" as analytics_code %}
     <link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
     <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
