@@ -20,10 +20,8 @@ bootstrap-italia-base.html
 {% load unicms_template_unical %}
 
 
-{% settings_value "NOINDEX" as noindex %}
-{% if noindex %}
-{% block page_meta_robots %}noindex{% endblock page_meta_robots %}
-{% endif %}
+{% block page_meta_robots %}{% settings_value "NOINDEX" as noindex %}{% if noindex %}noindex{% else %}{{ block.super }}{% endif %}{% endblock page_meta_robots %}
+
 
 <!-- Custom extra head params -->
 {% block extra_head %}
