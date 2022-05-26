@@ -221,6 +221,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 <!-- Main Menu -->
 {% block main_menu %}
 
+{% block unical_header_languages %}
 <div class="dark-grey-background py-2">
     <div class="container text-center text-lg-right">
         <div class="row">
@@ -232,28 +233,29 @@ col-10 offset-2 col-lg-12 offset-lg-0
                         <img src="{{ flag_path }}" alt="{{ params.0 }}" style="width: 27px; height: 27px;" class="mr-2"/>
                     </a>
                 {% endfor %}
-                <a href="/chinese/" style="cursor: pointer;" title="{% trans 'Chinese' %}">
+                <a href="/chinese/?lang=en" style="cursor: pointer;" title="{% trans 'Chinese' %}">
                     <img alt="{% trans 'Chinese' %}" src="{% unicms_template_unical_static_path '/images/flags/zh.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
                 </a>
-                <a href="/francais/" style="cursor: pointer;" title="{% trans 'French' %}">
+                <a href="/francais/?lang=en" style="cursor: pointer;" title="{% trans 'French' %}">
                     <img alt="{% trans 'French' %}" src="{% unicms_template_unical_static_path '/images/flags/fr.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
                 </a>
-                <a href="/portugues/" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
+                <a href="/portugues/?lang=en" style="cursor: pointer;" title="{% trans 'Portuguese' %}">
                     <img alt="{% trans 'Portuguese' %}" src="{% unicms_template_unical_static_path '/images/flags/pt.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
                 </a>
-                <a href="/espanol/" style="cursor: pointer;" title="{% trans 'Espanol' %}">
+                <a href="/espanol/?lang=en" style="cursor: pointer;" title="{% trans 'Espanol' %}">
                     <img alt="{% trans 'Espanol' %}" src="{% unicms_template_unical_static_path '/images/flags/es.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
                 </a>
-                <a href="/arabo/" style="cursor: pointer;" title="{% trans 'Arabic' %}">
+                <a href="/arabo/?lang=en" style="cursor: pointer;" title="{% trans 'Arabic' %}">
                     <img alt="{% trans 'Arabic' %}" src="{% unicms_template_unical_static_path '/images/flags/ar.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" class="mr-2"/>
                 </a>
-                <a href="/russo/" style="cursor: pointer;" title="{% trans 'Russian' %}">
+                <a href="/russo/?lang=en" style="cursor: pointer;" title="{% trans 'Russian' %}">
                     <img alt="{% trans 'Russian' %}" src="{% unicms_template_unical_static_path '/images/flags/ru.svg' %}" style="cursor: pointer; width: 27px; height: 27px;" />
                 </a>
             </div>
         </div>
     </div>
 </div>
+{% endblock unical_header_languages %}
 
 {% load_blocks section='head' as head %}
 {{ head }}
