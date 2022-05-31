@@ -49,15 +49,6 @@ bootstrap-italia-base.html
     {{ analytics_code|safe }}
 {% endblock extra_head %}
 
-
-<!-- Page Title -->
-{% block page_title %}
-    {% if page %}
-        {{ page.title }} - {{ website.name }}
-    {% else %}
-        {% trans "University of Calabria" %}
-    {% endif %}
-{% endblock page_title %}
 <!-- Meta Description (for all pages if not overrided) -->
 {% block page_meta_description %}{% trans "Official University of Calabria website" %}{% endblock page_meta_description %}
 
