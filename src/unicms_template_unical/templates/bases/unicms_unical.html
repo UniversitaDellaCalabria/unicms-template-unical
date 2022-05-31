@@ -149,7 +149,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
         </div>
 
         <div class="col-2 col-md-1 text-center">
-            <a href="{{ addressbook_link }}">
+            <a href="{% block addressbook_link %}{{ addressbook_link }}{% endblock addressbook_link %}">
                 <img src="{% unicms_template_unical_static_path 'images/addressbook.svg' %}"
                      style="height: 32px; width: 38px;"
                      class="d-none d-lg-block"
