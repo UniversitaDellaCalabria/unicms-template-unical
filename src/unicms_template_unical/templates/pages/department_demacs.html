@@ -20,3 +20,22 @@
 {% block header_slim_mobile_org_name_side %}
 <image src="{% unicms_template_unical_static_path 'images/logos/demacs.svg' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/demacs.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Department of Mathematics and Computer Science' %}"/>
+    </div>
+    <p class="mb-4">
+        Via P. Bucci - Edificio 30B
+        <br>
+        87036 Arcavacata di Rende (CS)
+        <br>
+        <a class="text-white" href="mailto:info@demacs.unical.itit" title="info@demacs.unical.it">info@demacs.unical.it</a>
+        <br>
+        +39 0984 497000
+    </p>
+</div>
+{% endblock department_contacts %}
