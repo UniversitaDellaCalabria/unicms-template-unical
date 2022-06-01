@@ -50,7 +50,8 @@ bootstrap-italia-base.html
 {% endblock extra_head %}
 
 <!-- Meta Description (for all pages if not overrided) -->
-{% block page_meta_description %}{% trans "Official University of Calabria website" %}{% endblock page_meta_description %}
+{% block page_meta_description %}{% if webpath.meta_description %}{{ webpath.meta_description }}{% else %}{% trans "Official University of Calabria website" %}{% endif %}{% endblock page_meta_description %}
+{% block page_meta_keywords %}{% if webpath.meta_keywords %}{{ webpath.meta_keywords }}{% else %}UniCal{% endif %}{% endblock page_meta_keywords %}
 
 {% block header_brand_wrapper %}
 <div class="d-none d-lg-inline col-lg-6">
