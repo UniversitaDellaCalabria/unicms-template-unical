@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Livello_1"
+   data-name="Livello 1"
+   viewBox="0 0 64.879999 64.879995"
+   version="1.1"
+   sodipodi:docname="HRS4R.svg"
+   width="64.879997"
+   height="64.879997"
+   inkscape:version="1.2 (1:1.2+202206011327+fc4e4096c5)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="6.7444342"
+     inkscape:cx="-3.3360841"
+     inkscape:cy="32.471219"
+     inkscape:window-width="1920"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Livello_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#b71918;}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:0.5px;}.cls-3{fill:#fff;}</style>
+  </defs>
+  <title
+     id="title6">reviione home - HRS4R</title>
+  <circle
+     class="cls-2"
+     cx="32.439999"
+     cy="32.439999"
+     r="32.189999"
+     id="circle10" />
+  <path
+     class="cls-3"
+     d="m 40.29,26.68 a 4.62,4.62 0 1 0 -4.62,4.62 4.62,4.62 0 0 0 4.62,-4.62"
+     id="path12" />
+  <path
+     class="cls-3"
+     d="m 47.26,28.41 a 10,10 0 0 0 -7.25,3 9.64,9.64 0 0 0 -2.99,7.16 v 12.29 a 5.24,5.24 0 0 0 3.85,-1.36 4.43,4.43 0 0 0 1.36,-3.25 v -7.68 a 5,5 0 0 1 1.48,-3.62 4.86,4.86 0 0 1 3.59,-1.51 h 0.61 v -5 z"
+     id="path14" />
+  <path
+     class="cls-3"
+     d="m 24.4,28.41 a 10,10 0 0 1 7.25,3 9.63,9.63 0 0 1 3,7.16 V 50.86 A 5.21,5.21 0 0 1 30.81,49.5 4.44,4.44 0 0 1 29.44,46.25 V 38.57 A 5,5 0 0 0 28.02,34.91 4.88,4.88 0 0 0 24.43,33.4 h -0.61 v -5 z"
+     id="path16" />
+  <path
+     class="cls-3"
+     d="m 20.86,15.38 a 5.21,5.21 0 0 0 -3.84,-1.36 v 36.84 a 5.26,5.26 0 0 0 3.85,-1.36 c 0.73,-0.74 1.29,-1.53 1.29,-5.42 V 19.57 c 0,-2.84 -0.56,-3.49 -1.29,-4.23"
+     id="path18" />
+  <metadata
+     id="metadata197">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>reviione home - HRS4R</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

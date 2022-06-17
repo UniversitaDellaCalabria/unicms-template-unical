@@ -65,6 +65,10 @@ bootstrap-italia-base.html
     <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
            class="w-100"
            alt="{% trans 'University of Calabria' %}"/>
+    <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
+           class="ml-3"
+           style="width: 8%"
+           alt="{% trans 'HRS4R' %}"/>
 </div>
 {% endblock header_center_logo %}
 
@@ -81,9 +85,17 @@ bootstrap-italia-base.html
             <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
                    class="w-100 h-100 d-md-none"
                    alt="{% trans 'University of Calabria' %}"/>
+            <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
+                   class="d-md-none ml-3"
+                   style="width: 8%"
+                   alt="{% trans 'HRS4R' %}"/>
             <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
                    class="w-75 h-100 d-none d-md-block"
                    alt="{% trans 'University of Calabria' %}"/>
+            <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
+                   class="d-none d-md-block ml-3"
+                   style="width: 6%"
+                   alt="{% trans 'HRS4R' %}"/>
             {% endblock unical_mobile_logo %}
         </div>
     </a>

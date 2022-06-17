@@ -92,7 +92,7 @@ platforms:
 releaseDate: '2022-06-17'
 roadmap: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical/issues'
 softwareType: standalone/web
-softwareVersion: v0.21.6
+softwareVersion: v0.21.7
 url: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical'
 usedBy:
   - Università della Calabria - https://www.unical.it
