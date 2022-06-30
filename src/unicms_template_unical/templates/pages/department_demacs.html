@@ -33,9 +33,32 @@
         <br>
         87036 Arcavacata di Rende (CS)
         <br>
-        <a class="text-white" href="mailto:info@demacs.unical.itit" title="info@demacs.unical.it">info@demacs.unical.it</a>
+        <a class="text-white" href="mailto:dipartimento.demacs@unical.it" title="dipartimento.demacs@unical.it">dipartimento.demacs@unical.it</a>
         <br>
-        +39 0984 497000
+        <a class="text-white" href="mailto:dipartimento.demacs@pec.unical.it" title="dipartimento.demacs@pec.unical.it">dipartimento.demacs@pec.unical.it</a>
+        <br>
+        +39 0984 496409
     </p>
 </div>
 {% endblock department_contacts %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-left">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.facebook.com/Dipartimento-di-Matematica-e-Informatica-Universit%C3%A0-Della-Calabria-Unical-173838039327576/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
+                </svg><span class="sr-only">Facebook</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.instagram.com/demacs_official/?hl=it" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-instagram"></use>
+                </svg><span class="sr-only">Instagram</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock footer_top %}

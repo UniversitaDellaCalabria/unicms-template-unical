@@ -41,3 +41,52 @@
     </p>
 </div>
 {% endblock department_contacts %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-left">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.facebook.com/ingegneriacivile.unical" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
+                </svg><span class="sr-only">Facebook</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.instagram.com/dinciunical/" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-instagram"></use>
+                </svg><span class="sr-only">Instagram</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.youtube.com/channel/UCKwGx44qV7TRIee1F482Cfw" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-youtube"></use>
+                </svg><span class="sr-only">Youtube</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://wa.me/+393792607023" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprite.svg' %}#it-whatsapp"></use>
+                </svg><span class="sr-only">WhatsApp</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock footer_top %}
+
+{% block footer_bottom_2 %}
+<div class="col-lg-4 col-sm-6">
+    <div class="link-list-wrapper">
+        <ul class="footer-list link-list clearfix">
+            <li><a class="list-item" href="http://eleanor.unical.it/" target="_blank" rel="noopener noreferrer" title="{% trans 'ELEANOR' %}">{% trans 'ELEANOR' %}</a></li>
+            <li><a class="list-item" href="https://www.unical.it/front-office" title="{% trans 'Online front-office' %}">{% trans 'Online front-office' %}</a></li>
+            <li><a class="list-item" href="https://ticket.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Online ticket' %}">{% trans 'Online ticket' %}</a></li>
+            <li><a class="list-item" href="https://smartcampus.unical.it/" target="_blank" rel="noopener noreferrer" title="{% trans 'Smart Campus' %}">{% trans 'Smart Campus' %}</a></li>
+            <li><a class="list-item" href="https://soscr.unical.it/Default.aspx?tabid=212" target="_blank" rel="noopener noreferrer" title="{% trans 'Unical Life' %}">{% trans 'Unical Life' %}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock footer_bottom_2 %}
