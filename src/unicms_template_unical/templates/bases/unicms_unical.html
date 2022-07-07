@@ -22,7 +22,6 @@ bootstrap-italia-base.html
 
 <!-- Custom extra head params -->
 {% block extra_head %}
-    {% settings_value "ANALYTICS_CODE" as analytics_code %}
     <link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
     <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
     {% block head_inits %}
@@ -46,7 +45,10 @@ bootstrap-italia-base.html
     <meta name="twitter:image:alt" content="{{ page.title }}">
     {% endblock social_tags %}
 
-    {{ analytics_code|safe }}
+    {% block analytics_value %}
+        {% settings_value "ANALYTICS_CODE" as analytics_code %}
+        {{ analytics_code|safe }}
+    {% endblock analytics_value %}
 {% endblock extra_head %}
 
 <!-- Meta Description (for all pages if not overrided) -->
