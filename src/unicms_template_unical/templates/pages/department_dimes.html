@@ -20,3 +20,26 @@
 {% block header_slim_mobile_org_name_side %}
 <image src="{% unicms_template_unical_static_path 'images/logos/dimes.svg' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/dimes.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Department of Computer Engineering, Modeling, Electronics and Systems' %}"/>
+    </div>
+    <p class="mb-4">
+        Via P. Bucci Edificio 42C piano 6°
+        <br>
+        Arcavacata di Rende (CS)
+        <br>
+        <a class="text-white" href="mailto:dipartimento.dimes@pec.unical.it" title="dipartimento.dimes@pec.unical.it">dipartimento.dimes@pec.unical.it</a>
+        <br>
+        <a class="text-white" href="mailto:direttore@dimes.unical.it" title="direttore@dimes.unical.it">direttore@dimes.unical.it</a>
+        <br>
+        +39 0984 494971
+        <br>
+        +39 0984 494713
+    </p>
+</div>
+{% endblock department_contacts %}
