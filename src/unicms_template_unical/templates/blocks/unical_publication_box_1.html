@@ -1,0 +1,10 @@
+<!--start card-->
+<div class="card-wrapper pb-0">
+    <div class="card no-after" style="border: 1px solid #b71918;">
+        <div class="card-body p-3">
+            {% include "includes/edit_page_publication.html" with item=page_publication %}
+            {{ publication.content|safe }}
+        </div>
+    </div>
+</div>
+<!--end card-->
