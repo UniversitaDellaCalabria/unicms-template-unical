@@ -20,3 +20,32 @@
 {% block header_slim_mobile_org_name_side %}
 <image src="{% unicms_template_unical_static_path 'images/logos/dfssn.svg' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/dfssn.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Department of Pharmacy and Health and Nutrition Sciences' %}"/>
+    </div>
+    <p class="mb-4">
+        Università della Calabria
+        <br>
+        Edificio Polifunzionale
+        <br>
+        87036 Rende (CS)
+        <br>
+        <a class="text-white" href="mailto:dipartimento.farmacia@pec.unical.it" title="dipartimento.farmacia@pec.unical.it">dipartimento.farmacia@pec.unical.it</a>
+        <br>
+        <a class="text-white" href="mailto:direttore.farmacia@unical.it" title="direttore.farmacia@unical.it">direttore.farmacia@unical.it</a>
+        <br>
+        +39 0984 493109
+        <br>
+        +39 0984 493110
+        <br>
+        +39 0984 492927
+        <br>
+        +39 0984 493107 (Fax)
+    </p>
+</div>
+{% endblock department_contacts %}
