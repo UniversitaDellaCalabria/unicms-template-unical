@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-31 12:08+0200\n"
-"PO-Revision-Date: 2022-05-31 12:12+0200\n"
+"POT-Creation-Date: 2022-08-02 14:51+0200\n"
+"PO-Revision-Date: 2022-08-02 14:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
-#: templates/404.html:6
+#: unicms_template_unical/templates/404.html:6
 msgid "Error 404"
 msgstr "Errore 404"
 
-#: templates/404.html:10
+#: unicms_template_unical/templates/404.html:10
 msgid "Page or Resource not found"
 msgstr "Pagina o risorsa non trovata"
 
-#: templates/404.html:11
+#: unicms_template_unical/templates/404.html:11
 msgid "You may have clicked on an invalid link or misspelled the page address."
 msgstr ""
 "Potresti aver cliccato su un link non più valido o aver digitato male "
 "l'indirizzo della pagina."
 
-#: templates/404.html:12
+#: unicms_template_unical/templates/404.html:12
 msgid ""
 "You can search for it starting from the home page or it could be reachable "
 "on the previous version of the website which can be found at www2.unical.it"
@@ -41,7 +41,7 @@ msgstr ""
 "raggiungibile sulla versione precedente del portale che si trova "
 "all'indirizzo www2.unical.it"
 
-#: templates/404.html:14
+#: unicms_template_unical/templates/404.html:14
 msgid ""
 "If you keep getting this error even though you are trying to reach the home "
 "page, clear your browser cache."
@@ -49,595 +49,687 @@ msgstr ""
 "Se continui ad ottenere questo errore, nonostante tu stia cercando di "
 "raggiungere la home page, cancella la cache del tuo browser."
 
-#: templates/500.html:6
+#: unicms_template_unical/templates/500.html:6
 msgid "Internal Error 500"
 msgstr "Error 500"
 
-#: templates/500.html:10
+#: unicms_template_unical/templates/500.html:10
 msgid "This service has encourrend and unexpected error"
 msgstr "Questo servizio ha riscontrato un errore imprevisto"
 
-#: templates/bases/base_v_original.html:32
-#: templates/bases/unicms_unical.html:62 templates/bases/unicms_unical.html:78
-#: templates/bases/unicms_unical.html:89 templates/bases/unicms_unical.html:94
-#: templates/bases/unicms_unical.html:97 templates/bases/unicms_unical.html:531
-#: templates/pages/department.html:33 templates/pages/department.html:135
-#: templates/pages/opendata.html:33
+#: unicms_template_unical/templates/bases/base_v_original.html:32
+#: unicms_template_unical/templates/bases/unicms_unical.html:69
+#: unicms_template_unical/templates/bases/unicms_unical.html:84
+#: unicms_template_unical/templates/bases/unicms_unical.html:89
+#: unicms_template_unical/templates/bases/unicms_unical.html:96
+#: unicms_template_unical/templates/bases/unicms_unical.html:535
+#: unicms_template_unical/templates/pages/department.html:33
+#: unicms_template_unical/templates/pages/department.html:141
+#: unicms_template_unical/templates/pages/opendata.html:33
 msgid "University of Calabria"
 msgstr "Università della Calabria"
 
-#: templates/bases/base_v_original.html:37
-#: templates/bases/unicms_unical.html:65
+#: unicms_template_unical/templates/bases/base_v_original.html:37
+#: unicms_template_unical/templates/bases/unicms_unical.html:55
 msgid "Official University of Calabria website"
 msgstr "Sito istituzionale dell'Università della Calabria"
 
-#: templates/bases/base_v_original.html:77
-#: templates/bases/unicms_unical.html:157
-#: templates/bases/unicms_unical.html:158
-#: templates/bases/unicms_unical.html:163
-#: templates/bases/unicms_unical.html:164
+#: unicms_template_unical/templates/bases/base_v_original.html:77
+#: unicms_template_unical/templates/bases/unicms_unical.html:160
+#: unicms_template_unical/templates/bases/unicms_unical.html:161
+#: unicms_template_unical/templates/bases/unicms_unical.html:166
+#: unicms_template_unical/templates/bases/unicms_unical.html:167
 msgid "Address book"
 msgstr "Rubrica"
 
-#: templates/bases/base_v_original.html:82
-#: templates/bases/unicms_unical.html:129
-#: templates/bases/unicms_unical.html:132
-#: templates/bases/unicms_unical.html:141
-#: templates/bases/unicms_unical.html:147
-#: templates/blocks/unical_media_collection_searchbox.html:30
-#: templates/blocks/unical_media_collection_searchbox.html:49
-#: templates/pages/publication_list.html:140
+#: unicms_template_unical/templates/bases/base_v_original.html:82
+#: unicms_template_unical/templates/bases/unicms_unical.html:132
+#: unicms_template_unical/templates/bases/unicms_unical.html:135
+#: unicms_template_unical/templates/bases/unicms_unical.html:144
+#: unicms_template_unical/templates/bases/unicms_unical.html:150
+#: unicms_template_unical/templates/blocks/unical_media_collection_searchbox.html:30
+#: unicms_template_unical/templates/blocks/unical_media_collection_searchbox.html:49
+#: unicms_template_unical/templates/pages/publication_list.html:140
 msgid "Search"
 msgstr "Cerca"
 
-#: templates/bases/base_v_original.html:107
-#: templates/bases/unicms_unical.html:282
+#: unicms_template_unical/templates/bases/base_v_original.html:107
+#: unicms_template_unical/templates/bases/unicms_unical.html:285
 msgid "close"
 msgstr "chiudi"
 
-#: templates/bases/error-page.html:23
+#: unicms_template_unical/templates/bases/error-page.html:23
 msgid "Error"
 msgstr "Errore"
 
-#: templates/bases/error-page.html:28
+#: unicms_template_unical/templates/bases/error-page.html:28
 msgid "Error description"
 msgstr "Descrizione errore"
 
-#: templates/bases/error-page.html:32
+#: unicms_template_unical/templates/bases/error-page.html:32
 msgid "Home"
 msgstr "Pagina iniziale"
 
-#: templates/bases/unical_api_list.html:47
-#: templates/pages/publication_list.html:75
-#: templates/pages/publication_list.html:80
+#: unicms_template_unical/templates/bases/unical_api_list.html:47
+#: unicms_template_unical/templates/pages/publication_list.html:75
+#: unicms_template_unical/templates/pages/publication_list.html:80
 msgid "results"
 msgstr "risultati"
 
-#: templates/bases/unical_api_list.html:47
-#: templates/pages/publication_list.html:75
+#: unicms_template_unical/templates/bases/unical_api_list.html:47
+#: unicms_template_unical/templates/pages/publication_list.html:75
 msgid "pages"
 msgstr "pagine"
 
-#: templates/bases/unical_api_list.html:54
-#: templates/bases/unical_api_list.html:60
+#: unicms_template_unical/templates/bases/unical_api_list.html:54
+#: unicms_template_unical/templates/bases/unical_api_list.html:60
 msgid "page"
 msgstr "pagina"
 
-#: templates/bases/unical_api_list.html:54
+#: unicms_template_unical/templates/bases/unical_api_list.html:54
 msgid "previous"
 msgstr "precedente"
 
-#: templates/bases/unical_api_list.html:60
+#: unicms_template_unical/templates/bases/unical_api_list.html:60
 msgid "next"
 msgstr "successiva"
 
-#: templates/bases/unicms_unical.html:236
-#: templates/bases/unicms_unical.html:237
-#: templates/pages/multi_language.html:19
-#: templates/pages/multi_language.html:20
+#: unicms_template_unical/templates/bases/unicms_unical.html:73
+#: unicms_template_unical/templates/bases/unicms_unical.html:93
+#: unicms_template_unical/templates/bases/unicms_unical.html:100
+msgid "HRS4R"
+msgstr ""
+
+#: unicms_template_unical/templates/bases/unicms_unical.html:239
+#: unicms_template_unical/templates/bases/unicms_unical.html:240
+#: unicms_template_unical/templates/pages/multi_language.html:19
+#: unicms_template_unical/templates/pages/multi_language.html:20
 msgid "Chinese"
 msgstr "Cinese"
 
-#: templates/bases/unicms_unical.html:239
-#: templates/bases/unicms_unical.html:240
-#: templates/pages/multi_language.html:22
-#: templates/pages/multi_language.html:23
+#: unicms_template_unical/templates/bases/unicms_unical.html:242
+#: unicms_template_unical/templates/bases/unicms_unical.html:243
+#: unicms_template_unical/templates/pages/multi_language.html:22
+#: unicms_template_unical/templates/pages/multi_language.html:23
 msgid "French"
 msgstr "Francese"
 
-#: templates/bases/unicms_unical.html:242
-#: templates/bases/unicms_unical.html:243
-#: templates/pages/multi_language.html:25
-#: templates/pages/multi_language.html:26
+#: unicms_template_unical/templates/bases/unicms_unical.html:245
+#: unicms_template_unical/templates/bases/unicms_unical.html:246
+#: unicms_template_unical/templates/pages/multi_language.html:25
+#: unicms_template_unical/templates/pages/multi_language.html:26
 msgid "Portuguese"
 msgstr "Portoghese"
 
-#: templates/bases/unicms_unical.html:245
-#: templates/bases/unicms_unical.html:246
-#: templates/pages/multi_language.html:28
-#: templates/pages/multi_language.html:29
+#: unicms_template_unical/templates/bases/unicms_unical.html:248
+#: unicms_template_unical/templates/bases/unicms_unical.html:249
+#: unicms_template_unical/templates/pages/multi_language.html:28
+#: unicms_template_unical/templates/pages/multi_language.html:29
 msgid "Espanol"
 msgstr "Spagnolo"
 
-#: templates/bases/unicms_unical.html:248
-#: templates/bases/unicms_unical.html:249
-#: templates/pages/multi_language.html:31
-#: templates/pages/multi_language.html:32
+#: unicms_template_unical/templates/bases/unicms_unical.html:251
+#: unicms_template_unical/templates/bases/unicms_unical.html:252
+#: unicms_template_unical/templates/pages/multi_language.html:31
+#: unicms_template_unical/templates/pages/multi_language.html:32
 msgid "Arabic"
 msgstr "Arabo"
 
-#: templates/bases/unicms_unical.html:251
-#: templates/bases/unicms_unical.html:252
-#: templates/pages/multi_language.html:34
-#: templates/pages/multi_language.html:35
+#: unicms_template_unical/templates/bases/unicms_unical.html:254
+#: unicms_template_unical/templates/bases/unicms_unical.html:255
+#: unicms_template_unical/templates/pages/multi_language.html:34
+#: unicms_template_unical/templates/pages/multi_language.html:35
 msgid "Russian"
 msgstr "Russo"
 
-#: templates/bases/unicms_unical.html:368
-#: templates/bases/unicms_unical.html:369
+#: unicms_template_unical/templates/bases/unicms_unical.html:371
+#: unicms_template_unical/templates/bases/unicms_unical.html:372
 msgid "UniCal for students"
 msgstr "UniCal per gli studenti"
 
-#: templates/bases/unicms_unical.html:374
+#: unicms_template_unical/templates/bases/unicms_unical.html:377
 msgid "Prospective students, Enrolled and Graduates"
 msgstr "Futuri studenti, iscritti e laureati"
 
-#: templates/bases/unicms_unical.html:375
+#: unicms_template_unical/templates/bases/unicms_unical.html:378
 msgid "Educational offer"
 msgstr "Offerta formativa"
 
-#: templates/bases/unicms_unical.html:376
+#: unicms_template_unical/templates/bases/unicms_unical.html:379
 msgid "Teaching catalog"
 msgstr "Catologo insegnamenti"
 
-#: templates/bases/unicms_unical.html:377
+#: unicms_template_unical/templates/bases/unicms_unical.html:380
 msgid "Enroll, study and graduate"
 msgstr "Iscriversi, studiare e laurearsi"
 
-#: templates/bases/unicms_unical.html:378
+#: unicms_template_unical/templates/bases/unicms_unical.html:381
 msgid "Right to study"
 msgstr "Diritto allo studio"
 
-#: templates/bases/unicms_unical.html:379
+#: unicms_template_unical/templates/bases/unicms_unical.html:382
 msgid "Orientation"
 msgstr "Orientamento"
 
-#: templates/bases/unicms_unical.html:380
+#: unicms_template_unical/templates/bases/unicms_unical.html:383
 msgid "Services for disabled and dyslexic students"
 msgstr "Studenti con disabilità, DSA e BES"
 
-#: templates/bases/unicms_unical.html:381
+#: unicms_template_unical/templates/bases/unicms_unical.html:384
 msgid "Psychological counseling"
 msgstr "Counselling psicologico"
 
-#: templates/bases/unicms_unical.html:382
+#: unicms_template_unical/templates/bases/unicms_unical.html:385
 msgid "Career Service / Job Placement"
 msgstr "Career Service - Job Placement"
 
-#: templates/bases/unicms_unical.html:383
+#: unicms_template_unical/templates/bases/unicms_unical.html:386
 msgid "International agreements and networks"
 msgstr "Accordi e network internazionali"
 
-#: templates/bases/unicms_unical.html:384
+#: unicms_template_unical/templates/bases/unicms_unical.html:387
 msgid "Teacher training courses"
 msgstr "Formazione degli insegnanti"
 
-#: templates/bases/unicms_unical.html:385
+#: unicms_template_unical/templates/bases/unicms_unical.html:388
 msgid "State examinations"
 msgstr "Esami di Stato"
 
-#: templates/bases/unicms_unical.html:394
-#: templates/bases/unicms_unical.html:395
+#: unicms_template_unical/templates/bases/unicms_unical.html:397
+#: unicms_template_unical/templates/bases/unicms_unical.html:398
 msgid "UniCal online"
 msgstr "UniCal online"
 
-#: templates/bases/unicms_unical.html:400 templates/pages/department.html:107
+#: unicms_template_unical/templates/bases/unicms_unical.html:403
+#: unicms_template_unical/templates/pages/department.html:110
+#: unicms_template_unical/templates/pages/department_dinci.html:91
 msgid "Online front-office"
 msgstr "Front-office online"
 
-#: templates/bases/unicms_unical.html:401 templates/pages/department.html:108
+#: unicms_template_unical/templates/bases/unicms_unical.html:404
+#: unicms_template_unical/templates/pages/department.html:111
+#: unicms_template_unical/templates/pages/department_dinci.html:92
 msgid "Online ticket"
 msgstr "Ticket online"
 
-#: templates/bases/unicms_unical.html:402
+#: unicms_template_unical/templates/bases/unicms_unical.html:405
 msgid "ITC Services"
 msgstr "Servizi online ICT"
 
-#: templates/bases/unicms_unical.html:403
+#: unicms_template_unical/templates/bases/unicms_unical.html:406
 msgid "Wi-Fi Services"
 msgstr "Servizi Wi-Fi"
 
-#: templates/bases/unicms_unical.html:404
+#: unicms_template_unical/templates/bases/unicms_unical.html:407
 msgid "Students webmail"
 msgstr "Webmail studenti"
 
-#: templates/bases/unicms_unical.html:405
+#: unicms_template_unical/templates/bases/unicms_unical.html:408
 msgid "Employees webmail"
 msgstr "Webmail dipendenti"
 
-#: templates/bases/unicms_unical.html:406
+#: unicms_template_unical/templates/bases/unicms_unical.html:409
 msgid "SPID / UniCal ID"
 msgstr "Accesso SPID / UniCal ID"
 
-#: templates/bases/unicms_unical.html:407
+#: unicms_template_unical/templates/bases/unicms_unical.html:410
 msgid "Online Taxes / PagoPA"
 msgstr "Tasse online / PagoPA"
 
-#: templates/bases/unicms_unical.html:408
+#: unicms_template_unical/templates/bases/unicms_unical.html:411
 msgid "Exam reservations - ESSE3"
 msgstr "Prenotazioni esami - ESSE3"
 
-#: templates/bases/unicms_unical.html:409
+#: unicms_template_unical/templates/bases/unicms_unical.html:412
+msgid "ESSE3PA"
+msgstr ""
+
+#: unicms_template_unical/templates/bases/unicms_unical.html:413
 msgid "e-Learning platform"
 msgstr "Piattaforma e-Learning"
 
-#: templates/bases/unicms_unical.html:410
+#: unicms_template_unical/templates/bases/unicms_unical.html:414
 msgid "Web Radio"
 msgstr ""
 
-#: templates/bases/unicms_unical.html:411
+#: unicms_template_unical/templates/bases/unicms_unical.html:415
 msgid "Online Magazine"
 msgstr "Magazine online"
 
-#: templates/bases/unicms_unical.html:420
-#: templates/bases/unicms_unical.html:421
+#: unicms_template_unical/templates/bases/unicms_unical.html:424
+#: unicms_template_unical/templates/bases/unicms_unical.html:425
 msgid "Living on Campus"
 msgstr "Vivere il campus"
 
-#: templates/bases/unicms_unical.html:426
+#: unicms_template_unical/templates/bases/unicms_unical.html:430
 msgid "Departments"
 msgstr "Dipartimenti"
 
-#: templates/bases/unicms_unical.html:427
+#: unicms_template_unical/templates/bases/unicms_unical.html:431
 msgid "Campus residences"
 msgstr "Quartieri Centro Residenziale"
 
-#: templates/bases/unicms_unical.html:428
+#: unicms_template_unical/templates/bases/unicms_unical.html:432
 msgid "Canteen services"
 msgstr "Servizio mensa"
 
-#: templates/bases/unicms_unical.html:429
+#: unicms_template_unical/templates/bases/unicms_unical.html:433
 msgid "Libraries"
 msgstr "Biblioteche"
 
-#: templates/bases/unicms_unical.html:430
+#: unicms_template_unical/templates/bases/unicms_unical.html:434
 msgid "Museum hub"
 msgstr "Sistema Museale"
 
-#: templates/bases/unicms_unical.html:431
+#: unicms_template_unical/templates/bases/unicms_unical.html:435
 msgid "Theaters and cinemas"
 msgstr "Teatri e Cinema"
 
-#: templates/bases/unicms_unical.html:432
+#: unicms_template_unical/templates/bases/unicms_unical.html:436
 msgid "Language Centre"
 msgstr "Centro Linguistico"
 
-#: templates/bases/unicms_unical.html:433
+#: unicms_template_unical/templates/bases/unicms_unical.html:437
 msgid "Health Center"
 msgstr "Centro Sanitario - Emergenze"
 
-#: templates/bases/unicms_unical.html:434
+#: unicms_template_unical/templates/bases/unicms_unical.html:438
 msgid "Sports Center"
 msgstr "Centro Sportivo"
 
-#: templates/bases/unicms_unical.html:435
+#: unicms_template_unical/templates/bases/unicms_unical.html:439
 msgid "Convention Center"
 msgstr "Centro Congressi"
 
-#: templates/bases/unicms_unical.html:436
+#: unicms_template_unical/templates/bases/unicms_unical.html:440
 msgid "Infants Center"
 msgstr "Polo d’Infanzia"
 
-#: templates/bases/unicms_unical.html:437
+#: unicms_template_unical/templates/bases/unicms_unical.html:441
 msgid "Accomodation - Socrates Residence"
 msgstr "Accomodation - Residenza Socrates"
 
-#: templates/bases/unicms_unical.html:438
+#: unicms_template_unical/templates/bases/unicms_unical.html:442
 msgid "Territory info"
 msgstr "Info territorio"
 
-#: templates/bases/unicms_unical.html:447
-#: templates/bases/unicms_unical.html:448
+#: unicms_template_unical/templates/bases/unicms_unical.html:451
+#: unicms_template_unical/templates/bases/unicms_unical.html:452
 msgid "Transparent UniCal"
 msgstr "UniCal trasparente"
 
-#: templates/bases/unicms_unical.html:453
+#: unicms_template_unical/templates/bases/unicms_unical.html:457
 msgid "Organization"
 msgstr "Organizzazione"
 
-#: templates/bases/unicms_unical.html:454 templates/pages/department.html:118
+#: unicms_template_unical/templates/bases/unicms_unical.html:458
+#: unicms_template_unical/templates/pages/department.html:123
 msgid "Transparent administration"
 msgstr "Amministrazione trasparente"
 
-#: templates/bases/unicms_unical.html:455
+#: unicms_template_unical/templates/bases/unicms_unical.html:459
 msgid "Strategic plan 2020/2022"
 msgstr "Piano strategico 2020/2022"
 
-#: templates/bases/unicms_unical.html:456
+#: unicms_template_unical/templates/bases/unicms_unical.html:460
 msgid "Governing bodies"
 msgstr "Organi di Governo"
 
-#: templates/bases/unicms_unical.html:457
+#: unicms_template_unical/templates/bases/unicms_unical.html:461
 msgid "Official register of the University"
 msgstr "Albo ufficiale di Ateneo"
 
-#: templates/bases/unicms_unical.html:458
+#: unicms_template_unical/templates/bases/unicms_unical.html:462
 msgid "Quality Assurance System"
 msgstr "Sistema di Assicurazione della Qualità"
 
-#: templates/bases/unicms_unical.html:459
+#: unicms_template_unical/templates/bases/unicms_unical.html:463
 msgid "Trusted Advisor of the University"
 msgstr "Consigliera di fiducia dell’Ateneo"
 
-#: templates/bases/unicms_unical.html:460
+#: unicms_template_unical/templates/bases/unicms_unical.html:464
 msgid "Code of ethics and conduct"
 msgstr "Codice etico e di comportamento"
 
-#: templates/bases/unicms_unical.html:461
+#: unicms_template_unical/templates/bases/unicms_unical.html:465
 msgid "Spinoff / Patent Showcase"
 msgstr "Vetrina Spinoff / Brevetti"
 
-#: templates/bases/unicms_unical.html:462
+#: unicms_template_unical/templates/bases/unicms_unical.html:466
 msgid "Fundraising, donations, 5x1000"
 msgstr "Fundraising, donazioni, 5x1000"
 
-#: templates/bases/unicms_unical.html:486
-#: templates/bases/unicms_unical.html:538 templates/pages/department.html:142
+#: unicms_template_unical/templates/bases/unicms_unical.html:490
+#: unicms_template_unical/templates/bases/unicms_unical.html:542
+#: unicms_template_unical/templates/pages/department.html:148
 msgid "Certified email"
 msgstr "Posta certificata"
 
-#: templates/bases/unicms_unical.html:487
+#: unicms_template_unical/templates/bases/unicms_unical.html:491
 msgid "Electronic invoicing"
 msgstr "Fatturazione elettronica"
 
-#: templates/bases/unicms_unical.html:488
+#: unicms_template_unical/templates/bases/unicms_unical.html:492
 msgid "Web editor / Contacts"
 msgstr "Redazione web / Contatti"
 
-#: templates/bases/unicms_unical.html:489 templates/pages/department.html:119
+#: unicms_template_unical/templates/bases/unicms_unical.html:493
+#: unicms_template_unical/templates/pages/department.html:124
 msgid "Accessibility and performance"
 msgstr "Accessibilità e prestazioni"
 
-#: templates/bases/unicms_unical.html:497 templates/pages/department.html:120
+#: unicms_template_unical/templates/bases/unicms_unical.html:501
+#: unicms_template_unical/templates/pages/department.html:125
 msgid "Data protection / GDPR"
 msgstr "Protezione dati - GDPR"
 
-#: templates/bases/unicms_unical.html:498 templates/pages/department.html:121
+#: unicms_template_unical/templates/bases/unicms_unical.html:502
+#: unicms_template_unical/templates/pages/department.html:126
 msgid "Cookies and consent methods"
 msgstr "Cookie e modalità di consenso"
 
-#: templates/bases/unicms_unical.html:499 templates/pages/department.html:122
+#: unicms_template_unical/templates/bases/unicms_unical.html:503
+#: unicms_template_unical/templates/pages/department.html:127
 msgid "Legal notes"
 msgstr "Note legali"
 
-#: templates/bases/unicms_unical.html:500
+#: unicms_template_unical/templates/bases/unicms_unical.html:504
 msgid "Credits"
 msgstr "Crediti"
 
-#: templates/bases/unicms_unical.html:508
+#: unicms_template_unical/templates/bases/unicms_unical.html:512
 msgid "Phishing: how to protect yourself"
 msgstr "Phishing: Come proteggersi"
 
-#: templates/bases/unicms_unical.html:509
+#: unicms_template_unical/templates/bases/unicms_unical.html:513
 msgid "Web access statistics"
 msgstr "Statistiche accessi web"
 
-#: templates/bases/unicms_unical.html:510
+#: unicms_template_unical/templates/bases/unicms_unical.html:514
 msgid "User Guide - UniCMS"
 msgstr "Guida d’uso - UniCMS"
 
-#: templates/bases/unicms_unical.html:511
+#: unicms_template_unical/templates/bases/unicms_unical.html:515
 msgid "Intranet area"
 msgstr "Area intranet"
 
-#: templates/bases/unicms_unical.html:518
+#: unicms_template_unical/templates/bases/unicms_unical.html:522
 msgid "RSS feeds"
 msgstr "Feed RSS"
 
-#: templates/bases/unicms_unical.html:519
+#: unicms_template_unical/templates/bases/unicms_unical.html:523
 msgid "Alumni"
 msgstr "Sezione Alumni"
 
-#: templates/bases/unicms_unical.html:520
+#: unicms_template_unical/templates/bases/unicms_unical.html:524
 msgid "Identity / Logo section"
 msgstr "Sezione identità / Logo"
 
-#: templates/bases/unicms_unical.html:521 templates/pages/department.html:123
+#: unicms_template_unical/templates/bases/unicms_unical.html:525
+#: unicms_template_unical/templates/pages/department.html:128
 msgid "Sitemap"
 msgstr "Mappa del sito"
 
-#: templates/blocks/unical_carousel_hero_slider.html:15
-#: templates/blocks/unical_publication_notices_v1_carousel_home.html:68
-#: templates/blocks/unical_publications_cards_carousel.html:135
-#: templates/pages/publication_list.html:88
+#: unicms_template_unical/templates/blocks/unical_carousel_hero_slider.html:15
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel_home.html:68
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel.html:135
+#: unicms_template_unical/templates/pages/publication_list.html:88
 msgid "Previous"
 msgstr "Precedente"
 
-#: templates/blocks/unical_carousel_hero_slider.html:23
-#: templates/blocks/unical_publication_notices_v1_carousel_home.html:76
-#: templates/blocks/unical_publications_cards_carousel.html:143
-#: templates/pages/publication_list.html:94
+#: unicms_template_unical/templates/blocks/unical_carousel_hero_slider.html:23
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel_home.html:76
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel.html:143
+#: unicms_template_unical/templates/pages/publication_list.html:94
 msgid "Next"
 msgstr "Successivo"
 
-#: templates/blocks/unical_media_collection_searchbox.html:116
+#: unicms_template_unical/templates/blocks/unical_media_collection_searchbox.html:116
 msgid "No items here"
 msgstr "Nessun risultato prodotto"
 
-#: templates/blocks/unical_menu_collapse.html:39
+#: unicms_template_unical/templates/blocks/unical_menu_collapse.html:39
 msgid "Read more"
 msgstr "Leggi di più"
 
-#: templates/blocks/unical_menu_grey_box_@.html:7
+#: unicms_template_unical/templates/blocks/unical_menu_grey_box_@.html:7
 msgid "Digital services"
 msgstr "Servizi digitali"
 
-#: templates/blocks/unical_menu_grey_box_arrow.html:10
+#: unicms_template_unical/templates/blocks/unical_menu_grey_box_arrow.html:10
 msgid "Informations"
 msgstr "Informazioni"
 
-#: templates/blocks/unical_menu_grey_box_chat.html:10
+#: unicms_template_unical/templates/blocks/unical_menu_grey_box_chat.html:10
 msgid "Support"
 msgstr "Supporto"
 
-#: templates/blocks/unical_menu_grey_box_document.html:10
+#: unicms_template_unical/templates/blocks/unical_menu_grey_box_document.html:10
 msgid "Documents"
 msgstr "Documenti"
 
-#: templates/blocks/unical_publication_attachments.html:5
+#: unicms_template_unical/templates/blocks/unical_publication_attachments.html:5
 msgid "Attachments"
 msgstr "Allegati"
 
-#: templates/blocks/unical_publication_attachments.html:16
-#: templates/blocks/unical_publication_full_view.html:49
+#: unicms_template_unical/templates/blocks/unical_publication_attachments.html:16
+#: unicms_template_unical/templates/blocks/unical_publication_full_view.html:49
 msgid "Attachment"
 msgstr "Allegato"
 
-#: templates/blocks/unical_publication_full_view.html:38
+#: unicms_template_unical/templates/blocks/unical_publication_full_view.html:38
 msgid "attachments"
 msgstr "allegati"
 
-#: templates/blocks/unical_publication_full_view.html:65
-#: templates/blocks/unical_publication_links.html:5
-#: templates/pages/publication_view_hero_original.html:121
+#: unicms_template_unical/templates/blocks/unical_publication_full_view.html:65
+#: unicms_template_unical/templates/blocks/unical_publication_links.html:5
+#: unicms_template_unical/templates/pages/publication_view_hero_original.html:121
 msgid "Links"
 msgstr ""
 
-#: templates/blocks/unical_publication_full_view.html:84
+#: unicms_template_unical/templates/blocks/unical_publication_full_view.html:84
 msgid "Photo galleries"
 msgstr "Gallerie fotografiche"
 
-#: templates/blocks/unical_publication_notices_v1.html:18
-#: templates/blocks/unical_publication_notices_v1_carousel.html:13
-#: templates/blocks/unical_publication_notices_v1_carousel.html:28
-#: templates/blocks/unical_publication_notices_v1_carousel_home.html:19
-#: templates/blocks/unical_publication_notices_v1_carousel_home.html:45
-#: templates/blocks/unical_publications_card.html:34
-#: templates/blocks/unical_publications_cards.html:53
-#: templates/blocks/unical_publications_cards_carousel.html:45
-#: templates/blocks/unical_publications_cards_carousel.html:104
-#: templates/blocks/unical_publications_cards_mosaic.html:77
-#: templates/blocks/unical_publications_cards_mosaic.html:164
-#: templates/blocks/unical_publications_cards_mosaic_v2.html:71
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:73
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:159
-#: templates/pages/publication_list.html:184
-#: templates/pages/publication_view.html:70
-#: templates/pages/publication_view_hero_original.html:58
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1.html:18
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel.html:13
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel.html:28
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel_home.html:19
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel_home.html:45
+#: unicms_template_unical/templates/blocks/unical_publications_card.html:34
+#: unicms_template_unical/templates/blocks/unical_publications_cards.html:53
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel.html:45
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel.html:104
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic.html:77
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic.html:164
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic_v2.html:71
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic_v3.html:73
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic_v3.html:159
+#: unicms_template_unical/templates/pages/publication_list.html:184
+#: unicms_template_unical/templates/pages/publication_view.html:70
+#: unicms_template_unical/templates/pages/publication_view_hero_original.html:58
 msgid "Published"
 msgstr "Pubblicato"
 
-#: templates/blocks/unical_publication_notices_v1.html:43
-#: templates/blocks/unical_publications_cards.html:81
-#: templates/blocks/unical_publications_cards.html:84
-#: templates/blocks/unical_publications_cards_carousel.html:157
-#: templates/blocks/unical_publications_cards_carousel_home.html:16
-#: templates/blocks/unical_publications_cards_mosaic.html:197
-#: templates/blocks/unical_publications_cards_mosaic_v3.html:193
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1.html:43
+#: unicms_template_unical/templates/blocks/unical_publications_cards.html:81
+#: unicms_template_unical/templates/blocks/unical_publications_cards.html:84
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel.html:157
+#: unicms_template_unical/templates/blocks/unical_publications_cards_carousel_home.html:16
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic.html:197
+#: unicms_template_unical/templates/blocks/unical_publications_cards_mosaic_v3.html:193
 msgid "Go to all news"
 msgstr "Vai a tutte le notizie"
 
-#: templates/blocks/unical_publication_notices_v1_carousel.html:49
-#: templates/blocks/unical_publication_notices_v1_carousel_home.html:90
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel.html:49
+#: unicms_template_unical/templates/blocks/unical_publication_notices_v1_carousel_home.html:90
 msgid "Go to all notices"
 msgstr "Vai a tutti gli avvisi"
 
-#: templates/loading-jumbo.html:20
+#: unicms_template_unical/templates/loading-jumbo.html:20
 msgid "please wait"
 msgstr "attendi"
 
-#: templates/loading-jumbo.html:22
+#: unicms_template_unical/templates/loading-jumbo.html:22
 msgid "Loading"
 msgstr "Caricamento"
 
-#: templates/pages/department.html:96
+#: unicms_template_unical/templates/pages/department.html:97
+#: unicms_template_unical/templates/pages/department_ctc.html:84
 msgid "Presentation"
 msgstr "Presentazione"
 
-#: templates/pages/department.html:97
+#: unicms_template_unical/templates/pages/department.html:98
+#: unicms_template_unical/templates/pages/department_ctc.html:85
 msgid "People"
 msgstr "Persone"
 
-#: templates/pages/department.html:98
+#: unicms_template_unical/templates/pages/department.html:99
+#: unicms_template_unical/templates/pages/department_ctc.html:86
 msgid "Staff services"
 msgstr "Servizi per il personale"
 
-#: templates/pages/department.html:99
+#: unicms_template_unical/templates/pages/department.html:100
+#: unicms_template_unical/templates/pages/department_ctc.html:87
 msgid "Documents, announcements and competitions"
 msgstr "Documenti, bandi e concorsi"
 
-#: templates/pages/department.html:109
+#: unicms_template_unical/templates/pages/department.html:112
+#: unicms_template_unical/templates/pages/department_dinci.html:93
 msgid "Smart Campus"
 msgstr ""
 
-#: templates/pages/department.html:110
+#: unicms_template_unical/templates/pages/department.html:113
+#: unicms_template_unical/templates/pages/department_dinci.html:94
 msgid "Unical Life"
 msgstr ""
 
-#: templates/pages/multi_language.html:13
-#: templates/pages/multi_language.html:14
-#: templates/pages/multi_language.html:16
-#: templates/pages/multi_language.html:17
+#: unicms_template_unical/templates/pages/department_ctc.html:29
+msgid "Department of Chemistry and Chemical Technologies"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_ctc.html:88
+msgid "Verbals"
+msgstr "Verbali"
+
+#: unicms_template_unical/templates/pages/department_ctc.html:89
+msgid "Reserved area"
+msgstr "Area riservata"
+
+#: unicms_template_unical/templates/pages/department_demacs.html:29
+msgid "Department of Mathematics and Computer Science"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_desf.html:29
+msgid "Department of Economics, Statistics and Finance"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dfssn.html:29
+msgid "Department of Pharmacy and Health and Nutrition Sciences"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_diam.html:29
+msgid "Department of Environmental Engineering"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dibest.html:29
+msgid "Department of Biology, Ecology and Earth Sciences"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dices.html:29
+msgid "Cepartment of Culture, Edication and Society"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dimes.html:29
+msgid "Department of Computer Engineering, Modeling, Electronics and Systems"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dinci.html:35
+msgid "Department of Civil Engineering"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dinci.html:90
+msgid "ELEANOR"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_discag.html:29
+msgid "Department of Business and Legal Sciences"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_dispes.html:29
+msgid "Department of Political and Social Sciences"
+msgstr ""
+
+#: unicms_template_unical/templates/pages/department_disu.html:29
+#, fuzzy
+#| msgid "Departments"
+msgid "Department of Humanities"
+msgstr "Dipartimenti"
+
+#: unicms_template_unical/templates/pages/multi_language.html:13
+#: unicms_template_unical/templates/pages/multi_language.html:14
+#: unicms_template_unical/templates/pages/multi_language.html:16
+#: unicms_template_unical/templates/pages/multi_language.html:17
 msgid "Italian"
 msgstr "Italiano"
 
-#: templates/pages/portale_home_v_original.html:38
+#: unicms_template_unical/templates/pages/portale_home_v_original.html:38
 msgid "This site uses technical, analytics and third-party cookies."
 msgstr "Questo sito utilizza cookie tecnici, analytics e di terze parti."
 
-#: templates/pages/portale_home_v_original.html:40
+#: unicms_template_unical/templates/pages/portale_home_v_original.html:40
 msgid "By continuing to browse, you accept the use of cookies."
 msgstr "Proseguendo nella navigazione accetti l’utilizzo dei cookie."
 
-#: templates/pages/portale_home_v_original.html:44
+#: unicms_template_unical/templates/pages/portale_home_v_original.html:44
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: templates/pages/portale_home_v_original.html:47
+#: unicms_template_unical/templates/pages/portale_home_v_original.html:47
 msgid "I agree"
 msgstr "Accetto"
 
-#: templates/pages/publication_list.html:51
+#: unicms_template_unical/templates/pages/publication_list.html:51
 msgid "Back to all news"
 msgstr "Torna a tutte le notizie"
 
-#: templates/pages/publication_list.html:88
-#: templates/pages/publication_list.html:94
+#: unicms_template_unical/templates/pages/publication_list.html:88
+#: unicms_template_unical/templates/pages/publication_list.html:94
 msgid "Page"
 msgstr "Pagina"
 
-#: templates/pages/publication_list.html:113
+#: unicms_template_unical/templates/pages/publication_list.html:113
 msgid "Loading data"
 msgstr "Caricamento dati"
 
-#: templates/pages/publication_list.html:193
+#: unicms_template_unical/templates/pages/publication_list.html:193
 msgid "Edit"
 msgstr "Modifica"
 
-#: templates/pages/publication_list.html:214
-#: templates/pages/publication_list.html:219
-#: templates/pages/publication_list.html:225
-#: templates/pages/publication_list.html:230
-#: templates/pages/publication_list.html:236
-#: templates/pages/publication_list.html:241
-#: templates/pages/publication_list.html:247
-#: templates/pages/publication_list.html:252
-#: templates/pages/publication_list.html:258
-#: templates/pages/publication_list.html:263
+#: unicms_template_unical/templates/pages/publication_list.html:214
+#: unicms_template_unical/templates/pages/publication_list.html:219
+#: unicms_template_unical/templates/pages/publication_list.html:225
+#: unicms_template_unical/templates/pages/publication_list.html:230
+#: unicms_template_unical/templates/pages/publication_list.html:236
+#: unicms_template_unical/templates/pages/publication_list.html:241
+#: unicms_template_unical/templates/pages/publication_list.html:247
+#: unicms_template_unical/templates/pages/publication_list.html:252
+#: unicms_template_unical/templates/pages/publication_list.html:258
+#: unicms_template_unical/templates/pages/publication_list.html:263
 msgid "Share on"
 msgstr "Condividi su"
 
-#: templates/pages/publication_view.html:105
-#: templates/pages/publication_view_hero_original.html:67
+#: unicms_template_unical/templates/pages/publication_view.html:105
+#: unicms_template_unical/templates/pages/publication_view_hero_original.html:67
 msgid "tags"
 msgstr ""
 
-#: templates/pages/publication_view.html:135
-#: templates/pages/publication_view_hero_original.html:105
+#: unicms_template_unical/templates/pages/publication_view.html:135
+#: unicms_template_unical/templates/pages/publication_view_hero_original.html:105
 msgid "Published in"
 msgstr "Pubblicato in"
 
-#: templates/pages/publication_view_hero_original.html:85
+#: unicms_template_unical/templates/pages/publication_view_hero_original.html:85
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
 
