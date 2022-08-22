@@ -8,7 +8,7 @@
 
 <div class="card-wrapper card-space">
     <div class="card card-bg no-after">
-        <div class="card-body pl-0">
+        <div class="card-body ps-0">
             <div class="row">
                 <div class="col-6">
                     {% if url %}
@@ -26,7 +26,7 @@
                 <div class="col-6">
                      <div class="etichetta">
                         {% for cat in publication.categories %}
-                        <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                        <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
                             <a class="no-color" href="{% call obj=publication method='get_url_list' category_name=cat.name %}">
                                 <b>{{ cat.name }}</b>
                             </a>

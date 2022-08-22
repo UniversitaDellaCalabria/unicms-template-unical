@@ -18,7 +18,7 @@
                 {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
-                        <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                        <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
                             <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
                                 <b>{{ cat.name }}</b>
                             </a>
@@ -78,7 +78,7 @@
                 {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
-                        <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                        <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
                             <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
                                 <b>{{ cat.name }}</b>
                             </a>
@@ -128,18 +128,18 @@
     {% endfor %}
 </div>
 
-<div class="customNavigation text-right d-none d-lg-block">
+<div class="customNavigation text-end d-none d-lg-block">
     <span class="{{ uid }}_prev" style="cursor: pointer">
-        <span class="text-black font-weight-bold">
-            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_prev">
+        <span class="text-black fw-bold">
+            <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_prev">
                 <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-left-circle"></use>
             </svg>
         </span>
     </span>
     <span class="{{ uid }}_next" style="cursor: pointer">
-        <span class="text-black font-weight-bold">
-            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_carousel_next">
+        <span class="text-black fw-bold">
+            <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_next">
                 <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
@@ -148,10 +148,10 @@
 </div>
 
 {% block all_items_link %}
-<p class="mt-3 ml-2">
+<p class="mt-3 ms-2">
     <a href="{{ page_news_suffix }}" class="no-color">
-        <span class="text-black font-weight-bold">
-            <svg class="icon mr-2">
+        <span class="text-black fw-bold">
+            <svg class="icon me-2">
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>
             {% trans "Go to all news" %}

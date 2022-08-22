@@ -46,7 +46,7 @@
             <div class="col-12 col-lg-8">
                 <div class="mb-3">
                 {% for category in publication_context.publication.categories %}
-                    <span class="badge badge-pill badge-grey-unical my-1 mr-1 py-2 px-4">
+                    <span class="badge rounded-pill badge-grey-unical my-1 me-1 py-2 px-4">
                         <div>
                             <a class="no-color" href="{% call obj=publication_context method='get_url_list' category_name=cat %}?category_name={{ category }}">
                                 <h5>
@@ -60,12 +60,12 @@
                 {% endfor %}
                 </div>
 
-                <div class="mb-3 text-right">
+                <div class="mb-3 text-end">
                     {% include "includes/social_share.html" with share_title=publication_context.publication.title share_url=request.build_absolute_uri %}
                 </div>
 
                 <p class="text-muted">
-                    <svg class="icon icon-xs mr-2">
+                    <svg class="icon icon-xs me-2">
                         <use xlink:href="{% static 'svg/sprite.svg' %}#it-clock"></use>
                     </svg> {% trans "Published" %} {{ publication_context.date_start }}
                     {% include "includes/edit_news.html" with item=publication_context %}
@@ -90,7 +90,7 @@
                     {% include "blocks/italia_link_iframe.html" with url=related_embedded_links.0.url ratio="16by9" %}
                 </div>
                 {% elif publication_context.publication.preview_image %}
-                <div class="img-wrapper mb-3 pr-3 pt-2 float-left w-50 mw-100">
+                <div class="img-wrapper mb-3 pe-3 pt-2 float-start w-50 mw-100">
                     <img src="{{ publication_context.publication.preview_image.get_media_path }}"
                          title="{{ publication_context.publication.preview_image.title }}"
                          alt="{{ publication_context.publication.preview_image.description }}"
@@ -169,7 +169,7 @@
                             </b>
                         </div>
                         <div class="col m-auto align-middle">
-                            <ul class="mb-0 pl-0 list-unstyled">
+                            <ul class="mb-0 ps-0 list-unstyled">
                             {% for related_pub in publication_context.publication.related_publications %}
                                 <li>
                                     <a class="no-color" href="{{ related_pub.first_available_url }}">
@@ -191,7 +191,7 @@
                             <b>@</b>
                         </div>
                         <div class="col m-auto align-middle">
-                            <ul class="mb-0 pl-0 list-unstyled">
+                            <ul class="mb-0 ps-0 list-unstyled">
                             {% for link in related_links %}
                                 <li>
                                     <a class="no-color" href="{{ link.url }}">
@@ -218,7 +218,7 @@
                             </b>
                         </div>
                         <div class="col m-auto align-middle">
-                            <ul class="mb-0 pl-0 list-unstyled">
+                            <ul class="mb-0 ps-0 list-unstyled">
                             {% for item in attachments %}
                                 <li>
                                     <a class="no-color" href="{{ item.file.url }}">
@@ -244,7 +244,7 @@
                             </b>
                         </div>
                         <div class="col m-auto align-middle">
-                            <ul class="mb-0 pl-0 list-unstyled">
+                            <ul class="mb-0 ps-0 list-unstyled">
                             {% for lang,language in publication_context.publication.available_in_languages %}
                                 <li>
                                     <small><b>- {{ language }}</b></small>

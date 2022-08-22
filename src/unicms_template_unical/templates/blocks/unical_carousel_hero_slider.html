@@ -10,15 +10,15 @@
     {% if carousel_items|length > 1 %}
     <div class="customNavigation w-100" id="{{ id }}_customNavigation" style="position: absolute;">
         <span class="{{ id }}_prev" id="{{ id }}_prev" style="cursor: pointer; position: relative; z-index: 10">
-            <span class="text-white font-weight-bold">
+            <span class="text-white fw-bold">
                 <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_prev">
                     <title id="{{ id }}_carousel_prev">{% trans "Previous" %}</title>
                     <use xlink:href="{% static '/svg/sprite.svg' %}#it-chevron-left"></use>
                 </svg>
             </span>
         </span>
-        <span class="{{ id }}_next float-right" id="{{ id }}_next" style="cursor: pointer; position: relative; z-index: 10">
-            <span class="text-white font-weight-bold">
+        <span class="{{ id }}_next float-end" id="{{ id }}_next" style="cursor: pointer; position: relative; z-index: 10">
+            <span class="text-white fw-bold">
                 <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_next">
                     <title id="{{ id }}_carousel_next">{% trans "Next" %}</title>
                     <use xlink:href="{% static '/svg/sprite.svg' %}#it-chevron-right"></use>

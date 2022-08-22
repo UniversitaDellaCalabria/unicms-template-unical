@@ -46,7 +46,7 @@
                  aria-hidden="true">
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-file"></use>
             </svg>
-            <span class="sr-only">{% trans "Attachment" %}:</span> {{ item.name }}
+            <span class="visually-hidden">{% trans "Attachment" %}:</span> {{ item.name }}
             <span class="text-muted small">
                 &nbsp; {{ item.file_type }} ({{ item.file_size_kb }} KB)
             </span>

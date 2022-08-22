@@ -9,10 +9,10 @@
         {% for item in items %}
             {% call obj=item method='link' request=request as link %}
             <div class="col-12 col-lg-auto">
-                <div class="text-center d-inline-block mr-4">
+                <div class="text-center d-inline-block me-4">
                     <a href="{{ link }}" class="no-color">
-                        <span class="text-black font-weight-bold">
-                            <svg class="icon mr-2">
+                        <span class="text-black fw-bold">
+                            <svg class="icon me-2">
                                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
                             </svg>
                             {{ item.name }}

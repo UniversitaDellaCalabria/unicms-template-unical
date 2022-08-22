@@ -5,7 +5,7 @@
 {% for item in carousel_items %}
     <div class="row mb-4">
 
-        <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-left text-lg-center">
+        <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-start text-lg-center">
             <img src="{{ item.image.file.url }}"
                  title="{{ item.image.name }}"
                  alt="{{ item.image.name }}"
@@ -14,7 +14,7 @@
                  loading="lazy">
         </div>
 
-        <div class="col-12 col-lg-9 pl-lg-4">
+        <div class="col-12 col-lg-9 ps-lg-4">
             <h3>
                 {{ item.heading }}
             </h3>
@@ -27,7 +27,7 @@
                 <div class="col">
                 {% for link in item.links %}
                     <span
-                        class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
+                        class="badge badge-grey-unical square-corners mb-3 me-3 ms-0 pe-5 p-2 mw-100"
                         style="font-size: 100%">
                         <a class="no-color" href="{{ link.url }}">
                             <b>{{ link.get_title }}</b>

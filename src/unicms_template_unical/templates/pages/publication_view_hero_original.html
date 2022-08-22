@@ -83,7 +83,7 @@
                     <div class="card card-border no-after">
                         <div class="card-body">
                             <h5 class="card-title">{% trans "It might interest you" %}</h5>
-                            <ul class="pl-0" style="list-style: none">
+                            <ul class="ps-0" style="list-style: none">
                             {% for related_pub in publication_context.publication.related_publications %}
                                 <li class="mb-3">
                                     <a href="#">{{ related_pub.related }}</a>
@@ -103,7 +103,7 @@
                     <div class="card card-border no-after">
                         <div class="card-body">
                             <h5 class="card-title">{% trans "Published in" %}</h5>
-                            <ul class="pl-0" style="list-style: none">
+                            <ul class="ps-0" style="list-style: none">
                             {% for pub_context in publication_context.publication.related_contexts %}
                                 <li class="mb-3">
                                     <a href="{{ pub_context.webpath.get_full_path }}">{{ pub_context.webpath.name }}</a>
@@ -119,7 +119,7 @@
                     <div class="card card-border no-after">
                         <div class="card-body">
                             <h5 class="card-title">{% trans "Links" %}</h5>
-                            <ul class="pl-0" style="list-style: none">
+                            <ul class="ps-0" style="list-style: none">
                             {% for link in publication_context.publication.related_links %}
                                 <li class="mb-3">
                                     <a href="{{ link.url }}">{{ link.name }}</a>

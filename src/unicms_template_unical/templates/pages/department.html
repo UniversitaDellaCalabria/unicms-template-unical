@@ -59,14 +59,14 @@
 
 {% block unical_header_languages %}
 <div class="dark-grey-background py-2">
-    <div class="container text-center text-lg-right">
+    <div class="container text-center text-lg-end">
         <div class="row">
             <div class="col">
                 {% language_menu as language_urls %}
                 {% for cod,params in language_urls.items %}
                     {% load_lang_flag cod as flag_path %}
                     <a href="{{ params.1 }}" style="cursor: pointer;" title="{{ params.0 }}">
-                        <img src="{{ flag_path }}" alt="{{ params.0 }}" style="width: 27px; height: 27px;" class="mr-2"/>
+                        <img src="{{ flag_path }}" alt="{{ params.0 }}" style="width: 27px; height: 27px;" class="me-2"/>
                     </a>
                 {% endfor %}
             </div>

@@ -17,17 +17,21 @@
            {% if item.has_childs %}dropdown{% endif %}
            megamenu">
     <a class="nav-link
-              {% if item.has_childs %}dropdown_toggle{% endif %}
-              {% if not forloop.counter0 %}pl-lg-2{% endif %}
-              pr-lg-1"
+              {% if item.has_childs %}dropdown_toggle {% endif %}
+              {% if not forloop.counter0 %}ps-lg-2{% endif %}
+              pe-lg-1"
        href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
             <span>{{ item.name }}</span>
     </a>
     {% if item.has_childs %}
-    <span data-toggle="dropdown" aria-expanded="false"
+    <span data-toggle="dropdown"
+          aria-expanded="false"
           class="megamenu-dropdown-arrow m-lg-auto pb-lg-1"
-          role="navigation">
-        <svg class="icon icon-xs float-xs-right">
+          role="navigation"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          id="item_{{ item.id }}">
+        <svg class="icon icon-xs float-xs-end">
             <use xlink:href="{% static 'svg/sprite.svg' %}#it-expand"></use>
         </svg>
     </span>
@@ -36,7 +40,7 @@
 
     {% load_item_childs item as childs %}
 
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" role="region" aria-labelledby="item_{{ item.id }}">
         <div class="row p-md-3 p-0">
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}

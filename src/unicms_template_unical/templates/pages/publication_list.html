@@ -28,7 +28,7 @@
     <!--
         <br>
         <div class="col-12 mb-4">
-            <div class="pt-2 pb-3 pl-3 background-yellow">
+            <div class="pt-2 pb-3 ps-3 background-yellow">
                 <h2 class="m-0 p-0">
                     <span style="font-weight: 500">unical</span>
                     <span class="super-bold">world</span>
@@ -44,8 +44,8 @@
             {% if category_name %}
             <div class="mb-4">
                 <a href="{{ webpath.get_full_path }}{{ publication_list_prefix }}" class="no-color">
-                    <span class="text-black font-weight-bold">
-                        <svg class="icon mr-2">
+                    <span class="text-black fw-bold">
+                        <svg class="icon me-2">
                             <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
                         </svg>
                         {% trans "Back to all news" %}
@@ -82,16 +82,16 @@ Vue.component('list-panel', {
                     </div>
 
                     <div class="col w-50" v-if="data.total_pages > 1">
-                        <div class="float-right">
+                        <div class="float-end">
                             <span>
                                 <a style="color:#050b12;" @click="news.callURL( [[ data.previous]] )" v-if="data.previous">
-                                    <span class="sr-only"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
+                                    <span class="visually-hidden"> {% trans "Page" %} </span> &lt; {% trans "Previous" %}
                                 </a>
                             </span>
 
-                            <span class="mr-2 ml-2" >[[ data.page ]] / <b>[[ data.total_pages ]]</b></span>
+                            <span class="me-2 ms-2" >[[ data.page ]] / <b>[[ data.total_pages ]]</b></span>
                             <a style="color:#050b12;" @click="news.callURL( [[ data.next ]] )"  v-if="data.next">
-                                <span class="sr-only">{% trans "Page" %} </span>{% trans "Next" %} &gt;
+                                <span class="visually-hidden">{% trans "Page" %} </span>{% trans "Next" %} &gt;
                             </a>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ var news = new Vue({
     <div v-if="!newsLoaded">
         <div>
             <div class="progress progress-indeterminate my-3">
-                <span class="sr-only">{% trans "Loading data" %}</span>
+                <span class="visually-hidden">{% trans "Loading data" %}</span>
                 <div class="progress-bar" role="progressbar"></div>
             </div>
         </div>
@@ -121,18 +121,18 @@ var news = new Vue({
             <div class="input-group">
                 <label for="news_search"></label>
                 <input type="text"
-                       class="form-control"
                        id="news_search"
                        name="news_search"
                        v-model="selected_search"
                        v-on:keyup.enter="search()">
                 <div class="input-group-append">
+                    {% comment %}
                     <div class="input-group-text">
                         <svg class="icon icon-sm icon-muted">
                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
                         </svg>
                     </div>
-
+                    {% endcomment %}
                     <button class="btn btn-primary"
                             type="button"
                             id="search-button"
@@ -157,7 +157,7 @@ var news = new Vue({
                                 {% if not category_name %}
                                 <div class="etichetta">
                                     <span v-for="(cat, index) in item.publication.category_data"
-                                        class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                                        class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
                                         <a class="no-color" :href="'?category_name=' + cat.name">
                                             <b>[[ cat.name ]]</b>
                                         </a>
@@ -189,7 +189,7 @@ var news = new Vue({
                                                                                                                  minute:'2-digit'}) ]]</span>
                                     {% if request.user.is_authenticated %}
                                     {% settings_value "EDITORIAL_BOARD_NEWS_EDIT_URL_JS" as editorial_board_url %}
-                                    <span class="float-right">
+                                    <span class="float-end">
                                         <a :href="{{ editorial_board_url|safe }}" target="_blank" title="{% trans 'Edit' %}">
                                             <svg class="icon icon-xs">
                                                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-settings"></use>
@@ -216,7 +216,7 @@ var news = new Vue({
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook-square"></use>
                                         </svg>
-                                        <span class="sr-only">{% trans 'Share on' %} Facebook</span>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Facebook</span>
                                     </span>
 
                                     <!-- Twitter -->
@@ -227,7 +227,7 @@ var news = new Vue({
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-twitter"></use>
                                         </svg>
-                                        <span class="sr-only">{% trans 'Share on' %} Twitter</span>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Twitter</span>
                                     </span>
 
                                     <!-- Whatsapp -->
@@ -238,7 +238,7 @@ var news = new Vue({
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-whatsapp"></use>
                                         </svg>
-                                        <span class="sr-only">{% trans 'Share on' %} Whatsapp</span>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Whatsapp</span>
                                     </span>
 
                                     <!-- Linkedin -->
@@ -249,7 +249,7 @@ var news = new Vue({
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-linkedin-square"></use>
                                         </svg>
-                                        <span class="sr-only">{% trans 'Share on' %} Linkedin</span>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Linkedin</span>
                                     </span>
 
                                     <!-- Email -->
@@ -260,7 +260,7 @@ var news = new Vue({
                                         <svg class="icon icon-sm icon-secondary align-top">
                                             <use xlink:href="{% static 'svg/sprite.svg' %}#it-mail"></use>
                                         </svg>
-                                        <span class="sr-only">{% trans 'Share on' %} Email</span>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Email</span>
                                     </span>
 
                                 </div>

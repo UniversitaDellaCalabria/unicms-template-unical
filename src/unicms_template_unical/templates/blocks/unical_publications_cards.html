@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <div class="etichetta">
                         {% for cat in pub.publication.categories %}
-                            <span class="badge badge-pill badge-grey-unical my-1 py-2 px-4 mr-1">
+                            <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
                                 <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
                                     <b>{{ cat.name }}</b>
                                 </a>
@@ -74,10 +74,10 @@
 
 </div>
 
-<p class="mt-3 ml-2">
+<p class="mt-3 ms-2">
     <a href="{{ page_news_suffix }}{% if categories|length == 1 and not exclude_categories %}?category_name={{ categories.0 }}{% endif %}" class="no-color">
-        <span class="text-black font-weight-bold">
-            <svg class="icon mr-2" aria-labelledby="{{ uid }}_news">
+        <span class="text-black fw-bold">
+            <svg class="icon me-2" aria-labelledby="{{ uid }}_news">
                 <title id="{{ uid }}_news">{% trans "Go to all news" %}</title>
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
             </svg>

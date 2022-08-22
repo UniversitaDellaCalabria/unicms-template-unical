@@ -37,6 +37,7 @@
         {% if has_childs %}
             <span class="list-item large medium right-icon no-color"
                href="#collapse-{{item.id}}-{{ forloop.counter }}"
+               data-bs-toggle="collapse"
                data-toggle="collapse"
                aria-expanded="false"
                aria-controls="collapseOne"
@@ -48,7 +49,7 @@
             {% load_item_childs item as childs %}
             </b>
             </li>
-            <ul class="link-sublist collapse pl-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
+            <ul class="link-sublist collapse ps-1" id="collapse-{{item.id}}-{{ forloop.counter }}">
             {% for child in childs %}
                 {% call obj=child method='link' request=request as child_link %}
                 <li class="list-unstyled">

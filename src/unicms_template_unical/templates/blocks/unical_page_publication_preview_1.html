@@ -1,6 +1,6 @@
 <div class="row mb-4">
     {% if publication.image_url %}
-    <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-left text-lg-center">
+    <div class="col-12 col-lg-3 mt-lg-2 mb-3 mb-lg-0 text-start text-lg-center">
         <a href="javascript:void(0)">
             <img src="{{ publication.image_url }}"
                  title="{{ publication.image_title }}"
@@ -27,7 +27,7 @@
     </div>
     {% endcomment %}
 
-    <div class="col-12 col-lg-8 pl-lg-4">
+    <div class="col-12 col-lg-8 ps-lg-4">
     {% else %}
     <div class="col">
     {% endif %}
@@ -49,7 +49,7 @@
             <div class="col">
             {% for link in publication.related_links %}
             <span
-                class="badge badge-grey-unical square-corners mb-3 mr-3 ml-0 pr-5 p-2 mw-100"
+                class="badge badge-grey-unical square-corners mb-3 me-3 ms-0 pe-5 p-2 mw-100"
                 style="font-size: 100%">
                 <a class="no-color" href="{{ link.url }}">
                     <b>{{ link.name }}</b>

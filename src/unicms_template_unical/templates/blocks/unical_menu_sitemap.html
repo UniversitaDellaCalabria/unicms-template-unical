@@ -8,7 +8,7 @@
 {% if not level %}
     <ul class="list-unstyled">
 {% else %}
-    <ul class="pl-4 list-unstyled">
+    <ul class="ps-4 list-unstyled">
 {% endif %}
 
 {% for item in items %}
@@ -24,7 +24,7 @@
             {% else %}
                 <span>
             {% endif %}
-            <svg class="icon icon-sm mr-2" aria-labelledby="{{ uid }}_news">
+            <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_news">
                 <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-triangle"></use>
             </svg> {{ item.name }}
             {% if link %}
