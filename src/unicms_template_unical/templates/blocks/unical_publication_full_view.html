@@ -44,7 +44,7 @@
         <a href="{{ item.file.url }}" >
             <svg class="icon icon-secondary"
                  aria-hidden="true">
-                <use xlink:href="{% static '/svg/sprite.svg' %}#it-file"></use>
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-file"></use>
             </svg>
             <span class="visually-hidden">{% trans "Attachment" %}:</span> {{ item.name }}
             <span class="text-muted small">
@@ -68,7 +68,7 @@
     <li class="mb-3">
         <a href="{{ link.url }}">
             <svg class="icon icon-xs">
-                <use xlink:href="{% static 'svg/sprite.svg' %}#it-link"></use>
+                <use xlink:href="{% static 'svg/sprites.svg' %}#it-link"></use>
             </svg>
             {{ link.name }}
         </a>

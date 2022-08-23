@@ -6,7 +6,7 @@ is the simplest and safest way to build modern,
 inclusive and easy to maintain web interfaces.
 
 Completely open-source, built on the foundations of
-[Bootstrap 4.5.0](https://getbootstrap.com/docs/4.5/getting-started/introduction/),
+[Bootstrap 5.1](https://getbootstrap.com/docs/5.1/getting-started/introduction/),
 of which it inherits all the features, components, grids and utility classes,
 customizing them according to the Design Guidelines for
 [Italian Public Administration websites](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/),

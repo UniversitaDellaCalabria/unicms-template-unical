@@ -79,7 +79,7 @@
         <span class="text-black fw-bold">
             <svg class="icon me-2" aria-labelledby="{{ uid }}_news">
                 <title id="{{ uid }}_news">{% trans "Go to all news" %}</title>
-                <use xlink:href="{% static '/svg/sprite.svg' %}#it-arrow-right-circle"></use>
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-arrow-right-circle"></use>
             </svg>
             {% trans "Go to all news" %}
             {% if categories|length == 1 and not exclude_categories %}
