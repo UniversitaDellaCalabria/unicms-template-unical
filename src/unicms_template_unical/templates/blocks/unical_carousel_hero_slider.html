@@ -134,8 +134,10 @@
             owl_{{ id }}.trigger('prev.owl.carousel');
         });
 
+        {% if carousel_items|length > 1 %}
         let banner_height = document.querySelector('#italia_carousel_{{ id }}').offsetHeight;
         document.getElementById("{{ id }}_customNavigation").style.marginTop = (banner_height/2)-32 + "px";
+        {% endif %}
     });
     </script>
 {% endif %}
