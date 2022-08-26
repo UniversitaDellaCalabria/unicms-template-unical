@@ -672,3 +672,9 @@ input.top-input::placeholder {
     margin-left: -48px;
     margin-right: -48px;
 }
+
+
+/** Gutter to 12px */
+.row {
+    --bs-gutter-x: 12px;
+}

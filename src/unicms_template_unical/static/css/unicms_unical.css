@@ -350,3 +350,7 @@ input.top-input::placeholder { color: #fff; }
 .me-n5 { margin-right: -48px; }
 
 .mx-n5 { margin-left: -48px; margin-right: -48px; }
+
+
+/** Gutter to 12px */
+.row {--bs-gutter-x: 12px;}
