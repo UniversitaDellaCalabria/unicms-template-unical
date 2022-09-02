@@ -353,4 +353,6 @@ input.top-input::placeholder { color: #fff; }
 
 
 /** Gutter to 12px */
-.row {--bs-gutter-x: 12px;}
+.row { --bs-gutter-x: 12px; }
+
+.input-group-append .btn, .input-group-prepend .btn { z-index: inherit; }

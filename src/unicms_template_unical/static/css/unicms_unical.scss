@@ -678,3 +678,8 @@ input.top-input::placeholder {
 .row {
     --bs-gutter-x: 12px;
 }
+
+.input-group-append .btn,
+.input-group-prepend .btn {
+    z-index: inherit;
+}
