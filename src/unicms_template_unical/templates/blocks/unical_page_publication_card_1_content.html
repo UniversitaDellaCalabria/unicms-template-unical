@@ -8,9 +8,9 @@
 
 <div class="card-wrapper card-space">
     <div class="card card-bg no-after">
-        <div class="card-body ps-0">
+        <div class="card-body">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-lg-4">
                     {% if url %}
                     <a href="{{ url }}">
                     {% endif %}
@@ -23,18 +23,7 @@
                     </a>
                     {% endif %}
                 </div>
-                <div class="col-6">
-                    {% block card_labels %}
-                    <div class="etichetta">
-                        {% for cat in publication.categories %}
-                        <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
-                            <a class="no-color" href="{% call obj=publication method='get_url_list' category_name=cat.name %}">
-                                <b>{{ cat.name }}</b>
-                            </a>
-                        </span>
-                        {% endfor %}
-                    </div>
-                    {% endblock card_labels %}
+                <div class="col-12 col-lg-8 ps-lg-5 mt-lg-3 mt-3 mt-lg-0">
 
                     {% include "includes/edit_page_publication.html" with item=page_publication %}
 
@@ -49,9 +38,9 @@
                     {% endif %}
 
                     {% block card_content %}
-                    {% if publication.subheading %}
+                    {% if publication.content %}
                     <p class="card-text">
-                        {{ publication.subheading|truncatechars:50 }}
+                        {{ publication.content|safe }}
                     </p>
                     {% endif %}
                     {% endblock card_content %}
