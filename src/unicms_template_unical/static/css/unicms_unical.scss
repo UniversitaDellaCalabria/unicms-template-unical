@@ -358,6 +358,10 @@ a .badge-grey-unical.selected {
     }
 }
 
+.accordion.accordion-left-icon .accordion-header .accordion-button:before {
+    flex: none;
+}
+
 .accordion-header [data-bs-toggle=collapse][aria-expanded=false],
 .accordion-header [data-bs-toggle=collapse]:before {
     color: $dark_grey_unical;
