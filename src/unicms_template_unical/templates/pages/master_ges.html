@@ -1,0 +1,47 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+
+{% block analytics_value %}
+    {% settings_value "ANALYTICS_CODE_DINCI" as analytics_code %}
+    {{ analytics_code|safe }}
+{% endblock analytics_value %}
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/master_ges.svg' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/master_ges.svg' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/dimeg.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Department of Mechanical, Energy and Management Engineering' %}"/>
+    </div>
+    <p class="mb-4">
+        Via P. Bucci - Cubo 46C, ponte carrabile
+        <br>
+        87036 Arcavacata di Rende (CS)
+        <br>
+        +39 0984 496802
+        <br>
+        +39 0984 494673
+    </p>
+</div>
+{% endblock department_contacts %}
