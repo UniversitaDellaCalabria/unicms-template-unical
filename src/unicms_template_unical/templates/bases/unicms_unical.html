@@ -81,7 +81,7 @@ bootstrap-italia-base.html
     {% if request.user.is_staff %}
     {{ block.super }}
     {% endif %}
-    <a href="/" aria-label="{% trans 'University of Calabria' %}">
+    <a href="{% block header_mobile_center_url %}/{% endblock header_mobile_center_url %}" aria-label="{% trans 'University of Calabria' %}">
         <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
             {% block unical_mobile_logo %}
             <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
