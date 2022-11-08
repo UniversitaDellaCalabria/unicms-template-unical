@@ -22,8 +22,12 @@ bootstrap-italia-base.html
 
 <!-- Custom extra head params -->
 {% block extra_head %}
+    {% block custom_style %}
     <link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
     <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical_colors_main.css' %}" type="text/css">
+    {% endblock custom_style %}
+
     {% block head_inits %}
         {{ block.super }}
     {% endblock head_inits %}
@@ -480,7 +484,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
 {% endblock footer_contacts_section %}
 
 {% block footer_bottom %}
-<div class="it-footer-main clearfix py-4 border-white border-top" style="background: #b71918;">
+<div class="it-footer-main clearfix py-4 border-white border-top">
     <div class="container">
         <section>
             {% block footer_bottom_content %}

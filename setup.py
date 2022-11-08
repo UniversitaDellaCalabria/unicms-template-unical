@@ -17,7 +17,7 @@ PKG_NAME = 'unicms_template_unical'
 
 setup(
     name=PKG_NAME,
-    version='1.0.6',
+    version='1.1',
 
     packages=[PKG_NAME],
     package_dir={PKG_NAME: f"{SRC_FOLDER}/{PKG_NAME}"},
@@ -46,7 +46,7 @@ setup(
         'Programming Language :: Python :: 3',
     ],
     install_requires=[
-        'django>=2.0,<4.0',
+        'django>=2.0,<5.0',
         'unicms-template-italia',
     ],
 )
