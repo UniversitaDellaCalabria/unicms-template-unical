@@ -96,6 +96,9 @@ a.read-more {
  * Footer Main
  */
 .it-footer-main {
+  background: #383838;
+}
+.it-footer-main.unical-secondary-footer {
   background: #b71918;
 }
 /**
