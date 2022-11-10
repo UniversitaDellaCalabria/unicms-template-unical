@@ -217,16 +217,11 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected {
 .accordion.accordion-left-icon .accordion-header .accordion-button:before {
   flex: none;
 }
-.accordion-left-icon .collapse-header [data-bs-toggle=collapse][aria-expanded=false]:before {
-  content: url(data:image/svg+xml;
-	base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGlkPSJpdC1wbHVzLWNpcmNsZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkxpdmVsbG9fMTMiIGRhdGEtbmFtZT0iTGl2ZWxsbyAxMyI+CiAgICA8cGF0aCAgZmlsbD0iIzM4MzgzOCIgZD0iTTEyLjQgMTEuNWg0LjV2MWgtNC41VjE3aC0xdi00LjVINi45di0xaDQuNVY3aDF6bTkuNi41QTEwIDEwIDAgMTExMiAyYTEwIDEwIDAgMDExMCAxMHptLTEgMGE5IDkgMCAxMC05IDkgOSA5IDAgMDA5LTl6Ii8+PC9nPjwvc3ZnPg==) !important;
-  margin-bottom: 0;
-}
-.accordion-left-icon .collapse-header [data-bs-toggle=collapse][aria-expanded=true]:before {
-  content: url(data:image/svg+xml;
-	base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGlkPSJpdC1wbHVzLWNpcmNsZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkxpdmVsbG9fMTMiIGRhdGEtbmFtZT0iTGl2ZWxsbyAxMyI+CiAgICA8cGF0aCAgZmlsbD0iIzM4MzgzOCIgZD0iTTYuOSAxMS41aDEwdjFoLTEwek0yMiAxMkExMCAxMCAwIDExMTIgMmExMCAxMCAwIDAxMTAgMTB6bS0xIDBhOSA5IDAgMTAtOSA5IDkgOSAwIDAwOS05eiIvPjwvZz48L3N2Zz4=) !important;
-  margin-bottom: 0;
-}
+
+.accordion-left-icon .accordion-header [data-bs-toggle=collapse][aria-expanded=false]:before { content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGlkPSJpdC1wbHVzLWNpcmNsZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkxpdmVsbG9fMTMiIGRhdGEtbmFtZT0iTGl2ZWxsbyAxMyI+CiAgICA8cGF0aCAgZmlsbD0iIzM4MzgzOCIgZD0iTTEyLjQgMTEuNWg0LjV2MWgtNC41VjE3aC0xdi00LjVINi45di0xaDQuNVY3aDF6bTkuNi41QTEwIDEwIDAgMTExMiAyYTEwIDEwIDAgMDExMCAxMHptLTEgMGE5IDkgMCAxMC05IDkgOSA5IDAgMDA5LTl6Ii8+PC9nPjwvc3ZnPg==") !important; margin-bottom: 0; }
+
+.accordion-left-icon .accordion-header [data-bs-toggle=collapse][aria-expanded=true]:before { content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGlkPSJpdC1wbHVzLWNpcmNsZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IkxpdmVsbG9fMTMiIGRhdGEtbmFtZT0iTGl2ZWxsbyAxMyI+CiAgICA8cGF0aCAgZmlsbD0iIzM4MzgzOCIgZD0iTTYuOSAxMS41aDEwdjFoLTEwek0yMiAxMkExMCAxMCAwIDExMTIgMmExMCAxMCAwIDAxMTAgMTB6bS0xIDBhOSA5IDAgMTAtOSA5IDkgOSAwIDAwOS05eiIvPjwvZz48L3N2Zz4=") !important; margin-bottom: 0; }
+
 .accordion-header button[aria-expanded="true"]::before {
   height: 1.5rem !important;
   width: 1.5rem !important;
