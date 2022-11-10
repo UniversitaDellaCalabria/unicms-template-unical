@@ -121,9 +121,11 @@ a.read-more{
  * Footer Main
  */
 .it-footer-main{
-    background: $bordeaux_unical;
+    background: $dark_grey_unical;
 }
-
+.it-footer-main.unical-secondary-footer {
+  background: $bordeaux_unical;
+}
 /**
  * Footer Small Prints
  */
