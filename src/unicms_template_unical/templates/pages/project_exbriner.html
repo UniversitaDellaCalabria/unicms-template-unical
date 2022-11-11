@@ -18,14 +18,86 @@
 <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical_colors_exbriner.css' %}" type="text/css">
 {% endblock custom_style %}
 
+{% block header_slim_wrapper %}
+{% settings_value "MAIN_DOMAIN" as cms_main_domain %}
+<div class="it-header-slim-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-header-slim-wrapper-content">
+                    <a target="_blank" href="//{{ cms_main_domain }}" title="Exbriner" alt="exbriner.unical.it">
+                        <b>UniCal.it</b>
+                    </a>
+                    {% if request.user.is_staff %}
+                    {% include "components/italia_editorialboard_frontend_menu.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/" aria-label="{% trans 'University of Calabria' %}">
+    <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
+        {% block unical_mobile_logo %}
+            {% block header_slim_mobile_org_name_side %}
+                <image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="mw-100" />
+            {% endblock header_slim_mobile_org_name_side %}
+        {% endblock unical_mobile_logo %}
+    </div>
+</a>
+{% endblock header_slim_wrapper %}
+
+{% block header_center_right_zone %}
+
+{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+
+<div class="it-right-zone col-12 col-lg-5 offset-lg-1">
+    <div class="row w-100">
+        <div class="col-2 offset-10 offset-md-2 col-md-10">
+
+            {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
+            <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
+                <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
+                    <title id="search_mobile">
+                        {% trans 'Search' %}
+                    </title>
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-search"></use>
+                </svg>
+            </a>
+            <div class="row d-none d-md-flex">
+                <div class="col-2 col-lg-3 text-end">
+                    <svg class="icon icon-md icon-light" aria-labelledby="search">
+                        <title id="search">
+                            {% trans 'Search' %}
+                        </title>
+                        <use xlink:href="{% static 'svg/sprites.svg' %}#it-search"></use>
+                    </svg>
+                </div>
+                <div class="col-9">
+                    <input id="search-engine-input" type="text" placeholder="{% trans 'Search' %}..." class="top-input" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock header_center_right_zone %}
+
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
 <image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="h-100" />
 {% endblock header_center_logo_side %}
 
-{% block header_slim_mobile_org_name_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="mw-100" />
-{% endblock header_slim_mobile_org_name_side %}
+{% block unical_header_languages %}
+<div class="py-2 bordeaux-unical-bg">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col white-unical-color">
+                Call HORIZON – MSCA – 2021 – DN - Start Date 2022 | 10 | 01
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock unical_header_languages %}
 
 {% block department_contacts %}
 <div class="col-12 col-lg-3">
@@ -54,21 +126,28 @@
 <div class="container text-center text-lg-start">
     <ul class="list-inline social py-4 mt-2 mb-0">
         <li class="list-inline-item">
-            <a class="p-2" href="https://www.facebook.com/desfunical" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
                 </svg><span class="visually-hidden">Facebook</span>
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="p-2" href="https://www.instagram.com/desf_unical/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-instagram"></use>
                 </svg><span class="visually-hidden">Instagram</span>
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="p-2" href="https://www.youtube.com/channel/UCGZBMwxKGPkJXPuw-Xjh_vQ" target="_blank" rel="noopener noreferrer" title="YouTube">
+            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Twitter">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-twitter"></use>
+                </svg><span class="visually-hidden">Twitter</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="YouTube">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-youtube"></use>
                 </svg><span class="visually-hidden">Youtube</span>
@@ -77,3 +156,24 @@
     </ul>
 </div>
 {% endblock footer_top %}
+
+{% block footer_bottom %}
+<div class="it-footer-main clearfix py-4 border-white border-top unical-secondary-footer">
+    <div class="container">
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-2 col-md-1">
+                    <img src="{% static 'images/flags/eu.svg' %}" alt="EU" height="40" />
+                </div>
+                <div class="col-10 col-md-11">
+                    The project EXBRINER — HORIZON-MSCA-DN-2021 has received funding
+                    from the European Union’s Horizon Europe research and innovation programme
+                    under the Marie Sklodowska-Curie grant agreement No 101072449.
+                </div>
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
+    </div>
+</div>
+{% endblock footer_bottom %}

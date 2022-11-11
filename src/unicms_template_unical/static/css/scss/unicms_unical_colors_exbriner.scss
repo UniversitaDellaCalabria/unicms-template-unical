@@ -13,6 +13,8 @@ $light_grey: #e3e9ec;
 $darker_bordeaux: #6f0b0a;
 $lighter_bordeaux: #e03231;
 
+$exbriner_red: #f00;
+
 a {
     color: $bordeaux_unical;
 }
@@ -84,10 +86,6 @@ a.read-more{
     color: $dark_grey_unical;
 }
 
-.it-header-center-wrapper{
-    background: $white;
-}
-
 .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a,
 .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone{
     color: $dark_grey_unical;
@@ -142,7 +140,7 @@ a.read-more{
  * Back to top
  */
 .back-to-top {
-    background: $light_grey_unical;
+    background: $white;
 }
 .back-to-top:hover {
     background: $dark_grey_unical;
@@ -198,7 +196,7 @@ ol.breadcrumb a  {
 }
 
 .icon-light {
-    fill: #fff !important;
+    fill: $bordeaux_unical !important;
 }
 
 .dark-grey-background {
@@ -206,7 +204,7 @@ ol.breadcrumb a  {
 }
 
 .it-header-center-wrapper {
-    background: $bordeaux_unical;
+    background: $white;
 }
 
 .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
@@ -215,8 +213,7 @@ ol.breadcrumb a  {
 
 input.top-input {
     background: none;
-    border: 1px solid #fff;
-    color: $white;
+    border: 1px solid $bordeaux_unical;
 }
 
 .it-hero-wrapper .it-hero-text-wrapper h1 {
@@ -374,5 +371,5 @@ figure.table tr:nth-of-type(2n) {
 }
 
 input.top-input::placeholder {
-    color: #fff;
+    color: $bordeaux_unical;
 }
