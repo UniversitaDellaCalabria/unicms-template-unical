@@ -18,6 +18,9 @@
 <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical_colors_exbriner.css' %}" type="text/css">
 {% endblock custom_style %}
 
+{% block page_meta_description %}{% if webpath.meta_description %}{{ webpath.meta_description }}{% else %}{% trans "EXBRINER Project (Horizon Europe/Marie Skłodowska-Curie Actions/Doctoral Networks, call: HORIZON-MSCA-2021-DN-01)" %}{% endif %}{% endblock page_meta_description %}
+{% block page_meta_keywords %}{% if webpath.meta_keywords %}{{ webpath.meta_keywords }}{% else %}ExBrineR{% endif %}{% endblock page_meta_keywords %}
+
 {% block header_slim_wrapper %}
 {% settings_value "MAIN_DOMAIN" as cms_main_domain %}
 <div class="it-header-slim-wrapper">
