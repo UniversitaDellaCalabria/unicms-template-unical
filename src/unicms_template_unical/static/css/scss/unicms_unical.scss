@@ -83,10 +83,6 @@ ol.breadcrumb a:active  {
     font-size: 1.5rem;
 }
 
-.negative-mt-5 {
-    margin-top: -48px;
-}
-
 input.top-input {
     height: 1.7rem;
     width: 100%;
@@ -528,6 +524,25 @@ figure.table table td figure.image img {
     margin-right: -48px;
 }
 
+.mt-n1 {
+  margin-right: -4px;
+}
+
+.mt-n2 {
+  margin-right: -8px;
+}
+
+.mt-n3 {
+  margin-right: -16px;
+}
+
+.mt-n4 {
+  margin-right: -24px;
+}
+
+.mt-n5 {
+  margin-right: -48px;
+}
 
 /** Gutter to 12px */
 .row {
