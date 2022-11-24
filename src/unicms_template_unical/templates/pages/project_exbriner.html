@@ -28,9 +28,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
-                    <a target="_blank" href="//{{ cms_main_domain }}" title="Exbriner" alt="exbriner.unical.it">
-                        <b>UniCal.it</b>
-                    </a>
+                    <span class="text-white">Call HORIZON – MSCA – 2021 – DN - Start Date 2022 | 10 | 01</span>
                     {% if request.user.is_staff %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
@@ -43,7 +41,12 @@
     <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
         {% block unical_mobile_logo %}
             {% block header_slim_mobile_org_name_side %}
+            <div class="col-5">
                 <image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="mw-100" />
+            </div>
+            <div class="col-5 offset-2">
+                <image src="{% unicms_template_unical_static_path 'images/logos/eu_funded.svg' %}" class="mw-100" />
+            </div>
             {% endblock header_slim_mobile_org_name_side %}
         {% endblock unical_mobile_logo %}
     </div>
@@ -51,51 +54,40 @@
 {% endblock header_slim_wrapper %}
 
 {% block header_center_right_zone %}
-
-{% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
-
-<div class="it-right-zone col-12 col-lg-5 offset-lg-1">
+<div class="it-right-zone col-12 col-lg-4">
     <div class="row w-100">
         <div class="col-2 offset-10 offset-md-2 col-md-10">
-
-            {% settings_value "CMS_PATH_PREFIX" as cms_path_prefix %}
-            <a href='/{{ cms_path_prefix }}search/' aria-label="{% trans 'Search' %}">
-                <svg class="icon d-md-none icon-sm icon-light" aria-labelledby="search_mobile">
-                    <title id="search_mobile">
-                        {% trans 'Search' %}
-                    </title>
-                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-search"></use>
-                </svg>
-            </a>
-            <div class="row d-none d-md-flex">
-                <div class="col-2 col-lg-3 text-end">
-                    <svg class="icon icon-md icon-light" aria-labelledby="search">
-                        <title id="search">
-                            {% trans 'Search' %}
-                        </title>
-                        <use xlink:href="{% static 'svg/sprites.svg' %}#it-search"></use>
-                    </svg>
-                </div>
-                <div class="col-9">
-                    <input id="search-engine-input" type="text" placeholder="{% trans 'Search' %}..." class="top-input" />
-                </div>
-            </div>
+            <image src="{% unicms_template_unical_static_path 'images/logos/eu_funded.svg' %}" class="mw-100" />
         </div>
     </div>
 </div>
 {% endblock header_center_right_zone %}
 
 <!-- Logo in Header -->
-{% block header_center_logo_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="h-100" />
-{% endblock header_center_logo_side %}
+{% block header_brand_wrapper %}
+<div class="it-brand-wrapper col-lg-4 col-12">
+    <a href="{% block header_center_url %}#{% endblock header_center_url %}">
+        {% block header_center_logo %}
+        <div class="d-none d-lg-flex col-lg-12 px-0 department_logo_lg">
+            {% block header_center_logo_side %}
+            <image src="{% unicms_template_unical_static_path 'images/logos/exbriner.png' %}" class="h-100" />
+            {% endblock header_center_logo_side %}
+        </div>
+        {% endblock header_center_logo %}
+
+        {% block header_brand_text %}
+        {% endblock header_brand_text %}
+    </a>
+</div>
+{% endblock header_brand_wrapper %}
 
 {% block unical_header_languages %}
-<div class="py-2 bordeaux-unical-bg">
-    <div class="container text-center">
+<div class="dark-grey-background py-2">
+    <div class="text-center px-3">
         <div class="row">
-            <div class="col white-unical-color">
-                Call HORIZON – MSCA – 2021 – DN - Start Date 2022 | 10 | 01
+            <div class="col">
+                <b>Next-generation membrane technologies for sustainable exploitation of
+    seawater brine resources: transition towards a circular blue industry</b>
             </div>
         </div>
     </div>
@@ -166,10 +158,10 @@
         <section>
             {% block footer_bottom_content %}
             <div class="row">
-                <div class="col-2 col-md-1">
-                    <img src="{% static 'images/flags/eu.svg' %}" alt="EU" height="40" />
+                <div class="col-12 col-lg-2">
+                    <img src="{% static 'images/logos/eu_funded_white.svg' %}" alt="EU" height="40" />
                 </div>
-                <div class="col-10 col-md-11">
+                <div class="col-12 col-lg-10 mt-3 mt-lg-0">
                     The project EXBRINER — HORIZON-MSCA-DN-2021 has received funding
                     from the European Union’s Horizon Europe research and innovation programme
                     under the Marie Sklodowska-Curie grant agreement No 101072449.

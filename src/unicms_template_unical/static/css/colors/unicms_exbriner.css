@@ -206,7 +206,7 @@ input.top-input {
   }
 }
 .it-header-slim-wrapper {
-  background: #00f;
+  background: #254ba2;
   border-bottom: 1px solid #fff;
 }
 .badge-grey-unical {
@@ -291,4 +291,24 @@ figure.table tr:nth-of-type(2n) {
 }
 input.top-input::placeholder {
   color: #396;
+}
+
+/**
+ * custom
+ */
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    padding-top: 0 !important;
+    background: #396;
+}
+
+@media (max-width: 991px){
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px){
+    .menu-wrapper li.megamenu a.nav-link {
+        color: #fff !important;
+    }
 }
