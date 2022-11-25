@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
-                    <span class="text-white">Call HORIZON – MSCA – 2021 – DN - Start Date 2022 | 10 | 01</span>
+                    <small class="text-white">Call HORIZON – MSCA – 2021 – DN - Start Date 2022 | 10 | 01</small>
                     {% if request.user.is_staff %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
@@ -54,7 +54,7 @@
 {% endblock header_slim_wrapper %}
 
 {% block header_center_right_zone %}
-<div class="it-right-zone col-12 col-lg-4">
+<div class="it-right-zone col-12 col-lg-4 d-none d-lg-block">
     <div class="row w-100">
         <div class="col-2 offset-10 offset-md-2 col-md-10">
             <image src="{% unicms_template_unical_static_path 'images/logos/eu_funded.svg' %}" class="mw-100" />
