@@ -12,6 +12,10 @@
 {% load unicms_publications %}
 {% load unicms_template_unical %}
 
+
+{% block analytics_value %}
+{% endblock analytics_value %}
+
 {% block custom_style %}
 <link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
 <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
@@ -121,31 +125,24 @@
 <div class="container text-center text-lg-start">
     <ul class="list-inline social py-4 mt-2 mb-0">
         <li class="list-inline-item">
-            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <a class="p-2" href="https://www.facebook.com/profile.php?id=100088359406451" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
                 </svg><span class="visually-hidden">Facebook</span>
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <a class="p-2" href="https://www.instagram.com/exbriner_eu/" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-instagram"></use>
                 </svg><span class="visually-hidden">Instagram</span>
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="Twitter">
+            <a class="p-2" href="https://twitter.com/exbriner" target="_blank" rel="noopener noreferrer" title="Twitter">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-twitter"></use>
                 </svg><span class="visually-hidden">Twitter</span>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="p-2" href="#" target="_blank" rel="noopener noreferrer" title="YouTube">
-                <svg class="icon icon-secondary align-top">
-                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-youtube"></use>
-                </svg><span class="visually-hidden">Youtube</span>
             </a>
         </li>
     </ul>
