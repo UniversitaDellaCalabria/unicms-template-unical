@@ -32,27 +32,13 @@ bootstrap-italia-base.html
         {{ block.super }}
     {% endblock head_inits %}
 
+    {% block html_head %}
+        {{ block.super }}
+    {% endblock html_head %}
+
     {% block social_tags %}
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="og:description" content="{{ page.description }}" />
-    <meta property="og:image" content="https://{{ request.get_host }}/static/images/logo.png">
-    <meta property="og:image:alt" content="{{ page.title }}" />
-    <meta property="og:image:width" content="330" />
-    <meta property="og:image:height" content="330" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    <meta name="twitter:image" content="https://{{ request.get_host }}/static/images/logo.png">
-    <meta name="twitter:image:alt" content="{{ page.title }}">
+        {{ block.super }}
     {% endblock social_tags %}
-
-    {% block analytics_value %}
-        {% settings_value "ANALYTICS_CODE" as analytics_code %}
-        {{ analytics_code|safe }}
-    {% endblock analytics_value %}
 {% endblock extra_head %}
 
 <!-- Meta Description (for all pages if not overrided) -->
@@ -260,9 +246,6 @@ col-10 offset-2 col-lg-12 offset-lg-0
     </div>
 </div>
 {% endblock unical_header_languages %}
-
-{% load_blocks section='head' as head %}
-{{ head }}
 
 <div class="it-header-navbar-wrapper">
     <div class="container">

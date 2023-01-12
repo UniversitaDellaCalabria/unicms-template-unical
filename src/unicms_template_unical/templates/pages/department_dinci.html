@@ -13,11 +13,6 @@
 {% load unicms_template_unical %}
 
 
-{% block analytics_value %}
-    {% settings_value "ANALYTICS_CODE_DINCI" as analytics_code %}
-    {{ analytics_code|safe }}
-{% endblock analytics_value %}
-
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
 <image src="{% unicms_template_unical_static_path 'images/logos/dinci.svg' %}" class="h-100" />
