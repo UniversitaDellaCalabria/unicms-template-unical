@@ -1,0 +1,20 @@
+{% extends 'blocks/unical_publications_cards_carousel_v2.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load unicms_templates %}
+
+{% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
+
+{% block all_items_link %}
+<p class="mt-3 ms-2 d-lg-none">
+    <a href="{{ page_news_suffix }}" class="no-color">
+        <span class="text-black fw-bold">
+            <svg class="icon me-2">
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-arrow-right-circle"></use>
+            </svg>
+            {% trans "Go to all news" %}
+        </span>
+    </a>
+</p>
+{% endblock all_items_link %}

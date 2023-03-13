@@ -1,0 +1,81 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_templates %}
+
+{% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
+
+{% if publications %}
+<div class="row d-lg-flex">
+
+    {% for item in publications %}
+
+        <div class="col-12 {% if publications.count > 3 %}col-lg-4{% else %}col-lg{% endif %}">
+            <!--start card-->
+            <div class="card-wrapper card-space">
+                <div class="card card-bg no-after">
+                    <div class="card-body">
+                        <div class="etichetta">
+                            {% for cat in item.publication.categories %}
+                                <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
+                                    <a class="no-color" href="{% call obj=item method='get_url_list' category_name=cat.name %}">
+                                        <b>{{ cat.name }}</b>
+                                    </a>
+                                </span>
+                            {% endfor %}
+                        </div>
+                        {% if item.publication.image_url %}
+                        <div class="img-responsive-wrapper mb-3 mx-n4">
+                            <div class="img-responsive img-responsive-panoramic">
+                                <figure class="img-wrapper">
+                                  <a href="{{ item.url }}">
+                                    <img src="{{ item.publication.image_url }}"
+                                         title="{{ item.publication.image_title }}"
+                                         alt="{{ item.publication.image_description }}"
+                                         loading="lazy">
+                                  </a>
+                                </figure>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="category-top">
+                            <span>{% trans "Published" %}: {{ item.date_start | date:"d/m/Y, H:i" }}</span>
+                            {% include "includes/edit_news.html" with item=item %}
+                        </div>
+
+                        <h4 class="card-title">
+                            <a href="{{ item.url }}" class="no-color">
+                                {{ item.publication.title }}
+                            </a>
+                        </h4>
+                        {% if not item.publication.image_url %}
+                        <p class="card-text">
+                            {{ item.publication.subheading|truncatechars:135 }}
+                        </p>
+                        {% endif %}
+
+                        {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:item.url %}
+                    </div>
+                </div>
+            </div>
+            <!--end card-->
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% block all_items_link %}
+<p class="mt-3 ms-2">
+    <a href="{{ page_news_suffix }}" class="no-color">
+        <span class="text-black fw-bold">
+            <svg class="icon me-2">
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-arrow-right-circle"></use>
+            </svg>
+            {% trans "Go to all news" %}
+        </span>
+    </a>
+</p>
+{% endblock all_items_link %}
+{% endif %}
