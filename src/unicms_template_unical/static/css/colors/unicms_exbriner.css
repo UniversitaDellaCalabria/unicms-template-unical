@@ -164,29 +164,10 @@ a.read-more{
     border-color: var(--bordeaux_unical);
 }
 
-/**
- * Section muted
- */
-.section.section-muted {
-    background-color: #f7f7f7;
-}
-
-a {
-    color: #B01717;
-}
-
-a:hover, a:active {
-    color: #6f0b0a;
-}
-
 /** only visited **/
 a.no-color,
 ol.breadcrumb a  {
     color: var(--dark_grey_unical);
-}
-
-.background-yellow {
-    background: #ffed00;
 }
 
 .background-white {
