@@ -376,3 +376,16 @@ figure.table tr:nth-of-type(2n) {
 input.top-input::placeholder {
     color: var(--bordeaux_unical);
 }
+
+/**
+ * custom
+ */
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    background: var(--bordeaux_unical);
+}
+
+@media (min-width: 992px){
+    .menu-wrapper li.megamenu a.nav-link {
+        color: var(--white) !important;
+    }
+}

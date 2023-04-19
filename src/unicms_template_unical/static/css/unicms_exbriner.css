@@ -1,0 +1,9 @@
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    padding-top: 0 !important;
+}
+
+@media (max-width: 991px){
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        width: 100%;
+    }
+}
