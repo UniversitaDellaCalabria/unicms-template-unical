@@ -168,7 +168,6 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected {
   display: none;
 }
 .navbar .navbar-collapsable .navbar-nav li a.nav-link {
-  color: #000;
   border-bottom: none !important;
 }
 .it-carousel-wrapper .owl-stage-outer {

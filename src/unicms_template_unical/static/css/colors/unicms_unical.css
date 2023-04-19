@@ -377,3 +377,7 @@ figure.table tr:nth-of-type(2n) {
 input.top-input::placeholder {
     color: #fff;
 }
+
+.navbar .navbar-collapsable .navbar-nav li a.nav-link {
+  color: #000;
+}
