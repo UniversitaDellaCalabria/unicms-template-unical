@@ -379,9 +379,14 @@ input.top-input::placeholder {
 }
 
 .navbar .navbar-collapsable .navbar-nav li a.nav-link {
-  color: #000;
+    color: #000;
 }
 
-.nav-tabs .nav-link.active .icon {
+.nav-tabs .nav-link .icon {
+    fill: var(--dark_grey);
+}
+
+.nav-tabs .nav-link.active .icon,
+.nav-tabs .nav-link .icon:hover {
     fill: var(--bordeaux_unical);
 }
