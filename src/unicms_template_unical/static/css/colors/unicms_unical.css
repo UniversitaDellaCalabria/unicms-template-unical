@@ -370,7 +370,7 @@ figure.table tr:nth-of-type(2n) {
     color: var(--bordeaux_unical);
 }
 
-.it-footer-main h4 a {
+.it-footer-main h4 span {
     border-bottom: 1px solid var(--bordeaux_unical);
 }
 
