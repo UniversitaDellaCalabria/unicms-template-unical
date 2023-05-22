@@ -85,7 +85,11 @@ def load_current_item_from_menu(context):
                                             is_active=True,
                                             webpath=context['page'].webpath,
                                             webpath__alias__isnull=True,
-                                            webpath__is_active=True).first()
+                                            webpath__is_active=True)\
+                                    .select_related('parent')\
+                                    .select_related('publication')\
+                                    .select_related('inherited_content')\
+                                    .first()
     if item:
         if item.inherited_content: item.inherited_content.translate_as(language)
         if item.publication: item.publication.translate_as(language)
