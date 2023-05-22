@@ -6,11 +6,6 @@ bootstrap-italia-base.html
 {% extends 'base-setup.html' %}
 
 {% load i18n %}
-
-<!-- From app django-sass-processor -->
-{% if debug %}
-    {% load sass_tags %}
-{% endif %}
 {% load static %}
 
 <!-- load custom template tags -->
@@ -24,7 +19,6 @@ bootstrap-italia-base.html
 <!-- Return to Agid native template -->
 {% block extra_head %}
 {{ block.super }}
-<link rel="stylesheet" href="{% sass_src 'css/unical-portale-v-original.scss' %}" type="text/css">
 {% endblock extra_head %}
 
 <!-- Page Title -->
