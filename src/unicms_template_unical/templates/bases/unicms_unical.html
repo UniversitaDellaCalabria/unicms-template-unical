@@ -60,9 +60,8 @@ bootstrap-italia-base.html
            style="aspect-ratio: 11,15"/>
     <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
            class="ms-3"
-           style="width: 8%"
-           alt="{% trans 'HRS4R' %}"
-           style="aspect-ratio: 1"/>
+           style="width: 8%; aspect-ratio: 1"
+           alt="{% trans 'HRS4R' %}"/>
 </div>
 {% endblock header_center_logo %}
 
@@ -78,17 +77,19 @@ bootstrap-italia-base.html
             {% block unical_mobile_logo %}
             <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
                    class="w-100 h-100 d-md-none"
-                   alt="{% trans 'University of Calabria' %}"/>
+                   alt="{% trans 'University of Calabria' %}"
+                   style="aspect-ratio: 11,15"/>
             <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
                    class="d-md-none ms-1"
-                   style="width: 8%"
+                   style="width: 8%; aspect-ratio: 1"
                    alt="{% trans 'HRS4R' %}"/>
             <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
                    class="w-75 h-100 d-none d-md-block"
-                   alt="{% trans 'University of Calabria' %}"/>
+                   alt="{% trans 'University of Calabria' %}"
+                   style="aspect-ratio: 11,15"/>
             <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
                    class="d-none d-md-block ms-3"
-                   style="width: 6%"
+                   style="width: 6%; aspect-ratio: 1"
                    alt="{% trans 'HRS4R' %}"/>
             {% endblock unical_mobile_logo %}
         </div>
