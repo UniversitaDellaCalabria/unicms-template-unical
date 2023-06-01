@@ -1,0 +1,25 @@
+{% load static %}
+{% load unicms_contexts %}
+{% load unicms_template_unical %}
+
+
+<div class="card-wrapper card-space h-auto d-block">
+    <div style="background: #b61918">
+        <a href="/live" style="text-decoration: none" title="Unical Live">
+            <div class="row">
+                <div class="col-3 col-lg-4">
+                    <div class="w-100 py-4 ps-4 pe-2">
+                        <img src="{% unicms_template_unical_static_path 'images/unical-live.jpg' %}" style="width: 100%; aspect-ratio: 1,1" alt="Unical Live" />
+                    </div>
+                </div>
+                <div class="col-9 col-lg-8 py-4 pe-4 ps-0">
+                    <p style="line-height: 1.2; margin-bottom: 0">
+                        <small class="text-white">
+                            {{ publication.content|safe }}
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
