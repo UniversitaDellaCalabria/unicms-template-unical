@@ -6,6 +6,10 @@
 
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as page_news_suffix %}
 
+
+{% block categories_buttons %}
+{% endblock categories_buttons %}
+
 {% block all_items_link %}
 <p class="mt-3 ms-2 d-lg-none">
     <a href="{{ page_news_suffix }}" class="no-color">

@@ -15,6 +15,8 @@
         <div class="card card-bg no-after">
             <div class="card-body">
                 {% block desktop_item_body %}
+
+                {% block categories_buttons %}
                 {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
@@ -26,6 +28,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
+                {% endblock categories_buttons %}
 
                 {% if pub.publication.image_url %}
                 <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
