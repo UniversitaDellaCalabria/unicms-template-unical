@@ -127,7 +127,7 @@
                     {% endblock categories_buttons_3 %}
 
                     {% if pub.publication.image_url %}
-                    <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>
+                    <div class="img-responsive-wrapper mb-3 mx-n4" {% block categories_margin_3 %}{% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}{% endblock categories_margin_3 %}>
                         <div class="img-responsive img-responsive-panoramic">
                             <figure class="img-wrapper">
                               <a href="{{ pub.url }}">
@@ -194,7 +194,7 @@
                     {% endblock categories_buttons_4 %}
 
                     {% if pub.publication.image_url %}
-                    <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>
+                    <div class="img-responsive-wrapper mb-3 mx-n4" {% block categories_margin_4 %}{% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}{% endblock categories_margin_4 %}>
                         <div class="img-responsive img-responsive-panoramic">
                             <figure class="img-wrapper">
                               <a href="{{ pub.url }}">

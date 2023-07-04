@@ -94,7 +94,7 @@
                 {% endblock categories_buttons_2 %}
 
                 {% if pub.publication.image_url %}
-                <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
+                <div class="img-responsive-wrapper mb-3 mx-n4" {% block categories_margin_2 %}{% if categories|length == 1 %}style="margin-top: -24px"{% endif %}{% block categories_margin_2 %}>
                     <div class="img-responsive img-responsive-panoramic">
                         <figure class="img-wrapper">
                           <a href="{{ pub.url }}">
