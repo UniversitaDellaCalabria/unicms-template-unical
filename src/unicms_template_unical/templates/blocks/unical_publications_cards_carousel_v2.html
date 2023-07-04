@@ -76,7 +76,7 @@
                                 {% endfor %}
                             </div>
                             {% endif %}
-                            {% block categories_buttons_2 %}
+                            {% endblock categories_buttons_2 %}
 
                             <div class="category-top">
                                 <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
@@ -124,7 +124,7 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    {% block categories_buttons_3 %}
+                    {% endblock categories_buttons_3 %}
 
                     {% if pub.publication.image_url %}
                     <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>
@@ -191,7 +191,7 @@
                         {% endfor %}
                     </div>
                     {% endif %}
-                    {% block categories_buttons_4 %}
+                    {% endblock categories_buttons_4 %}
 
                     {% if pub.publication.image_url %}
                     <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>
