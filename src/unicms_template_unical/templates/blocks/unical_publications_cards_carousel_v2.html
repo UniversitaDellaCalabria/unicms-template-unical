@@ -20,7 +20,7 @@
                         {% if pub.publication.image_url %}
                         <div class="col-12 col-lg-6">
 
-                            {% block categories_buttons %}
+                            {% block categories_buttons_1 %}
                             {% if pub.publication.categories|length > 1 %}
                             <div class="etichetta d-lg-none">
                                 {% for cat in pub.publication.categories %}
@@ -32,7 +32,7 @@
                                 {% endfor %}
                             </div>
                             {% endif %}
-                            {% endblock categories_buttons %}
+                            {% endblock categories_buttons_1 %}
 
                             <div class="img-responsive-wrapper mb-3 mx-n4 d-lg-none ">
                                 <div class="img-responsive img-responsive-panoramic">
@@ -64,6 +64,7 @@
                         {% endif %}
                         <div class="col-12 col-lg-6 ps-lg-4">
 
+                            {% block categories_buttons_2 %}
                             {% if pub.publication.categories|length > 1 %}
                             <div class="etichetta d-none d-lg-block">
                                 {% for cat in pub.publication.categories %}
@@ -75,6 +76,7 @@
                                 {% endfor %}
                             </div>
                             {% endif %}
+                            {% block categories_buttons_2 %}
 
                             <div class="category-top">
                                 <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
@@ -110,6 +112,7 @@
                 <div class="card-body">
                     {% block desktop_item_body %}
 
+                    {% block categories_buttons_3 %}
                     {% if pub.publication.categories|length > 1 %}
                     <div class="etichetta">
                         {% for cat in pub.publication.categories %}
@@ -121,6 +124,7 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                    {% block categories_buttons_3 %}
 
                     {% if pub.publication.image_url %}
                     <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>
@@ -175,6 +179,7 @@
                 <div class="card-body">
                     {% block mobile_item_body %}
 
+                    {% block categories_buttons_4 %}
                     {% if categories|length != 1 %}
                     <div class="etichetta">
                         {% for cat in pub.publication.categories %}
@@ -186,6 +191,7 @@
                         {% endfor %}
                     </div>
                     {% endif %}
+                    {% block categories_buttons_4 %}
 
                     {% if pub.publication.image_url %}
                     <div class="img-responsive-wrapper mb-3 mx-n4" {% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}>

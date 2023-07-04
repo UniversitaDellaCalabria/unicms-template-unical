@@ -16,7 +16,7 @@
             <div class="card-body">
                 {% block desktop_item_body %}
 
-                {% block categories_buttons %}
+                {% block categories_buttons_1 %}
                 {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
@@ -28,7 +28,7 @@
                     {% endfor %}
                 </div>
                 {% endif %}
-                {% endblock categories_buttons %}
+                {% endblock categories_buttons_1 %}
 
                 {% if pub.publication.image_url %}
                 <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
@@ -78,6 +78,8 @@
         <div class="card card-bg no-after">
             <div class="card-body">
                 {% block mobile_item_body %}
+
+                {% block categories_buttons_2 %}
                 {% if categories|length != 1 %}
                 <div class="etichetta">
                     {% for cat in pub.publication.categories %}
@@ -89,6 +91,8 @@
                     {% endfor %}
                 </div>
                 {% endif %}
+                {% block categories_buttons_2 %}
+
                 {% if pub.publication.image_url %}
                 <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
                     <div class="img-responsive img-responsive-panoramic">
