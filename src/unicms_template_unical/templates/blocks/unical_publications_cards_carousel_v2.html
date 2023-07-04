@@ -20,6 +20,7 @@
                         {% if pub.publication.image_url %}
                         <div class="col-12 col-lg-6">
 
+                            {% block categories_buttons %}
                             {% if pub.publication.categories|length > 1 %}
                             <div class="etichetta d-lg-none">
                                 {% for cat in pub.publication.categories %}
@@ -31,6 +32,7 @@
                                 {% endfor %}
                             </div>
                             {% endif %}
+                            {% endblock categories_buttons %}
 
                             <div class="img-responsive-wrapper mb-3 mx-n4 d-lg-none ">
                                 <div class="img-responsive img-responsive-panoramic">
