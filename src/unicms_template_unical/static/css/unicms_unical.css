@@ -88,9 +88,16 @@ input.top-input {
 .nav-mobile {
   width: 100%;
 }
+/*
 .it-header-slim-wrapper .container {
   padding-left: 0;
   padding-right: 0;
+}
+*/
+@media (min-width: 992px){
+    .it-header-slim-wrapper .it-header-slim-wrapper-content {
+      padding: 0;
+    }
 }
 .badge-grey-unical {
   font-weight: 500;

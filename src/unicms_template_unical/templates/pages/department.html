@@ -15,17 +15,33 @@
 {% block header_slim_wrapper %}
 {% settings_value "MAIN_DOMAIN" as cms_main_domain %}
 <div class="it-header-slim-wrapper">
-    <div class="container">
+    <div class="container d-none d-lg-block">
         <div class="row">
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
                     <a target="_blank" href="//{{ cms_main_domain }}" title="UniCal.it" alt="UniCal.it">
+                        {% block unical_top_bar_text %}
                         <b>UniCal.it</b>
+                        {% endblock unical_top_bar_text %}
                     </a>
                     {% if request.user.is_staff %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-lg-none w-100">
+        <div class="col-12">
+            <div class="it-header-slim-wrapper-content">
+                <a target="_blank" href="//{{ cms_main_domain }}" title="UniCal.it" alt="UniCal.it">
+                    {% block unical_top_bar_text_mobile %}
+                    <b>UniCal.it</b>
+                    {% endblock unical_top_bar_text_mobile %}
+                </a>
+                {% if request.user.is_staff %}
+                {% include "components/italia_editorialboard_frontend_menu.html" %}
+                {% endif %}
             </div>
         </div>
     </div>

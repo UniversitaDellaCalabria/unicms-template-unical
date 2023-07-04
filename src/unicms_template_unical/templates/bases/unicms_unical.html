@@ -280,8 +280,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                             <ul class="navbar-nav">
                                 {% block menu_main %}
                                     <!-- LOAD menu Blocks -->
-                                    {% load_blocks section='menu-1' as main_menu %}
-                                    {{ main_menu }}
+                                    {% load_blocks section='menu-1' %}
                                 {% endblock menu_main %}
                             </ul>
                         </div>
