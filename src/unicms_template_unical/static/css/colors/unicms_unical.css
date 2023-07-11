@@ -318,7 +318,7 @@ a .badge-grey-unical.selected {
     color: var(--light_grey_unical);
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    border-bottom-color: var(--bordeaux_unical);
+    border-bottom-color: var(--bordeaux_unical) !important;
     color: var(--dark_grey_unical);
 }
 
