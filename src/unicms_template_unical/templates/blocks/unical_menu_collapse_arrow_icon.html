@@ -1,0 +1,34 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+
+
+{% random_id as id %}
+
+<div id="collapseDiv-{{ id }}-lft" class="accordion accordion-left-icon">
+
+    {% for item in items %}
+
+    <div class="accordion-item">
+
+        {% call obj=item method='link' request=request as link %}
+
+        <div class="accordion-header accordion-header-href" id="heading-{{ id }}-{{ forloop.counter0 }}-lft">
+            <a class="no-color"
+               title="{{ item.name }}"
+               href="{% if item.link %}{{ link }}{% else %}#{% endif %}">
+                <button class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        aria-expanded="false">
+                    {{ item.name }}
+                </button>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
