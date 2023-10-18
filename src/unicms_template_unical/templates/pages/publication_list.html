@@ -17,6 +17,7 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as publication_list_prefix %}
 {% settings_value "FACEBOOK_ENDPOINT" as facebook_share %}
+{% settings_value "INSTAGRAM_ENDPOINT" as instagram_share %}
 {% settings_value "TWITTER_ENDPOINT" as twitter_share %}
 {% settings_value "WHATSAPP_ENDPOINT" as whatsapp_share %}
 {% settings_value "LINKEDIN_ENDPOINT" as linkedin_share %}
@@ -218,6 +219,17 @@ var news = new Vue({
                                             <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
                                         </svg>
                                         <span class="visually-hidden">{% trans 'Share on' %} Facebook</span>
+                                    </span>
+
+                                    <!-- Instagram -->
+                                    <span
+                                        :onclick="'javascript:window.open(&quot;{{ instagram_share }}{{ request.get_host }}' + item.path +'&quot;, &quot;&quot;, &quot;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600&quot;);return false;'"
+                                        title="{% trans 'Share on' %} Instagram"
+                                        style="text-decoration: none; cursor: pointer">
+                                        <svg class="icon icon-sm icon-secondary align-top">
+                                            <use xlink:href="{% static 'svg/sprites.svg' %}#it-instagram"></use>
+                                        </svg>
+                                        <span class="visually-hidden">{% trans 'Share on' %} Instagram</span>
                                     </span>
 
                                     <!-- Twitter -->
