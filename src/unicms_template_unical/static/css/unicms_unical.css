@@ -456,3 +456,18 @@ figure.table table td figure.image img {
 .input-group-append .btn, .input-group-prepend .btn {
   z-index: inherit;
 }
+
+.dark-brightness .it-hero-text-wrapper.unical-hero-text-wrapper {
+  backdrop-filter: brightness(50%);
+  padding: 20px;
+}
+@media (max-width: 991px) {
+  .dark-brightness .it-hero-text-wrapper.unical-hero-text-wrapper {
+    margin: 26px;
+  }
+}
+@media (min-width: 992px) {
+  .dark-brightness .it-hero-text-wrapper.unical-hero-text-wrapper {
+    margin: 120px 26px 168px;
+  }
+}
