@@ -1,0 +1,107 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/sssap.svg' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/sssap.svg' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block header_center_right_zone %}
+{% endblock header_center_right_zone %}
+
+{% block unical_header_languages %}
+{% endblock unical_header_languages %}
+
+{% block footer_top %}
+{% endblock footer_top %}
+
+{% block footer_bottom %}
+<div class="it-footer-main clearfix py-4 border-white border-top unical-secondary-footer">
+    <div class="container">
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/pec/" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a></li>
+                                    <li><a class="list-item" href="/fatturazione-elettronica/" title="{% trans 'Electronic invoicing' %}">{% trans 'Electronic invoicing' %}</a></li>
+                                    <li><a class="list-item" href="mailto:redazioneportale@unical.it" title="{% trans 'Web editor / Contacts' %}">{% trans 'Web editor / Contacts' %}</a></li>
+                                    <li><a class="list-item" href="/accessibilita/" title="{% trans 'Accessibility and performance' %}">{% trans 'Accessibility and performance' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/privacy/" title="{% trans 'Data protection / GDPR' %}">{% trans 'Data protection / GDPR' %}</a></li>
+                                    <li><a class="list-item" href="/cookie/" title="{% trans 'Cookies and consent methods' %}">{% trans 'Cookies and consent methods' %}</a></li>
+                                    <li><a class="list-item" href="/note-legali/" title="{% trans 'Legal notes' %}">{% trans 'Legal notes' %}</a></li>
+                                    <li><a class="list-item" href="/credits/" title="{% trans 'Credits' %}">{% trans 'Credits' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/media/medias/2021/phishing.pdf" title="{% trans 'Phishing: how to protect yourself' %}">{% trans 'Phishing: how to protect yourself' %}</a></li>
+                                    <li><a class="list-item" href="/statistiche-accessi-web" title="{% trans 'Web access statistics' %}">{% trans 'Web access statistics' %}</a></li>
+                                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-per-il-personale/gestione-sito/" title="{% trans 'User Guide - UniCMS' %}">{% trans 'User Guide - UniCMS' %}</a></li>
+                                    <li><a class="list-item" href="/editorial-board/" title="{% trans 'Intranet area' %}">{% trans 'Intranet area' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="/feed-rss/" title="{% trans 'RSS feeds' %}">{% trans 'RSS feeds' %}</a></li>
+                                    <li><a class="list-item" href="/sezione-alumni" title="{% trans 'Alumni' %}">{% trans 'Alumni' %}</a></li>
+                                    <li><a class="list-item" href="/identita-visiva-di-ateneo/" title="{% trans 'Identity / Logo section' %}">{% trans 'Identity / Logo section' %}</a></li>
+                                    <li><a class="list-item" href="/sitemap/" title="{% trans 'Sitemap' %}">{% trans 'Sitemap' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="mb-3">
+                        <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
+                               class="w-100 h-100"
+                               alt="{% trans 'University of Calabria' %}"/>
+                    </div>
+                    <p class="mb-4">
+                        Via Pietro Bucci
+                        <br>
+                        87036 Rende CS
+                        <br>
+                        <a class="text-white" href="/pec/" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
+                        <br>
+                        C.F. 80003950781 / P.I. 00419160783
+                    </p>
+                </div>
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
+    </div>
+</div>
+{% endblock footer_bottom %}
