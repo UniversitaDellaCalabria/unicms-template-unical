@@ -37,6 +37,31 @@
 {% endblock unical_header_languages %}
 
 {% block footer_top %}
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.facebook.com/AIROYoungResearchersChapter/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
+                </svg><span class="visually-hidden">Facebook</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.instagram.com/airoyoung/?hl=it" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-instagram"></use>
+                </svg><span class="visually-hidden">Instagram</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://twitter.com/AIROyoung" target="_blank" rel="noopener noreferrer" title="Twitter">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-twitter"></use>
+                </svg><span class="visually-hidden">Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
 {% endblock footer_top %}
 
 {% block footer_bottom_1 %}
