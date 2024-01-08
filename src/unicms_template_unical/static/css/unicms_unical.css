@@ -479,3 +479,15 @@ figure.table table td figure.image img {
     margin: 120px 26px;
   }
 }
+
+/** Bootstrap Italia > 2.6.2 fixes */
+b, strong {
+  font-weight: 600;
+}
+
+@media (min-width: 576px){
+  p, ul, ol, dl {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
