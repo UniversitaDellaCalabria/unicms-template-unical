@@ -8,6 +8,11 @@
 a {
   cursor: pointer;
 }
+
+img {
+  max-width: 100%;
+}
+
 /** * Header Center Wrapper */
 @media (min-width: 992px) {
   .it-header-center-wrapper {
