@@ -18,7 +18,6 @@
            megamenu">
     <a class="nav-link
               {% if item.has_childs %}dropdown_toggle {% endif %}
-              {% if not forloop.counter0 %}ps-lg-2{% endif %}
               pe-lg-1"
        href={% if item.link %}"{{ link }}"{% else %}"#"{% endif %}>
             <span>{{ item.name }}</span>
