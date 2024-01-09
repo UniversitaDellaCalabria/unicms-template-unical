@@ -58,7 +58,7 @@ a.no-color:hover, a.no-color:active, ol.breadcrumb a:hover, ol.breadcrumb a:acti
 }
 .bigger-font {
   font-size: 1.5rem;
-  font-size: 2rem;
+  line-height: 2rem;
 }
 input.top-input {
   height: 1.7rem;
