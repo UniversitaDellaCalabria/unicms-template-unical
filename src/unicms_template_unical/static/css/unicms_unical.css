@@ -508,3 +508,6 @@ p.tags {
   font-size: 1rem;
   line-height: 1.75rem;
 }
+.table-sm>:not(caption)>*>* {
+    padding: 0.35rem 0.35rem;
+}
