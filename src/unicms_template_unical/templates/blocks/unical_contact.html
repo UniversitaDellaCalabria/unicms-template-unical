@@ -22,59 +22,57 @@
             {% endif %}
         </div>
         <div class="col-9 align-left">
-            <small>
-                <b>{{ contact.name }}</b>
-                {% if contact_infos %}
-                <div class="mt-2">
-                    {% for info in contact_infos %}
-                    <div class="row">
-                        {% if info.info_type != 'other' %}
-                        <div class="col-2">
-                            <span>
-                                <svg class="icon icon-sm icon-muted me-2">
-                                    {% if info.info_type == 'email' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-mail"></use>
-                                    {% elif info.info_type == 'hours' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-clock"></use>
-                                    {% elif info.info_type == 'location' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-map-marker"></use>
-                                    {% elif info.info_type == 'website' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-link"></use>
-                                    {% elif info.info_type == 'phone' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-telephone"></use>
-                                    {% comment %}
-                                    {% elif info.info_type == 'other' %}
-                                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-chevron-right"></use>
-                                    {% endcomment %}
-                                    {% endif %}
-                                </svg>
-                            </span>
-                        </div>
-                        {% endif %}
-
-                        {% if info.info_type != 'other' %}
-                        <div class="col-10">
-                        {% else %}
-                        <div class="col-12">
-                        {% endif %}
-                            {% if info.info_type == 'website' %}
-                                {% if info.label %}
-                                    <a href="{{ info.value }}">{{ info.label }}</a>
-                                {% else %}
-                                    <a href="{{ info.value }}">{{ info.value }}</a>
+            <b>{{ contact.name }}</b>
+            {% if contact_infos %}
+            <div class="mt-2">
+                {% for info in contact_infos %}
+                <div class="row">
+                    {% if info.info_type != 'other' %}
+                    <div class="col-2">
+                        <span>
+                            <svg class="icon icon-sm icon-muted me-2">
+                                {% if info.info_type == 'email' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-mail"></use>
+                                {% elif info.info_type == 'hours' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-clock"></use>
+                                {% elif info.info_type == 'location' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-map-marker"></use>
+                                {% elif info.info_type == 'website' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-link"></use>
+                                {% elif info.info_type == 'phone' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-telephone"></use>
+                                {% comment %}
+                                {% elif info.info_type == 'other' %}
+                                <use xlink:href="{% static 'svg/sprites.svg' %}#it-chevron-right"></use>
+                                {% endcomment %}
                                 {% endif %}
-                            {% else %}
-                                {% if info.label %}
-                                    {{ info.label }}:
-                                {% endif %}
-                                {{ info.value }}
-                            {% endif %}
-                        </div>
+                            </svg>
+                        </span>
                     </div>
-                    {% endfor %}
+                    {% endif %}
+
+                    {% if info.info_type != 'other' %}
+                    <div class="col-10">
+                    {% else %}
+                    <div class="col-12">
+                    {% endif %}
+                        {% if info.info_type == 'website' %}
+                            {% if info.label %}
+                                <a href="{{ info.value }}">{{ info.label }}</a>
+                            {% else %}
+                                <a href="{{ info.value }}">{{ info.value }}</a>
+                            {% endif %}
+                        {% else %}
+                            {% if info.label %}
+                                {{ info.label }}:
+                            {% endif %}
+                            {{ info.value }}
+                        {% endif %}
+                    </div>
                 </div>
-                {% endif %}
-            </small>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

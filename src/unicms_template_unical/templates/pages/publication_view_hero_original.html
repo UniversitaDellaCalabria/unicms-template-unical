@@ -90,7 +90,7 @@
                                     <br>
                                     <svg class="icon icon-xs">
                                         <use xlink:href="{% static 'svg/sprites.svg' %}#it-clock"></use>
-                                    </svg> <small class="text-muted">{{ related_pub.related.date_start|date:"d/m/Y, H:i" }}</small>
+                                    </svg> <span class="text-muted">{{ related_pub.related.date_start|date:"d/m/Y, H:i" }}</span>
                                 </li>
                             {% endfor %}
                             </ul>

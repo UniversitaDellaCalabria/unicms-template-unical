@@ -58,6 +58,7 @@ a.no-color:hover, a.no-color:active, ol.breadcrumb a:hover, ol.breadcrumb a:acti
 }
 .bigger-font {
   font-size: 1.5rem;
+  font-size: 2rem;
 }
 input.top-input {
   height: 1.7rem;
@@ -123,7 +124,9 @@ a .badge-grey-unical:hover, a .badge-grey-unical.selected {
 .breadcrumb-container {
   padding-top: 15px;
   padding-bottom: 15px;
-  font-size: 0.78rem;
+}
+.breadcrumb {
+  font-size: 0.88rem;
 }
 .breadcrumb-container .breadcrumb {
   margin-bottom: 0;
@@ -484,10 +487,20 @@ figure.table table td figure.image img {
 b, strong {
   font-weight: 600;
 }
-
-@media (min-width: 576px){
-  p, ul, ol, dl {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
+h1, h2, h3, .h1, .h2, .h3 {
+  font-weight: 600;
+}
+h4, h5, h6, .h4, .h5, .h6 {
+  font-weight: 500;
+}
+p, ul, ol, dl {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+p.tags {
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
+.vc-container, .vc-container * {
+  font-size: 0.8rem;
 }

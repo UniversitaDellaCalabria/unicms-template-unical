@@ -103,7 +103,7 @@
 
                 {% if publication_context.publication.tags.all %}
                 <h4>{% trans "tags" %}</h4>
-                <p style="font-size: 1.2rem">
+                <p class="tags">
                 {% for tag in publication_context.publication.tags.all %}
                     <span class="badge badge-grey-unical square-corners">
                         <a href="/{{ cms_path_prefix }}search/?tags={{ tag.name }}" class="no-color">
@@ -173,7 +173,7 @@
                             {% for related_pub in publication_context.publication.related_publications %}
                                 <li>
                                     <a class="no-color" href="{{ related_pub.first_available_url }}">
-                                        <small><b>- {{ related_pub.related }}</b></small>
+                                        <b>- {{ related_pub.related }}</b>
                                     </a>
                                 </li>
                             {% endfor %}
@@ -195,7 +195,7 @@
                             {% for link in related_links %}
                                 <li>
                                     <a class="no-color" href="{{ link.url }}">
-                                        <small><b>- {{ link.name }}</b></small>
+                                        <b>- {{ link.name }}</b>
                                     </a>
                                 </li>
                             {% endfor %}
@@ -222,7 +222,7 @@
                             {% for item in attachments %}
                                 <li>
                                     <a class="no-color" href="{{ item.file.url }}">
-                                        <small><b>- {{ item.name }}</b></small>
+                                        <b>- {{ item.name }}</b>
                                     </a>
                                 </li>
                             {% endfor %}
@@ -247,7 +247,7 @@
                             <ul class="mb-0 ps-0 list-unstyled">
                             {% for lang,language in publication_context.publication.available_in_languages %}
                                 <li>
-                                    <small><b>- {{ language }}</b></small>
+                                    <b>- {{ language }}</b>
                                 </li>
                             {% endfor %}
                             </ul>

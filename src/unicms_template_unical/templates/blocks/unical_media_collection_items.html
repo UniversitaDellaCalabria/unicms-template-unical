@@ -10,13 +10,11 @@
                 {{ item.media.title }}
             </a>
             <p>
-                <small>
-                     {{ item.media.description }}
-                    <br>
-                    <span class="text-muted">
-                        {{ item.media.file_type }} - {{ item.media.file_size_kb }} KB
-                    </span>
-                </small>
+                {{ item.media.description }}
+                <br>
+                <span class="text-muted">
+                    {{ item.media.file_type }} - {{ item.media.file_size_kb }} KB
+                </span>
             </p>
         </div>
         {% endfor %}
