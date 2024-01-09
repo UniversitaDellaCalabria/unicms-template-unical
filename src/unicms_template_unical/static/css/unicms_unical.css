@@ -504,3 +504,7 @@ p.tags {
 .vc-container, .vc-container * {
   font-size: 0.8rem;
 }
+.accordion-body, table {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
