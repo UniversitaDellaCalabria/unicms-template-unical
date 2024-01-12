@@ -41,7 +41,9 @@ p.tags {
 .table-sm>:not(caption)>*>* {
     padding: 0.35rem 0.35rem;
 }
-.table {
+.table,
+.accordion-header .accordion-button,
+.form-check [type=checkbox]+label, .form-check [type=radio]+label {
   font-size: 1rem;
 }
 
