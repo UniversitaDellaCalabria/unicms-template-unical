@@ -25,7 +25,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 }
 p, ul, ol, dl {
   font-size: 1rem;
-  line-height: 1.75rem;
+  line-height: 1.55rem;
 }
 p.tags {
   font-size: 1.1rem;
@@ -36,7 +36,7 @@ p.tags {
 }
 .accordion-body, table {
   font-size: 1rem;
-  line-height: 1.75rem;
+  line-height: 1.55rem;
 }
 .table-sm>:not(caption)>*>* {
     padding: 0.35rem 0.35rem;
