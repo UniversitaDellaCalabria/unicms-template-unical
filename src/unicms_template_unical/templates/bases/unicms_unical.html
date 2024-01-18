@@ -248,6 +248,9 @@ col-10 offset-2 col-lg-12 offset-lg-0
 </div>
 {% endblock unical_header_languages %}
 
+{% block unical_main_menu %}
+{% load_blocks section='menu-1' as menu_1 %}
+{% if menu_1 or show_main_menu %}
 <div class="it-header-navbar-wrapper">
     <div class="container">
         <div class="row">
@@ -280,7 +283,7 @@ col-10 offset-2 col-lg-12 offset-lg-0
                             <ul class="navbar-nav">
                                 {% block menu_main %}
                                     <!-- LOAD menu Blocks -->
-                                    {% load_blocks section='menu-1' %}
+                                    {{ menu_1 }}
                                 {% endblock menu_main %}
                             </ul>
                         </div>
@@ -290,7 +293,8 @@ col-10 offset-2 col-lg-12 offset-lg-0
         </div>
     </div>
 </div>
-
+{% endif %}
+{% endblock unical_main_menu %}
 {% endblock main_menu %}
 
 {% block section_2_classes %}
