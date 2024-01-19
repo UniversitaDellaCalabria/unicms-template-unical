@@ -1,0 +1,39 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% load unicms_template_unical %}
+
+<!-- Logo in Header -->
+{% block header_center_logo %}
+<div class="d-flex">
+    <div>
+        <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
+    </div>
+    <div class="ms-4">
+        <p class="h5 text-white mb-1">
+            {% trans "The portal of" %}
+        </p>
+        <p class="h2 text-white mb-0">
+            {% trans "Study courses" %}
+        </p>
+    </div>
+</div>
+{% endblock header_center_logo %}
+
+{% block header_slim_mobile_org_name_side %}
+<div class="d-flex">
+    <div>
+        <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
+    </div>
+    <div class="ms-4">
+        <p class="h5 text-white mb-1">
+            {% trans "The portal of" %}
+        </p>
+        <p class="h3 text-white mb-0">
+            {% trans "Study courses" %}
+        </p>
+    </div>
+</div>
+{% endblock header_slim_mobile_org_name_side %}
