@@ -89,10 +89,10 @@ name: uniCMS - Unical template
 platforms:
   - linux
   - web
-releaseDate: '2024-01-12'
+releaseDate: '2024-01-22'
 roadmap: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical/issues'
 softwareType: standalone/web
-softwareVersion: v1.6.5
+softwareVersion: v1.6.6
 url: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical'
 usedBy:
   - Università della Calabria - https://www.unical.it

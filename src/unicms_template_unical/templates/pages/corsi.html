@@ -3,15 +3,21 @@
 {% load i18n %}
 {% load static %}
 
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
 {% load unicms_template_unical %}
 
 <!-- Logo in Header -->
 {% block header_center_logo %}
 <div class="d-flex">
     <div>
-        <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
+        <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="h-100" />
     </div>
-    <div class="ms-4">
+    <div class="ms-4 mt-3 m-auto">
         <p class="h5 text-white mb-1">
             {% trans "The portal of" %}
         </p>
@@ -25,9 +31,9 @@
 {% block header_slim_mobile_org_name_side %}
 <div class="d-flex">
     <div>
-        <image src="{% unicms_template_unical_static_path 'images/unical_logo_bullet_white.svg' %}" class="h-100" />
+        <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="h-100" />
     </div>
-    <div class="ms-4">
+    <div class="ms-4 mt-3 m-auto">
         <p class="h5 text-white mb-1">
             {% trans "The portal of" %}
         </p>
@@ -37,3 +43,68 @@
     </div>
 </div>
 {% endblock header_slim_mobile_org_name_side %}
+
+{% block addressbook_link %}{% settings_value "MAIN_DOMAIN" as main_domain %}{% settings_value "ADDRESSBOOK_LINK" as addressbook_link %}//{{ main_domain }}{{ addressbook_link }}{% endblock addressbook_link %}
+
+{% block footer_bottom %}
+<div class="it-footer-main clearfix py-4 border-white border-top unical-secondary-footer">
+    <div class="container">
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-12 col-lg-9">
+                    <div class="row">
+                        {% block footer_bottom_1 %}
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="https://ticket.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Ticket online' %}">{% trans 'Ticket online' %}</a></li>
+                                    <li><a class="list-item" href="https://smartcampus.unical.it" target="_blank" rel="noopener noreferrer" title="{% trans 'Smart Campus' %}">{% trans 'Smart Campus' %}</a></li>
+                                    <li><a class="list-item" href="https://soscr.unical.it/Default.aspx?tabid=212" target="_blank" rel="noopener noreferrer" title="{% trans 'Unical Life' %}">{% trans 'Unical Life' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endblock footer_bottom_1 %}
+
+                        {% block footer_bottom_2 %}
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="link-list-wrapper">
+                                <ul class="footer-list link-list clearfix">
+                                    <li><a class="list-item" href="https://www.unical.it/organizzazione/chi-siamo/portale-trasparenza/" title="{% trans 'Transparent administration' %}">{% trans 'Transparent administration' %}</a></li>
+                                    <li><a class="list-item" href="https://www.unical.it/accessibilita/" title="{% trans 'Accessibility and performance' %}">{% trans 'Accessibility and performance' %}</a></li>
+                                    <li><a class="list-item" href="https://www.unical.it/privacy/" title="{% trans 'Data protection / GDPR' %}">{% trans 'Data protection / GDPR' %}</a></li>
+                                    <li><a class="list-item" href="https://www.unical.it/cookie/" title="{% trans 'Cookies and consent methods' %}">{% trans 'Cookies and consent methods' %}</a></li>
+                                    <li><a class="list-item" href="https://www.unical.it/note-legali/" title="{% trans 'Legal notes' %}">{% trans 'Legal notes' %}</a></li>
+                                    <li><a class="list-item" href="/sitemap/" title="{% trans 'Sitemap' %}">{% trans 'Sitemap' %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endblock footer_bottom_2 %}
+
+                    </div>
+                </div>
+
+                {% block department_contacts %}
+                <div class="col-12 col-lg-3">
+                    <div class="mb-3">
+                        <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
+                               class="w-100 h-100"
+                               alt="{% trans 'University of Calabria' %}"/>
+                    </div>
+                    <p class="mb-4">
+                        Via Pietro Bucci
+                        <br>
+                        87036 Rende CS
+                        <br>
+                        <a class="text-white" href="/portale/pec" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
+                        <br>
+                        C.F. 80003950781 / P.I. 00419160783
+                    </p>
+                </div>
+                {% endblock department_contacts %}
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
+    </div>
+</div>
+{% endblock footer_bottom %}
