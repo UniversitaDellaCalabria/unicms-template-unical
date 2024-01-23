@@ -50,7 +50,8 @@ p.tags {
 /** * Header Center Wrapper */
 @media (min-width: 992px) {
   .it-header-center-wrapper {
-    height: 130px;
+    min-height: 130px;
+    height: auto;
   }
 }
 /** * Logo */
