@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 14:21+0100\n"
-"PO-Revision-Date: 2024-01-19 14:21+0100\n"
+"POT-Creation-Date: 2024-02-26 14:12+0100\n"
+"PO-Revision-Date: 2024-02-26 14:13+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -60,9 +60,11 @@ msgstr "Questo servizio ha riscontrato un errore imprevisto"
 #: templates/bases/base_v_original.html:26
 #: templates/bases/unicms_unical.html:57 templates/bases/unicms_unical.html:73
 #: templates/bases/unicms_unical.html:78 templates/bases/unicms_unical.html:86
-#: templates/bases/unicms_unical.html:534 templates/pages/department.html:49
-#: templates/pages/department.html:157 templates/pages/opendata.html:33
-#: templates/pages/project_exbriner.html:45 templates/pages/sssap.html:90
+#: templates/bases/unicms_unical.html:534 templates/pages/corsi.html:86
+#: templates/pages/department.html:24 templates/pages/department.html:39
+#: templates/pages/department.html:49 templates/pages/department.html:157
+#: templates/pages/opendata.html:33 templates/pages/project_exbriner.html:45
+#: templates/pages/sssap.html:90
 msgid "University of Calabria"
 msgstr "Università della Calabria"
 
@@ -363,7 +365,8 @@ msgstr "UniCal trasparente"
 msgid "Organization"
 msgstr "Organizzazione"
 
-#: templates/bases/unicms_unical.html:455 templates/pages/department.html:139
+#: templates/bases/unicms_unical.html:455 templates/pages/corsi.html:67
+#: templates/pages/department.html:139
 msgid "Transparent administration"
 msgstr "Amministrazione trasparente"
 
@@ -408,8 +411,9 @@ msgid "Fundraising, donations, 5x1000"
 msgstr "Fundraising, donazioni, 5x1000"
 
 #: templates/bases/unicms_unical.html:489
-#: templates/bases/unicms_unical.html:541 templates/pages/department.html:164
-#: templates/pages/sssap.html:45 templates/pages/sssap.html:97
+#: templates/bases/unicms_unical.html:541 templates/pages/corsi.html:93
+#: templates/pages/department.html:164 templates/pages/sssap.html:45
+#: templates/pages/sssap.html:97
 msgid "Certified email"
 msgstr "Posta certificata"
 
@@ -422,26 +426,26 @@ msgid "Web editor / Contacts"
 msgstr "Redazione web / Contatti"
 
 #: templates/bases/unicms_unical.html:492 templates/pages/8ayw.html:85
-#: templates/pages/department.html:140 templates/pages/master_ges.html:60
-#: templates/pages/sssap.html:48
+#: templates/pages/corsi.html:68 templates/pages/department.html:140
+#: templates/pages/master_ges.html:60 templates/pages/sssap.html:48
 msgid "Accessibility and performance"
 msgstr "Accessibilità e prestazioni"
 
 #: templates/bases/unicms_unical.html:500 templates/pages/8ayw.html:83
-#: templates/pages/department.html:141 templates/pages/master_ges.html:58
-#: templates/pages/sssap.html:56
+#: templates/pages/corsi.html:69 templates/pages/department.html:141
+#: templates/pages/master_ges.html:58 templates/pages/sssap.html:56
 msgid "Data protection / GDPR"
 msgstr "Protezione dati - GDPR"
 
 #: templates/bases/unicms_unical.html:501 templates/pages/8ayw.html:84
-#: templates/pages/department.html:142 templates/pages/master_ges.html:59
-#: templates/pages/sssap.html:57
+#: templates/pages/corsi.html:70 templates/pages/department.html:142
+#: templates/pages/master_ges.html:59 templates/pages/sssap.html:57
 msgid "Cookies and consent methods"
 msgstr "Cookie e modalità di consenso"
 
 #: templates/bases/unicms_unical.html:502 templates/pages/8ayw.html:95
-#: templates/pages/department.html:143 templates/pages/master_ges.html:70
-#: templates/pages/sssap.html:58
+#: templates/pages/corsi.html:71 templates/pages/department.html:143
+#: templates/pages/master_ges.html:70 templates/pages/sssap.html:58
 msgid "Legal notes"
 msgstr "Note legali"
 
@@ -478,8 +482,8 @@ msgstr "Sezione Alumni"
 msgid "Identity / Logo section"
 msgstr "Sezione identità / Logo"
 
-#: templates/bases/unicms_unical.html:524 templates/pages/department.html:144
-#: templates/pages/sssap.html:80
+#: templates/bases/unicms_unical.html:524 templates/pages/corsi.html:72
+#: templates/pages/department.html:144 templates/pages/sssap.html:80
 msgid "Sitemap"
 msgstr "Mappa del sito"
 
@@ -612,37 +616,44 @@ msgstr ""
 msgid "8AYRO Young Workshop"
 msgstr ""
 
-#: templates/pages/corsi.html:11
-msgid "The portal of"
-msgstr "Il portale dei"
-
-#: templates/pages/corsi.html:14
+#: templates/pages/corsi.html:22 templates/pages/corsi.html:35
 msgid "Study courses"
 msgstr ""
 
+#: templates/pages/corsi.html:55
+#, fuzzy
+#| msgid "UniCal online"
+msgid "Ticket online"
+msgstr "UniCal online"
+
+#: templates/pages/corsi.html:56 templates/pages/department.html:128
+#: templates/pages/department_dinci.html:88
+msgid "Smart Campus"
+msgstr ""
+
+#: templates/pages/corsi.html:57 templates/pages/department.html:129
+#: templates/pages/department_dinci.html:89
+msgid "Unical Life"
+msgstr ""
+
 #: templates/pages/department.html:113 templates/pages/department_ctc.html:49
+#: templates/pages/department_desf.html:79
 msgid "Presentation"
 msgstr "Presentazione"
 
 #: templates/pages/department.html:114 templates/pages/department_ctc.html:50
+#: templates/pages/department_desf.html:80
 msgid "People"
 msgstr "Persone"
 
 #: templates/pages/department.html:115 templates/pages/department_ctc.html:51
+#: templates/pages/department_desf.html:81
 msgid "Staff services"
 msgstr "Servizi per il personale"
 
 #: templates/pages/department.html:116 templates/pages/department_ctc.html:52
 msgid "Documents, announcements and competitions"
 msgstr "Documenti, bandi e concorsi"
-
-#: templates/pages/department.html:128 templates/pages/department_dinci.html:88
-msgid "Smart Campus"
-msgstr ""
-
-#: templates/pages/department.html:129 templates/pages/department_dinci.html:89
-msgid "Unical Life"
-msgstr ""
 
 #: templates/pages/department_ctc.html:29
 msgid "Department of Chemistry and Chemical Technologies"
@@ -664,6 +675,10 @@ msgstr ""
 #: templates/pages/project_exbriner.html:107
 msgid "Department of Economics, Statistics and Finance"
 msgstr ""
+
+#: templates/pages/department_desf.html:82
+msgid "Announcements and competitions"
+msgstr "Bandi e concorsi"
 
 #: templates/pages/department_dfssn.html:29
 msgid "Department of Pharmacy and Health and Nutrition Sciences"
@@ -791,6 +806,9 @@ msgstr "Pubblicato in"
 #: templates/pages/publication_view_hero_original.html:85
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
+
+#~ msgid "The portal of"
+#~ msgstr "Il portale dei"
 
 #~ msgid "Services for disabled and dyslexic students"
 #~ msgstr "Studenti con disabilità, DSA e BES"
