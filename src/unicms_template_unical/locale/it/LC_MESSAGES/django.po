@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-01 14:02+0100\n"
-"PO-Revision-Date: 2024-03-01 14:02+0100\n"
+"POT-Creation-Date: 2024-03-01 14:39+0100\n"
+"PO-Revision-Date: 2024-03-01 14:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -639,6 +639,10 @@ msgstr ""
 #: templates/pages/department_dinci.html:89
 msgid "Unical Life"
 msgstr ""
+
+#: templates/pages/corsi_in_sintesi.html:22
+msgid "Degree courses in summary"
+msgstr "Corsi di laurea in sintesi"
 
 #: templates/pages/department.html:113 templates/pages/department_ctc.html:49
 #: templates/pages/department_desf.html:79
