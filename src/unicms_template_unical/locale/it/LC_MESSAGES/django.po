@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 14:12+0100\n"
-"PO-Revision-Date: 2024-02-26 14:13+0100\n"
+"POT-Creation-Date: 2024-03-01 14:02+0100\n"
+"PO-Revision-Date: 2024-03-01 14:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -616,7 +616,11 @@ msgstr ""
 msgid "8AYRO Young Workshop"
 msgstr ""
 
-#: templates/pages/corsi.html:22 templates/pages/corsi.html:35
+#: templates/pages/corsi.html:22
+msgid "Degree courses"
+msgstr "Corsi di laurea"
+
+#: templates/pages/corsi.html:35
 msgid "Study courses"
 msgstr ""
 
