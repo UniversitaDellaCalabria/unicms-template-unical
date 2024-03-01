@@ -1,0 +1,26 @@
+{% extends "corsi.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+<!-- Logo in Header -->
+{% block header_center_logo %}
+<div class="d-flex">
+    <div>
+        <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="w-75" />
+    </div>
+    <div class="ms-2 mt-4 m-auto">
+        <p class="h2 text-white mb-0">
+            {% trans "Degree courses in summary" %}
+        </p>
+    </div>
+</div>
+{% endblock header_center_logo %}
