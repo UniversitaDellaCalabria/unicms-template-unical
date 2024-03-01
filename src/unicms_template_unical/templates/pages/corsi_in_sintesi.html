@@ -13,26 +13,28 @@
 
 <!-- Logo in Header -->
 {% block header_center_logo %}
+{% settings_value "CDS_WEBSITE_PROSPECT_CURRENT_YEAR" as prospect_year %}
 <div class="d-flex">
     <div>
         <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="w-75" />
     </div>
     <div class="ms-2 mt-4 m-auto">
         <p class="h2 text-white mb-0">
-            {% trans "Educational offer" %}
+            {% trans "Educational offer" %} {{ prospect_year }}/{{ prospect_year|add:"1" }}
         </p>
     </div>
 </div>
 {% endblock header_center_logo %}
 
 {% block header_slim_mobile_org_name_side %}
+{% settings_value "CDS_WEBSITE_PROSPECT_CURRENT_YEAR" as prospect_year %}
 <div class="d-flex">
     <div>
         <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="w-75" />
     </div>
     <div class="mt-3 m-auto">
         <p class="h3 text-white mb-0">
-            {% trans "Educational offer" %}
+            {% trans "Educational offer" %} {{ prospect_year }}/{{ prospect_year|add:"1" }}
         </p>
     </div>
 </div>
