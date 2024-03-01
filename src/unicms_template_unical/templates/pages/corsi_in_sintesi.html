@@ -24,3 +24,16 @@
     </div>
 </div>
 {% endblock header_center_logo %}
+
+{% block header_slim_mobile_org_name_side %}
+<div class="d-flex">
+    <div>
+        <image src="{% unicms_template_unical_static_path 'images/logo_white_svg.svg' %}" class="w-75" />
+    </div>
+    <div class="mt-3 m-auto">
+        <p class="h3 text-white mb-0">
+            {% trans "Degree courses in summary" %}
+        </p>
+    </div>
+</div>
+{% endblock header_slim_mobile_org_name_side %}
