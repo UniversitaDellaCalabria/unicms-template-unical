@@ -517,3 +517,7 @@ figure.table table td figure.image img {
     margin: 120px 26px;
   }
 }
+
+.p-mb-0 p{
+    margin-bottom: 0 !important;
+}
