@@ -1,0 +1,12 @@
+{% extends 'bases/error-page.html' %}
+
+{% load i18n %}
+
+{% block error_type %}
+    {% trans "Error 403" %}
+{% endblock error_type %}
+
+{% block error_description %}
+    <p>{% trans "Permission denied" %}</p>
+    <p>{% trans "Your account does not have privileges to access this page" %}</p>
+{% endblock error_description %}
