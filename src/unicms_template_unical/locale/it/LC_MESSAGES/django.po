@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-01 14:39+0100\n"
-"PO-Revision-Date: 2024-03-01 14:39+0100\n"
+"POT-Creation-Date: 2024-03-08 08:03+0100\n"
+"PO-Revision-Date: 2024-03-08 08:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -17,6 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
+
+#: templates/403.html:6
+#, fuzzy
+#| msgid "Error 404"
+msgid "Error 403"
+msgstr "Errore 404"
+
+#: templates/403.html:10
+msgid "Permission denied"
+msgstr "Permesso negato"
+
+#: templates/403.html:11
+msgid "Your account does not have privileges to access this page"
+msgstr "Il tuo account non ha i privilegi per accedere a questa pagina"
 
 #: templates/404.html:6
 msgid "Error 404"
@@ -200,6 +214,8 @@ msgid "Prospective students, Enrolled and Graduates"
 msgstr "Futuri studenti, iscritti e laureati"
 
 #: templates/bases/unicms_unical.html:375
+#: templates/pages/corsi_in_sintesi.html:23
+#: templates/pages/corsi_in_sintesi.html:37
 msgid "Educational offer"
 msgstr "Offerta formativa"
 
@@ -616,13 +632,9 @@ msgstr ""
 msgid "8AYRO Young Workshop"
 msgstr ""
 
-#: templates/pages/corsi.html:22
+#: templates/pages/corsi.html:22 templates/pages/corsi.html:35
 msgid "Degree courses"
 msgstr "Corsi di laurea"
-
-#: templates/pages/corsi.html:35
-msgid "Study courses"
-msgstr ""
 
 #: templates/pages/corsi.html:55
 #, fuzzy
@@ -639,10 +651,6 @@ msgstr ""
 #: templates/pages/department_dinci.html:89
 msgid "Unical Life"
 msgstr ""
-
-#: templates/pages/corsi_in_sintesi.html:22
-msgid "Degree courses in summary"
-msgstr "Corsi di laurea in sintesi"
 
 #: templates/pages/department.html:113 templates/pages/department_ctc.html:49
 #: templates/pages/department_desf.html:79
@@ -814,6 +822,9 @@ msgstr "Pubblicato in"
 #: templates/pages/publication_view_hero_original.html:85
 msgid "It might interest you"
 msgstr "Potrebbe interessarti"
+
+#~ msgid "Degree courses in summary"
+#~ msgstr "Corsi di laurea in sintesi"
 
 #~ msgid "The portal of"
 #~ msgstr "Il portale dei"
