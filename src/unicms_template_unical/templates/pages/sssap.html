@@ -35,6 +35,17 @@
 {% endblock unical_header_languages %}
 
 {% block footer_top %}
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://fb.me/SSSAP.UniCAl.Rende" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
+                </svg><span class="visually-hidden">Facebook</span>
+            </a>
+        </li>
+    </ul>
+</div>
 {% endblock footer_top %}
 
 {% block footer_bottom %}
@@ -43,66 +54,19 @@
         <section>
             {% block footer_bottom_content %}
             <div class="row">
-                <div class="col-12 col-lg-9">
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="link-list-wrapper">
-                                <ul class="footer-list link-list clearfix">
-                                    <li><a class="list-item" href="/pec/" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a></li>
-                                    <li><a class="list-item" href="/fatturazione-elettronica/" title="{% trans 'Electronic invoicing' %}">{% trans 'Electronic invoicing' %}</a></li>
-                                    <li><a class="list-item" href="mailto:redazioneportale@unical.it" title="{% trans 'Web editor / Contacts' %}">{% trans 'Web editor / Contacts' %}</a></li>
-                                    <li><a class="list-item" href="/accessibilita/" title="{% trans 'Accessibility and performance' %}">{% trans 'Accessibility and performance' %}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="link-list-wrapper">
-                                <ul class="footer-list link-list clearfix">
-                                    <li><a class="list-item" href="/privacy/" title="{% trans 'Data protection / GDPR' %}">{% trans 'Data protection / GDPR' %}</a></li>
-                                    <li><a class="list-item" href="/cookie/" title="{% trans 'Cookies and consent methods' %}">{% trans 'Cookies and consent methods' %}</a></li>
-                                    <li><a class="list-item" href="/note-legali/" title="{% trans 'Legal notes' %}">{% trans 'Legal notes' %}</a></li>
-                                    <li><a class="list-item" href="/credits/" title="{% trans 'Credits' %}">{% trans 'Credits' %}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="link-list-wrapper">
-                                <ul class="footer-list link-list clearfix">
-                                    <li><a class="list-item" href="/media/medias/2021/phishing.pdf" title="{% trans 'Phishing: how to protect yourself' %}">{% trans 'Phishing: how to protect yourself' %}</a></li>
-                                    <li><a class="list-item" href="/statistiche-accessi-web" title="{% trans 'Web access statistics' %}">{% trans 'Web access statistics' %}</a></li>
-                                    <li><a class="list-item" href="/servizi-ict/servizi-digitali-per-il-personale/gestione-sito/" title="{% trans 'User Guide - UniCMS' %}">{% trans 'User Guide - UniCMS' %}</a></li>
-                                    <li><a class="list-item" href="/editorial-board/" title="{% trans 'Intranet area' %}">{% trans 'Intranet area' %}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="link-list-wrapper">
-                                <ul class="footer-list link-list clearfix">
-                                    <li><a class="list-item" href="/feed-rss/" title="{% trans 'RSS feeds' %}">{% trans 'RSS feeds' %}</a></li>
-                                    <li><a class="list-item" href="/sezione-alumni" title="{% trans 'Alumni' %}">{% trans 'Alumni' %}</a></li>
-                                    <li><a class="list-item" href="/identita-visiva-di-ateneo/" title="{% trans 'Identity / Logo section' %}">{% trans 'Identity / Logo section' %}</a></li>
-                                    <li><a class="list-item" href="/sitemap/" title="{% trans 'Sitemap' %}">{% trans 'Sitemap' %}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="mb-3">
-                        <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
-                               class="w-100 h-100"
-                               alt="{% trans 'University of Calabria' %}"/>
-                    </div>
-                    <p class="mb-4">
-                        Via Pietro Bucci
+                <div class="col-12">
+                    <p>
+                        <b>Scuola Superiore di Scienze delle Amministrazioni Pubbliche</b>
                         <br>
-                        87036 Rende CS
+                        Ampliamento Polifunzionale
                         <br>
-                        <a class="text-white" href="/pec/" title="{% trans 'Certified email' %}">{% trans 'Certified email' %}</a>
+                        3° Piano
                         <br>
-                        C.F. 80003950781 / P.I. 00419160783
+                        <a class="text-white" href="mailto:sssap@unical.it" title="sssap@unical.it">sssap@unical.it</a>
+                        <br>
+                        <a class="text-white" href="mailto:sssap@pec.unical.it" title="sssap@pec.unical.it">sssap@pec.unical.it</a>
+                        <br>
+                        +39 0984 49 3422
                     </p>
                 </div>
             </div>
