@@ -1,6 +1,6 @@
 @media (min-width: 992px){
     .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
-        /* padding-top: 1.7rem; */
+        padding-top: 0;
         margin-top: 0;
     }
 }
