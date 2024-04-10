@@ -13,13 +13,20 @@
 {% load unicms_template_unical %}
 
 
+{% block custom_style %}
+<link rel="shortcut icon" href="{% unicms_template_unical_static_path 'images/favicon/favicon-32x32.png' %}">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_unical.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_sssap.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_sssap.css' %}" type="text/css">
+{% endblock custom_style %}
+
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/sssap.svg' %}" class="h-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/sssap.png' %}" class="h-100" />
 {% endblock header_center_logo_side %}
 
 {% block header_slim_mobile_org_name_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/sssap.svg' %}" class="mw-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/sssap.png' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
 
 {% block header_center_right_zone %}
