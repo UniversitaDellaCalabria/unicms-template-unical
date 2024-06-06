@@ -521,3 +521,13 @@ figure.table table td figure.image img {
 .p-mb-0 p{
     margin-bottom: 0 !important;
 }
+
+/** Slider responsive **/
+.it-hero-wrapper .it-hero-text-wrapper h1.unical-hero-description,
+.it-hero-wrapper .it-hero-text-wrapper h2.unical-hero-description,
+.it-hero-wrapper .it-hero-text-wrapper h3.unical-hero-description,
+.it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-description {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
