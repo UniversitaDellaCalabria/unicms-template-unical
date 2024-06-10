@@ -2,7 +2,7 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
-publiccodeYmlVersion: '0.2'
+publiccodeYmlVersion: '0.3'
 categories:
   - content-management
   - website-builder
@@ -25,7 +25,6 @@ description:
     features:
       - >-
         Università della Calabria template for uniCMS
-    genericName: applicazione web
     longDescription: >
       Customization of the Bootstrap Italia template for uniCMS
       (https://github.com/UniversitaDellaCalabria/unicms-template-italia)
