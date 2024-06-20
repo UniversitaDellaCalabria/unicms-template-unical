@@ -529,4 +529,5 @@ figure.table table td figure.image img {
 .it-hero-wrapper .it-hero-text-wrapper h4.unical-hero-description {
     text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
 }
