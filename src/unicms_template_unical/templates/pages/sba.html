@@ -1,0 +1,86 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+
+{% block custom_style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_sssap.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_sssap.css' %}" type="text/css">
+{% endblock custom_style %}
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/sba.png' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/sba.png' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block header_center_right_zone %}
+{% endblock header_center_right_zone %}
+
+{% block unical_header_languages %}
+{% endblock unical_header_languages %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.facebook.com/sbaunical/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
+                </svg><span class="visually-hidden">Facebook</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.youtube.com/channel/UCniaD6A33sWVfP3dalvHu1g/videos" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-youtube-square"></use>
+                </svg><span class="visually-hidden">YouTube</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock footer_top %}
+
+{% block footer_bottom %}
+<div class="it-footer-main clearfix py-4 border-white border-top unical-secondary-footer">
+    <div class="container">
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        <b>Sistema Bibliotecario di Ateneo</b>
+                        <br>
+                        Edificio Biblioteche
+                        <br>
+                        da lunedì a giovedì dalle ore 09:00 alle ore 20:05
+                        <br>
+                        venerdì dalle ore 09:00 alle ore 17:00
+                        <br>
+                        SABATO CHIUSO
+                    </p>
+                </div>
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
+    </div>
+</div>
+{% endblock footer_bottom %}
