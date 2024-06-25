@@ -15,17 +15,17 @@
 
 {% block custom_style %}
 {{ block.super }}
-<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_sba.css' %}" type="text/css">
-<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_sba.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_sssap.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_sssap.css' %}" type="text/css">
 {% endblock custom_style %}
 
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/sba.png' %}" class="h-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/master_mimi.png' %}" class="h-100" />
 {% endblock header_center_logo_side %}
 
 {% block header_slim_mobile_org_name_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/sba.png' %}" class="mw-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/master_mimi.png' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
 
 {% block header_center_right_zone %}
@@ -38,21 +38,10 @@
 <div class="container text-center text-lg-start">
     <ul class="list-inline social py-4 mt-2 mb-0">
         <li class="list-inline-item">
-            <a class="p-2" href="https://www.facebook.com/sbaunical/" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <a class="p-2" href="https://fb.me/SSSAP.UniCAl.Rende" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <svg class="icon icon-secondary align-top">
                     <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
                 </svg><span class="visually-hidden">Facebook</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="container text-center text-lg-start">
-    <ul class="list-inline social py-4 mt-2 mb-0">
-        <li class="list-inline-item">
-            <a class="p-2" href="https://www.youtube.com/channel/UCniaD6A33sWVfP3dalvHu1g/videos" target="_blank" rel="noopener noreferrer" title="YouTube">
-                <svg class="icon icon-secondary align-top">
-                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-youtube-square"></use>
-                </svg><span class="visually-hidden">YouTube</span>
             </a>
         </li>
     </ul>
@@ -67,15 +56,17 @@
             <div class="row">
                 <div class="col-12">
                     <p>
-                        <b>Sistema Bibliotecario di Ateneo</b>
+                        <b>Scuola Superiore di Scienze delle Amministrazioni Pubbliche</b>
                         <br>
-                        Edificio Biblioteche
+                        Ampliamento Polifunzionale
                         <br>
-                        da lunedì a giovedì dalle ore 09:00 alle ore 20:05
+                        3° Piano
                         <br>
-                        venerdì dalle ore 09:00 alle ore 17:00
+                        <a class="text-white" href="mailto:sssap@unical.it" title="sssap@unical.it">sssap@unical.it</a>
                         <br>
-                        SABATO CHIUSO
+                        <a class="text-white" href="mailto:sssap@pec.unical.it" title="sssap@pec.unical.it">sssap@pec.unical.it</a>
+                        <br>
+                        +39 0984 49 3422
                     </p>
                 </div>
             </div>
