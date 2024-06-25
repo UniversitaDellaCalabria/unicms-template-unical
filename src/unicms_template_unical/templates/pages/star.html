@@ -1,0 +1,78 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+
+{% block custom_style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_star.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_star.css' %}" type="text/css">
+{% endblock custom_style %}
+
+
+{% block header_brand_wrapper %}
+<div class="d-none d-lg-inline col-lg-12">
+    {{ block.super }}
+</div>
+{% endblock header_brand_wrapper %}
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/star.png' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/star.png' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block header_center_right_zone %}
+{% endblock header_center_right_zone %}
+
+{% block unical_header_languages %}
+{% endblock unical_header_languages %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://fb.me/SSSAP.UniCAl.Rende" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
+                </svg><span class="visually-hidden">Facebook</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock footer_top %}
+
+{% block footer_bottom %}
+<div class="it-footer-main clearfix py-4 border-white border-top unical-secondary-footer">
+    <div class="container">
+        <section>
+            {% block footer_bottom_content %}
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        <b>STAR</b>
+                        <br>
+                        ...
+                        <br>
+                        ---
+                    </p>
+                </div>
+            </div>
+            {% endblock footer_bottom_content %}
+        </section>
+    </div>
+</div>
+{% endblock footer_bottom %}
