@@ -15,9 +15,16 @@
 
 {% block custom_style %}
 {{ block.super }}
-<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_sssap.css' %}" type="text/css">
-<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_sssap.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_master_mimi.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_master_mimi.css' %}" type="text/css">
 {% endblock custom_style %}
+
+
+{% block header_brand_wrapper %}
+<div class="d-none d-lg-inline col-lg-12">
+    {{ block.super }}
+</div>
+{% endblock header_brand_wrapper %}
 
 <!-- Logo in Header -->
 {% block header_center_logo_side %}

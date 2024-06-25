@@ -1,0 +1,9 @@
+@media (min-width: 992px){
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        background: #e3e9ec;
+    }
+}
+
+.it-header-center-wrapper {
+    background: #fff;
+}
