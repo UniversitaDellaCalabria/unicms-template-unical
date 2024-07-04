@@ -16,6 +16,7 @@
 
 {% get_current_language as LANGUAGE_CODE %}
 {% settings_value "CMS_PUBLICATION_LIST_PREFIX_PATH" as publication_list_prefix %}
+{% settings_value "CMS_PUBLICATION_RSS_PREFIX_PATH" as publication_rss_prefix %}
 {% settings_value "FACEBOOK_ENDPOINT" as facebook_share %}
 {% settings_value "INSTAGRAM_ENDPOINT" as instagram_share %}
 {% settings_value "TWITTER_ENDPOINT" as twitter_share %}
@@ -40,7 +41,15 @@
 
     <div class="row">
         <div class="col">
-            <h1 class="mb-4 lighter">{% if category_name %}{{ category_name }}{% else %}News{% endif %}</h1>
+            <h1 class="mb-4 lighter">
+                {% if category_name %}{{ category_name }}{% else %}News{% endif %}
+                <a href="{{ webpath.get_full_path }}{{ publication_rss_prefix }}?{{ request.GET.urlencode }}" class="no-color">
+                    <svg class="icon me-3 icon-secondary icon" aria-labelledby="rss_svg">
+                        <title id="rss_svg">RSS Feed</title>
+                        <use xlink:href="{% static '/svg/sprites.svg' %}#it-rss-square"></use>
+                    </svg>
+                </a>
+            </h1>
 
             {% if category_name %}
             <div class="mb-4">
