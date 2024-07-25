@@ -8,3 +8,7 @@
 .department_logo_lg {
     height: 90px;
 }
+
+.it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+    margin-top: -25px;
+}

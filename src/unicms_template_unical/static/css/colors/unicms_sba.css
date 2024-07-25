@@ -7,3 +7,9 @@
 .it-header-center-wrapper {
     background: #fff;
 }
+
+@media (max-width: 991px) {
+    .custom-navbar-toggler svg {
+        fill: var(--dark_grey_unical);
+    }
+}
