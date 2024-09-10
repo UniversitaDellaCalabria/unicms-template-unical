@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     [].forEach.call(links, function(l) {
         if(l.getAttribute("href").indexOf(location.hostname) == -1) {
             l.setAttribute("target", "_blank");
-            l.setAttribute("rel", "noreferrer noopener");
+            //l.setAttribute("rel", "noreferrer noopener");
+            //use Django SECURE_REFERRER_POLICY
+            l.setAttribute("rel", "noopener");
         }
    })
 });
