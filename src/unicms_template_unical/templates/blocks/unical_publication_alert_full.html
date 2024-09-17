@@ -5,14 +5,20 @@
 
 <div class="card-wrapper card-space h-auto d-block">
     <div style="background: #b61918">
-        <a href="/live" style="text-decoration: none" title="Unical Live">
+        {% if publication.related_links %}
+        <a href="{{ publication.related_links.0.url }}" style="text-decoration: none" title="{{ publication.title }}">
+        {% endif %}
             <div class="row">
+                {% if publication.image_url %}
                 <div class="col-3 col-lg-4">
                     <div class="w-100 py-4 ps-4 pe-2">
-                        <img src="{% unicms_template_unical_static_path 'images/unical-live.jpg' %}" style="width: 100%; aspect-ratio: 1,1" alt="Unical Live" />
+                        <img src="{{ publication.image_url }}" style="width: 100%; aspect-ratio: 1,1" alt="{{ publication.title }}" />
                     </div>
                 </div>
                 <div class="col-9 col-lg-8 py-4 pe-4 ps-0">
+                {% else %}
+                <div class="col-12 p-4">
+                {% endif %}
                     <p style="line-height: 1.2; margin-bottom: 0">
                         <span class="text-white">
                             <b>{{ publication.content|striptags }}</b>
@@ -24,6 +30,8 @@
                     </p>
                 </div>
             </div>
+        {% if publication.related_links %}
         </a>
+        {% endif %}
     </div>
 </div>
