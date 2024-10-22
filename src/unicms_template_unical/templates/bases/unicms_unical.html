@@ -9,6 +9,8 @@ bootstrap-italia-base.html
 {% load static %}
 
 <!-- load custom template tags -->
+{% load django_bootstrap_italia %}
+
 {% load unicms_carousels %}
 {% load unicms_contexts %}
 {% load unicms_menus %}
@@ -546,6 +548,11 @@ col-10 offset-2 col-lg-12 offset-lg-0
     </div>
 </div>
 {% endblock footer_bottom %}
+
+{% block bootstrap_italia_loader %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="{% django_bootstrap_italia_static_path 'js/bootstrap-italia.min.js' %}"></script>
+{% endblock bootstrap_italia_loader %}
 
 {% block extra_scripts %}
 {{ block.super }}
