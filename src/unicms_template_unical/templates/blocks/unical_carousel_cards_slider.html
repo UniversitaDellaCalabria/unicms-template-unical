@@ -1,0 +1,183 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_templates %}
+
+{% settings_value "UNICAL_PUBLICATION_CAROUSEL_ITEMS" as carousel_items_number %}
+{% random_id as uid %}
+
+{% if carousel_items %}
+<div class="custom-unical owl-carousel d-none d-lg-block" id="carousel_{{ uid }}">
+    {% for item in carousel_items %}
+    <!--start card-->
+    <div class="card-wrapper card-space">
+        <div class="card card-bg no-after">
+            <div class="card-body">
+                <div class="img-responsive-wrapper mb-3">
+                    <div class="img-responsive img-responsive-panoramic">
+                        <figure class="img-wrapper">
+                            <img src="{{ item.image.file.url }}"
+                                 title="{{ item.image.name }}"
+                                 alt="{{ item.image.name }}"
+                                 loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+
+                {% if item.pre_heading %}
+                <div class="category-top">
+                    <span>{{ item.pre_heading }}</span>
+                </div>
+                {% endif %}
+                {% if item.heading %}
+                <h4 class="card-title">
+                    {{ item.heading }}
+                </h4>
+                {% endif %}
+                {% if item.description %}
+                <p class="card-text">
+                    {{ item.description }}
+                </p>
+                {% endif %}
+
+                {% for link in item.links %}
+                <p>
+                    <a class="read-more"
+                       style="position: inherit"
+                       href="{{ link.url }}">
+                        <span class="text">{{ link.get_title }}</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprites.svg' %}#it-arrow-right"></use>
+                        </svg>
+                    </a>
+                </p>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!--end card-->
+    {% endfor %}
+</div>
+
+<div class="custom-unical d-lg-none">
+    {% for item in carousel_items %}
+    <!--start card-->
+    <div class="card-wrapper card-space">
+        <div class="card card-bg no-after">
+            <div class="card-body">
+                <div class="img-responsive-wrapper mb-3">
+                    <div class="img-responsive img-responsive-panoramic">
+                        <figure class="img-wrapper">
+                            <img src="{{ item.image.file.url }}"
+                                 title="{{ item.image.name }}"
+                                 alt="{{ item.image.name }}"
+                                 loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+
+                {% if item.pre_heading %}
+                <div class="category-top">
+                    <span>{{ item.pre_heading }}</span>
+                </div>
+                {% endif %}
+                {% if item.heading %}
+                <h4 class="card-title">
+                    {{ item.heading }}
+                </h4>
+                {% endif %}
+                {% if item.description %}
+                <p class="card-text">
+                    {{ item.description }}
+                </p>
+                {% endif %}
+
+                {% for link in item.links %}
+                <p>
+                    <a class="read-more"
+                       style="position: inherit"
+                       href="{{ link.url }}">
+                        <span class="text">{{ link.get_title }}</span>
+                        <svg class="icon">
+                            <use xlink:href="{% static 'svg/sprites.svg' %}#it-arrow-right"></use>
+                        </svg>
+                    </a>
+                </p>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!--end card-->
+    {% endfor %}
+</div>
+
+<div class="customNavigation text-end d-none d-lg-block">
+    <span class="{{ uid }}_prev" style="cursor: pointer">
+        <span class="text-black fw-bold">
+            <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_prev">
+                <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-arrow-left-circle"></use>
+            </svg>
+        </span>
+    </span>
+    <span class="{{ uid }}_next" style="cursor: pointer">
+        <span class="text-black fw-bold">
+            <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_next">
+                <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
+                <use xlink:href="{% static '/svg/sprites.svg' %}#it-arrow-right-circle"></use>
+            </svg>
+        </span>
+    </span>
+</div>
+
+{% block all_items_link %}
+{% endblock all_items_link %}
+
+<script>
+$(document).ready(function() {
+    var owl_{{ uid }} = $("#carousel_{{ uid }}");
+
+    owl_{{ uid }}.owlCarousel({
+        nav : true, // Show next and prev buttons
+        rewind: true,
+        //loop: true,
+        //slideSpeed : 300,
+        //paginationSpeed : 400,
+        //autoplay: true,
+        //items : 4,
+        //itemsDesktop : false,
+        //itemsDesktopSmall : false,
+        //itemsTablet: false,
+        //itemsMobile : false,
+        dots: false,
+        margin: 12,
+        //dotsEach: false,
+        stagePadding: 0,
+
+        responsive : {
+            // breakpoint from 0 up
+            0 : {
+                items: 1
+            },
+            // breakpoint from 480 up
+            480 : {
+                items: 2
+            },
+            // breakpoint from 1024 up
+            1024 : {
+                items: 6
+            }
+        }
+    });
+    $(".{{ uid }}_next").click(function(){
+        owl_{{ uid }}.trigger('next.owl.carousel');
+      })
+    $(".{{ uid }}_prev").click(function(){
+        owl_{{ uid }}.trigger('prev.owl.carousel');
+    })
+});
+</script>
+{% endif %}
