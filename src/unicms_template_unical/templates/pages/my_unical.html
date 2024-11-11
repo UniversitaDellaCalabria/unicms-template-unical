@@ -15,16 +15,16 @@
 
 {% block header_center_logo %}
 <div class="d-none d-lg-flex col-lg-12 px-0">
-    <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
+    <image src="{% unicms_template_unical_static_path 'images/my_unical.png' %}"
            class="w-100"
            alt="{% trans 'University of Calabria' %}"
            style="aspect-ratio: 11,15"/>
-    <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
-           class="ms-3"
-           style="width: 8%; aspect-ratio: 1"
-           alt="{% trans 'HRS4R' %}"/>
 </div>
 {% endblock header_center_logo %}
+
+{% block header_slim_mobile_org_name_side %}
+    <image src="{% unicms_template_unical_static_path 'images/my_unical.png' %}" class="mw-100"/>
+{% endblock header_slim_mobile_org_name_side %}
 
 {% block footer_bottom_1 %}
 <div class="col-lg-4 col-sm-6">
