@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-20 09:20+0100\n"
-"PO-Revision-Date: 2024-11-20 09:26+0100\n"
+"POT-Creation-Date: 2024-11-25 10:56+0100\n"
+"PO-Revision-Date: 2024-11-25 10:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -473,11 +473,11 @@ msgstr "Crediti"
 msgid "Phishing: how to protect yourself"
 msgstr "Phishing: Come proteggersi"
 
-#: templates/bases/unicms_unical.html:514 templates/pages/my_unical.html:60
+#: templates/bases/unicms_unical.html:514
 msgid "Web access statistics"
 msgstr "Statistiche accessi web"
 
-#: templates/bases/unicms_unical.html:515 templates/pages/my_unical.html:61
+#: templates/bases/unicms_unical.html:515 templates/pages/my_unical.html:60
 msgid "User Guide - UniCMS"
 msgstr "Guida d’uso - UniCMS"
 
@@ -756,6 +756,10 @@ msgstr ""
 msgid "Italian"
 msgstr "Italiano"
 
+#: templates/pages/my_unical.html:61
+msgid "All online services"
+msgstr "Tutti i servizi online"
+
 #: templates/pages/portale_home_v_original.html:38
 msgid "This site uses technical, analytics and third-party cookies."
 msgstr "Questo sito utilizza cookie tecnici, analytics e di terze parti."
@@ -847,9 +851,6 @@ msgstr "Potrebbe interessarti"
 
 #~ msgid "Work with us"
 #~ msgstr "Lavora con noi"
-
-#~ msgid "Online services"
-#~ msgstr "Servizi online"
 
 #~ msgid "Visit our campus"
 #~ msgstr "Visita il campus"
