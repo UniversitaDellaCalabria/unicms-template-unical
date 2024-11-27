@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load static %}
+
+
+{% if carousel_items %}
+
+    <div class="row d-lg-flex">
+
+        {% for item in carousel_items %}
+            <div class="col-12 col-lg-2">
+                <!--start card-->
+                <div class="card-wrapper card-space">
+                    <div class="card card-bg no-after">
+                        <div class="card-body text-center">
+                            {% if item.links %}
+                            <a href="{{ item.link.0.url }}" class="w-100 no-color" target="_blank" title="{{ item.heading }}">
+                            {% endif %}
+                            <div class="img-responsive-wrapper mb-3">
+                                <div class="img-responsive img-responsive-panoramic">
+                                    <figure class="img-wrapper">
+                                        <img src="{{ item.image.file.url }}"
+                                             title="{{ item.image.name }}"
+                                             alt="{{ item.image.name }}"
+                                             loading="lazy">
+                                    </figure>
+                                </div>
+                            </div>
+
+                            {% if item.pre_heading %}
+                            <div class="category-top">
+                                <span>{{ item.pre_heading }}</span>
+                            </div>
+                            {% endif %}
+                            {% if item.heading %}
+                            <p class="h6 card-title">
+                                {{ item.heading }}
+                            </p>
+                            {% endif %}
+                            {% if item.description %}
+                            <p class="card-text">
+                                {{ item.description }}
+                            </p>
+                            {% endif %}
+                            {% if item.links %}
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <!--end card-->
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endif %}
