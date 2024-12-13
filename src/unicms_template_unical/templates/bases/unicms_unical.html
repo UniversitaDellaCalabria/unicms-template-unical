@@ -73,7 +73,7 @@ bootstrap-italia-base.html
     <div class="container d-none d-lg-block">
         <div class="row">
             <div class="col-12">
-                <div class="it-header-slim-wrapper-content">
+                <div class="it-header-slim-wrapper-content {% if not request.user.is_authenticated %}float-end{% endif %}">
                     {% if request.user.is_authenticated %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
@@ -86,7 +86,7 @@ bootstrap-italia-base.html
     </div>
     <div class="row d-lg-none w-100">
         <div class="col-12">
-            <div class="it-header-slim-wrapper-content">
+            <div class="it-header-slim-wrapper-content {% if not request.user.is_authenticated %}float-end{% endif %}">
                 {% if request.user.is_authenticated %}
                 {% include "components/italia_editorialboard_frontend_menu.html" %}
                 {% endif %}
