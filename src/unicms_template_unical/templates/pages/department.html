@@ -24,7 +24,7 @@
                         <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}" alt="{% trans 'University of Calabria' %}" class="w-75"/>
                         {% endblock unical_top_bar_text %}
                     </a>
-                    {% if request.user.is_staff %}
+                    {% if request.user.is_authenticated %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
                 </div>
@@ -39,7 +39,7 @@
                     <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}" alt="{% trans 'University of Calabria' %}" class="w-75"/>
                     {% endblock unical_top_bar_text_mobile %}
                 </a>
-                {% if request.user.is_staff %}
+                {% if request.user.is_authenticated %}
                 {% include "components/italia_editorialboard_frontend_menu.html" %}
                 {% endif %}
             </div>
@@ -66,7 +66,7 @@
 {% endblock header_center_logo %}
 
 {% block header_slim_right_zone %}
-{% if request.user.is_staff %}
+{% if request.user.is_authenticated %}
 {% include "components/italia_editorialboard_frontend_menu.html" %}
 {% endif %}
 {% endblock header_slim_right_zone %}

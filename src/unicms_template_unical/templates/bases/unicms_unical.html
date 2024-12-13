@@ -74,7 +74,7 @@ bootstrap-italia-base.html
         <div class="row">
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
-                    {% if request.user.is_staff %}
+                    {% if request.user.is_authenticated %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
                     <a target="_blank" title="MyUniCal" href="https://my.unical.it">
@@ -87,7 +87,7 @@ bootstrap-italia-base.html
     <div class="row d-lg-none w-100">
         <div class="col-12">
             <div class="it-header-slim-wrapper-content">
-                {% if request.user.is_staff %}
+                {% if request.user.is_authenticated %}
                 {% include "components/italia_editorialboard_frontend_menu.html" %}
                 {% endif %}
                 <a target="_blank" title="MyUniCal" href="https://my.unical.it">

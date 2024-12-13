@@ -22,7 +22,7 @@
                     <a target="_blank" href="//{{ cms_main_domain }}" title="UniCal.it" alt="UniCal.it">
                         <b>UniCal.it</b>
                     </a>
-                    {% if request.user.is_staff %}
+                    {% if request.user.is_authenticated %}
                     {% include "components/italia_editorialboard_frontend_menu.html" %}
                     {% endif %}
                 </div>
