@@ -69,31 +69,56 @@ bootstrap-italia-base.html
 {% endblock header_brand_text %}
 
 {% block header_slim_wrapper %}
-    {% if request.user.is_staff %}
-    {{ block.super }}
-    {% endif %}
-    <a href="{% block header_mobile_center_url %}/{% endblock header_mobile_center_url %}" aria-label="{% trans 'University of Calabria' %}">
-        <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
-            {% block unical_mobile_logo %}
-            <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
-                   class="w-100 h-100 d-md-none"
-                   alt="{% trans 'University of Calabria' %}"
-                   style="aspect-ratio: 11,15"/>
-            <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
-                   class="d-md-none ms-1"
-                   style="width: 8%; aspect-ratio: 1"
-                   alt="{% trans 'HRS4R' %}"/>
-            <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
-                   class="w-75 h-100 d-none d-md-block"
-                   alt="{% trans 'University of Calabria' %}"
-                   style="aspect-ratio: 11,15"/>
-            <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
-                   class="d-none d-md-block ms-3"
-                   style="width: 6%; aspect-ratio: 1"
-                   alt="{% trans 'HRS4R' %}"/>
-            {% endblock unical_mobile_logo %}
+<div class="it-header-slim-wrapper">
+    <div class="container d-none d-lg-block">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-header-slim-wrapper-content">
+                    {% if request.user.is_staff %}
+                    {% include "components/italia_editorialboard_frontend_menu.html" %}
+                    {% endif %}
+                    <a target="_blank" title="MyUniCal" href="https://my.unical.it">
+                        <b>MyUniCal</b>
+                    </a>
+                </div>
+            </div>
         </div>
-    </a>
+    </div>
+    <div class="row d-lg-none w-100">
+        <div class="col-12">
+            <div class="it-header-slim-wrapper-content">
+                {% if request.user.is_staff %}
+                {% include "components/italia_editorialboard_frontend_menu.html" %}
+                {% endif %}
+                <a target="_blank" title="MyUniCal" href="https://my.unical.it">
+                    <b>MyUniCal</b>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="{% block header_mobile_center_url %}/{% endblock header_mobile_center_url %}" aria-label="{% trans 'University of Calabria' %}">
+    <div class="it-header-center-wrapper d-lg-none h-auto pt-4">
+        {% block unical_mobile_logo %}
+        <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
+               class="w-100 h-100 d-md-none"
+               alt="{% trans 'University of Calabria' %}"
+               style="aspect-ratio: 11,15"/>
+        <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
+               class="d-md-none ms-1"
+               style="width: 8%; aspect-ratio: 1"
+               alt="{% trans 'HRS4R' %}"/>
+        <image src="{% unicms_template_unical_static_path 'images/logo_unical_white.svg' %}"
+               class="w-75 h-100 d-none d-md-block"
+               alt="{% trans 'University of Calabria' %}"
+               style="aspect-ratio: 11,15"/>
+        <image src="{% unicms_template_unical_static_path 'images/logos/HRS4R.svg' %}"
+               class="d-none d-md-block ms-3"
+               style="width: 6%; aspect-ratio: 1"
+               alt="{% trans 'HRS4R' %}"/>
+        {% endblock unical_mobile_logo %}
+    </div>
+</a>
 {% endblock header_slim_wrapper %}
 
 {% block header_slim_right_zone %}
