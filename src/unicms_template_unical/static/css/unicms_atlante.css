@@ -6,7 +6,7 @@
 }
 
 .department_logo_lg {
-    height: 120px;
+    height: 100%;
 }
 
 @media (max-width: 991px) {
