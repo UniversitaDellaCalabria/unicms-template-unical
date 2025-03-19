@@ -21,14 +21,14 @@
             </svg>
             {% endif %}
         </div>
-        <div class="col-9 align-left">
+        <div class="col-auto align-left">
             <b>{{ contact.name }}</b>
             {% if contact_infos %}
             <div class="mt-2">
                 {% for info in contact_infos %}
                 <div class="row">
                     {% if info.info_type != 'other' %}
-                    <div class="col-2">
+                    <div class="col-auto">
                         <span>
                             <svg class="icon icon-sm icon-muted me-2">
                                 {% if info.info_type == 'email' %}
@@ -52,7 +52,7 @@
                     {% endif %}
 
                     {% if info.info_type != 'other' %}
-                    <div class="col-10">
+                    <div class="col-auto">
                     {% else %}
                     <div class="col-12">
                     {% endif %}
