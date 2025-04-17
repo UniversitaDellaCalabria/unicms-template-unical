@@ -117,7 +117,17 @@
     $(document).ready(function() {
         var owl_{{ id }} = $("#italia_carousel_{{ id }}");
 
-        owl_{{ id }}.owlCarousel({
+        owl_{{ id }}
+        .on('initialized.owl.carousel', function(event) {
+            let carousel = $(this);
+            // get carousel height
+            let height = carousel.outerHeight();
+            // set height to each slide
+            carousel.find('.it-hero-wrapper').each(function() {
+              $(this).css('height', height);
+            });
+        })
+        .owlCarousel({
             navigation : false, // Show next and prev buttons
             loop: true,
             slideSpeed : 300,
