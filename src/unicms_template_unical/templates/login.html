@@ -1,0 +1,50 @@
+{% extends "bases/unicms_unical.html" %}
+{% load i18n %}
+
+{% block content_title %}
+    <div class="py-md-5 bd-content clearfix">
+        {% include 'messages.html' %}
+
+        <h4 class="float-start">
+           {% trans "Effettua l'accesso" %}
+        </h4>
+
+        {% block right_button %}
+        {% endblock %}
+    </div>
+    {% endblock content_title %}
+
+{% block section_1 %}
+<div class="container my-5">
+{% if request.user.is_authenticated %}
+    <meta http-equiv="REFRESH" content="0;url={% url 'helpdesk:home' %}">
+{% else %}
+    <div class="login-panel panel panel-default">
+        <div class="panel-body">
+            <form role="form" method='post' action='./'>
+            {% if form.errors %}
+            <div class="alert alert-danger">{% trans "Your username and password didn't match. Please try again." %}</div>
+            {% endif %}
+                <fieldset>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input name="remember" type="checkbox" value="Remember Me">{% trans 'Remember Me' %}
+                        </label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <input class="btn btn-lg btn-success" type="submit" value="{% trans 'Login' %}" />
+                    </div>
+                    <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}../{% endif %}" />
+                </fieldset>
+            {% csrf_token %}</form>
+        </div>
+    </div>
+{% endif %}
+</div>
+{% endblock %}
