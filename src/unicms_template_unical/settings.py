@@ -4,4 +4,4 @@ UNICAL_PUBLICATION_CAROUSEL_ITEMS = 3
 
 # CDN FOR STATICS
 UNICMS_TEMPLATE_UNICAL_USE_CDN = False
-UNICMS_TEMPLATE_UNICAL_CDN = 'https://cdn.jsdelivr.net/gh/UniversitaDellaCalabria/unicms-template-unical@1.8.11/src/unicms_template_unical/static'
+UNICMS_TEMPLATE_UNICAL_CDN = 'https://cdn.jsdelivr.net/gh/UniversitaDellaCalabria/unicms-template-unical@1.8.12/src/unicms_template_unical/static'

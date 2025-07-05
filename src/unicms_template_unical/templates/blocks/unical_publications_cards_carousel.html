@@ -34,7 +34,7 @@
                 <div class="img-responsive-wrapper mb-3 mx-n4" {% if categories|length == 1 %}style="margin-top: -24px"{% endif %}>
                     <div class="img-responsive img-responsive-panoramic">
                         <figure class="img-wrapper">
-                          <a href="{{ pub.url }}">
+                          <a href="{{ pub.url }}" style="display: inline">
                             <img src="{{ pub.publication.image_url }}"
                                  title="{{ pub.publication.image_title }}"
                                  alt="{{ pub.publication.image_description }}"
@@ -49,7 +49,7 @@
                     {% include "includes/edit_news.html" with item=pub %}
                 </div>
                 {% block desktop_item_title %}
-                <h4 class="card-title">
+                <h4 class="card-title" style="word-break: break-word;">
                     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
                         {{ pub.publication.title|truncatechars:120 }}
                     </a>
