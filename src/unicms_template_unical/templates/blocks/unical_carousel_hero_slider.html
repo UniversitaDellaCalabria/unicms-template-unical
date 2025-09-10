@@ -51,7 +51,7 @@
                                 {% endif %}
                                 <img class="owl-lazy"
                                      data-src="{{ item.image.file.url }}"
-                                     {% if item.mobile_image %}data-src-retina="{{ item.mobile_image.file.url }}"{% endif %}
+                                     data-src-retina="{{ item.image.file.url }}"
                                      title="{{ item.image.name }}"
                                      alt="{{ item.image.description }}"
                                      style="display: block; width: 100%; height: 100%; object-fit: cover;">
