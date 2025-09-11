@@ -3,7 +3,7 @@
 
 <div class="mb-3">
     <div class="row">
-        <div class="col-2">
+        <div class="col-auto">
             {% if contact.image %}
             <img src="{{ contact.image.get_media_path }}"
                  alt="{{ contact.image.description }}"
@@ -28,7 +28,7 @@
                 {% for info in contact_infos %}
                 <div class="row">
                     {% if info.info_type != 'other' %}
-                    <div class="col-2">
+                    <div class="col-auto">
                         <span>
                             <svg class="icon icon-sm icon-muted me-2">
                                 {% if info.info_type == 'email' %}
