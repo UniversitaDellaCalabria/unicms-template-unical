@@ -6,11 +6,15 @@
   --bordeaux_unical: #b71918;
   --dark_grey_unical: #383838;
   --light_grey_unical: #9d9d9c;
+  --light_grey_unical: #9d9d9c;
   --white: #ffffff;
 
   --cyan: #176fc1;
   --grey: #d3d2cf;
+/*
   --light_grey: #e3e9ec;
+*/
+  --light_grey: #e3e9ec91;
 
   --darker_bordeaux: #6f0b0a;
   --lighter_bordeaux: #e03231;

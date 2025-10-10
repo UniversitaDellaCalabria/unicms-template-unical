@@ -2,7 +2,7 @@
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
-publiccodeYmlVersion: '0.3'
+publiccodeYmlVersion: '0.4'
 categories:
   - content-management
   - website-builder
@@ -88,10 +88,10 @@ name: uniCMS - Unical template
 platforms:
   - linux
   - web
-releaseDate: '2025-07-05'
+releaseDate: '2025-10-10'
 roadmap: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical/issues'
 softwareType: standalone/web
-softwareVersion: v1.8.12
+softwareVersion: v1.8.13
 url: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical'
 usedBy:
   - Università della Calabria - https://www.unical.it
