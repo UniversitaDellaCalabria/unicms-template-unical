@@ -12,13 +12,25 @@
 {% load unicms_publications %}
 {% load unicms_template_unical %}
 
+{% block custom_style %}
+{{ block.super }}
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_ispa.css' %}" type="text/css">
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_ispa.css' %}" type="text/css">
+{% endblock custom_style %}
+
+{% block header_brand_wrapper %}
+<div class="d-none d-lg-inline col-lg-12">
+    {{ block.super }}
+</div>
+{% endblock header_brand_wrapper %}
+
 <!-- Logo in Header -->
 {% block header_center_logo_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/dices.svg' %}" class="h-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/ispa.png' %}" class="h-100" />
 {% endblock header_center_logo_side %}
 
 {% block header_slim_mobile_org_name_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/dices.svg' %}" class="mw-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/ispa.png' %}" class="mw-100" />
 {% endblock header_slim_mobile_org_name_side %}
 
 {% block department_contacts %}
