@@ -1,0 +1,71 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/dices.svg' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/dices.svg' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/dices.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Cepartment of Culture, Edication and Society' %}"/>
+    </div>
+    <p class="mb-4">
+        Via P. Bucci - Cubo 20B
+        <br>
+        87036 Arcavacata di Rende (CS)
+        <br>
+        <a class="text-white" href="mailto:direttore.dices@unical.it" title="direttore.dices@unical.it">direttore.dices@unical.it</a>
+        <br>
+        <a class="text-white" href="mailto:dipartimento.dices@pec.unical.it" title="dipartimento.dices@pec.unical.it">dipartimento.dices@pec.unical.it</a>
+        <br>
+        +39 0984 494385
+    </p>
+</div>
+{% endblock department_contacts %}
+
+{% block footer_top %}
+<div class="container text-center text-lg-start">
+    <ul class="list-inline social py-4 mt-2 mb-0">
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.facebook.com/studiarealDICES/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-facebook-square"></use>
+                </svg><span class="visually-hidden">Facebook</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.instagram.com/dices_unical/" target="_blank" rel="noopener noreferrer" title="Instagram">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-instagram"></use>
+                </svg><span class="visually-hidden">Instagram</span>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="p-2" href="https://www.youtube.com/channel/UCJ27K0sitECCKfeDBr57N2w" target="_blank" rel="noopener noreferrer" title="YouTube">
+                <svg class="icon icon-secondary align-top">
+                    <use xlink:href="{% static 'svg/sprites.svg' %}#it-youtube"></use>
+                </svg><span class="visually-hidden">Youtube</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock footer_top %}
