@@ -134,12 +134,14 @@
             <div class="col-12 col-lg-3 offset-lg-1 mt-5 mt-lg-0">
                 <h4>{% trans "Published in" %}</h4>
                 <hr />
-                <ul class="list-unstyled">
+                <ul>
                 {% for pub_context in publication_context.publication.related_contexts %}
                     {% get_site_path webpath=pub_context.webpath as path %}
                     <li>
                         <a class="no-color" href="{{ path }}">
-                            <span>{{ pub_context.webpath.name }}</span>
+                            <span>
+                                {{ pub_context.webpath.name }} ({{ pub_context.webpath.site.domain }})
+                            </span>
                         </a>
                     </li>
                 {% endfor %}
