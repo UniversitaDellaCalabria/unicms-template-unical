@@ -3,14 +3,16 @@
 
 <div class="mb-3">
     <div class="row">
+        {% if contact.image %}
         <div class="col-2">
-            {% if contact.image %}
             <img src="{{ contact.image.get_media_path }}"
                  alt="{{ contact.image.description }}"
                  title="{{ contact.image.description }}"
                  class="w-100"
                  loading="lazy">
-            {% else %}
+        </div>
+        {% else %}
+        <div class="col-auto">
             <svg class="icon icon-muted" aria-labelledby="{{ contact.pk }}_img">
                 <title id="{{ contact.pk }}_img">{{ contact.image.description }}</title>
                 {% if contact.contact_type == 'person' %}
@@ -19,8 +21,8 @@
                 <use xlink:href="{% static 'svg/sprites.svg' %}#it-info-circle"></use>
                 {% endif %}
             </svg>
-            {% endif %}
         </div>
+        {% endif %}
         <div class="col-10 align-left">
             <b>{{ contact.name }}</b>
             {% if contact_infos %}
