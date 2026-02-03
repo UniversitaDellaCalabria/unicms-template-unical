@@ -1,0 +1,62 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+
+{% block custom_style %}
+{{ block.super }}
+{% comment %} <link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/unicms_green_office.css' %}" type="text/css"> {% endcomment %}
+<link rel="stylesheet" href="{% unicms_template_unical_static_path 'css/colors/unicms_green_office.css' %}" type="text/css">
+{% endblock custom_style %}
+
+<!-- Logo in Header -->
+{% block header_center_logo_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/greenoffice.svg' %}" class="h-100" />
+{% endblock header_center_logo_side %}
+
+{% block header_slim_mobile_org_name_side %}
+<image src="{% unicms_template_unical_static_path 'images/logos/greenoffice.svg' %}" class="mw-100" />
+{% endblock header_slim_mobile_org_name_side %}
+
+{% block header_center_right_zone %}
+{% endblock header_center_right_zone %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/greenoffice.svg' %}"
+               class="w-100 h-100"
+               alt="{% trans 'Green Office/home/francesco/Scaricati/greenoffice.svg' %}"/>
+    </div>
+    <p class="mb-4">
+        Via P. Bucci - Edificio 12/C
+        <br>
+        87036 Arcavacata di Rende (CS)
+    </p>
+</div>
+{% endblock department_contacts %}
+
+{% block footer_bottom_1 %}
+<div class="col-lg-4 col-sm-6">
+    <div class="link-list-wrapper">
+        <ul class="footer-list link-list clearfix">
+            <li><a class="list-item" href="/dipartimento/presentazione/" title="{% trans 'Presentation' %}">{% trans 'Presentation' %}</a></li>
+            <li><a class="list-item" href="/dipartimento/presentazione/persone/" title="{% trans 'People' %}">{% trans 'People' %}</a></li>
+            <li><a class="list-item" href="/dipartimento/organizzazione/servizi-personale/" title="{% trans 'Staff services' %}">{% trans 'Staff services' %}</a></li>
+            <li><a class="list-item" href="/dipartimento/organizzazione/documenti-bandi-e-concorsi/" title="{% trans 'Documents, announcements and competitions' %}">{% trans 'Documents, announcements and competitions' %}</a></li>
+            <li><a class="list-item" href="https://www2.unical.it/portale/strutture/dipartimenti_240/ctc/verbali/" target="_blank" rel="noopener noreferrer" title="{% trans 'Verbals' %}">{% trans 'Verbals' %}</a></li>
+            <li><a class="list-item" href="https://www2.unical.it/portale/strutture/dipartimenti_240/ctc/areariserv/" target="_blank" rel="noopener noreferrer" title="{% trans 'Reserved area' %}">{% trans 'Reserved area' %}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock footer_bottom_1 %}

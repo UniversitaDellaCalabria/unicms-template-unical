@@ -1,0 +1,25 @@
+/**
+ * Università della Calabria COLORS
+ */
+
+:root {
+    --bordeaux_unical: #4dad0d;
+    --dark_grey_unical: #383838;
+    --light_grey_unical: #9d9d9c;
+    --white: #ffffff;
+
+    --cyan: #176fc1;
+    --grey: #d3d2cf;
+    --light_grey: #eff3f4;
+    --darker_bordeaux: #6f0b0a;
+    --lighter_bordeaux: #5ebd20;
+}
+
+a {
+    color: #4dad0d;
+}
+
+a:hover,
+a:active {
+    color: #2a5f06;
+}
