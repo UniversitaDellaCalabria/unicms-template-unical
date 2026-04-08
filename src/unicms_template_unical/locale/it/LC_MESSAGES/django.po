@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 10:18+0100\n"
-"PO-Revision-Date: 2025-11-25 10:19+0100\n"
+"POT-Creation-Date: 2026-04-08 15:08+0200\n"
+"PO-Revision-Date: 2026-04-08 15:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -394,8 +394,8 @@ msgid "Whistleblowing"
 msgstr ""
 
 #: templates/bases/unicms_unical.html:491
-msgid "Strategic plan 2023/2025"
-msgstr "Piano strategico 2023/2025"
+msgid "Strategic plan"
+msgstr "Piano strategico"
 
 #: templates/bases/unicms_unical.html:492
 msgid "Governing bodies"
@@ -673,21 +673,22 @@ msgid "Unical Life"
 msgstr ""
 
 #: templates/pages/department.html:113 templates/pages/department_ctc.html:49
-#: templates/pages/department_desf.html:79
+#: templates/pages/department_desf.html:86 templates/pages/green_office.html:54
 msgid "Presentation"
 msgstr "Presentazione"
 
 #: templates/pages/department.html:114 templates/pages/department_ctc.html:50
-#: templates/pages/department_desf.html:80
+#: templates/pages/department_desf.html:87 templates/pages/green_office.html:55
 msgid "People"
 msgstr "Persone"
 
 #: templates/pages/department.html:115 templates/pages/department_ctc.html:51
-#: templates/pages/department_desf.html:81
+#: templates/pages/department_desf.html:88 templates/pages/green_office.html:56
 msgid "Staff services"
 msgstr "Servizi per il personale"
 
 #: templates/pages/department.html:116 templates/pages/department_ctc.html:52
+#: templates/pages/green_office.html:57
 msgid "Documents, announcements and competitions"
 msgstr "Documenti, bandi e concorsi"
 
@@ -695,11 +696,11 @@ msgstr "Documenti, bandi e concorsi"
 msgid "Department of Chemistry and Chemical Technologies"
 msgstr ""
 
-#: templates/pages/department_ctc.html:53
+#: templates/pages/department_ctc.html:53 templates/pages/green_office.html:58
 msgid "Verbals"
 msgstr "Verbali"
 
-#: templates/pages/department_ctc.html:54
+#: templates/pages/department_ctc.html:54 templates/pages/green_office.html:59
 msgid "Reserved area"
 msgstr "Area riservata"
 
@@ -712,7 +713,7 @@ msgstr ""
 msgid "Department of Economics, Statistics and Finance"
 msgstr ""
 
-#: templates/pages/department_desf.html:82
+#: templates/pages/department_desf.html:89
 msgid "Announcements and competitions"
 msgstr "Bandi e concorsi"
 
@@ -763,6 +764,10 @@ msgstr "Dipartimento di Studi Umanistici"
 #: templates/pages/department_fis.html:29
 msgid "Physics Department"
 msgstr "Dipartimento di Fisica"
+
+#: templates/pages/green_office.html:40
+msgid "Green Office/home/francesco/Scaricati/greenoffice.svg"
+msgstr ""
 
 #: templates/pages/master_ges.html:82
 msgid "Manager di impianti ed eventi sportivi complessi"
