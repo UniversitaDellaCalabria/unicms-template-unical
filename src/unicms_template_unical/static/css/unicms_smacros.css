@@ -1,0 +1,16 @@
+@media (min-width: 992px){
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        padding-top: 0;
+        margin-top: 0;
+    }
+}
+
+.department_logo_lg {
+    height: auto;
+}
+
+@media (max-width: 991px) {
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        margin-top: -25px;
+    }
+}
