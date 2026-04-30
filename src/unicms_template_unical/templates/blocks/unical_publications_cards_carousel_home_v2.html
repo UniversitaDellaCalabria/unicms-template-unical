@@ -2,19 +2,19 @@
 
 
 {% block desktop_item_title %}
-<h5 class="card-title">
+<p class="h5 card-title">
     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
         {{ pub.publication.title|truncatechars:120 }}
     </a>
-</h5>
+</p>
 {% endblock desktop_item_title %}
 
 {% block mobile_item_title %}
-<h5 class="card-title">
+<p class="h5 card-title">
     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
         {{ pub.publication.title|truncatechars:120 }}
     </a>
-</h5>
+</p>
 {% endblock mobile_item_title %}
 
 {% block desktop_subheading %}

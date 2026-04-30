@@ -12,11 +12,11 @@
 <div class="category-top">
     <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
 </div>
-<h5 class="card-title">
+<p class="h5 card-title">
     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
         {{ pub.publication.title|truncatechars:120 }}
     </a>
-</h5>
+</p>
 <p class="card-text">
     {{ pub.publication.subheading|truncatechars:135 }}
 </p>
@@ -28,11 +28,11 @@
     <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
     {% include "includes/edit_news.html" with item=pub %}
 </div>
-<h5 class="card-title">
+<p class="h5 card-title">
     <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
         {{ pub.publication.title|truncatechars:120 }}
     </a>
-</h5>
+</p>
 <p class="card-text">
     {{ pub.publication.subheading|truncatechars:135 }}
 </p>
