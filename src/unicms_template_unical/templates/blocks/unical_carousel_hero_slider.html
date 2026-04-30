@@ -8,6 +8,7 @@
 
 {% if carousel_items %}
 
+    {% comment %}
     {% if carousel_items|length > 1 %}
     <div class="customNavigation w-100" id="{{ id }}_customNavigation" style="position: absolute;">
         <span id="{{ id }}_prev" style="cursor: pointer; position: relative; z-index: 10">
@@ -28,7 +29,8 @@
         </span>
     </div>
     {% endif %}
-
+    {% endcomment %}
+    
     <div id="italia_carousel_{{ id }}" class="splide">
         <div class="splide__track">
             <ul class="splide__list">
@@ -125,7 +127,7 @@
         var splide = new Splide('#italia_carousel_{{ id }}', {
             type   : 'loop',
             perPage: 1,
-            arrows     : false, // Nasconde le frecce (prev/next)
+            arrows     : true, // Nasconde le frecce (prev/next)
             pagination : false, // Nasconde i puntini (bullets)
             lazyLoad: 'nearby',
             autoplay    : true,      // Attiva lo scorrimento automatico
@@ -146,7 +148,8 @@
         if (splide.Components.Autoplay) {
             splide.Components.Autoplay.play();
         }
-        
+
+        {% comment %}
         // Collega i tasti custom
         const prevBtn = document.getElementById('{{ id }}_prev');
         const nextBtn = document.getElementById('{{ id }}_next');
@@ -163,6 +166,7 @@
         let banner_height = document.querySelector('#italia_carousel_{{ id }}').offsetHeight;
         document.getElementById("{{ id }}_customNavigation").style.marginTop = (banner_height/2)-32 + "px";
         {% endif %}
+        {% endcomment %}
     });
     </script>
 {% endif %}
