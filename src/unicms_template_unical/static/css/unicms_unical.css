@@ -258,6 +258,11 @@ a .badge-grey-unical.selected {
   z-index: 1 !important;
 }
 
+.slide {
+  z-index: 0;
+}
+
+/*
 .owl-carousel {
   z-index: 0;
 }
@@ -265,7 +270,9 @@ a .badge-grey-unical.selected {
 .owl-nav {
   display: none;
 }
+*/
 
+/*
 .owl-carousel-cards .owl-stage,
 .custom-unical .owl-stage {
   display: -webkit-flex;
@@ -283,6 +290,7 @@ a .badge-grey-unical.selected {
   display: grid;
   height: auto !important;
 }
+*/
 
 .custom-unical .card-wrapper {
   padding-bottom: 16px;
@@ -551,6 +559,7 @@ figure.table table td figure.image img {
 }
 
 /** Owl CLS fix */
+/*
 .owl-carousel {
   display: block;
 }
@@ -562,6 +571,7 @@ figure.table table td figure.image img {
 .owl-carousel img {
   width: 100%;
 }
+*/
 
 @media (min-width: 992px) {
 

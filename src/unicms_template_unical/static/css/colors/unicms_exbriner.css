@@ -135,9 +135,11 @@ a.read-more{
 /**
  * Carousel
  */
+/*
 .it-carousel-wrapper .owl-dots .owl-dot{
     background: var(--dark_grey_unical);
 }
+*/
 
 /**
  * Back to top

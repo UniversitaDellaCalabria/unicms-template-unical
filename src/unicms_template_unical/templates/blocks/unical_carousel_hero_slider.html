@@ -10,7 +10,7 @@
 
     {% if carousel_items|length > 1 %}
     <div class="customNavigation w-100" id="{{ id }}_customNavigation" style="position: absolute;">
-        <span class="{{ id }}_prev" id="{{ id }}_prev" style="cursor: pointer; position: relative; z-index: 10">
+        <span id="{{ id }}_prev" style="cursor: pointer; position: relative; z-index: 10">
             <span class="text-white fw-bold">
                 <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_prev">
                     <title id="{{ id }}_carousel_prev">{% trans "Previous" %}</title>
@@ -18,7 +18,7 @@
                 </svg>
             </span>
         </span>
-        <span class="{{ id }}_next float-end" id="{{ id }}_next" style="cursor: pointer; position: relative; z-index: 10">
+        <span class="float-end" id="{{ id }}_next" style="cursor: pointer; position: relative; z-index: 10">
             <span class="text-white fw-bold">
                 <svg class="icon icon-lg icon-white" aria-labelledby="{{ id }}_carousel_next">
                     <title id="{{ id }}_carousel_next">{% trans "Next" %}</title>
@@ -29,121 +29,134 @@
     </div>
     {% endif %}
 
-    <div id="italia_carousel_{{ id }}" class="owl-carousel owl-theme">
+    <div id="italia_carousel_{{ id }}" class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% for item in carousel_items %}
+                {% with item.links as item_links %}
+                <li class="splide__slide">
+                    <div class="it-single-slide-wrapper h-100">
+                        <div class="item h-100">
+                            <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %} {% block extra_class %}{% endblock %} h-100">
 
-        {% for item in carousel_items %}
-        {% with item.links as item_links %}
-        <div class="item">
-            <div class="it-hero-wrapper it-overlay {% if item.heading %}it-dark{% endif %} {% block extra_class %}{% endblock %}">
-
-                <!-- - img-->
-                {% if item_links|length == 1 %}
-                <a href="{{ item_links.0.url }}" class="w-100" style="text-decoration: none">
-                {% endif %}
-                <div class="img-responsive-wrapper" style="aspect-ratio: 1;">
-                    <div class="img-responsive">
-                        <div class="img-wrapper">
-                            <picture style="display: block; width: 100%; height: 100%;">
-                                {% if item.mobile_image %}
-                                <source srcset="{{ item.mobile_image.file.url }}"
-                                        media="(max-width: 767px)"
-                                        title="{{ item.mobile_image.name }}">
+                                <!-- - img-->
+                                {% if item_links|length == 1 %}
+                                <a href="{{ item_links.0.url }}" class="w-100" style="text-decoration: none">
                                 {% endif %}
-                                <img class="owl-lazy"
-                                     data-src="{{ item.image.file.url }}"
-                                     data-src-retina="{{ item.image.file.url }}"
-                                     title="{{ item.image.name }}"
-                                     alt="{{ item.image.description }}"
-                                     style="display: block; width: 100%; height: 100%; object-fit: cover;">
-                            </picture>
-                        </div>
-                    </div>
-                </div>
-                {% if item.pre_heading or item.heading or item.description %}
-                <!-- - texts-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="it-hero-text-wrapper unical-hero-text-wrapper {% if item.heading %}bg-dark{% endif %}">
-
-                                {% block pre_heading %}
-                                {% if item.pre_heading %}
-                                <h5 class="unical-hero-preheading">
-                                    {{ item.pre_heading }}
-                                </h5>
-                                {% endif %}
-                                {% endblock pre_heading %}
-
-                                {% block heading %}
-                                {% if item.heading %}
-                                <h1 class="no_toc unical-hero-heading">
-                                    {{ item.heading }}
-                                </h1>
-                                {% endif %}
-                                {% endblock heading %}
-
-                                {% block description %}
-                                {% if item.description %}
-                                <h1 class="no_toc unical-hero-description">
-                                    {{ item.description }}
-                                </h1>
-                                {% endif %}
-                                {% endblock description %}
-
-                                {% if item_links|length > 1 %}
-                                <div class="it-btn-container">
-                                    {% for link in item_links %}
-                                    <a class="btn btn-sm btn-secondary mb-1" href="{{ link.url }}">
-                                        {{ link.get_title }}
-                                    </a>
-                                    {% endfor %}
+                                <div class="img-responsive-wrapper" style="aspect-ratio: 1;">
+                                    <div class="img-responsive">
+                                        <div class="img-wrapper">
+                                            <picture style="display: block; width: 100%; height: 100%;">
+                                                {% if item.mobile_image %}
+                                                <source srcset="{{ item.mobile_image.file.url }}"
+                                                        media="(max-width: 767px)"
+                                                        title="{{ item.mobile_image.name }}">
+                                                {% endif %}
+                                                <img class="splide__lazy"
+                                                     data-splide-lazy="{{ item.image.file.url }}"
+                                                     title="{{ item.image.name }}"
+                                                     alt="{{ item.image.description }}"
+                                                     style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                                            </picture>
+                                        </div>
+                                    </div>
                                 </div>
+                                {% if item.pre_heading or item.heading or item.description %}
+                                <!-- - texts-->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="it-hero-text-wrapper unical-hero-text-wrapper {% if item.heading %}bg-dark{% endif %}">
+
+                                                {% block pre_heading %}
+                                                {% if item.pre_heading %}
+                                                <h5 class="unical-hero-preheading">
+                                                    {{ item.pre_heading }}
+                                                </h5>
+                                                {% endif %}
+                                                {% endblock pre_heading %}
+
+                                                {% block heading %}
+                                                {% if item.heading %}
+                                                <h1 class="no_toc unical-hero-heading">
+                                                    {{ item.heading }}
+                                                </h1>
+                                                {% endif %}
+                                                {% endblock heading %}
+
+                                                {% block description %}
+                                                {% if item.description %}
+                                                <h1 class="no_toc unical-hero-description">
+                                                    {{ item.description }}
+                                                </h1>
+                                                {% endif %}
+                                                {% endblock description %}
+
+                                                {% if item_links|length > 1 %}
+                                                <div class="it-btn-container">
+                                                    {% for link in item_links %}
+                                                    <a class="btn btn-sm btn-secondary mb-1" href="{{ link.url }}">
+                                                        {{ link.get_title }}
+                                                    </a>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                {% if item_links|length == 1 %}
+                                </a>
                                 {% endif %}
                             </div>
                         </div>
                     </div>
-                </div>
-                {% endif %}
-
-                {% if item_links|length == 1 %}
-                </a>
-                {% endif %}
-            </div>
+                </li>
+                {% endwith %}
+                {% endfor %}
+            </ul>
         </div>
-        {% endwith %}
-        {% endfor %}
     </div>
 
     <script>
-    $(document).ready(function() {
-        var owl_{{ id }} = $("#italia_carousel_{{ id }}");
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#italia_carousel_{{ id }}', {
+            type   : 'loop',
+            perPage: 1,
+            arrows     : false, // Nasconde le frecce (prev/next)
+            pagination : false, // Nasconde i puntini (bullets)
+            lazyLoad: 'nearby',
+            autoplay    : true,      // Attiva lo scorrimento automatico
+            interval    : {{ carousel_timeout|default:5000 }},      // Tempo di attesa in millisecondi (3000 = 3 secondi)
+            pauseOnHover: true,      // Consigliato: si ferma se l'utente passa il mouse sopra
+            pauseOnFocus: true,      // Si ferma se l'utente clicca/seleziona la slide
+            resetProgress: false,
+            // Classi per integrare lo stile Bootstrap Italia se necessario
+            classes: {
+                arrows: 'splide__arrows it-test-class', 
+                arrow : 'splide__arrow it-arrow-custom',
+            },
+        });
 
-        owl_{{ id }}
-        .on('initialized.owl.carousel', function(event) {
-            let carousel = $(this);
-            // get carousel height
-            let height = carousel.outerHeight();
-            // set height to each slide
-            carousel.find('.it-hero-wrapper').each(function() {
-              $(this).css('height', height);
-            });
-        })
-        .owlCarousel({
-            navigation : false, // Show next and prev buttons
-            loop: true,
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            autoplay: true,
-            autoplayTimeout: {{ carousel_timeout|default:5000 }},
-            items : 1,
-            dots: false,
-            lazyLoad : true,
+        splide.mount();
+
+        // FORZA L'AVVIO MANUALE
+        if (splide.Components.Autoplay) {
+            splide.Components.Autoplay.play();
+        }
+        
+        // Collega i tasti custom
+        const prevBtn = document.getElementById('{{ id }}_prev');
+        const nextBtn = document.getElementById('{{ id }}_next');
+
+        prevBtn.addEventListener('click', function () {
+            splide.go('<'); // Va alla slide precedente
         });
-        $(".{{ id }}_next").click(function(){
-            owl_{{ id }}.trigger('next.owl.carousel');
-        });
-        $(".{{ id }}_prev").click(function(){
-            owl_{{ id }}.trigger('prev.owl.carousel');
+
+        nextBtn.addEventListener('click', function () {
+            splide.go('>'); // Va alla slide successiva
         });
 
         {% if carousel_items|length > 1 %}

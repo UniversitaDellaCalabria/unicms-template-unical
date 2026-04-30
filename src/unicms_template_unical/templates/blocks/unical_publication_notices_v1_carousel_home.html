@@ -9,30 +9,38 @@
 {% random_id as uid %}
 
 {% if publications %}
-<div class="custom-unical owl-carousel d-none d-lg-block" id="carousel_{{ uid }}">
-    {% for pub in publications %}
-    <div class="card-wrapper card-space">
-        <div class="card card-bg no-after">
-            <div class="card-body">
-                {% block desktop_item_body %}
-                <div class="category-top">
-                    <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
-                    {% include "includes/edit_news.html" with item=pub %}
+<div class="custom-unical splide d-none d-lg-block" id="carousel_{{ uid }}">
+    <div class="splide__track">
+        <ul class="splide__list">
+            {% for pub in publications %}
+            <li class="splide__slide">
+                <div class="it-single-slide-wrapper h-100">
+                    <div class="card-wrapper card-space h-100">
+                        <div class="card card-bg no-after">
+                            <div class="card-body">
+                                {% block desktop_item_body %}
+                                <div class="category-top">
+                                    <span>{% trans "Published" %}: {{ pub.date_start|date:"d/m/Y, H:i" }}</span>
+                                    {% include "includes/edit_news.html" with item=pub %}
+                                </div>
+                                <h5 class="card-title">
+                                    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+                                        {{ pub.publication.title|truncatechars:120 }}
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    {{ pub.publication.subheading|truncatechars:135 }}
+                                </p>
+                                {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
+                                {% endblock desktop_item_body %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h5 class="card-title">
-                    <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
-                        {{ pub.publication.title|truncatechars:120 }}
-                    </a>
-                </h5>
-                <p class="card-text">
-                    {{ pub.publication.subheading|truncatechars:135 }}
-                </p>
-                {% include "includes/social_share.html" with share_title=item.publication.title share_url=request.get_host|add:pub.url %}
-                {% endblock desktop_item_body %}
-            </div>
-        </div>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
-    {% endfor %}
 </div>
 
 <div class="custom-unical d-lg-none">
@@ -62,7 +70,7 @@
 </div>
 
 <div class="customNavigation text-end d-none d-lg-block">
-    <span class="{{ uid }}_prev" style="cursor: pointer">
+    <span id="{{ uid }}_prev" style="cursor: pointer">
         <span class="text-black fw-bold">
             <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_prev">
                 <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
@@ -70,7 +78,7 @@
             </svg>
         </span>
     </span>
-    <span class="{{ uid }}_next" style="cursor: pointer">
+    <span id="{{ uid }}_next" style="cursor: pointer">
         <span class="text-black fw-bold">
             <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_next">
                 <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
@@ -94,47 +102,41 @@
 {% endblock all_items_link %}
 
 <script>
-$(document).ready(function() {
-    var owl_{{ uid }} = $("#carousel_{{ uid }}");
-
-    owl_{{ uid }}.owlCarousel({
-        nav : true, // Show next and prev buttons
-        rewind: true,
-        //loop: true,
-        //slideSpeed : 300,
-        //paginationSpeed : 400,
-        //autoplay: true,
-        //items : 4,
-        //itemsDesktop : false,
-        //itemsDesktopSmall : false,
-        //itemsTablet: false,
-        //itemsMobile : false,
-        dots: false,
-        margin: 12,
-        //dotsEach: false,
-        stagePadding: 0,
-
-        responsive : {
-            // breakpoint from 0 up
-            0 : {
-                items: 1
-            },
-            // breakpoint from 480 up
-            480 : {
-                items: 2
-            },
-            // breakpoint from 1024 up
-            1024 : {
-                items: {{ carousel_items }}
-            }
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    var splide = new Splide('#carousel_{{ uid }}', {
+        type   : 'loop',
+        perPage: {{ carousel_items }},
+        arrows     : false, // Nasconde le frecce (prev/next)
+        pagination : false, // Nasconde i puntini (bullets)
+        gap    : '12px', // Spaziatura tipica Bootstrap Italia
+        breakpoints: {
+          480: {
+            perPage: 1,
+          },
+          1024: {
+            perPage: 2,
+          },
+        },
+        // Classi per integrare lo stile Bootstrap Italia se necessario
+        classes: {
+            arrows: 'splide__arrows it-test-class', 
+            arrow : 'splide__arrow it-arrow-custom',
+        },
     });
-    $(".{{ uid }}_next").click(function(){
-        owl_{{ uid }}.trigger('next.owl.carousel');
-      })
-    $(".{{ uid }}_prev").click(function(){
-        owl_{{ uid }}.trigger('prev.owl.carousel');
-    })
+
+    splide.mount();
+
+    // Collega i tasti custom
+    const prevBtn = document.getElementById('{{ uid }}_prev');
+    const nextBtn = document.getElementById('{{ uid }}_next');
+
+    prevBtn.addEventListener('click', function () {
+        splide.go('<'); // Va alla slide precedente
+    });
+
+    nextBtn.addEventListener('click', function () {
+        splide.go('>'); // Va alla slide successiva
+    });
 });
 </script>
 {% endif %}

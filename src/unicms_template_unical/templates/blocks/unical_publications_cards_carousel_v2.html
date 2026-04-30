@@ -103,72 +103,79 @@
     </div>
 
     {% if carousel_items > 1 %}
-    <div class="custom-unical owl-carousel d-none d-lg-block" id="carousel_{{ uid }}">
+    <div class="custom-unical splide d-none d-lg-block" id="carousel_{{ uid }}">
+        <div class="splide__track">
+            <ul class="splide__list">
     {% endif %}
     {% else %}
+        <li class="splide__slide">
+            <div class="it-single-slide-wrapper h-100">
+                <div class="card-wrapper card-space h-100">
+                    <div class="card card-bg no-after">
+                        <div class="card-body">
+                            {% block desktop_item_body %}
 
-        <div class="card-wrapper card-space">
-            <div class="card card-bg no-after">
-                <div class="card-body">
-                    {% block desktop_item_body %}
+                            {% block categories_buttons_3 %}
+                            {% if pub.publication.categories|length > 1 %}
+                            <div class="etichetta">
+                                {% for cat in pub.publication.categories %}
+                                    <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
+                                        <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
+                                            <b>{{ cat.name }}</b>
+                                        </a>
+                                    </span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            {% endblock categories_buttons_3 %}
 
-                    {% block categories_buttons_3 %}
-                    {% if pub.publication.categories|length > 1 %}
-                    <div class="etichetta">
-                        {% for cat in pub.publication.categories %}
-                            <span class="badge rounded-pill badge-grey-unical my-1 py-2 px-4 me-1">
-                                <a class="no-color" href="{% call obj=pub method='get_url_list' category_name=cat.name %}">
-                                    <b>{{ cat.name }}</b>
+                            {% if pub.publication.image_url %}
+                            <div class="img-responsive-wrapper mb-3 mx-n4" {% block categories_margin_3 %}{% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}{% endblock categories_margin_3 %}>
+                                <div class="img-responsive img-responsive-panoramic">
+                                    <figure class="img-wrapper">
+                                      <a href="{{ pub.url }}">
+                                        <img src="{{ pub.publication.image_url }}"
+                                             title="{{ pub.publication.image_title }}"
+                                             alt="{{ pub.publication.image_description }}"
+                                             loading="lazy">
+                                      </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="category-top">
+                                <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
+                                {% include "includes/edit_news.html" with item=pub %}
+                            </div>
+                            {% block desktop_item_title %}
+                            <h4 class="card-title">
+                                <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
+                                    {{ pub.publication.title|truncatechars:120 }}
                                 </a>
-                            </span>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% endblock categories_buttons_3 %}
+                            </h4>
+                            {% endblock desktop_item_title %}
 
-                    {% if pub.publication.image_url %}
-                    <div class="img-responsive-wrapper mb-3 mx-n4" {% block categories_margin_3 %}{% if pub.publication.categories|length == 1 %}style="margin-top: -24px"{% endif %}{% endblock categories_margin_3 %}>
-                        <div class="img-responsive img-responsive-panoramic">
-                            <figure class="img-wrapper">
-                              <a href="{{ pub.url }}">
-                                <img src="{{ pub.publication.image_url }}"
-                                     title="{{ pub.publication.image_title }}"
-                                     alt="{{ pub.publication.image_description }}"
-                                     loading="lazy">
-                              </a>
-                            </figure>
+                            {% block desktop_subheading %}
+                            {% if not pub.publication.image_url %}
+                            <p class="card-text">
+                                {{ pub.publication.subheading|truncatechars:135 }}
+                            </p>
+                            {% endif %}
+                            {% endblock desktop_subheading %}
+
+                            {% include "includes/social_share.html" with share_title=pub.publication.title share_url=request.get_host|add:pub.url %}
+                            {% endblock desktop_item_body %}
                         </div>
                     </div>
-                    {% endif %}
-                    <div class="category-top">
-                        <span>{% trans "Published" %}: {{ pub.date_start | date:"d/m/Y, H:i" }}</span>
-                        {% include "includes/edit_news.html" with item=pub %}
-                    </div>
-                    {% block desktop_item_title %}
-                    <h4 class="card-title">
-                        <a href="{{ pub.url }}" class="no-color" title="{{ pub.publication.title }}">
-                            {{ pub.publication.title|truncatechars:120 }}
-                        </a>
-                    </h4>
-                    {% endblock desktop_item_title %}
-
-                    {% block desktop_subheading %}
-                    {% if not pub.publication.image_url %}
-                    <p class="card-text">
-                        {{ pub.publication.subheading|truncatechars:135 }}
-                    </p>
-                    {% endif %}
-                    {% endblock desktop_subheading %}
-
-                    {% include "includes/social_share.html" with share_title=pub.publication.title share_url=request.get_host|add:pub.url %}
-                    {% endblock desktop_item_body %}
                 </div>
             </div>
-        </div>
+        </li>
         {% endif %}
         {% endfor %}
 
     {% if carousel_items > 1 %}
+            </ul>
+        </div>
     </div>
     {% endif %}
 
@@ -236,7 +243,7 @@
     </div>
 
     <div class="customNavigation text-end d-none d-lg-block">
-        <span class="{{ uid }}_prev" style="cursor: pointer">
+        <span id="{{ uid }}_prev" style="cursor: pointer">
             <span class="text-black fw-bold">
                 <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_prev">
                     <title id="{{ uid }}_carousel_prev">{% trans "Previous" %}</title>
@@ -244,7 +251,7 @@
                 </svg>
             </span>
         </span>
-        <span class="{{ uid }}_next" style="cursor: pointer">
+        <span id="{{ uid }}_next" style="cursor: pointer">
             <span class="text-black fw-bold">
                 <svg class="icon icon-sm me-2" aria-labelledby="{{ uid }}_carousel_next">
                     <title id="{{ uid }}_carousel_next">{% trans "Next" %}</title>
@@ -268,47 +275,41 @@
 {% endblock all_items_link %}
 
 <script>
-$(document).ready(function() {
-    var owl_{{ uid }} = $("#carousel_{{ uid }}");
-
-    owl_{{ uid }}.owlCarousel({
-        nav : true, // Show next and prev buttons
-        rewind: true,
-        //loop: true,
-        //slideSpeed : 300,
-        //paginationSpeed : 400,
-        //autoplay: true,
-        //items : 4,
-        //itemsDesktop : false,
-        //itemsDesktopSmall : false,
-        //itemsTablet: false,
-        //itemsMobile : false,
-        dots: false,
-        margin: 12,
-        //dotsEach: false,
-        stagePadding: 0,
-
-        responsive : {
-            // breakpoint from 0 up
-            0 : {
-                items: 1
-            },
-            // breakpoint from 480 up
-            480 : {
-                items: 2
-            },
-            // breakpoint from 1024 up
-            1024 : {
-                items: {{ carousel_items }}
-            }
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    var splide = new Splide('#carousel_{{ uid }}', {
+        type   : 'loop',
+        perPage: {{ carousel_items }},
+        arrows     : false, // Nasconde le frecce (prev/next)
+        pagination : false, // Nasconde i puntini (bullets)
+        gap    : '12px', // Spaziatura tipica Bootstrap Italia
+        breakpoints: {
+          480: {
+            perPage: 1,
+          },
+          1024: {
+            perPage: 2,
+          },
+        },
+        // Classi per integrare lo stile Bootstrap Italia se necessario
+        classes: {
+            arrows: 'splide__arrows it-test-class', 
+            arrow : 'splide__arrow it-arrow-custom',
+        },
     });
-    $(".{{ uid }}_next").click(function(){
-        owl_{{ uid }}.trigger('next.owl.carousel');
-      })
-    $(".{{ uid }}_prev").click(function(){
-        owl_{{ uid }}.trigger('prev.owl.carousel');
-    })
+
+    splide.mount();
+
+    // Collega i tasti custom
+    const prevBtn = document.getElementById('{{ uid }}_prev');
+    const nextBtn = document.getElementById('{{ uid }}_next');
+
+    prevBtn.addEventListener('click', function () {
+        splide.go('<'); // Va alla slide precedente
+    });
+
+    nextBtn.addEventListener('click', function () {
+        splide.go('>'); // Va alla slide successiva
+    });
 });
 </script>
 {% endif %}
