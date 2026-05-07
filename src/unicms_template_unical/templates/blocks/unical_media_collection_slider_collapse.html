@@ -1,0 +1,32 @@
+{% load static %}
+{% load unicms_templates %}
+
+{% random_id as id %}
+
+{% with collection.get_items as collection_items %}
+{% if collection_items %}
+<div id="collapseDiv-{{ id }}-lft" class="accordion accordion-left-icon">
+    <div class="accordion-item">
+        <div class="accordion-header" id="heading-{{ id }}-lft">
+            <button class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse-{{ id }}-lft"
+                    aria-expanded="false"
+                    aria-controls="collapse-{{ id }}-lft">
+                {{ collection.name }}
+            </button>
+        </div>
+        <div id="collapse-{{ id }}-lft"
+             class="accordion-collapse collapse"
+             role="region"
+             data-bs-parent="#collapseDiv-{{ id }}-lft"
+             aria-labelledby="heading-{{ id }}-lft">
+            <div class="accordion-body">
+                {% include "blocks/italia_media_collection_image_slider.html" with collection=collection %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endwith %}
