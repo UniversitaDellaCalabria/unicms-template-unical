@@ -177,8 +177,19 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    const el = document.querySelector('#carousel_{{ uid }}');
+    // Conta le slide effettive
+    const itemCount = el.querySelectorAll('.splide__slide').length;
+
+    // Definiamo i breakpoint
+    const itemsSm = 2;
+    const itemsLg = 3;
+
+    const windowWidth = window.innerWidth;
+    const visibleIniziali = windowWidth < 1024 ? itemsSm : itemsLg;
+        
     var splide = new Splide('#carousel_{{ uid }}', {
-        type   : 'loop',
+        type: itemCount > visibleIniziali ? 'loop' : 'slide',
         perPage: {{ carousel_items }},
         arrows     : false, // Nasconde le frecce (prev/next)
         pagination : false, // Nasconde i puntini (bullets)
