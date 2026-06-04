@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load static %}
+
+{% load unicms_contexts %}
+{% load unicms_menus %}
+
+
+{% with collection.get_items as collection_items %}
+    {% if collection_items %}
+    <div class="background-light-grey px-2 py-3 mb-2 w-100">
+        <div class="row">
+            <div class="col-auto">
+                <b>
+                    <svg class="icon" aria-labelledby="doc_menu">
+                        <title id="doc_menu">{% trans "Documents" %}</title>
+                        <use xlink:href="{% static 'svg/sprites.svg' %}#it-files"></use>
+                    </svg>
+                </b>
+            </div>
+            <div class="col auto">
+                <p class="h5">{{ collection.name }}</h5>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col align-middle">
+                <ul class="mb-0 ps-0 list-unstyled">
+                {% for item in collection_items %}
+                    <li>
+                        <a class="no-color" href="{{ item.media.get_media_path }}">
+                            <b>- {{ item.media.title }}</b>
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endwith %}
+
+
