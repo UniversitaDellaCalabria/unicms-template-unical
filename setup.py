@@ -27,7 +27,7 @@ setup(
             for i in glob(f"{SRC_FOLDER}/{PKG_NAME}/**", recursive=True)
         ]
     },
-    license="Apache License 2.0",
+    license='AGPL-3.0-or-later',
     description="uniCMS Unical Template based on Bootstrap Italia",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -41,7 +41,7 @@ setup(
         "Framework :: Django :: 3.0",
         "Framework :: Django :: 4.0",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
