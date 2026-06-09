@@ -59,8 +59,8 @@ IT:
     cie: false
     pagopa: false
     spid: false
-  riuso:
-    organisation.uri: urn:x-italian-pa:unical
+organisation:
+  uri: urn:x-italian-pa:unical
 landingURL: 'https://github.com/UniversitaDellaCalabria/unicms-template-unical'
 legal:
   license: AGPL-3.0-or-later
