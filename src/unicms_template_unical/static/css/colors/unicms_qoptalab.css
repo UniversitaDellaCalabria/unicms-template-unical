@@ -1,0 +1,15 @@
+@media (min-width: 992px){
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper {
+        background: #e3e9ec;
+    }
+}
+
+.it-header-center-wrapper {
+    background: #fff;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar-toggler svg {
+        fill: var(--dark_grey_unical);
+    }
+}
