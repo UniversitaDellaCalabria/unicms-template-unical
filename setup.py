@@ -18,7 +18,7 @@ PKG_NAME = "unicms_template_unical"
 
 setup(
     name=PKG_NAME,
-    version="1.9.1",
+    version="1.9.2",
     packages=[PKG_NAME],
     package_dir={PKG_NAME: f"{SRC_FOLDER}/{PKG_NAME}"},
     package_data={
