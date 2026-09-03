@@ -1,0 +1,59 @@
+{% extends "department.html" %}
+
+{% load i18n %}
+{% load static %}
+
+<!-- load custom template tags -->
+{% load unicms_carousels %}
+{% load unicms_contexts %}
+{% load unicms_menus %}
+{% load unicms_templates %}
+{% load unicms_pages %}
+{% load unicms_publications %}
+{% load unicms_template_unical %}
+
+<!-- Logo in Header -->
+ {% block header_center_logo %}
+    <div class="d-none d-lg-flex col-lg-auto px-0 me-4" style="height: 70px">
+        <image src="{% unicms_template_unical_static_path 'images/logos/cus.svg' %}" class="h-100" />
+    </div> <p class="h2 text-white">Centro Sportivo Universitario</p>
+{% endblock header_center_logo %}
+
+{% block unical_mobile_logo %}
+    <image src="{% unicms_template_unical_static_path 'images/logos/cus.svg' %}" class="mw-100 me-3" style="height: 50px" />
+    <p class="h3 text-white">Centro Sportivo Universitario</p>
+{% endblock unical_mobile_logo %}
+
+{% block footer_bottom_1 %}
+<div class="col-lg-4 col-sm-6">
+    <div class="link-list-wrapper">
+        <ul class="footer-list link-list clearfix">
+            <li><a class="list-item" href="#" title="{% trans 'Cookie Policy (EU)' %}">{% trans 'Cookie Policy (EU)' %}</a></li>
+            <li><a class="list-item" href="#" title="{% trans 'Privacy' %}">{% trans 'Privacy' %}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock footer_bottom_1 %}
+
+{% block footer_bottom_2 %}
+{% endblock footer_bottom_2 %}
+
+{% block footer_bottom_3 %}
+{% endblock footer_bottom_3 %}
+
+{% block department_contacts %}
+<div class="col-12 col-lg-3">
+    <div class="mb-3">
+        <image src="{% unicms_template_unical_static_path 'images/logos/cus.svg' %}"
+               style="height: 70px"
+               alt="{% trans 'CUS' %}"/>
+    </div>
+    <p class="mb-4">
+        Centro Sportivo Universitario
+        <br>
+        Via Pietro Bucci
+        <br>
+        87036 Rende (CS)
+    </p>
+</div>
+{% endblock department_contacts %}
