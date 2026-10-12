@@ -13,16 +13,22 @@
 {% load unicms_template_unical %}
 
 <!-- Logo in Header -->
-{% block header_center_logo_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/tlc.png' %}" class="h-100" />
-{% endblock header_center_logo_side %}
+{% block header_center_logo %}
+    <div class="d-none d-lg-flex col-lg-12 px-0">
+    {% comment %} <div class="d-none d-lg-flex col-lg-12 px-0 department_logo_lg"> {% endcomment %}
+        {% block header_center_logo_side %}
+        <image src="{% unicms_template_unical_static_path 'images/logos/tlc.png' %}" class="w-75" />
+        {% endblock header_center_logo_side %}
+    </div>
+{% endblock header_center_logo %}
 
 {% block header_slim_mobile_org_name_side %}
-<image src="{% unicms_template_unical_static_path 'images/logos/tlc.png' %}" class="mw-100" />
+<image src="{% unicms_template_unical_static_path 'images/logos/tlc.png' %}" class="w-75" />
 {% endblock header_slim_mobile_org_name_side %}
 
 {% block department_contacts %}
-<div class="col-12 col-lg-3">
+<div class="col-9 col-lg-3">
+{% comment %} <div class="col-12 col-lg-3"> {% endcomment %}
     <div class="mb-3">
         <image src="{% unicms_template_unical_static_path 'images/logos/tlc.png' %}"
                class="w-100 h-100"
